@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="layout.css"/>
+    <link id="theme-link" rel="stylesheet" type="text/css" href="themes/cde/theme.css"/>
+    <link id="skin-link" rel="stylesheet" type="text/css" href="themes/empty-skin.css"/>
+    <link rel="stylesheet" type="text/css" href="demo.css"/>
+  </head>
+  <body>
+    <div id="toolbar" class="raised stack-row spacing align-center padding">
+      <div>Theme</div>
+      <select id="theme-select" size=1>
+        <option value="redmond">Redmond</option>
+        <option value="cde">CDE</option>
+      </select>
+      <div>Skin</div>
+      <select id="skin-select" size=1>
+      </select>
+    </div>
+    <main class="padding">
+      <h1>Classic stylesheets for web applications</h1>
+      <section>
+        <h2>Buttons</h2>
+        <div>
+          <div class="example">
+            <button>OK</button>
+          </div>
+          <div class="example">
+            <button disabled>Disabled</button>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Inputs</h2>
+        <div>
+          <div class="example">
+            <input type="text" value="This is a text input"/>
+          </div>
+          <div class="example">
+            <input type="text" value="This input is read-only" readonly/>
+          </div>
+          <div class="example">
+            <input type="text" value="This input is disabled" disabled/>
+          </div>
+          <div class="example">
+            <textarea>This is a textarea</textarea>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Selects</h2>
+        <div>
+          <div class="example">
+            <select size=1>
+              <option>Foo</option>
+              <option>Bar</option>
+              <option>Baz</option>
+            </select>
+          </div>
+          <div class="example">
+            <select size=1 disabled>
+              <option>Foo</option>
+              <option>Bar</option>
+              <option>Baz</option>
+            </select>
+          </div>
+          <div class="example">
+            <select size=4>
+              <option>Foo</option>
+              <option>Bar</option>
+              <option>Baz</option>
+            </select>
+          </div>
+          <div class="example">
+            <select size=4 disabled>
+              <option>Foo</option>
+              <option>Bar</option>
+              <option>Baz</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Checkboxes</h2>
+        <div>
+          <div class="example">
+            <input type="checkbox" id="checkbox1"/>
+            <label for="checkbox1">Checkbox</label>
+          </div>
+          <div class="example">
+            <label><input type="checkbox"/> Checkbox inside label</label>
+          </div>
+          <div class="example">
+            <input type="checkbox" id="checkbox2" disabled/>
+            <label for="checkbox2">Disabled checkbox</label>
+          </div>
+          <div class="example">
+            <input type="checkbox" id="checkbox3" disabled checked/>
+            <label for="checkbox3">Disabled checked checkbox</label>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Radio buttons</h2>
+        <div>
+          <div class="example">
+            <div class="stack-column spacing">
+              <div class="stack-row spacing align-center">
+                <input type="radio" id="radio1" name="radio1"/>
+                <label for="radio1">Radio button 1</label>
+              </div>
+              <div class="stack-row spacing align-center">
+                <input type="radio" id="radio2" name="radio1"/>
+                <label for="radio2">Radio button 2</label>
+              </div>
+              <div class="stack-row spacing align-center">
+                <input type="radio" id="radio3" name="radio1"/>
+                <label for="radio3">Radio button 3</label>
+              </div>
+            </div>
+          </div>
+          <div class="example">
+            <label><input type="radio"/> Radio button inside label</label>
+          </div>
+          <div class="example">
+            <input type="radio" id="radio4" disabled/>
+            <label for="radio4">Disabled radio buton</label>
+          </div>
+          <div class="example">
+            <input type="radio" id="radio5" disabled checked/>
+            <label for="radio5">Disabled selected radio button</label>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Progress bars</h2>
+        <div>
+          <div class="example">
+            <progress value="40" max="100">40 %</progress>
+          </div>
+          <div class="example">
+            <progress>Indeterminate</progress>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Range</h2>
+        <div>
+          <div class="example">
+            <input type="range" />
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Stack layouts</h2>
+        <div>
+          <div class="example">
+            <div class="stack-row spacing">
+              <div>Some text</div>
+              <input type="text" value="An input"/>
+            </div>
+          </div>
+          <div class="example">
+            <div class="stack-column spacing">
+              <div>Some text</div>
+              <input type="text" value="An input"/>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Grid layouts</h2>
+        <div>
+          <div class="example">
+            <div class="grid spacing" style="grid-template-columns: min-content auto;">
+              <div>Some text</div>
+              <input type="text" value="An input"/>
+              <div>Some other text</div>
+              <input type="text" value="Another input"/>
+              <div class="stack-row spacing" style="grid-row-end: span 2;">
+                <button>Save</button>
+                <button>Cancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Panels</h2>
+        <div>
+          <div class="example">
+            <div class="raised padding">
+              Raised
+            </div>
+          </div>
+          <div class="example">
+            <div class="lowered padding">
+              Lowered
+            </div>
+          </div>
+          <div class="example">
+            <div class="raised stack-row">
+              <div class="lowered padding">
+                Panel
+              </div>
+              <div class="lowered padding grow">
+                Panel
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Field sets</h2>
+        <div>
+          <div class="example">
+            <fieldset class="padding">
+              Field set
+            </fieldset>
+          </div>
+          <div class="example">
+            <fieldset class="padding">
+              <legend>Legend</legend>
+              <div class="stack-row spacing align-center">
+                <label for="fieldset-input">Save</label>
+                <input type="text" id="fieldset-input" />
+                <button>Save</button>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Menus</h2>
+        <div>
+          <div class="example">
+            <div class="menu">
+              <div class="title-bar">
+                <div class="title-bar-text">
+                  Main Menu
+                </div>
+              </div class="title-bar">
+              <ul>
+                <li tabindex=0 data-shortcut="Ctrl+S">Save</li>
+                <li tabindex=0>Save As&hellip;</li>
+                <li tabindex=0 aria-role="menu">
+                  <u>E</u>dit
+                  <ul>
+                    <li tabindex=0 data-shortcut="Ctrl+Z" disabled>Undo</li>
+                    <li aria-role="separator"></li>
+                    <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
+                    <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
+                    <li tabindex=0 data-shortcut="Ctrl+V" disabled>Paste</li>
+                    <li aria-role="separator"></li>
+                    <li tabindex=0 aria-role="menu">
+                      Another Submenu
+                      <ul>
+                        <li tabindex=0>Foo</li>
+                        <li tabindex=0>Baz</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li aria-role="separator"></li>
+                <li tabindex=0>About</li>
+                <li tabindex=0>Quit</li>
+              </ul>
+            </div>
+          </div>
+          <div class="example">
+            <ul class="menu-bar">
+              <li tabindex=0>
+                <u>F</u>ile
+                <ul>
+                  <li tabindex=0>Save</li>
+                  <li tabindex=0>Save As&hellip;</li>
+                  <li aria-role="separator"></li>
+                  <li tabindex=0 aria-role="menu">
+                    Another Submenu
+                    <ul>
+                      <li tabindex=0>Foo</li>
+                      <li tabindex=0>Baz</li>
+                    </ul>
+                  </li>
+                  <li aria-role="separator"></li>
+                  <li tabindex=0>Quit</li>
+                </ul>
+              </li>
+              <li tabindex=0>
+                <u>E</u>dit
+                <ul>
+                  <li tabindex=0 data-shortcut="Ctrl+Z">Undo</li>
+                  <li aria-role="separator"></li>
+                  <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
+                  <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
+                  <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
+                </ul>
+              </li>
+              <li tabindex=0 class="help-menu">
+                Help
+                <ul>
+                  <li tabindex=0>Overview</li>
+                  <li aria-role="separator"></li>
+                  <li tabindex=0>About</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Windows</h2>
+        <div>
+          <div class="example">
+            <div class="title-bar">
+              <div class="title-bar-text">
+                Title Bar
+              </div>
+            </div>
+          </div>
+          <div class="example">
+            <div class="title-bar">
+              <div class="title-bar-text">
+                Title Bar
+              </div>
+              <div class="title-bar-buttons">
+                <button data-close></button>
+              </div>
+            </div>
+          </div>
+          <div class="example">
+            <div class="title-bar inactive">
+              <div class="title-bar-text">
+                Inactive Title Bar
+              </div>
+              <div class="title-bar-buttons">
+                <button data-close></button>
+              </div>
+            </div>
+          </div>
+          <div class="example">
+            <div class="window">
+              <div class="title-bar">
+                <div class="title-bar-text">
+                  Window Title
+                </div>
+                <div class="title-bar-buttons">
+                  <button data-close></button>
+                </div>
+              </div>
+              <div class="window-body">
+                <ul class="menu-bar">
+                  <li tabindex=0>
+                    <u>F</u>ile
+                    <ul>
+                      <li tabindex=0>Save</li>
+                      <li tabindex=0>Save As&hellip;</li>
+                      <li aria-role="separator"></li>
+                      <li tabindex=0 aria-role="menu">
+                        Another Submenu
+                        <ul>
+                          <li tabindex=0>Foo</li>
+                          <li tabindex=0>Baz</li>
+                        </ul>
+                      </li>
+                      <li aria-role="separator"></li>
+                      <li tabindex=0>Quit</li>
+                    </ul>
+                  </li>
+                  <li tabindex=0>
+                    <u>E</u>dit
+                    <ul>
+                      <li data-shortcut="Ctrl+Z" aria-disabled>Undo</li>
+                      <li aria-role="separator"></li>
+                      <li data-shortcut="Ctrl+X" aria-disabled>Cut</li>
+                      <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
+                      <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
+                    </ul>
+                  </li>
+                  <li tabindex=0 class="help-menu">
+                    Help
+                    <ul>
+                      <li tabindex=0>Overview</li>
+                      <li aria-role="separator"></li>
+                      <li tabindex=0>About</li>
+                    </ul>
+                  </li>
+                </ul>
+                <div class="raised padding">
+                  Window body
+                </div>
+                <div class="raised padding">
+                  Footer
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="example">
+            <div class="window inactive">
+              <div class="title-bar">
+                <div class="title-bar-text">
+                  Inactive Window Title
+                </div>
+                <div class="title-bar-buttons">
+                  <button data-close></button>
+                </div>
+              </div>
+              <div class="window-body">
+                <div class="raised padding">
+                  Inactive window body
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <h2>Dialogs</h2>
+        <div>
+          <div class="example">
+            <div class="dialog">
+              <div class="title-bar">
+                <div class="title-bar-text">
+                  Dialog Title
+                </div>
+              </div>
+              <div class="dialog-body">
+                <div class="raised padding">Delete everything?</div>
+                <div class="raised stack-row spacing padding justify-end">
+                  <button>Yes</button>
+                  <button>No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="example">
+            <div class="dialog inactive">
+              <div class="title-bar">
+                <div class="title-bar-text">
+                  Inactive Dialog Title
+                </div>
+              </div>
+              <div class="dialog-body">
+                <div class="raised padding">Delete everything?</div>
+                <div class="raised stack-row spacing padding justify-end">
+                  <button>Yes</button>
+                  <button>No</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="text/javascript" src="demo.js"></script>
+  </body>
+</html>

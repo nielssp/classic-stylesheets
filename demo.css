@@ -1,0 +1,21 @@
+body {
+}
+
+#toolbar {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+}
+
+main {
+}
+
+section {
+  display: flex;
+  flex-direction: row;
+}
+
+section > *:first-child {
+  flex: 0 0 200px;
+}

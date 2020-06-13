@@ -1,0 +1,472 @@
+:root {
+  --window-bg: #C0C0C0;
+  --window-fg: #000000;
+
+  --lightest: #FFFFFF;
+  --lighter: #E0E0E0;
+  --light: #DFDFDF;
+  --medium: #C0C0C0;
+  --dark: #808080;
+  --darker: #404040;
+  --darkest: #000000;
+
+  --button-bg: var(--window-bg);
+  --button-fg: var(--window-fg);
+  --input-bg: #FFFFFF;
+  --input-fg: #000000;
+  --input-dark: #E0E0E0;
+  --input-light: #F7F7F7;
+
+  --select-active-bg: #000000;
+  --select-active-fg: #FFFFFF;
+
+  --title-bar-bg: var(--dark);
+  --title-bar-fg: var(--medium);
+
+  --title-bar-active-bg: #000080;
+  --title-bar-active-fg: #FFFFFF;
+
+  --selection-bg: #000080;
+  --selection-fg: #FFFFFF;
+}
+
+body {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
+  font-family: system-ui;
+}
+
+button::-moz-focus-inner {
+  border: none;
+}
+
+.raised {
+  background: var(--window-bg);
+  border: 1px solid var(--lightest);
+  border-bottom-color: var(--dark);
+  border-right-color: var(--dark);
+}
+
+.lowered {
+  background: var(--window-bg);
+  border: 1px solid var(--dark);
+  border-bottom-color: var(--lightest);
+  border-right-color: var(--lightest);
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+details > summary:focus,
+button:focus {
+  border: 1px solid var(--darkest);
+  outline: 1px dotted var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
+    inset 2px 2px 0 var(--light), inset -2px -2px 0 var(--dark);
+  outline-offset: -4px;
+}
+
+details > summary,
+button,
+button:disabled:active {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--dark);
+  padding: 2px 10px 2px 10px;
+  min-width: 75px;
+  text-align: center;
+}
+
+button:disabled,
+button:disabled:active,
+select:not([size]):disabled {
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+}
+
+details > summary:active,
+button:active {
+  border: 1px solid var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--dark), inset -1px -1px 0 var(--light);
+  padding: 4px 9px 0 11px;
+}
+
+select > option {
+  padding: 2px 6px;
+}
+
+input[type=text],
+pre,
+textarea,
+select {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lighter);
+  border-right: 1px solid var(--lighter);
+  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--medium);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+select:not([size]):not(:active):focus,
+select[size=1]:not(:active):focus {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+input[type=text]:disabled,
+textarea:disabled {
+  color: var(--light);
+  text-shadow: 1px 1px 0 var(--dark);
+}
+
+select:disabled {
+  background: var(--window-bg);
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--input-bg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  width: 13px;
+  height: 13px;
+}
+
+input[type=checkbox]:active,
+input[type=checkbox]:disabled {
+  background: var(--window-bg);
+}
+
+input[type=checkbox]:checked {
+  background-image: url(checkmark.gif);
+  background-repeat: no-repeat;
+  background-position: 2px 2px;
+}
+
+input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--input-bg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+input[type=radio]:active {
+  background: var(--window-bg);
+}
+
+input[type=radio]:checked::after {
+  content: '';
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: var(--darkest);
+  margin-top: 3px;
+  margin-left: 3px;
+}
+
+input[type=radio]:focus + label,
+input[type=checkbox]:focus + label {
+  outline: 1px dotted var(--darkest);
+  outline-offset: 0;
+}
+
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+}
+
+label > input[type=radio]:focus,
+label > input[type=checkbox]:focus {
+  outline: 1px dotted var(--darkest);
+  outline-offset: 1px;
+}
+
+code {
+  font-family: monospace;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+}
+
+progress::-webkit-progress-bar {
+  background: var(--button-bg);
+}
+
+progress::-webkit-progress-value,
+progress::-moz-progress-bar {
+  background: var(--selection-bg);
+}
+
+fieldset {
+  border: 1px solid var(--dark);
+  border-bottom-color: var(--lightest);
+  border-right-color: var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
+  position: relative;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px;
+  background-color: var(--button-bg);
+  display: block;
+}
+
+.window,
+.dialog,
+.menu {
+  background: var(--window-bg);
+  border: 1px solid var(--light);
+  border-bottom: 1px solid var(--darkest);
+  border-right: 1px solid var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
+  position: relative;
+  padding: 3px;
+}
+
+.title-bar {
+  background: var(--title-bar-active-bg);
+  color: var(--title-bar-active-fg);
+  display: flex;
+  flex-direction: row;
+}
+
+.title-bar-text {
+  text-align: left;
+  font-weight: bold;
+  padding: 2px 4px;
+  flex-grow: 1;
+  cursor: default
+}
+
+.title-bar-buttons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  align-items: center;
+}
+
+.title-bar-buttons > * + * {
+  margin-left: 2px;
+}
+
+.title-bar-buttons button {
+  flex-shrink: 0;
+  width: 16px;
+  height: 14px;
+  min-width: 0;
+  padding: 0;
+}
+
+.title-bar-buttons button:active {
+  outline: none;
+}
+
+.title-bar-buttons button[data-close] {
+  background-image: url(close.gif);
+  background-repeat: no-repeat;
+  background-position: 2px 2px;
+}
+
+.title-bar-buttons button[data-minimize] {
+  background-image: url(minimize.gif);
+  background-repeat: no-repeat;
+  background-position: 2px 2px;
+}
+
+.title-bar-buttons button[data-maximize] {
+  background-image: url(maximize.gif);
+  background-repeat: no-repeat;
+  background-position: 2px 2px;
+}
+
+.window-body,
+.dialog-body {
+  background: var(--window-bg);
+  color: var(--window-fg);
+  margin-top: 4px;
+}
+
+.window.inactive > .title-bar,
+.dialog.inactive > .title-bar,
+.title-bar.inactive {
+  background: var(--title-bar-bg);
+  color: var(--title-bar-fg);
+}
+
+.window-body hr,
+.dialog-body hr {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+}
+
+.window-body > .menu-bar,
+.dialog-body > .menu-bar {
+  margin-top: -4px;
+  padding-left: calc(var(--margin) - 4px);
+  padding-right: calc(var(--margin) - 4px);
+}
+
+.menu {
+  width: 200px;
+}
+
+.menu-bar {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--window-bg);
+  color: var(--window-fg);
+}
+
+.menu-bar ul,
+.menu ul {
+  color: var(--window-fg);
+  background-color: var(--window-bg);
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.menu-bar ul,
+.menu ul ul {
+  border: 1px solid var(--light);
+  border-right-color: var(--darkest);
+  border-bottom-color: var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
+  padding: 2px;
+}
+
+.menu-bar li,
+.menu li {
+  position: relative;
+  border: 1px solid transparent;
+  padding: 1px 3px;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+.menu-bar li[data-shortcut],
+.menu li[data-shortcut] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu-bar li[data-shortcut]::after,
+.menu li[data-shortcut]::after {
+  content: attr(data-shortcut);
+  margin-left: 4px;
+}
+
+.menu-bar li > ul {
+  display: none;
+  position: absolute;
+  margin-left: -4px;
+  margin-top: 1px;
+  min-width: 200px;
+}
+
+.menu-bar li li > ul,
+.menu li > ul {
+  display: none;
+  position: absolute;
+  left: 100%;
+  margin: 0;
+  top: -1px;
+  margin-left: 2px;
+  min-width: 200px;
+}
+
+.menu-bar li:focus,
+.menu li:focus {
+  outline: none;
+}
+
+.menu-bar > li:focus-within {
+  border: 1px solid var(--dark);
+  border-right-color: var(--lightest);
+  border-bottom-color: var(--lightest);
+}
+
+.menu-bar li li:hover,
+.menu-bar li li[aria-role=menu]:focus-within,
+.menu li:hover,
+.menu li[aria-role=menu]:focus-within {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+.menu-bar li:focus-within > ul,
+.menu li:focus-within > ul {
+  display: block;
+}
+
+.menu-bar li[aria-disabled],
+.menu li[aria-disabled] {
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+  border-color: transparent;
+  background-color: var(--button-bg);
+}
+
+.menu-bar li[aria-role=separator],
+.menu li[aria-role=separator] {
+  border-top: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  height: 0;
+  padding: 0;
+}
+
+.menu-bar li li[aria-role=menu],
+.menu li[aria-role=menu] {
+  background-image: url(arrow-right.gif);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+.menu-bar li li[aria-role=menu]:focus-within,
+.menu-bar li li[aria-role=menu]:hover,
+.menu li[aria-role=menu]:focus-within,
+.menu li[aria-role=menu]:hover {
+  background-image: url(arrow-right-active.gif);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}

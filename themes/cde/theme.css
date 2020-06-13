@@ -1,0 +1,565 @@
+:root {
+  --focus: #B24D7A;
+
+  --button-bg: #AEB2C3;
+  --button-fg: #000000;
+  --button-active-bg: #9397A5;
+  --button-active-fg: #000000;
+  --button-dark: #5D6069;
+  --button-light: #DCDEE5;
+  --input-bg: #FFF7E9;
+  --input-fg: #000;
+  --input-dark: #99948B;
+  --input-light: #CCC5BA;
+
+  --dialog-button-bg: var(--button-bg);
+  --dialog-button-fg: var(--button-fg);
+  --dialog-button-active-bg: var(--button-active-bg);
+  --dialog-button-active-fg: var(--button-active-fg);
+  --dialog-button-dark: var(--button-dark);
+  --dialog-button-light: var(--button-light);
+  --dialog-input-bg: var(--input-bg);
+  --dialog-input-fg: var(--input-fg);
+  --dialog-input-dark: var(--input-dark);
+  --dialog-input-light: var(--input-light);
+
+  --select-active-bg: #000000;
+  --select-active-fg: #FFFFFF;
+
+  --title-bar-bg: var(--button-bg);
+  --title-bar-fg: var(--button-fg);
+  --title-bar-dark: var(--button-dark);
+  --title-bar-light: var(--button-light);
+
+  --title-bar-active-bg: #B24D7A;
+  --title-bar-active-fg: #FFFFFF;
+  --title-bar-active-dark: #58263C;
+  --title-bar-active-light: #DDAFC3;
+}
+
+body {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  font-family: system-ui;
+}
+
+button::-moz-focus-inner {
+  border: none;
+}
+
+.raised {
+  background: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-bottom-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+}
+
+.lowered {
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-right-color: var(--button-light);
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+details > summary:focus,
+button:focus,
+select:focus,
+input[type=text]:focus,
+textarea:focus {
+  outline: 1px solid var(--focus);
+  outline-offset: 0;
+}
+
+details > summary,
+button,
+button:disabled:active {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  padding: 2px 4px;
+}
+
+button:disabled,
+button:disabled:active,
+select:not([size]):disabled {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+}
+
+details > summary:active,
+button:active {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+select > option {
+  padding: 2px 6px;
+}
+
+input[type=text],
+pre,
+textarea,
+select:not([size="1"]) {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--input-dark);
+  border-bottom: 1px solid var(--input-light);
+  border-right: 1px solid var(--input-light);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+select:not([size="1"]) {
+  padding: 0;
+}
+
+input[type=text]:disabled,
+textarea:disabled,
+select:not([size="1"]):disabled {
+  color: var(--input-dark);
+  text-shadow: 1px 1px 0 var(--input-light);
+}
+
+select:not([size]),
+select[size="1"],
+select:not([size]):disabled:active,
+select[size="1"]:disabled:active {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--button-bg);
+  background-image: url(select.png);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  padding: 2px 25px 2px 4px;
+}
+
+select:not([size]):disabled,
+select[size="1"]:disabled,
+select:not([size]):disabled:active,
+select[size="1"]:disabled:active {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+}
+
+select:not([size]):active,
+select[size="1"]:active {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=checkbox],
+input[type=checkbox]:checked:active,
+input[type=checkbox]:disabled:active {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  width: 12px;
+  height: 12px;
+}
+
+input[type=checkbox]:checked,
+input[type=checkbox]:active,
+input[type=checkbox]:checked:disabled:active {
+  background: var(--button-active-bg) url(checkmark.gif);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+}
+
+input[type=radio],
+input[type=radio]:checked:active,
+input[type=radio]:disabled:active {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+input[type=radio]:checked,
+input[type=radio]:active,
+input[type=radio]:checked:disabled:active {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=radio]:checked::after,
+input[type=radio]:active::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--focus);
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+input[type=radio]:disabled:not(:checked):active::after {
+  display: none;
+}
+
+input[type=radio]:focus + label,
+input[type=checkbox]:focus + label {
+  outline: 1px solid var(--focus);
+  outline-offset: 1px;
+}
+
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+}
+
+label > input[type=radio]:focus,
+label > input[type=checkbox]:focus {
+  outline: 1px solid var(--focus);
+  outline-offset: 1px;
+}
+
+code {
+  font-family: monospace;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+  border-right: 1px solid var(--button-light);
+}
+
+progress::-webkit-progress-bar {
+  background: var(--button-bg);
+}
+
+progress::-webkit-progress-value,
+progress::-moz-progress-bar {
+  background: var(--button-active-bg);
+}
+
+fieldset {
+  border: 1px solid var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-right-color: var(--button-light);
+  box-shadow: inset 1px 1px 0 var(--button-light), inset -1px -1px 0 var(--button-dark);
+  position: relative;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px;
+  background-color: var(--button-bg);
+  display: block;
+}
+
+.window,
+.dialog,
+.menu {
+  background: var(--title-bar-active-bg);
+  border: 2px solid var(--title-bar-active-light);
+  border-bottom: 2px solid var(--title-bar-active-dark);
+  border-right: 2px solid var(--title-bar-active-dark);
+  position: relative;
+  padding: 2px;
+}
+
+.title-bar {
+  background: var(--title-bar-active-bg);
+  color: var(--title-bar-active-fg);
+  border-top: 1px solid var(--title-bar-active-dark);
+  border-left: 1px solid var(--title-bar-active-dark);
+  border-right: 1px solid var(--title-bar-active-light);
+  display: flex;
+  flex-direction: row;
+}
+
+.title-bar-text {
+  text-align: center;
+  border: 1px solid var(--title-bar-active-light);
+  border-bottom: 1px solid var(--title-bar-active-dark);
+  border-right: 1px solid var(--title-bar-active-dark);
+  padding: 2px var(--padding);
+  flex-grow: 1;
+  cursor: default
+}
+
+.title-bar-buttons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.title-bar-buttons button {
+  flex-shrink: 0;
+  background-color: transparent;
+  border: 1px solid var(--title-bar-active-light);
+  border-bottom: 1px solid var(--title-bar-active-dark);
+  border-right: 1px solid var(--title-bar-active-dark);
+}
+
+.title-bar-buttons button:active,
+.title-bar-text:active {
+  background-color: transparent;
+  border-color: var(--title-bar-active-dark);
+  border-bottom-color: var(--title-bar-active-light);
+  border-right-color: var(--title-bar-active-light);
+  outline: none;
+}
+
+.title-bar-buttons button[data-close] {
+  width: 26px;
+  background-image: url(close.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.window-body,
+.dialog-body {
+  background: var(--button-bg);
+  color: var(--button-fg);
+  border-left: 1px solid var(--title-bar-active-dark);
+  border-bottom: 1px solid var(--title-bar-active-light);
+  border-right: 1px solid var(--title-bar-active-light);
+}
+
+.window.inactive,
+.dialog.inactive {
+  background: var(--title-bar-bg);
+  border-color: var(--title-bar-light);
+  border-bottom-color: var(--title-bar-dark);
+  border-right-color: var(--title-bar-dark);
+}
+
+.window.inactive > .title-bar,
+.dialog.inactive > .title-bar,
+.title-bar.inactive {
+  background: var(--title-bar-bg);
+  color: var(--title-bar-fg);
+  border-top-color: var(--title-bar-dark);
+  border-left-color: var(--title-bar-dark);
+  border-right-color: var(--title-bar-light);
+}
+
+.window.inactive > .title-bar .title-bar-text,
+.window.inactive > .title-bar .title-bar-buttons button,
+.dialog.inactive > .title-bar .title-bar-text,
+.dialog.inactive > .title-bar .title-bar-buttons button,
+.title-bar.inactive .title-bar-text,
+.title-bar.inactive .title-bar-buttons button {
+  border-color: var(--title-bar-light);
+  border-bottom-color: var(--title-bar-dark);
+  border-right-color: var(--title-bar-dark);
+}
+
+.window.inactive > .title-bar .title-bar-buttons button:active,
+.dialog.inactive > .title-bar .title-bar-buttons button:active,
+.title-bar.inactive .title-bar-buttons button:active,
+.window.inactive > .title-bar .title-bar-text:active,
+.dialog.inactive > .title-bar .title-bar-text:active,
+.title-bar.inactive .title-bar-text:active {
+  border-color: var(--title-bar-dark);
+  border-bottom-color: var(--title-bar-light);
+  border-right-color: var(--title-bar-light);
+}
+
+.window.inactive > .window-body,
+.dialog.inactive > .dialog-body {
+  background: var(--button-bg);
+  border-left-color: var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-right-color: var(--button-light);
+}
+
+.window-body hr,
+.dialog-body hr {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+}
+
+.window-body > .menu-bar,
+.dialog-body > .menu-bar {
+  padding-left: calc(var(--margin) - 4px);
+  padding-right: calc(var(--margin) - 4px);
+}
+
+.menu {
+  width: 200px;
+}
+
+.menu-bar {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
+}
+
+.menu-bar ul,
+.menu ul {
+  color: var(--button-fg);
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.menu > ul {
+  border-top: 0;
+  border-left-color: var(--title-bar-active-dark);
+  border-right-color: var(--title-bar-active-light);
+  border-bottom-color: var(--title-bar-active-light);
+  box-shadow: inset 1px 1px 0 var(--button-light), inset -1px -1px 0 var(--button-dark);
+  padding: 1px;
+}
+
+.menu-bar li,
+.menu li {
+  position: relative;
+  border: 1px solid transparent;
+  padding: 1px 3px;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+.menu-bar li[data-shortcut],
+.menu li[data-shortcut] {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.menu-bar li[data-shortcut]::after,
+.menu li[data-shortcut]::after {
+  content: attr(data-shortcut);
+  margin-left: 4px;
+}
+
+.menu-bar li > ul {
+  display: none;
+  position: absolute;
+  margin-left: -4px;
+  margin-top: 1px;
+  min-width: 200px;
+}
+
+.menu-bar li li > ul,
+.menu li > ul {
+  display: none;
+  position: absolute;
+  left: 100%;
+  margin: 0;
+  top: -1px;
+  margin-left: 2px;
+  min-width: 200px;
+}
+
+.menu-bar li:focus,
+.menu li:focus {
+  outline: none;
+}
+
+.menu-bar li:focus-within,
+.menu li:focus-within {
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+  background-color: var(--button-active-bg);
+}
+
+.menu-bar li:focus-within > ul,
+.menu li:focus-within > ul {
+  display: block;
+}
+
+.menu-bar li[aria-disabled],
+.menu li[aria-disabled] {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+  border-color: transparent;
+  background-color: var(--button-bg);
+}
+
+.menu-bar li[aria-role=separator],
+.menu li[aria-role=separator] {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+  height: 0;
+  padding: 0;
+}
+
+.menu-bar li li[aria-role=menu],
+.menu li[aria-role=menu] {
+  background-image: url(arrow-right.png);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+.menu-bar > li.help-menu {
+  margin-left: auto;
+}
+
+.menu-bar > li.help-menu >ul {
+  right: 0;
+}
+
+.dialog, .menu, .menu-bar {
+  --button-bg: var(--dialog-button-bg);
+  --button-fg: var(--dialog-button-fg);
+  --button-active-bg: var(--dialog-button-active-bg);
+  --button-active-fg: var(--dialog-button-active-fg);
+  --button-dark: var(--dialog-button-dark);
+  --button-light: var(--dialog-button-light);
+  --input-bg: var(--dialog-input-bg);
+  --input-fg: var(--dialog-input-fg);
+  --input-dark: var(--dialog-input-dark);
+  --input-light: var(--dialog-input-light);
+}
