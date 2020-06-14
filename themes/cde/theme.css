@@ -70,7 +70,8 @@ details > summary:focus,
 button:focus,
 select:focus,
 input[type=text]:focus,
-textarea:focus {
+textarea:focus,
+a:focus {
   outline: 1px solid var(--focus);
   outline-offset: 0;
 }

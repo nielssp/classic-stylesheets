@@ -59,6 +59,10 @@ button, input, textarea, select {
   font-size: inherit;
 }
 
+a:focus {
+  outline: 1px dotted var(--darkest);
+}
+
 details > summary:focus,
 button:focus {
   border: 1px solid var(--darkest);

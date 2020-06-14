@@ -19,3 +19,8 @@ section {
 section > *:first-child {
   flex: 0 0 200px;
 }
+
+a {
+  color: #00c;
+  text-decoration: underline;
+}
