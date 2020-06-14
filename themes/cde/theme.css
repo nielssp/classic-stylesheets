@@ -489,13 +489,14 @@ legend {
 .menu li[data-shortcut] {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 .menu-bar li[data-shortcut]::after,
 .menu li[data-shortcut]::after {
   content: attr(data-shortcut);
   margin-left: 4px;
+  flex-grow: 1;
+  text-align: right;
 }
 
 .menu-bar li > ul {

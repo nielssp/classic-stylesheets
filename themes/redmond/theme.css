@@ -338,9 +338,8 @@ legend {
 
 .window-body > .menu-bar,
 .dialog-body > .menu-bar {
-  margin-top: -4px;
-  padding-left: calc(var(--margin) - 4px);
-  padding-right: calc(var(--margin) - 4px);
+  margin-top: -3px;
+  margin-bottom: 1px;
 }
 
 .menu {
@@ -387,19 +386,20 @@ legend {
 .menu li[data-shortcut] {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 .menu-bar li[data-shortcut]::after,
 .menu li[data-shortcut]::after {
   content: attr(data-shortcut);
   margin-left: 4px;
+  flex-grow: 1;
+  text-align: right;
 }
 
 .menu-bar li > ul {
   display: none;
   position: absolute;
-  margin-left: -4px;
+  margin-left: -10px;
   margin-top: 1px;
   min-width: 200px;
 }
@@ -420,11 +420,21 @@ legend {
   outline: none;
 }
 
-.menu-bar > li:focus-within,
+.menu-bar > li {
+  padding: 1px 8px;
+}
+
 .menu-bar > li:hover {
+  border: 1px solid var(--lightest);
+  border-right-color: var(--dark);
+  border-bottom-color: var(--dark);
+}
+
+.menu-bar > li:focus-within {
   border: 1px solid var(--dark);
   border-right-color: var(--lightest);
   border-bottom-color: var(--lightest);
+  padding: 2px 7px 0 9px;
 }
 
 .menu-bar li li:hover,
