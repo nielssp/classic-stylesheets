@@ -82,12 +82,6 @@ button:disabled:active {
   text-align: center;
 }
 
-button:default {
-  border: 1px solid var(--darkest);
-  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
-    inset 2px 2px 0 var(--light), inset -2px -2px 0 var(--dark);
-}
-
 button:disabled,
 button:disabled:active,
 select:not([size]):disabled {
