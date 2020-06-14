@@ -15,22 +15,6 @@ p {
   margin: var(--margin) 0;
 }
 
-.example {
-  margin: var(--margin) 0;
-  padding-left: 16px;
-}
-
-details {
-  margin-top: 8px;
-}
-
-details > summary {
-  display: inline-block;
-  cursor: normal;
-  user-select: none;
-  margin-bottom: 4px;
-}
-
 .margin {
   margin: var(--margin);
 }

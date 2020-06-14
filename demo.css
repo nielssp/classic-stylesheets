@@ -8,16 +8,31 @@ body {
   z-index: 100;
 }
 
-main {
+.example {
+  margin: var(--margin) 0;
+  padding-left: 16px;
 }
 
-section {
-  display: flex;
-  flex-direction: row;
+details {
+  margin-top: 8px;
 }
 
-section > *:first-child {
-  flex: 0 0 200px;
+details > summary {
+  display: inline-block;
+  cursor: normal;
+  user-select: none;
+  margin-bottom: 4px;
+}
+
+@media screen and (min-width: 750px) {
+  section {
+    display: flex;
+    flex-direction: row;
+  }
+
+  section > *:first-child {
+    flex: 0 0 200px;
+  }
 }
 
 a {
