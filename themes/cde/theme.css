@@ -61,6 +61,13 @@ button::-moz-focus-inner {
   border-right-color: var(--button-light);
 }
 
+.top-panel, .right-panel, .buttom-panel, .left-panel {
+  background: var(--button-bg);
+  border: 2px solid var(--button-light);
+  border-bottom-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+}
+
 button, input, textarea, select {
   font-family: inherit;
   font-size: inherit;
