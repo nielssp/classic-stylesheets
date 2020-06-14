@@ -355,6 +355,20 @@ legend {
   background-position: center center;
 }
 
+.title-bar-buttons button[data-minimize] {
+  width: 26px;
+  background-image: url(minimize.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.title-bar-buttons button[data-maximize] {
+  width: 26px;
+  background-image: url(maximize.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .window-body,
 .dialog-body {
   background: var(--button-bg);

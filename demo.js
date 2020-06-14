@@ -1,5 +1,6 @@
 const skins = {
   cde: ['default', 'crimson'],
+  redmond: ['95', '2000'],
 };
 
 
@@ -11,7 +12,7 @@ const skinSelect = document.getElementById('skin-select');
 let defaultTheme = 'cde';
 let defaultSkin = 'crimson';
 let activeTheme = defaultTheme;
-let activeSkin = null;
+let activeSkin = defaultSkin;
 
 function setTheme(theme) {
   activeTheme = theme;
@@ -64,12 +65,12 @@ function pushState() {
 const params = new URL(location).searchParams;
 if (params.has('theme')) {
   defaultTheme = params.get('theme');
-  setTheme(defaultTheme);
   if (params.has('skin')) {
     defaultSkin = params.get('skin');
-    setSkin(defaultSkin);
   }
 }
+setTheme(defaultTheme);
+setSkin(defaultSkin);
 
 themeSelect.addEventListener('change', () => {
   if (themeSelect.value) {

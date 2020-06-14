@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" type="text/css" href="layout.css"/>
     <link id="theme-link" rel="stylesheet" type="text/css" href="themes/cde/theme.css"/>
-    <link id="skin-link" rel="stylesheet" type="text/css" href="themes/empty-skin.css"/>
+    <link id="skin-link" rel="stylesheet" type="text/css" href="themes/cde/skins/crimson.css"/>
     <link rel="stylesheet" type="text/css" href="demo.css"/>
   </head>
   <body>
@@ -144,14 +144,6 @@
         </div>
       </section>
       <section>
-        <h2>Range</h2>
-        <div>
-          <div class="example">
-            <input type="range" />
-          </div>
-        </div>
-      </section>
-      <section>
         <h2>Stack layouts</h2>
         <div>
           <div class="example">
@@ -172,16 +164,16 @@
         <h2>Grid layouts</h2>
         <div>
           <div class="example">
-            <div class="grid spacing" style="grid-template-columns: min-content auto;">
+            <form class="grid spacing" style="grid-template-columns: min-content auto;" onsubmit="return false">
               <div>Some text</div>
               <input type="text" value="An input"/>
               <div>Some other text</div>
               <input type="text" value="Another input"/>
               <div class="stack-row spacing" style="grid-row-end: span 2;">
-                <button>Save</button>
+                <button type="submit">Save</button>
                 <button>Cancel</button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
@@ -221,11 +213,11 @@
           <div class="example">
             <fieldset class="padding">
               <legend>Legend</legend>
-              <div class="stack-row spacing align-center">
+              <form class="stack-row spacing align-center" onsubmit="return false">
                 <label for="fieldset-input">Save</label>
                 <input type="text" id="fieldset-input" />
-                <button>Save</button>
-              </div>
+                <button type="submit">Save</button>
+              </form>
             </fieldset>
           </div>
         </div>
@@ -320,6 +312,9 @@
           </div>
           <div class="example">
             <div class="title-bar">
+              <div class="title-bar-buttons">
+                <button data-minimize></button>
+              </div>
               <div class="title-bar-text">
                 Title Bar
               </div>
@@ -345,6 +340,8 @@
                   Window Title
                 </div>
                 <div class="title-bar-buttons">
+                  <button data-minimize></button>
+                  <button data-maximize></button>
                   <button data-close></button>
                 </div>
               </div>

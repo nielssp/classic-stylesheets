@@ -1,0 +1,43 @@
+:root {
+  --window-bg: #D4D0C8;
+  --window-fg: #000000;
+
+  --lightest: #FFFFFF;
+  --lighter: #E0E0E0;
+  --light: #DFDFDF;
+  --medium: #C0C0C0;
+  --dark: #808080;
+  --darker: #404040;
+  --darkest: #000000;
+
+  --button-bg: var(--window-bg);
+  --button-fg: var(--window-fg);
+  --input-bg: #FFFFFF;
+  --input-fg: #000000;
+  --input-dark: #E0E0E0;
+  --input-light: #F7F7F7;
+
+  --select-active-bg: #000000;
+  --select-active-fg: #FFFFFF;
+
+  --title-bar-bg: linear-gradient(to right, #808080, #C0C0C0);
+  --title-bar-fg: var(--medium);
+
+  --title-bar-active-bg: linear-gradient(to right, #000080, #A6CAF0);
+  --title-bar-active-fg: #FFFFFF;
+
+  --selection-bg: #000080;
+  --selection-fg: #FFFFFF;
+}
+
+details > summary:not(:active):focus,
+button:not(:active):focus {
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
+    inset -2px -2px 0 var(--dark);
+}
+
+details > summary:not(:active),
+button:not(:active),
+button:disabled:active {
+  box-shadow: inset -1px -1px 0 var(--dark);
+}
