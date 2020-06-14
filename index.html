@@ -166,12 +166,12 @@
         <h2>Grid layouts</h2>
         <div>
           <div class="example">
-            <form class="grid spacing" style="grid-template-columns: min-content auto;" onsubmit="return false">
+            <form class="grid spacing" style="grid-template-columns: max-content auto;" onsubmit="return false">
               <div>Some text</div>
               <input type="text" value="An input"/>
               <div>Some other text</div>
               <input type="text" value="Another input"/>
-              <div class="stack-row spacing" style="grid-row-end: span 2;">
+              <div class="stack-row spacing justify-end" style="grid-column-end: span 2;">
                 <button type="submit">Save</button>
                 <button>Cancel</button>
               </div>
