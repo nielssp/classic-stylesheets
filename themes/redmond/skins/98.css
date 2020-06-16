@@ -20,10 +20,10 @@
   --select-active-bg: #000000;
   --select-active-fg: #FFFFFF;
 
-  --title-bar-bg: var(--dark);
+  --title-bar-bg: linear-gradient(to right, #808080, #B5B5B5);
   --title-bar-fg: var(--medium);
 
-  --title-bar-active-bg: #000080;
+  --title-bar-active-bg: linear-gradient(to right, #000080, #1084D0);
   --title-bar-active-fg: #FFFFFF;
 
   --selection-bg: #000080;

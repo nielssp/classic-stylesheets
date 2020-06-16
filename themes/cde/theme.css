@@ -128,6 +128,12 @@ select:not([size="1"]) {
   font-size: inherit;
 }
 
+input::selection,
+textarea::selection {
+  background-color: var(--input-fg);
+  color: var(--input-bg);
+}
+
 select:not([size="1"]) {
   padding: 0;
 }
@@ -492,18 +498,12 @@ legend {
   cursor: default;
 }
 
-.menu-bar li[data-shortcut],
-.menu li[data-shortcut] {
-  display: flex;
-  flex-direction: row;
-}
-
 .menu-bar li[data-shortcut]::after,
 .menu li[data-shortcut]::after {
+  float: right;
   content: attr(data-shortcut);
+  display: block;
   margin-left: 4px;
-  flex-grow: 1;
-  text-align: right;
 }
 
 .menu-bar li > ul {

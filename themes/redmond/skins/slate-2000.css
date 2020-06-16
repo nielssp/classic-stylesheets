@@ -1,13 +1,13 @@
 :root {
-  --window-bg: #D4D0C8;
+  --window-bg: #9DB9C8;
   --window-fg: #000000;
 
-  --lightest: #FFFFFF;
-  --lighter: #E0E0E0;
-  --light: #DFDFDF;
-  --medium: #C0C0C0;
-  --dark: #808080;
-  --darker: #404040;
+  --lightest: #CEDCE3;
+  --lighter: #CEDCE3;
+  --light: #9DB9CB;
+  --medium: #9DB9CB;
+  --dark: #558097;
+  --darker: #000000;
   --darkest: #000000;
 
   --button-bg: var(--window-bg);
@@ -20,13 +20,12 @@
   --select-active-bg: #000000;
   --select-active-fg: #FFFFFF;
 
-  --title-bar-bg: linear-gradient(to right, #808080, #C0C0C0);
-  --title-bar-fg: var(--medium);
+  --title-bar-bg: linear-gradient(to right, #808080, #A0BCC8);
+  --title-bar-fg: #C0C0C0;
 
-  --title-bar-active-bg: linear-gradient(to right, #000080, #A6CAF0);
+  --title-bar-active-bg: linear-gradient(to right, #558097, #88B8D8);
   --title-bar-active-fg: #FFFFFF;
 
-  --selection-bg: #000080;
+  --selection-bg: #558097;
   --selection-fg: #FFFFFF;
 }
-

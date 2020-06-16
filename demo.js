@@ -1,6 +1,6 @@
 const skins = {
   cde: ['default', 'crimson'],
-  redmond: ['95', '2000'],
+  redmond: ['95', '98', '2000', 'slate', 'slate-2000'],
 };
 
 

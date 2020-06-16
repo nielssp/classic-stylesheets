@@ -92,7 +92,7 @@ button:focus {
   border: 1px solid var(--darkest);
   outline: 1px dotted var(--darkest);
   box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
-    inset 2px 2px 0 var(--light), inset -2px -2px 0 var(--dark);
+    inset -2px -2px 0 var(--dark);
   outline-offset: -4px;
 }
 
@@ -104,7 +104,7 @@ button:disabled:active {
   border: 1px solid var(--darkest);
   border-top: 1px solid var(--lightest);
   border-left: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--dark);
+  box-shadow: inset -1px -1px 0 var(--dark);
   padding: 1px 10px 1px 10px;
   min-width: 75px;
   text-align: center;
@@ -128,7 +128,7 @@ select > option {
   padding: 2px 6px;
 }
 
-input[type=text],
+input[type="text"],
 pre,
 textarea,
 select {
@@ -143,18 +143,23 @@ select {
   font-size: inherit;
 }
 
+input::selection,
+textarea::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-bg);
+}
+
 select:not([size]):not(:active):focus,
-select[size=1]:not(:active):focus {
+select[size="1"]:not(:active):focus {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--medium),
+    inset 2px 2px 0 var(--input-bg), inset -2px -2px 0 var(--input-bg);
 }
 
 input[type=text]:disabled,
-textarea:disabled {
-  color: var(--light);
-  text-shadow: 1px 1px 0 var(--dark);
-}
-
+textarea:disabled,
+select:disabled > option,
 select:disabled {
   background: var(--window-bg);
   color: var(--dark);
@@ -406,18 +411,12 @@ legend {
   cursor: default;
 }
 
-.menu-bar li[data-shortcut],
-.menu li[data-shortcut] {
-  display: flex;
-  flex-direction: row;
-}
-
 .menu-bar li[data-shortcut]::after,
 .menu li[data-shortcut]::after {
+  float: right;
   content: attr(data-shortcut);
+  display: block;
   margin-left: 4px;
-  flex-grow: 1;
-  text-align: right;
 }
 
 .menu-bar li > ul {
