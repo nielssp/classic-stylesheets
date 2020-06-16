@@ -146,7 +146,7 @@ select {
 input::selection,
 textarea::selection {
   background-color: var(--selection-bg);
-  color: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 select:not([size]):not(:active):focus,
