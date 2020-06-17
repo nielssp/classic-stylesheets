@@ -8,6 +8,10 @@ body {
   z-index: 100;
 }
 
+main {
+  max-width: 1024px;
+}
+
 .example {
   margin: var(--margin) 0;
   padding-left: 16px;

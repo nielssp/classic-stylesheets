@@ -1,6 +1,8 @@
 :root {
   --focus: #B24D7A;
 
+  --desktop-bg: #63639C;
+
   --button-bg: #AEB2C3;
   --button-fg: #000000;
   --button-active-bg: #9397A5;
@@ -45,6 +47,10 @@ body {
 
 button::-moz-focus-inner {
   border: none;
+}
+
+.desktop {
+  background: var(--desktop-bg);
 }
 
 .raised {
@@ -390,6 +396,11 @@ legend {
   border-left: 1px solid var(--title-bar-active-dark);
   border-bottom: 1px solid var(--title-bar-active-light);
   border-right: 1px solid var(--title-bar-active-light);
+}
+
+.window-body:first-child,
+.dialog-body:first-child {
+  border-top: 1px solid var(--title-bar-active-dark);
 }
 
 .window.inactive,

@@ -1,4 +1,6 @@
 :root {
+  --desktop-bg: #3A6EA5;
+
   --window-bg: #D4D0C8;
   --window-fg: #000000;
 
@@ -16,9 +18,6 @@
   --input-fg: #000000;
   --input-dark: #E0E0E0;
   --input-light: #F7F7F7;
-
-  --select-active-bg: #000000;
-  --select-active-fg: #FFFFFF;
 
   --title-bar-bg: linear-gradient(to right, #808080, #C0C0C0);
   --title-bar-fg: var(--medium);

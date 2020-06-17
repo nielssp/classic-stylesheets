@@ -17,9 +17,6 @@
   --input-dark: #E0E0E0;
   --input-light: #F7F7F7;
 
-  --select-active-bg: #000000;
-  --select-active-fg: #FFFFFF;
-
   --title-bar-bg: linear-gradient(to right, #808080, #B5B5B5);
   --title-bar-fg: var(--medium);
 

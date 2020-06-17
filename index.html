@@ -9,18 +9,20 @@
     <link id="skin-link" rel="stylesheet" type="text/css" href="themes/cde/skins/crimson.css"/>
     <link rel="stylesheet" type="text/css" href="demo.css"/>
   </head>
-  <body>
+  <body class="desktop">
     <div id="toolbar" class="top-panel stack-row spacing align-center padding">
       <div>Theme</div>
       <select id="theme-select" size=1>
-        <option value="redmond">Redmond</option>
+        <option value="win9x">Windows 9x</option>
+        <option value="win3x">Windows 3.X</option>
         <option value="cde">CDE</option>
       </select>
       <div>Skin</div>
       <select id="skin-select" size=1>
       </select>
     </div>
-    <main class="padding">
+    <main class="margin window">
+      <div class="window-body padding">
       <h1>Classic stylesheets for web applications</h1>
       <p><a href="https://github.com/nielssp/classic-stylesheets">Source on GitHub</a></p>
       <section>
@@ -452,6 +454,7 @@
           </div>
         </div>
       </section>
+      </div>
     </main>
     <script type="text/javascript" src="demo.js"></script>
   </body>

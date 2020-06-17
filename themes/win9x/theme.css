@@ -1,4 +1,6 @@
 :root {
+  --desktop-bg: #008080;
+
   --window-bg: #C0C0C0;
   --window-fg: #000000;
 
@@ -16,9 +18,6 @@
   --input-fg: #000000;
   --input-dark: #E0E0E0;
   --input-light: #F7F7F7;
-
-  --select-active-bg: #000000;
-  --select-active-fg: #FFFFFF;
 
   --title-bar-bg: var(--dark);
   --title-bar-fg: var(--medium);
@@ -38,6 +37,10 @@ body {
 
 button::-moz-focus-inner {
   border: none;
+}
+
+.desktop {
+  background: var(--desktop-bg);
 }
 
 .raised {
