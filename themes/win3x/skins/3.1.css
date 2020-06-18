@@ -1,5 +1,5 @@
 :root {
-  --desktop-bg: #006060;
+  --desktop-bg: #C0C0C0;
 
   --window-bg: #FFFFFF;
   --window-fg: #000000;
@@ -12,15 +12,14 @@
   --border: #000000;
   --disabled: #808080;
 
-  --window-frame: #008040;
-  --window-frame-active: #008040;
+  --window-frame: #C0C0C0;
 
-  --title-bar-bg: #40A0A0;
+  --title-bar-bg: #FFFFFF;
   --title-bar-fg: #000000;
 
-  --title-bar-active-bg: #00C060;
+  --title-bar-active-bg: #0000C0;
   --title-bar-active-fg: #FFFFFF;
 
-  --selection-bg: #00C000;
+  --selection-bg: #0000C0;
   --selection-fg: #FFFFFF;
 }

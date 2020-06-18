@@ -1,7 +1,7 @@
 const skins = {
   cde: ['default', 'crimson'],
   win9x: ['95', '98', '2000', 'slate', 'slate-2000'],
-  win3x: ['default', 'cinnamon', 'emerald-city', 'hotdog-stand'],
+  win3x: ['3.1', '3.0', 'cinnamon', 'emerald-city', 'hotdog-stand'],
 };
 
 
