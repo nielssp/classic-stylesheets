@@ -17,6 +17,7 @@
   --disabled: #808080;
 
   --window-frame: #C0C0C0;
+  --window-frame-active: var(--window-frame);
 
   --menu-bg: #FFFFFF;
   --menu-fg: #000000;
@@ -266,7 +267,7 @@ legend {
 .window,
 .dialog,
 .menu {
-  background: var(--window-frame);
+  background: var(--window-frame-active);
   border: 1px solid var(--border);
   position: relative;
   padding: 2px;
@@ -358,8 +359,13 @@ legend {
   border-color: var(--window-bg);
 }
 
+.window.inactive,
 .dialog.inactive {
-  background-color: var(--window-bg);
+  background-color: var(--window-frame);
+}
+
+.dialog.inactive {
+  background-color: var(--title-bar-bg);
 }
 
 .window.inactive > .title-bar,
