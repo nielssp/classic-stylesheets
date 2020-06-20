@@ -109,10 +109,20 @@ button:disabled:active {
 
 button:focus,
 details > summary:focus {
-  outline: 1px dotted var(--border);
-  outline-offset: -5px;
   box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border),
     inset 3px 3px 0 var(--button-light), inset -3px -3px 0 var(--button-dark);
+}
+
+button:focus:after,
+details > summary:focus:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  left: 30px;
+  right: 30px;
+  border: 1px dotted var(--button-dark);
 }
 
 button:disabled,
@@ -127,6 +137,15 @@ button:active {
     inset 2px 2px 0 var(--button-dark);
   padding: 3px 31px 1px 33px;
 }
+
+details > summary:active:after,
+button:active:after {
+  top: 4px;
+  bottom: 2px;
+  left: 31px;
+  right: 29px;
+}
+
 
 select > option {
   padding: 2px 6px;
