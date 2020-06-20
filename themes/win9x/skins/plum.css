@@ -1,0 +1,26 @@
+:root {
+  --desktop-bg: #402840;
+
+  --window-bg: #A89890;
+  --window-fg: #000000;
+
+  --lightest: #D8D0C8;
+  --lighter: var(--lightest);
+  --light: var(--window-bg);
+  --medium: var(--window-bg);
+  --dark: #786058;
+  --darker: #000000;
+  --darkest: #000000;
+
+  --input-bg: #D8D0C8;
+  --input-fg: #000000;
+
+  --title-bar-bg: #786058;
+  --title-bar-fg: #D0C8C0;
+
+  --title-bar-active-bg: #484060;
+  --title-bar-active-fg: #F8F0F8;
+
+  --selection-bg: #284848;
+  --selection-fg: #D8D0C8;
+}

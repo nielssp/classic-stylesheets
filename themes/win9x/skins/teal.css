@@ -1,14 +1,14 @@
 :root {
-  --desktop-bg: #414141;
+  --desktop-bg: #004040;
 
-  --window-bg: #9DB9C8;
+  --window-bg: #C0C0C0;
   --window-fg: #000000;
 
-  --lightest: #CEDCE3;
+  --lightest: #FFFFFF;
   --lighter: var(--lightest);
   --light: var(--window-bg);
   --medium: var(--window-bg);
-  --dark: #558097;
+  --dark: #808080;
   --darker: #000000;
   --darkest: #000000;
 
@@ -16,11 +16,11 @@
   --input-fg: #000000;
 
   --title-bar-bg: #808080;
-  --title-bar-fg: #C0C0C0;
+  --title-bar-fg: #FFFBF0;
 
-  --title-bar-active-bg: #558097;
+  --title-bar-active-bg: #008080;
   --title-bar-active-fg: #FFFFFF;
 
-  --selection-bg: #558097;
+  --selection-bg: #008080;
   --selection-fg: #FFFFFF;
 }

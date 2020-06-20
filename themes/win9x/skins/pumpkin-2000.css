@@ -1,0 +1,8 @@
+@import 'pumpkin.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #A0A0A3, #D0CC90);
+  --title-bar-active-bg: linear-gradient(to right, #D7A52F, #E0CC88);
+
+  --selection-bg: #800080;
+}

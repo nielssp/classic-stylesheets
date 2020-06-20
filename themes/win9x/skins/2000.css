@@ -12,12 +12,8 @@
   --darker: #404040;
   --darkest: #000000;
 
-  --button-bg: var(--window-bg);
-  --button-fg: var(--window-fg);
   --input-bg: #FFFFFF;
   --input-fg: #000000;
-  --input-dark: #E0E0E0;
-  --input-light: #F7F7F7;
 
   --title-bar-bg: linear-gradient(to right, #808080, #C0C0C0);
   --title-bar-fg: var(--medium);

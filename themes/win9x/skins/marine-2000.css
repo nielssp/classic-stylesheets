@@ -1,0 +1,9 @@
+@import 'marine.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #489088, #78CCD8);
+  --title-bar-fg: #C0C0C0;
+  --title-bar-active-bg: linear-gradient(to right, #000080, #18B4C0);
+
+  --selection-bg: #000080;
+}

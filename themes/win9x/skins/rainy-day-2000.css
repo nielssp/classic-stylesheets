@@ -1,0 +1,6 @@
+@import 'rainy-day.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #808080, #B0BCD0);
+  --title-bar-active-bg: linear-gradient(to right, #4F657D, #80B4D0);
+}

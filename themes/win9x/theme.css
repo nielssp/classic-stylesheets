@@ -7,7 +7,7 @@
   --lightest: #FFFFFF;
   --lighter: #E0E0E0;
   --light: #DFDFDF;
-  --medium: #C0C0C0;
+  --medium: var(--window-bg);
   --dark: #808080;
   --darker: #404040;
   --darkest: #000000;
@@ -16,8 +16,6 @@
   --button-fg: var(--window-fg);
   --input-bg: #FFFFFF;
   --input-fg: #000000;
-  --input-dark: #E0E0E0;
-  --input-light: #F7F7F7;
 
   --title-bar-bg: var(--dark);
   --title-bar-fg: var(--medium);

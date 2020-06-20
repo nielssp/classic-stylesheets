@@ -1,0 +1,6 @@
+@import 'brick.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #8D8961, #C8B870);
+  --title-bar-active-bg: linear-gradient(to right, #800000, #B07440);
+}

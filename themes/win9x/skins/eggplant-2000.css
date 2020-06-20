@@ -1,0 +1,6 @@
+@import 'eggplant.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #90B0A8, #CBBDD2);
+  --title-bar-active-bg: linear-gradient(to right, #588078, #834B83);
+}

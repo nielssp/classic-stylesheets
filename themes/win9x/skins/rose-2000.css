@@ -1,0 +1,6 @@
+@import 'rose.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #A0A0A4, #D0D4D0);
+  --title-bar-active-bg: linear-gradient(to right, #9F6070, #D8CCD0);
+}

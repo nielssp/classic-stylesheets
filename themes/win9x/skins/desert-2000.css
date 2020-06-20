@@ -1,0 +1,6 @@
+@import 'desert.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #A28D68, #E8D080);
+  --title-bar-active-bg: linear-gradient(to right, #008080, #84BDAA);
+}

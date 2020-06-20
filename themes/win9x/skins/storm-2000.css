@@ -1,0 +1,6 @@
+@import 'storm.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #808080, #A8ACA8);
+  --title-bar-active-bg: linear-gradient(to right, #800080, #388CB0);
+}

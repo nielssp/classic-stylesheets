@@ -1,4 +1,6 @@
 :root {
+  --desktop-bg: #008080;
+
   --window-bg: #C0C0C0;
   --window-fg: #000000;
 
@@ -10,12 +12,8 @@
   --darker: #404040;
   --darkest: #000000;
 
-  --button-bg: var(--window-bg);
-  --button-fg: var(--window-fg);
   --input-bg: #FFFFFF;
   --input-fg: #000000;
-  --input-dark: #E0E0E0;
-  --input-light: #F7F7F7;
 
   --title-bar-bg: var(--dark);
   --title-bar-fg: var(--medium);

@@ -1,0 +1,6 @@
+@import 'wheat.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #BCBC41, #B8B880);
+  --title-bar-active-bg: linear-gradient(to right, #808000, #C8B048);
+}

@@ -1,0 +1,6 @@
+@import 'maple.css';
+
+:root {
+  --title-bar-bg: linear-gradient(to right, #C6A646, #E0C888);
+  --title-bar-active-bg: linear-gradient(to right, #800000, #C09C38);
+}

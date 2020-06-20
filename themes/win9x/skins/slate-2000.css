@@ -1,30 +1,6 @@
+@import 'slate.css';
+
 :root {
-  --desktop-bg: #414141;
-
-  --window-bg: #9DB9C8;
-  --window-fg: #000000;
-
-  --lightest: #CEDCE3;
-  --lighter: #CEDCE3;
-  --light: #9DB9CB;
-  --medium: #9DB9CB;
-  --dark: #558097;
-  --darker: #000000;
-  --darkest: #000000;
-
-  --button-bg: var(--window-bg);
-  --button-fg: var(--window-fg);
-  --input-bg: #FFFFFF;
-  --input-fg: #000000;
-  --input-dark: #E0E0E0;
-  --input-light: #F7F7F7;
-
   --title-bar-bg: linear-gradient(to right, #808080, #A0BCC8);
-  --title-bar-fg: #C0C0C0;
-
   --title-bar-active-bg: linear-gradient(to right, #558097, #88B8D8);
-  --title-bar-active-fg: #FFFFFF;
-
-  --selection-bg: #558097;
-  --selection-fg: #FFFFFF;
 }
