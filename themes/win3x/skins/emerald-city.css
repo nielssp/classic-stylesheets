@@ -1,26 +1,23 @@
 :root {
-  --desktop-bg: #006060;
+  --desktop-bg: #004040;
+
+  --workspace-bg: #C0C0C0;
 
   --window-bg: #FFFFFF;
   --window-fg: #000000;
 
-  --button-bg: #C0C0C0;
-  --button-fg: #000000;
-  --button-dark: #808080;
-  --button-light: #FFFFFF;
-
-  --border: #000000;
-  --disabled: #808080;
-
   --window-frame: #008040;
   --window-frame-active: #008040;
 
-  --title-bar-bg: #40A0A0;
+  --menu-bg: #C0C0C0;
+  --menu-fg: #000000;
+
+  --title-bar-bg: #408080;
   --title-bar-fg: #000000;
 
-  --title-bar-active-bg: #00C060;
+  --title-bar-active-bg: #008040;
   --title-bar-active-fg: #FFFFFF;
 
-  --selection-bg: #00C000;
+  --selection-bg: #008000;
   --selection-fg: #FFFFFF;
 }

@@ -1,13 +1,13 @@
 :root {
-  --desktop-bg: #804040;
+  --desktop-bg: #008080;
 
-  --workspace-bg: #C0C0C0;
+  --workspace-bg: #008040;
 
   --window-bg: #FFFFFF;
   --window-fg: #000000;
 
   --window-frame: #C0C0C0;
-  --window-frame-active: #800000;
+  --window-frame-active: #C0C0C0;
 
   --menu-bg: #FFFFFF;
   --menu-fg: #000000;
@@ -15,9 +15,9 @@
   --title-bar-bg: #C0C0C0;
   --title-bar-fg: #000000;
 
-  --title-bar-active-bg: #800000;
+  --title-bar-active-bg: #004080;
   --title-bar-active-fg: #FFFFFF;
 
-  --selection-bg: #800000;
-  --selection-fg: #FFFFFF;
+  --selection-bg: #008080;
+  --selection-fg: #000000;
 }

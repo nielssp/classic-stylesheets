@@ -11,7 +11,15 @@ const skins = {
     'rainy-day-2000', 'red-white-and-blue-2000', 'rose-2000',
     'slate-2000', 'spruce-2000', 'storm-2000', 'teal-2000', 'wheat-2000',
   ],
-  win3x: ['3.1', '3.0', 'cinnamon', 'emerald-city', 'hotdog-stand'],
+  win3x: [
+    '3.1', '3.0',
+    'arizona', 'black-leather-jacket', 'bordeaux', 'cinnamon',
+    'designer', 'emerald-city', 'fluorescent', 'hotdog-stand',
+    'lcd', 'lcd-reversed-dark', 'lcd-reversed-light', 'mahogany',
+    'monochrome', 'ocean', 'pastel', 'patchwork',
+    'plasma-power-saver', 'rugby', 'the-blues', 'tweed',
+    'valentine', 'wingtips',
+  ],
 };
 
 

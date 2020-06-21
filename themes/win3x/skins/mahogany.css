@@ -1,5 +1,5 @@
 :root {
-  --desktop-bg: #804040;
+  --desktop-bg: #404040;
 
   --workspace-bg: #C0C0C0;
 
@@ -15,7 +15,7 @@
   --title-bar-bg: #C0C0C0;
   --title-bar-fg: #000000;
 
-  --title-bar-active-bg: #800000;
+  --title-bar-active-bg: #400000;
   --title-bar-active-fg: #FFFFFF;
 
   --selection-bg: #800000;

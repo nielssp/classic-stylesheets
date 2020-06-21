@@ -1,6 +1,8 @@
 :root {
   --desktop-bg: #C0C0C0;
 
+  --workspace-bg: #FFFFFF;
+
   --window-bg: #FFFFFF;
   --window-fg: #000000;
 
@@ -334,6 +336,10 @@ legend {
   background-color: var(--button-bg);
   background-repeat: no-repeat;
   background-position: 7px 8px;
+}
+
+.title-bar-buttons button::after {
+  display: none;
 }
 
 .title-bar-buttons:first-child button { 
