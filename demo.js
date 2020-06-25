@@ -1,5 +1,38 @@
 const skins = {
-  cde: ['default', 'crimson'],
+  cde: [
+    'default',
+    'alpine-4', 'arizona-4', 'beige-rose-4', 'broica-4',
+    'cabernet-4', 'camouflage-4', 'charcoal-4',
+    'chocolate-4', 'cinnamon-4', 'clay-4', 'crimson-4',
+    'dark-gold-4', 'delphinium-4', 'desert-4', 'golden-4',
+    'grass-4', 'gray-scale-4', 'lilac-4', 'mustard-4',
+    'neptune-4', 'northern-sky-4', 'nutmeg-4', 'olive-4',
+    'orchid-4', 'pbnj-4', 'sand-4', 'santa-fe-4',
+    'savannah-4', 'sea-foam-4', 'sky-red-4', 'soft-blue-4',
+    'south-west-4', 'summer-4', 'tundra-4', 'urchin-4',
+    'wheat-4',
+    'alpine-8', 'arizona-8', 'beige-rose-8', 'broica-8',
+    'cabernet-8', 'camouflage-8', 'charcoal-8',
+    'chocolate-8', 'cinnamon-8', 'clay-8', 'crimson-8',
+    'dark-gold-8', 'delphinium-8', 'desert-8', 'golden-8',
+    'grass-8', 'gray-scale-8', 'lilac-8', 'mustard-8',
+    'neptune-8', 'northern-sky-8', 'nutmeg-8', 'olive-8',
+    'orchid-8', 'pbnj-8', 'sand-8', 'santa-fe-8',
+    'savannah-8', 'sea-foam-8', 'sky-red-8', 'soft-blue-8',
+    'south-west-8', 'summer-8', 'tundra-8', 'urchin-8',
+    'wheat-8',
+    'alpine-2', 'arizona-2', 'beige-rose-2', 'broica-2',
+    'cabernet-2', 'camouflage-2', 'charcoal-2',
+    'chocolate-2', 'cinnamon-2', 'clay-2', 'crimson-2',
+    'dark-gold-2', 'delphinium-2', 'desert-2', 'golden-2',
+    'grass-2', 'gray-scale-2', 'lilac-2', 'mustard-2',
+    'neptune-2', 'northern-sky-2', 'nutmeg-2', 'olive-2',
+    'orchid-2', 'pbnj-2', 'sand-2', 'santa-fe-2',
+    'savannah-2', 'sea-foam-2', 'sky-red-2', 'soft-blue-2',
+    'south-west-2', 'summer-2', 'tundra-2', 'urchin-2',
+    'wheat-2',
+    'black', 'black-white', 'white', 'white-black',
+  ],
   win9x: [
     '95', '98', '2000',
     'brick', 'desert', 'eggplant', 'lilac',
@@ -29,7 +62,7 @@ const themeSelect = document.getElementById('theme-select');
 const skinSelect = document.getElementById('skin-select');
 
 let defaultTheme = 'cde';
-let defaultSkin = 'crimson';
+let defaultSkin = 'crimson-4';
 let activeTheme = defaultTheme;
 let activeSkin = defaultSkin;
 

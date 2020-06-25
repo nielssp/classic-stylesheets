@@ -1,0 +1,34 @@
+:root {
+  --focus: #FF5664;
+
+  --desktop-bg: #829FFF;
+
+  --button-bg: #FFD690;
+  --button-fg: #000000;
+  --button-active-bg: #D8B57A;
+  --button-active-fg: #000000;
+  --button-dark: #8F7851;
+  --button-light: #FFEDD0;
+
+  --input-bg: #FFFFFF;
+  --input-fg: #000000;
+  --input-dark: #999999;
+  --input-light: #CCCCCC;
+
+  --dialog-button-bg: #FFD690;
+  --dialog-button-fg: #000000;
+  --dialog-button-active-bg: #D8B57A;
+  --dialog-button-active-fg: #000000;
+  --dialog-button-dark: #8F7851;
+  --dialog-button-light: #FFEDD0;
+
+  --title-bar-bg: #FFD690;
+  --title-bar-fg: #000000;
+  --title-bar-dark: #8F7851;
+  --title-bar-light: #FFEDD0;
+
+  --title-bar-active-bg: #FF5664;
+  --title-bar-active-fg: #FFFFFF;
+  --title-bar-active-dark: #822C33;
+  --title-bar-active-light: #FFB4BA;
+}
