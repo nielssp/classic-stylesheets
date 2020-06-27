@@ -6,10 +6,15 @@ body {
   width: 100%;
   top: 0;
   z-index: 100;
+  overflow-y: auto;
 }
 
 main {
   max-width: 1024px;
+}
+
+main > .window-body {
+  overflow: auto;
 }
 
 .example {
@@ -36,6 +41,10 @@ details > summary {
 
   section > *:first-child {
     flex: 0 0 200px;
+  }
+
+  section > div {
+    flex-grow: 1;
   }
 }
 
