@@ -41,3 +41,7 @@ button:not(:active),
 button:disabled:active {
   box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--light);
 }
+
+.title-bar-buttons button:not(:active):focus {
+  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--light);
+}

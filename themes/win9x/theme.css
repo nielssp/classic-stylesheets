@@ -334,6 +334,13 @@ legend {
   border-left: 1px solid var(--darkest);
 }
 
+.title-bar-buttons button:not(:active):focus {
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  box-shadow: inset -1px -1px 0 var(--dark);
+}
+
 .title-bar-buttons button[data-close] {
   background-image: url(close2.gif);
   margin-left: 2px;
