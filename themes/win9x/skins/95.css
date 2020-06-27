@@ -32,12 +32,12 @@
 
 details > summary:not(:active):focus,
 button:not(:active):focus {
-  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
-    inset 2px 2px 0 var(--light), inset -2px -2px 0 var(--dark);
+  box-shadow: inset -1px -1px 0 var(--darkest), inset 1px 1px 0 var(--lightest), 
+    inset -2px -2px 0 var(--dark), inset 2px 2px 0 var(--light);
 }
 
 details > summary:not(:active),
 button:not(:active),
 button:disabled:active {
-  box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--dark);
+  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--light);
 }
