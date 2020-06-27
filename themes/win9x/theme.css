@@ -302,7 +302,7 @@ legend {
 .title-bar-text {
   text-align: left;
   font-weight: bold;
-  padding: 2px 4px;
+  padding: 1px 4px;
   flex-grow: 1;
   cursor: default
 }
@@ -317,33 +317,34 @@ legend {
 
 .title-bar-buttons button {
   flex-shrink: 0;
-  width: 16px;
-  height: 14px;
+  width: 20px;
+  height: 18px;
   min-width: 0;
   padding: 0;
+  background-repeat: no-repeat;
+  background-position: 3px 3px;
 }
 
 .title-bar-buttons button:active {
   outline: none;
+  background-position: 4px 4px;
+  box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--dark);
+  border: 1px solid var(--lightest);
+  border-top: 1px solid var(--darkest);
+  border-left: 1px solid var(--darkest);
 }
 
 .title-bar-buttons button[data-close] {
-  background-image: url(close.gif);
-  background-repeat: no-repeat;
-  background-position: 2px 2px;
+  background-image: url(close2.gif);
   margin-left: 2px;
 }
 
 .title-bar-buttons button[data-minimize] {
-  background-image: url(minimize.gif);
-  background-repeat: no-repeat;
-  background-position: 2px 2px;
+  background-image: url(minimize2.gif);
 }
 
 .title-bar-buttons button[data-maximize] {
-  background-image: url(maximize.gif);
-  background-repeat: no-repeat;
-  background-position: 2px 2px;
+  background-image: url(maximize2.gif);
 }
 
 .window-body,
