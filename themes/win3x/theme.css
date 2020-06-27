@@ -103,17 +103,19 @@ button:disabled:active {
   background-color: var(--button-bg);
   color: var(--button-fg);
   border: 1px solid var(--border);
-  border-radius: 2px;
+  border-radius: 2.5px;
   padding: 2px 32px;
   position: relative;
-  box-shadow: inset 2px 2px 0 var(--button-light), inset -2px -2px 0 var(--button-dark);
+  box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), 
+    inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
   outline: none;
 }
 
 button:focus,
 details > summary:focus {
   box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border),
-    inset 3px 3px 0 var(--button-light), inset -3px -3px 0 var(--button-dark);
+    inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), 
+    inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
 }
 
 button:focus:after,
