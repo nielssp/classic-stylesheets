@@ -107,6 +107,7 @@ button:disabled:active {
   padding: 2px 32px;
   position: relative;
   box-shadow: inset 2px 2px 0 var(--button-light), inset -2px -2px 0 var(--button-dark);
+  outline: none;
 }
 
 button:focus,
