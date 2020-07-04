@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Classic stylesheets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="layout.css"/>
+    <link id="theme-link" rel="stylesheet" type="text/css" href="themes/cde/theme.css"/>
+    <link id="skin-link" rel="stylesheet" type="text/css" href="themes/cde/skins/crimson.css"/>
+    <link rel="stylesheet" type="text/css" href="demo.css"/>
+  </head>
+  <body class="stack-column" style="height: 100%;">
+    <div class="top-panel stack-row spacing align-center padding">
+      <div>Theme</div>
+      <select id="theme-select" size=1>
+        <option value="win9x">Windows 9x</option>
+        <option value="win3x">Windows 3.X</option>
+        <option value="cde">CDE</option>
+      </select>
+      <div>Skin</div>
+      <select id="skin-select" size=1>
+      </select>
+    </div>
+    <main class="desktop padding grow" style="max-width: 100%; position: relative; overflow: hidden;">
+      <div class="window" style="width: 800px; height: 600px;">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            Untitled - Notepad
+          </div>
+          <div class="title-bar-buttons">
+            <button data-maximize></button>
+          </div>
+        </div>
+        <div class="window-body stack-column">
+          <ul class="menu-bar">
+            <li tabindex=0>
+              <u>F</u>ile
+              <ul>
+                <li tabindex=0><u>N</u>ew</li>
+                <li tabindex=0><u>O</u>pen</li>
+                <li tabindex=0><u>S</u>ave</li>
+                <li tabindex=0>Save <u>A</u>s&hellip;</li>
+                <li aria-role="separator"></li>
+                <li tabindex=0>Page Se<u>t</u>up&hellip;</li>
+                <li tabindex=0><u>P</u>rint</li>
+                <li aria-role="separator"></li>
+                <li tabindex=0>E<u>x</u>it</li>
+              </ul>
+            </li>
+            <li tabindex=0>
+              <u>E</u>dit
+              <ul>
+                <li tabindex=0 data-shortcut="Ctrl+Z"><u>U</u>ndo</li>
+                <li aria-role="separator"></li>
+                <li tabindex=0 data-shortcut="Ctrl+X">Cu<u>t</u></li>
+                <li tabindex=0 data-shortcut="Ctrl+C"><u>C</u>opy</li>
+                <li tabindex=0 data-shortcut="Ctrl+V"><u>P</u>aste</li>
+                <li tabindex=0 data-shortcut="Del">De<u>l</u>ete</li>
+                <li aria-role="separator"></li>
+                <li tabindex=0>Select <u>A</u>ll</li>
+                <li tabindex=0 data-shortcut="F5">Time/<u>D</u>ate</li>
+                <li aria-role="separator"></li>
+                <li tabindex=0><u>W</u>ord Wrap</li>
+                <li tabindex=0>Set <u>F</u>ont&hellip;</li>
+              </ul>
+            </li>
+            <li tabindex=0>
+              <u>S</u>earch
+              <ul>
+                <li tabindex=0><u>F</u>ind</li>
+                <li tabindex=0 data-shortcut="F3">Find <u>N</u>ext</li>
+              </ul>
+            </li>
+            <li tabindex=0 class="help-menu">
+              <u>H</u>elp
+              <ul>
+                <li tabindex=0><u>H</u>elp Topics</li>
+                <li aria-role="separator"></li>
+                <li tabindex=0><u>A</u>bout Notepad</li>
+              </ul>
+            </li>
+          </ul>
+          <textarea class="grow" style="width: 100%; font-family: monospace; resize: none;"></textarea>
+        </div>
+      </div>
+    </main>
+    <script type="text/javascript" src="demo.js"></script>
+    <script type="text/javascript" src="modules/wm.js"></script>
+  </body>
+</html>
