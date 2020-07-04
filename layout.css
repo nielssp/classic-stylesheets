@@ -152,3 +152,16 @@ pre {
 .grid.spacing-horizontal {
   grid-column-gap: var(--spacing);
 }
+
+.window {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-bar {
+  flex-shrink: 0;
+}
+
+.window-body {
+  flex-grow: 1;
+}

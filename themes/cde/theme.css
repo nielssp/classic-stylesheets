@@ -357,6 +357,9 @@ legend {
   border: 1px solid var(--title-bar-active-light);
   border-bottom: 1px solid var(--title-bar-active-dark);
   border-right: 1px solid var(--title-bar-active-dark);
+  width: 26px;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .title-bar-buttons button:active,
@@ -369,24 +372,19 @@ legend {
 }
 
 .title-bar-buttons button[data-close] {
-  width: 26px;
   background-image: url(close.png);
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 .title-bar-buttons button[data-minimize] {
-  width: 26px;
   background-image: url(minimize.png);
-  background-repeat: no-repeat;
-  background-position: center center;
 }
 
 .title-bar-buttons button[data-maximize] {
-  width: 26px;
   background-image: url(maximize.png);
-  background-repeat: no-repeat;
-  background-position: center center;
+}
+
+.maximized .title-bar-buttons button[data-maximize] {
+  background-image: url(restore.png);
 }
 
 .window-body,

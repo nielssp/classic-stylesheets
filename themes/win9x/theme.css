@@ -291,6 +291,12 @@ legend {
   padding: 3px;
 }
 
+.window.maximized,
+.dialog.maximized {
+  border: none;
+  padding: 0;
+}
+
 .title-bar {
   background: var(--title-bar-active-bg);
   color: var(--title-bar-active-fg);
@@ -352,6 +358,10 @@ legend {
 
 .title-bar-buttons button[data-maximize] {
   background-image: url(maximize2.gif);
+}
+
+.maximized .title-bar-buttons button[data-maximize] {
+  background-image: url(restore2.gif);
 }
 
 .window-body,
