@@ -624,3 +624,53 @@ legend {
   border-bottom-color: var(--button-dark);
   border-right-color: var(--button-dark);
 }
+
+.icon-grid {
+  background: var(--button-active-bg);
+  color: var(--button-active-fg);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 128px);
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: 2px solid var(--button-light);
+  border-top: 2px solid var(--button-dark);
+  border-left: 2px solid var(--button-dark);
+  overflow-y: auto;
+  cursor: default;
+}
+
+.icon-grid > .icon {
+  flex: 0 0 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 4px;
+  outline: none;
+}
+
+.icon-grid > .icon > img {
+  border-top: 2px solid transparent;
+  border-left: 2px solid transparent;
+  border-right: 2px solid transparent;
+  margin-bottom: -2px;
+  background-color: var(--button-active-bg);
+  z-index: 1;
+}
+
+.icon-grid > .icon > .icon-label {
+  text-align: left;
+  border: 2px solid transparent;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  min-width: 38px;
+}
+
+.icon-grid > .icon:focus > img {
+  border-color: var(--focus);
+}
+
+.icon-grid > .icon:focus > .icon-label {
+  border-color: var(--focus);
+}
