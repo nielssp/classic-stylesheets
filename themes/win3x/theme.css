@@ -524,24 +524,65 @@ legend {
   border-color: transparent;
 }
 
-.menu-bar li[aria-role=separator],
-.menu li[aria-role=separator] {
+.menu-bar li[role=separator],
+.menu li[role=separator] {
   border-top: 1px solid var(--border);
   height: 0;
   padding: 0;
   margin: 2px 0;
 }
 
-.menu-bar li li[aria-role=menu],
-.menu li[aria-role=menu] {
+.menu-bar li li[role=menu],
+.menu li[role=menu] {
   background-image: url(arrow-right.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
 
-.menu-bar li li[aria-role=menu]:focus-within,
-.menu li[aria-role=menu]:focus-within {
+.menu-bar li li[role=menu]:focus-within,
+.menu li[role=menu]:focus-within {
   background-image: url(arrow-right-active.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
+}
+
+.tabs > menu {
+  display: flex;
+  flex-direction: row;
+  margin: 0 2px;
+}
+
+.tabs > menu > button {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  min-width: 0;
+  padding: 2px 10px 2px 10px;
+  box-shadow: inset -1px 0 0 var(--button-dark), inset 1px 1px 0 var(--button-light), 
+    inset -2px 0 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
+}
+
+.tabs > menu > button:focus,
+.tabs > menu > button:active {
+  padding: 2px 10px 2px 10px;
+}
+
+.tabs > menu > button:focus:after {
+  left: 8px;
+  right: 8px;
+}
+
+.tabs > menu > button[aria-selected="true"] {
+  margin-right: -2px;
+  margin-left: -2px;
+  margin-top: -2px;
+  margin-bottom: -2px;
+  padding: 0px 12px 4px 12px;
+  background-color: var(--window-bg);
+  box-shadow: none;
+  z-index: 1;
+}
+
+.tabs > [role="tabpanel"] {
+  border: 1px solid var(--border);
 }

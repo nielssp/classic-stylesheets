@@ -560,16 +560,16 @@ legend {
   background-color: var(--button-bg);
 }
 
-.menu-bar li[aria-role=separator],
-.menu li[aria-role=separator] {
+.menu-bar li[role=separator],
+.menu li[role=separator] {
   border-top: 1px solid var(--button-dark);
   border-bottom: 1px solid var(--button-light);
   height: 0;
   padding: 0;
 }
 
-.menu-bar li li[aria-role=menu],
-.menu li[aria-role=menu] {
+.menu-bar li li[role=menu],
+.menu li[role=menu] {
   background-image: url(arrow-right.png);
   background-repeat: no-repeat;
   background-position: right 8px center;

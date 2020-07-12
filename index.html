@@ -234,6 +234,29 @@
           </div>
         </section>
         <section>
+          <h2>Tabs</h2>
+          <div>
+            <div class="example">
+              <div class="tabs">
+                <menu role="tablist">
+                  <button role="tab" aria-selected="true" aria-controls="tab1">Tab</button>
+                  <button role="tab" aria-controls="tab2">Tab</button>
+                  <button role="tab" aria-controls="tab3">Tab</button>
+                </menu>
+                <div role="tabpanel" id="tab1" class="padding">
+                  Tab 1
+                </div>
+                <div role="tabpanel" id="tab2" hidden class="padding">
+                  Tab 2
+                </div>
+                <div role="tabpanel" id="tab3" hidden class="padding">
+                  Tab 3
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
           <h2>Menus</h2>
           <div>
             <div class="example">
@@ -246,16 +269,16 @@
                 <ul>
                   <li tabindex=0 data-shortcut="Ctrl+S">Save</li>
                   <li tabindex=0>Save As&hellip;</li>
-                  <li tabindex=0 aria-role="menu">
+                  <li tabindex=0 role="menu">
                     <u>E</u>dit
                     <ul>
                       <li tabindex=0 data-shortcut="Ctrl+Z" disabled>Undo</li>
-                      <li aria-role="separator"></li>
+                      <li role="separator"></li>
                       <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
                       <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
                       <li tabindex=0 data-shortcut="Ctrl+V" disabled>Paste</li>
-                      <li aria-role="separator"></li>
-                      <li tabindex=0 aria-role="menu">
+                      <li role="separator"></li>
+                      <li tabindex=0 role="menu">
                         Another Submenu
                         <ul>
                           <li tabindex=0>Foo</li>
@@ -264,7 +287,7 @@
                       </li>
                     </ul>
                   </li>
-                  <li aria-role="separator"></li>
+                  <li role="separator"></li>
                   <li tabindex=0>About</li>
                   <li tabindex=0>Quit</li>
                 </ul>
@@ -277,15 +300,15 @@
                   <ul>
                     <li tabindex=0>Save</li>
                     <li tabindex=0>Save As&hellip;</li>
-                    <li aria-role="separator"></li>
-                    <li tabindex=0 aria-role="menu">
+                    <li role="separator"></li>
+                    <li tabindex=0 role="menu">
                       Another Submenu
                       <ul>
                         <li tabindex=0>Foo</li>
                         <li tabindex=0>Baz</li>
                       </ul>
                     </li>
-                    <li aria-role="separator"></li>
+                    <li role="separator"></li>
                     <li tabindex=0>Quit</li>
                   </ul>
                 </li>
@@ -293,7 +316,7 @@
                   <u>E</u>dit
                   <ul>
                     <li tabindex=0 data-shortcut="Ctrl+Z">Undo</li>
-                    <li aria-role="separator"></li>
+                    <li role="separator"></li>
                     <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
                     <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
                     <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
@@ -303,7 +326,7 @@
                   Help
                   <ul>
                     <li tabindex=0>Overview</li>
-                    <li aria-role="separator"></li>
+                    <li role="separator"></li>
                     <li tabindex=0>About</li>
                   </ul>
                 </li>
@@ -363,15 +386,15 @@
                       <ul>
                         <li tabindex=0>Save</li>
                         <li tabindex=0>Save As&hellip;</li>
-                        <li aria-role="separator"></li>
-                        <li tabindex=0 aria-role="menu">
+                        <li role="separator"></li>
+                        <li tabindex=0 role="menu">
                           Another Submenu
                           <ul>
                             <li tabindex=0>Foo</li>
                             <li tabindex=0>Baz</li>
                           </ul>
                         </li>
-                        <li aria-role="separator"></li>
+                        <li role="separator"></li>
                         <li tabindex=0>Quit</li>
                       </ul>
                     </li>
@@ -379,7 +402,7 @@
                       <u>E</u>dit
                       <ul>
                         <li data-shortcut="Ctrl+Z" aria-disabled>Undo</li>
-                        <li aria-role="separator"></li>
+                        <li role="separator"></li>
                         <li data-shortcut="Ctrl+X" aria-disabled>Cut</li>
                         <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
                         <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
@@ -389,7 +412,7 @@
                       Help
                       <ul>
                         <li tabindex=0>Overview</li>
-                        <li aria-role="separator"></li>
+                        <li role="separator"></li>
                         <li tabindex=0>About</li>
                       </ul>
                     </li>
@@ -462,5 +485,6 @@
       </div>
     </main>
     <script type="text/javascript" src="demo.js"></script>
+    <script type="text/javascript" src="modules/tabs.js"></script>
   </body>
 </html>

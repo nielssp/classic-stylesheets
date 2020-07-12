@@ -106,9 +106,10 @@ button:disabled:active {
   border-top: 1px solid var(--lightest);
   border-left: 1px solid var(--lightest);
   box-shadow: inset -1px -1px 0 var(--dark);
-  padding: 1px 10px 1px 10px;
+  padding: 2px 10px 2px 10px;
   min-width: 75px;
   text-align: center;
+  line-height: 1;
 }
 
 button:disabled,
@@ -122,7 +123,7 @@ details > summary:active,
 button:active {
   border: 1px solid var(--darkest);
   box-shadow: inset 1px 1px 0 var(--dark), inset -1px -1px 0 var(--dark);
-  padding: 2px 9px 0 11px;
+  padding: 3px 9px 1px 11px;
 }
 
 select > option {
@@ -480,9 +481,9 @@ legend {
 }
 
 .menu-bar li li:hover,
-.menu-bar li li[aria-role=menu]:focus-within,
+.menu-bar li li[role=menu]:focus-within,
 .menu li:hover,
-.menu li[aria-role=menu]:focus-within {
+.menu li[role=menu]:focus-within {
   background: var(--selection-bg);
   color: var(--selection-fg);
 }
@@ -500,26 +501,67 @@ legend {
   background-color: var(--button-bg);
 }
 
-.menu-bar li[aria-role=separator],
-.menu li[aria-role=separator] {
+.menu-bar li[role=separator],
+.menu li[role=separator] {
   border-top: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   height: 0;
   padding: 0;
 }
 
-.menu-bar li li[aria-role=menu],
-.menu li[aria-role=menu] {
+.menu-bar li li[role=menu],
+.menu li[role=menu] {
   background-image: url(arrow-right.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
 
-.menu-bar li li[aria-role=menu]:focus-within,
-.menu-bar li li[aria-role=menu]:hover,
-.menu li[aria-role=menu]:focus-within,
-.menu li[aria-role=menu]:hover {
+.menu-bar li li[role=menu]:focus-within,
+.menu-bar li li[role=menu]:hover,
+.menu li[role=menu]:focus-within,
+.menu li[role=menu]:hover {
   background-image: url(arrow-right-active.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
+}
+
+.tabs > menu {
+  display: flex;
+  flex-direction: row;
+  margin: 0 2px;
+}
+
+.tabs > menu > button {
+  border-bottom: 0;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--dark);
+  min-width: 0;
+  padding: 2px 10px 2px 10px;
+}
+
+.tabs > menu > button:focus,
+.tabs > menu > button:active {
+  border-right: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--dark);
+  padding: 2px 10px 2px 10px;
+}
+
+.tabs > menu > button[aria-selected="true"] {
+  margin-right: -2px;
+  margin-left: -2px;
+  margin-top: -2px;
+  margin-bottom: -2px;
+  padding: 0px 12px 4px 12px;
+  z-index: 1;
+}
+
+.tabs > [role="tabpanel"] {
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  border-bottom: 1px solid var(--darkest);
+  border-right: 1px solid var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--dark);
 }
