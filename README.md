@@ -8,8 +8,8 @@
 
 ## Modules
 
-Most of the functionality works without JavaScript. Additional functionality can be enabled with the following minimal JavaScript modules:
+Most of the functionality works without JavaScript. Additional functionality can be enabled with the following minimal JavaScript modules found in the `modules` directory:
 
 * tabs.js: Enables the use of tabs.
-* win.js: Experimental window manager, see [this demo](https://nielssp.github.io/classic-stylesheets/notepad.html).
+* wm.js: Experimental window manager, see [this demo](https://nielssp.github.io/classic-stylesheets/notepad.html).
 
