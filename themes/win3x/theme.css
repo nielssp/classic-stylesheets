@@ -30,6 +30,7 @@
 
   --selection-bg: #0000C0;
   --selection-fg: #FFFFFF;
+  --selection-inverse: #FFFF3F;
 }
 
 body {
@@ -587,16 +588,38 @@ legend {
   border: 1px solid var(--border);
 }
 
-.icon-grid {
+.list {
   background: var(--window-bg);
   color: var(--window-fg);
+  border: 1px solid var(--border);
+  overflow: auto;
+  cursor: default;
+}
+
+.list > [role="option"] {
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+}
+
+.list > [role="option"][aria-selected="true"] {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+.list > [role="option"]:focus {
+  outline: 1px dotted var(--border);
+  outline-offset: -1px;
+}
+
+.list > [role="option"][aria-selected="true"]:focus {
+  outline: 1px dotted var(--selection-inverse);
+}
+
+.icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 128px);
   flex-direction: row;
   flex-wrap: wrap;
-  border: 1px solid var(--border);
-  overflow-y: auto;
-  cursor: default;
 }
 
 .icon-grid > .icon {
@@ -617,6 +640,87 @@ legend {
 }
 
 .icon-grid > .icon:focus > .icon-label {
+  outline: 1px dotted var(--border);
+  outline-offset: -1px;
+}
+
+.icon-grid > .icon[aria-selected="true"] > .icon-label {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+}
+
+.icon-grid > .icon[aria-selected="true"]:focus > .icon-label {
+  outline: 1px dotted var(--selection-inverse);
+}
+
+.detailed {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.detailed th {
+  text-align: left;
+  font-weight: bold;
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+}
+.detailed tr {
+  outline: none;
+}
+
+.detailed tr:focus {
+  outline: 1px dotted var(--border);
+  outline-offset: -1px;
+}
+
+.detailed tr[aria-selected="true"] {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+.detailed tr[aria-selected="true"] {
+  outline: 1px dotted var(--selection-inverse);
+}
+
+.detailed .icon:focus .icon-label {
+  outline: 1px dotted var(--border);
+  outline-offset: -1px;
+}
+
+.detailed .icon[aria-selected="true"] .icon-label {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+.detailed .icon[aria-selected="true"]:focus .icon-label {
+  outline: 1px dotted var(--selection-inverse);
+}
+
+.detailed td {
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+}
+
+.detailed .icon {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  outline: none;
+}
+
+.detailed .icon > img {
+  width: 16px;
+  height: 16px;
+  margin-right: 1px;
+  margin-left: -4px;
+}
+
+.detailed .icon > .icon-label {
+  text-align: center;
+  padding: 1px 3px;
+}
+
+.detailed thead {
+  position: sticky;
+  top: 0;
 }

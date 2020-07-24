@@ -625,18 +625,36 @@ legend {
   border-right-color: var(--button-dark);
 }
 
-.icon-grid {
+.list {
   background: var(--button-active-bg);
   color: var(--button-active-fg);
+  border: 2px solid var(--button-light);
+  border-top: 2px solid var(--button-dark);
+  border-left: 2px solid var(--button-dark);
+  overflow: auto;
+  cursor: default;
+}
+
+.list > [role="option"] {
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+}
+
+.list > [role="option"][aria-selected="true"] {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+.list > [role="option"]:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.icon-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, 128px);
   flex-direction: row;
   flex-wrap: wrap;
-  border: 2px solid var(--button-light);
-  border-top: 2px solid var(--button-dark);
-  border-left: 2px solid var(--button-dark);
-  overflow-y: auto;
-  cursor: default;
 }
 
 .icon-grid > .icon {
@@ -673,4 +691,84 @@ legend {
 
 .icon-grid > .icon:focus > .icon-label {
   border-color: var(--focus);
+}
+
+.icon-grid > .icon[aria-selected="true"] > img {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.icon-grid > .icon[aria-selected="true"] > .icon-label {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.detailed {
+  width: 100%;
+  border-spacing: 0;
+}
+
+.detailed th {
+  text-align: left;
+  font-weight: normal;
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-dark);
+  border-top: 1px solid var(--button-light);
+  border-left: 1px solid var(--button-light);
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+}
+
+.detailed tr {
+  outline: none;
+}
+
+.detailed tr:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+
+.detailed tr[aria-selected="true"] {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.detailed .icon:focus {
+  outline-offset: -2px;
+  outline: 2px solid var(--focus);
+}
+
+.detailed .icon[aria-selected="true"] {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.detailed td {
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+}
+
+.detailed .icon {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  outline: none;
+  margin-left: -4px;
+}
+
+.detailed .icon > img {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+}
+
+.detailed .icon > .icon-label {
+  text-align: center;
+  padding: 1px 3px 1px 0;
+}
+
+.detailed thead {
+  position: sticky;
+  top: 0;
 }

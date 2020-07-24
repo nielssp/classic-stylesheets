@@ -23,6 +23,7 @@
 
   --selection-bg: #000080;
   --selection-fg: #FFFFFF;
+  --selection-inverse: #FFFF7F;
 }
 
 /* The "Windows Standard" color scheme in Windows 95 and 98 had an extra  line

@@ -6,4 +6,5 @@
   --title-bar-active-bg: linear-gradient(to right, #000080, #18B4C0);
 
   --selection-bg: #000080;
+  --selection-inverse: #00007F;
 }

@@ -20,6 +20,7 @@
 
   --selection-bg: #FFFFFF;
   --selection-fg: #000000;
+  --selection-inverse: #000000;
 
   --border: #C0C0C0;
 }

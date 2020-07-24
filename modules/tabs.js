@@ -27,9 +27,9 @@ class Tabbed {
 
   change(tab) {
     const tabPage = document.getElementById(tab.getAttribute('aria-controls'));
-    for (let tab of this.tabList.children) {
-      tab.setAttribute('aria-selected', false);
-      tab.setAttribute('tabindex', -1);
+    for (let other of this.tabList.children) {
+      other.setAttribute('aria-selected', false);
+      other.setAttribute('tabindex', -1);
     }
     tab.setAttribute('aria-selected', true);
     tab.setAttribute('tabindex', 0);

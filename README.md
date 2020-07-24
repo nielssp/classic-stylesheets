@@ -11,5 +11,7 @@
 Most of the functionality works without JavaScript. Additional functionality can be enabled with the following minimal JavaScript modules found in the `modules` directory:
 
 * [tabs.js](modules/tabs.js): Enables the use of tabs.
+* [lists.js](modules/lists.js): Enables the use of list boxes.
 * [wm.js](modules/wm.js): Experimental window manager, see [this demo](https://nielssp.github.io/classic-stylesheets/notepad.html).
+
 

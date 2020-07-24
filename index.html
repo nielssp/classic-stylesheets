@@ -257,45 +257,170 @@
           </div>
         </section>
         <section>
+          <h2>Lists</h2>
+          <div>
+            <div class="example">
+              <div class="list" role="listbox">
+                <div role="option">Green</div>
+                <div role="option">Orange</div>
+                <div role="option">Yellow</div>
+                <div role="option">Blue</div>
+                <div role="option">Violet</div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h2>Detailed lists</h2>
+          <div>
+            <div class="example">
+              <div class="list" role="listbox">
+                <table class="detailed">
+                  <tbody>
+                    <tr role="option">
+                      <td class="icon">
+                        <img src="icons/folder16.png" />
+                        <div class="icon-label">My Documents</div>
+                      </td>
+                      <td></td>
+                      <td>File Folder</td>
+                      <td>2020-07-14 20:28</td>
+                    </tr>
+                    <tr role="option">
+                      <td class="icon">
+                        <img src="icons/folder16.png" />
+                        <div class="icon-label">Program Files</div>
+                      </td>
+                      <td></td>
+                      <td>File Folder</td>
+                      <td>2020-07-14 20:28</td>
+                    </tr>
+                    <tr role="option">
+                      <td class="icon">
+                        <img src="icons/file16.png" />
+                        <div class="icon-label">autoexec.bat</div>
+                      </td>
+                      <td>0KB</td>
+                      <td>MS-DOS Batch File</td>
+                      <td>2020-07-14 20:28</td>
+                    </tr>
+                    <tr role="option">
+                      <td class="icon">
+                        <img src="icons/file16.png" />
+                        <div class="icon-label">Command.com</div>
+                      </td>
+                      <td>92KB</td>
+                      <td>MS-DOS Application</td>
+                      <td>1999-04-23 22:22</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="example">
+              <div class="list" role="listbox">
+                <table class="detailed">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Size</th>
+                      <th>Type</th>
+                      <th>Modified</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div class="icon" role="option">
+                          <img src="icons/folder16.png" />
+                          <div class="icon-label">My Documents</div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <td>File Folder</td>
+                      <td>2020-07-14 20:28</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="icon" role="option">
+                          <img src="icons/folder16.png" />
+                          <div class="icon-label">Program Files</div>
+                        </div>
+                      </td>
+                      <td></td>
+                      <td>File Folder</td>
+                      <td>2020-07-14 20:28</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="icon" role="option">
+                          <img src="icons/file16.png" />
+                          <div class="icon-label">autoexec.bat</div>
+                        </div>
+                      </td>
+                      <td>0KB</td>
+                      <td>MS-DOS Batch File</td>
+                      <td>2020-07-14 20:28</td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <div class="icon" role="option">
+                          <img src="icons/file16.png" />
+                          <div class="icon-label">Command.com</div>
+                        </div>
+                      </td>
+                      <td>92KB</td>
+                      <td>MS-DOS Application</td>
+                      <td>1999-04-23 22:22</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
           <h2>Icon grids</h2>
           <div>
             <div class="example">
-              <div class="icon-grid" style="max-height: 200px;">
-                <div class="icon" tabindex=0>
-                  <img src="icons/network.png" />
-                  <div class="icon-label">Network Neighborhood</div>
-                </div>
-                <div class="icon" tabindex=0>
-                  <img src="icons/home.png" />
-                  <div class="icon-label">My Documents</div>
-                </div>
-                <div class="icon" tabindex=0>
-                  <img src="icons/text.png" />
-                  <div class="icon-label">New Text Document.txt</div>
-                </div>
-                <div class="icon" tabindex=0>
-                  <img src="icons/text.png" />
-                  <div class="icon-label">New Text Document (2).txt</div>
-                </div>
-                <div class="icon" tabindex=0>
-                  <img src="icons/text.png" />
-                  <div class="icon-label">New Text Document (3).txt</div>
-                </div>
-                <div class="icon" tabindex=0>
-                  <img src="icons/image.png" />
-                  <div class="icon-label">New Bitmap Image.bmp</div>
-                </div>
-                <div class="icon" tabindex=0>
-                  <img src="icons/image.png" />
-                  <div class="icon-label">New Bitmap Image (2).bmp</div>
-                </div>
-                <div class="icon" tabindex=0>
-                  <img src="icons/image.png" />
-                  <div class="icon-label">New Bitmap Image (3).bmp</div>
-                </div>
-                <div class="icon" tabindex=0>
-                  <img src="icons/trash-full.png" />
-                  <div class="icon-label">Recycle Bin</div>
+              <div class="list" style="max-height: 200px;" role="listbox">
+                <div class="icon-grid">
+                  <div class="icon" role="option">
+                    <img src="icons/network.png" />
+                    <div class="icon-label">Network Neighborhood</div>
+                  </div>
+                  <div class="icon" role="option">
+                    <img src="icons/home.png" />
+                    <div class="icon-label">My Documents</div>
+                  </div>
+                  <div class="icon" role="option">
+                    <img src="icons/text.png" />
+                    <div class="icon-label">New Text Document.txt</div>
+                  </div>
+                  <div class="icon" role="option">
+                    <img src="icons/text.png" />
+                    <div class="icon-label">New Text Document (2).txt</div>
+                  </div>
+                  <div class="icon" role="option">
+                    <img src="icons/text.png" />
+                    <div class="icon-label">New Text Document (3).txt</div>
+                  </div>
+                  <div class="icon" role="option">
+                    <img src="icons/image.png" />
+                    <div class="icon-label">New Bitmap Image.bmp</div>
+                  </div>
+                  <div class="icon" role="option">
+                    <img src="icons/image.png" />
+                    <div class="icon-label">New Bitmap Image (2).bmp</div>
+                  </div>
+                  <div class="icon" role="option">
+                    <img src="icons/image.png" />
+                    <div class="icon-label">New Bitmap Image (3).bmp</div>
+                  </div>
+                  <div class="icon" role="option">
+                    <img src="icons/trash-full.png" />
+                    <div class="icon-label">Recycle Bin</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -531,5 +656,6 @@
     </main>
     <script type="text/javascript" src="demo.js"></script>
     <script type="text/javascript" src="modules/tabs.js"></script>
+    <script type="text/javascript" src="modules/lists.js"></script>
   </body>
 </html>
