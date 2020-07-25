@@ -630,8 +630,13 @@ hr {
 }
 
 .icon-grid > .icon[aria-selected="true"] > .icon-label {
+  outline: 1px solid var(--selection-bg);
+}
+
+.icon-grid:focus-within > .icon[aria-selected="true"] > .icon-label {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+  outline: none;
 }
 
 .icon-grid > .icon[aria-selected="true"]:focus > .icon-label {
@@ -663,7 +668,7 @@ hr {
   color: var(--selection-fg);
 }
 
-.detailed tr[aria-selected="true"] {
+.detailed tr[aria-selected="true"]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
 
@@ -673,8 +678,13 @@ hr {
 }
 
 .detailed .icon[aria-selected="true"] .icon-label {
+  outline: 1px solid var(--selection-bg);
+}
+
+.detailed:focus-within .icon[aria-selected="true"] .icon-label {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+  outline: none;
 }
 
 .detailed .icon[aria-selected="true"]:focus .icon-label {

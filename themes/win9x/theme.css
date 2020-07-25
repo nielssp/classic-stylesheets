@@ -589,9 +589,14 @@ hr {
   white-space: nowrap;
 }
 
-.list > [role="option"][aria-selected="true"] {
+.list:focus-within > [role="option"][aria-selected="true"] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+}
+
+.list > [role="option"][aria-selected="true"] {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
 }
 
 .list > [role="option"]:focus {
@@ -633,9 +638,14 @@ hr {
   outline-offset: -1px;
 }
 
-.icon-grid > .icon[aria-selected="true"] > .icon-label {
+.icon-grid:focus-within > .icon[aria-selected="true"] > .icon-label {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+}
+
+.icon-grid > .icon[aria-selected="true"] > .icon-label {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
 }
 
 .icon-grid > .icon[aria-selected="true"]:focus > .icon-label {
@@ -669,9 +679,14 @@ hr {
   outline-offset: -1px;
 }
 
-.detailed tr[aria-selected="true"] {
+.detailed:focus-within tr[aria-selected="true"] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+}
+
+.detailed tr[aria-selected="true"] {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
 }
 
 .detailed tr[aria-selected="true"] {
@@ -683,9 +698,14 @@ hr {
   outline-offset: -1px;
 }
 
-.detailed .icon[aria-selected="true"] .icon-label {
+.detailed:focus-within .icon[aria-selected="true"] .icon-label {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+}
+
+.detailed .icon[aria-selected="true"] .icon-label {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
 }
 
 .detailed .icon[aria-selected="true"]:focus .icon-label {

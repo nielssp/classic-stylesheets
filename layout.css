@@ -165,3 +165,7 @@ pre {
 .window-body {
   flex-grow: 1;
 }
+
+.list [role="option"] {
+  user-select: none;
+}
