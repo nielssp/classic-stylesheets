@@ -724,6 +724,10 @@ hr {
   outline: none;
 }
 
+.detailed td.icon {
+  display: flex;
+}
+
 .detailed .icon > img {
   width: 16px;
   height: 16px;
