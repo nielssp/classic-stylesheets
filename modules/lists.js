@@ -140,6 +140,7 @@ class List {
           option.setAttribute('aria-selected', false);
         } else {
           option.setAttribute('aria-selected', true);
+          this.selectedOption = index;
         }
       }
     } else {
