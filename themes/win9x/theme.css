@@ -487,8 +487,10 @@ hr {
 }
 
 .menu-bar li li:hover,
+.menu-bar li li:focus,
 .menu-bar li li[role=menu]:focus-within,
 .menu li:hover,
+.menu li:focus,
 .menu li[role=menu]:focus-within {
   background: var(--selection-bg);
   color: var(--selection-fg);
