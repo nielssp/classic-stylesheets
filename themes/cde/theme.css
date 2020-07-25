@@ -314,6 +314,11 @@ legend {
   display: block;
 }
 
+hr {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+}
+
 .window,
 .dialog,
 .menu {
@@ -449,16 +454,18 @@ legend {
   border-right-color: var(--button-light);
 }
 
-.window-body hr,
-.dialog-body hr {
-  border-top: 1px solid var(--button-dark);
-  border-bottom: 1px solid var(--button-light);
-}
-
 .window-body > .menu-bar,
 .dialog-body > .menu-bar {
   padding-left: calc(var(--margin) - 4px);
   padding-right: calc(var(--margin) - 4px);
+}
+
+.window-body > div:not(.menu-bar),
+.dialog-body > div:not(.menu-bar) {
+  background: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-bottom-color: var(--button-dark);
+  border-right-color: var(--button-dark);
 }
 
 .menu {

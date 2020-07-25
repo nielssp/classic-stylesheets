@@ -138,9 +138,9 @@ select {
   background-color: var(--input-bg);
   color: var(--input-fg);
   border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lighter);
-  border-right: 1px solid var(--lighter);
-  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--medium);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--light);
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
@@ -157,8 +157,13 @@ select:not([size]):not(:active):focus,
 select[size="1"]:not(:active):focus {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
-  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--medium),
+  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--light),
     inset 2px 2px 0 var(--input-bg), inset -2px -2px 0 var(--input-bg);
+}
+
+input[type=text][readonly],
+textarea[readonly] {
+  background: var(--window-bg);
 }
 
 input[type=text]:disabled,
@@ -282,6 +287,11 @@ legend {
   display: block;
 }
 
+hr {
+  border-top: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+}
+
 .window,
 .dialog,
 .menu {
@@ -379,12 +389,6 @@ legend {
 .title-bar.inactive {
   background: var(--title-bar-bg);
   color: var(--title-bar-fg);
-}
-
-.window-body hr,
-.dialog-body hr {
-  border-top: 1px solid var(--button-dark);
-  border-bottom: 1px solid var(--button-light);
 }
 
 .window-body > .menu-bar,
@@ -572,9 +576,9 @@ legend {
   background: var(--input-bg);
   color: var(--input-fg);
   border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lighter);
-  border-right: 1px solid var(--lighter);
-  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--medium);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--light);
   padding: 1px;
   overflow: auto;
   cursor: default;

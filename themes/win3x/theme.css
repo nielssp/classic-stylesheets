@@ -287,6 +287,10 @@ legend {
   display: block;
 }
 
+hr {
+  border-top: 1px solid var(--border);
+}
+
 .window,
 .dialog,
 .menu {
@@ -387,11 +391,6 @@ legend {
   border-top: 0;
 }
 
-.window-body:first-child,
-.dialog-body:first-child {
-  border-top: 1px solid var(--border);
-}
-
 .dialog-body {
   border-color: var(--window-bg);
 }
@@ -412,23 +411,9 @@ legend {
   color: var(--title-bar-fg);
 }
 
-.window-body hr,
-.dialog-body hr {
-  border-top: 1px solid var(--button-dark);
-  border-bottom: 1px solid var(--button-light);
-}
-
-.window-body > .lowered,
-.window-body > .raised,
-.dialog-body > .lowered,
-.dialog-body > .raised {
+.window-body > * + *,
+.dialog-body > * + * {
   border: 0;
-}
-
-.window-body > * + .lowered,
-.window-body > * + .raised,
-.dialog-body > * + .lowered,
-.dialog-body > * + .raised {
   border-top: 1px solid var(--border);
 }
 
