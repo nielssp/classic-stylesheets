@@ -36,6 +36,12 @@ class List {
             this.prefixTimeout = null;
             this.prefix = '';
           }, 700);
+        } else if (e.key === 'a' && e.ctrlKey && this.multiselect) {
+          e.preventDefault();
+          for (let option of this.options) {
+            option.setAttribute('aria-selected', true);
+          }
+        other.setAttribute('aria-selected', false);
         } else if (e.key === 'Home') {
           e.preventDefault();
           this.select(0, e.shiftKey, e.ctrlKey);
