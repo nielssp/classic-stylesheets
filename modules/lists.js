@@ -5,6 +5,8 @@ class List {
     this.isIconGrid = this.root.children.length > 0 && this.root.children[0].classList.contains('icon-grid');
     this.options = this.root.querySelectorAll('[role="option"]');
     this.selectedOption = -1;
+    this.prefix = '';
+    this.prefixTimeout = null;
 
     for (let i = 0; i < this.options.length; i++) {
       const option = this.options[i];
@@ -13,9 +15,26 @@ class List {
         this.select(i);
       });
       option.addEventListener('keydown', e => {
-        if (e.key === ' ') {
+        if (e.key === ' ' && !this.prefix) {
           e.preventDefault();
           this.select(i);
+        } else if (e.key.length === 1) {
+          e.preventDefault();
+          if (this.prefixTimeout) {
+            clearTimeout(this.prefixTimeout);
+            this.prefixTimeout = null;
+          }
+          this.prefix += e.key.toLowerCase();
+          for (let j = 0; j < this.options.length; j++) {
+            if (this.options[j].textContent.trimLeft().toLowerCase().startsWith(this.prefix)) {
+              this.select(j);
+              break;
+            }
+          }
+          this.prefixTimeout = setTimeout(() => {
+            this.prefixTimeout = null;
+            this.prefix = '';
+          }, 700);
         } else if (e.key === 'Home') {
           e.preventDefault();
           this.select(0);
