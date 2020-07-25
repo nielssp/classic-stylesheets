@@ -76,8 +76,13 @@ class WindowHost {
 class Window {
   constructor(root, host) {
     this.root = root;
+    this.root.csWindow = this;
     this.host = host;
     this.titleBarText = root.querySelector('.title-bar-text');
+    this.resizeX = 0;
+    this.resizeY = 0;
+    this.resizeCursor = '';
+    this.resizing = false;
     this.maximized = false;
     this.oldPosition = null;
 
@@ -91,6 +96,52 @@ class Window {
     this.root.addEventListener('mousedown', e => {
       e.stopPropagation();
       this.focus();
+    });
+
+    this.root.addEventListener('mousemove', e => {
+      if (!this.resizing) {
+        this.resizeX = this.resizeY = 0;
+        this.resizeCursor = '';
+        if (e.target === this.root && !this.maximized) {
+          const rect = this.root.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          if (y < 20) {
+            this.resizeY = -1;
+          } else if (y > rect.height - 20) {
+            this.resizeY = 1;
+          }
+          if (x < 20) {
+            this.resizeX = -1;
+          } else if (x > rect.width - 20) {
+            this.resizeX = 1;
+          }
+        }
+        if (this.resizeX || this.resizeY) {
+          this.resizeCursor = '';
+          if (this.resizeY < 0) {
+            this.resizeCursor += 'n';
+          } else if (this.resizeY > 0) {
+            this.resizeCursor += 's';
+          }
+          if (this.resizeX < 0) {
+            this.resizeCursor += 'w';
+          } else if (this.resizeX > 0) {
+            this.resizeCursor += 'e';
+          }
+          this.resizeCursor += '-resize';
+        }
+        this.root.style.cursor = this.resizeCursor;
+      }
+    });
+
+    this.root.addEventListener('mousedown', e => {
+      if (e.target === this.root && !this.maximized && (this.resizeX || this.resizeY)) {
+        e.stopPropagation();
+        this.resizing = true;
+        document.body.style.cursor = this.resizeCursor;
+        drag.start(this, e, 0);
+      }
     });
   }
 
@@ -127,27 +178,46 @@ class Window {
   }
 
   dragMove(dx, dy, e) {
-    const hostRect = this.host.root.getBoundingClientRect();
-    if (this.host.edgeMaximize && e.clientY - hostRect.top < 5) {
-      if (!this.maximized) {
-        this.maximize();
+    if (this.resizing) {
+      if (this.resizeX < 0) {
+        this.x += dx;
       }
-      return;
-    } else if (this.maximized) {
-      this.maximized = false;
-      this.root.classList.remove('maximized');
-      if (this.oldPosition) {
-        this.width = this.oldPosition.width;
-        this.height = this.oldPosition.height;
-        this.x = Math.floor(e.clientX - hostRect.left - this.width * e.clientX / hostRect.width);
+      if (this.resizeY < 0) {
+        this.y += dy;
       }
+      this.width += dx * this.resizeX;
+      this.height += dy * this.resizeY;
+      this.updatePosition();
+    } else {
+      const hostRect = this.host.root.getBoundingClientRect();
+      if (this.host.edgeMaximize && e.clientY - hostRect.top < 5) {
+        if (!this.maximized) {
+          this.maximize();
+        }
+        return;
+      } else if (this.maximized) {
+        this.maximized = false;
+        this.root.classList.remove('maximized');
+        if (this.oldPosition) {
+          this.width = this.oldPosition.width;
+          this.height = this.oldPosition.height;
+          this.x = Math.floor(e.clientX - hostRect.left - this.width * e.clientX / hostRect.width);
+        }
+      }
+      this.x += dx;
+      this.y += dy;
+      this.updatePosition();
     }
-    this.x += dx;
-    this.y += dy;
-    this.updatePosition();
   }
 
   dragEnd() {
+    if (this.resizing) {
+      this.resizing = false;
+      this.resizeCursor = '';
+      this.resizeX = this.resizeY = 0;
+      this.root.style.cursor = '';
+      document.body.style.cursor = '';
+    }
     this.reposition();
   }
 
@@ -197,7 +267,7 @@ class Window {
 }
 
 
-window.addEventListener('load', () => {
+window.addEventListener('DOMContentLoaded', () => {
   const host = new WindowHost(document.getElementsByTagName('main')[0]);
   const windows = document.getElementsByClassName('window');
   for (let w of windows) {
