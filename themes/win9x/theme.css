@@ -691,7 +691,7 @@ hr {
   color: var(--window-fg);
 }
 
-.detailed tr[aria-selected="true"] {
+.detailed tr[aria-selected="true"]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
 
