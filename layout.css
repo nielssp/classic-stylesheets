@@ -162,6 +162,12 @@ pre {
   flex-shrink: 0;
 }
 
+.title-bar-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .window-body {
   flex-grow: 1;
 }
