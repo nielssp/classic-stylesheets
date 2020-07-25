@@ -42,7 +42,7 @@ const skins = {
     'slate-2000', 'spruce-2000', 'storm-2000', 'teal-2000', 'wheat-2000',
   ],
   win3x: [
-    '3.1', '3.0',
+    '3.1', '3.0', 'high-color',
 
     'arizona', 'black-leather-jacket', 'bordeaux', 'cinnamon', 'designer',
     'emerald-city', 'fluorescent', 'hotdog-stand', 'lcd', 'lcd-reversed-dark',
