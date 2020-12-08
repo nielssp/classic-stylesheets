@@ -391,13 +391,14 @@ hr {
   color: var(--title-bar-fg);
 }
 
-.window-body > .menu-bar,
-.dialog-body > .menu-bar {
+.window-body > [role=menubar],
+.dialog-body > [role=menubar] {
   margin-top: -3px;
   margin-bottom: 1px;
 }
 
-[role=menu] {
+[role=menu],
+[role=menubar] {
   color: var(--window-fg);
   background-color: var(--window-bg);
   border: 1px solid var(--light);
@@ -407,7 +408,7 @@ hr {
   padding: 2px;
 }
 
-.menu-bar,
+[role=menubar],
 .menu > [role=menu] {
   box-shadow: none;
   border: none;
@@ -417,6 +418,11 @@ hr {
 [role=menu] li {
   border: 1px solid transparent;
   padding: 1px 3px;
+}
+
+[role=menubar] > li {
+  border: 1px solid transparent;
+  padding: 1px 8px;
 }
 
 [role=menu] li[data-shortcut]::after {
@@ -434,19 +440,17 @@ hr {
   min-width: 200px;
 }
 
-.menu-bar > li > ul {
+[role=menubar] > li > ul {
   left: 0;
   top: 100%;
   margin-left: -1px;
   margin-top: 1px;
+  min-width: 200px;
 }
 
-[role=menu] li:focus {
+[role=menu] li:focus,
+[role=menubar] li:focus {
   outline: none;
-}
-
-.menu-bar > li {
-  padding: 1px 8px;
 }
 
 [role=menu] li:hover,
@@ -455,7 +459,7 @@ hr {
   color: var(--selection-fg);
 }
 
-.menu-bar > li:hover {
+[role=menubar] > li:hover {
   background: var(--window-bg);
   color: var(--window-fg);
   border: 1px solid var(--lightest);
@@ -463,7 +467,7 @@ hr {
   border-bottom-color: var(--dark);
 }
 
-.menu-bar > li:focus-within {
+[role=menubar] > li:focus-within {
   background: var(--window-bg);
   color: var(--window-fg);
   border: 1px solid var(--dark);
@@ -472,7 +476,8 @@ hr {
   padding: 2px 7px 0 9px;
 }
 
-[role=menu] li[aria-disabled] {
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
   color: var(--dark);
   text-shadow: 1px 1px 0 var(--lightest);
   border-color: transparent;
@@ -486,14 +491,14 @@ hr {
   padding: 0;
 }
 
-[role=menu]:not(.menu-bar) > li[aria-haspopup=true] {
+[role=menu] > li[aria-haspopup=true] {
   background-image: url(arrow-right.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
 
-[role=menu]:not(.menu-bar) > li[aria-haspopup=true]:focus-within,
-[role=menu]:not(.menu-bar) > li[aria-haspopup=true]:hover {
+[role=menu] > li[aria-haspopup=true]:focus-within,
+[role=menu] > li[aria-haspopup=true]:hover {
   background-image: url(arrow-right-active.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;

@@ -172,31 +172,34 @@ pre {
   flex-grow: 1;
 }
 
-[role=menu] {
+[role=menu],
+[role=menubar] {
   user-select: none;
   list-style-type: none;
   display: flex;
-  flex-direction: column;
   white-space: nowrap;
 }
 
-.menu-bar {
-  flex-direction: row;
+[role=menu] {
+  flex-direction: column;
 }
 
-[role=menu] li {
+[role=menu] li,
+[role=menubar] li {
   position: relative;
   text-overflow: ellipsis;
   cursor: default;
 }
 
-[role=menu] li > ul {
+[role=menu] li > ul,
+[role=menubar] li > ul {
   position: absolute;
   z-index: 1;
   display: none;
 }
 
-[role=menu] li:focus-within > ul {
+[role=menu] li:focus-within > ul,
+[role=menubar] li:focus-within > ul {
   display: block;
 }
 

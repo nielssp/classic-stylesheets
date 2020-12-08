@@ -423,12 +423,13 @@ hr {
   border: 1px solid var(--border);
 }
 
-.menu > [role=menu] {
-  border-top: 0;
+[role=menubar] {
+  color: var(--menu-fg);
+  background-color: var(--menu-bg);
 }
 
-.menu-bar {
-  border: 0;
+.menu > [role=menu] {
+  border-top: 0;
 }
 
 [role=menu] li {
@@ -449,27 +450,29 @@ hr {
   min-width: 200px;
 }
 
-.menu-bar > li > ul {
+[role=menubar] > li > ul {
   left: 0;
   top: 100%;
-  margin-top: 1px;
   min-width: 200px;
 }
 
-[role=menu] li:focus {
+[role=menu] li:focus,
+[role=menubar] li:focus {
   outline: none;
 }
 
-.menu-bar > li {
+[role=menubar] > li {
   padding: 1px 8px;
 }
 
-[role=menu] li:focus-within {
+[role=menu] li:focus-within,
+[role=menubar] li:focus-within {
   background: var(--selection-bg);
   color: var(--selection-fg);
 }
 
-[role=menu] li[aria-disabled] {
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
   color: var(--disabled);
   border-color: transparent;
 }
@@ -481,13 +484,13 @@ hr {
   margin: 2px 0;
 }
 
-[role=menu]:not(.menu-bar) > li[aria-haspopup=true] {
+[role=menu] > li[aria-haspopup=true] {
   background-image: url(arrow-right.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
 
-[role=menu]:not(.menu-bar) > li[aria-haspopup=true]:focus-within {
+[role=menu] > li[aria-haspopup=true]:focus-within {
   background-image: url(arrow-right-active.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;

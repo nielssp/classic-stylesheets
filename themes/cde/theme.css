@@ -454,21 +454,22 @@ hr {
   border-right-color: var(--button-light);
 }
 
-.window-body > .menu-bar,
-.dialog-body > .menu-bar {
+.window-body > [role=menubar],
+.dialog-body > [role=menubar] {
   padding-left: calc(var(--margin) - 4px);
   padding-right: calc(var(--margin) - 4px);
 }
 
-.window-body > div:not(.menu-bar),
-.dialog-body > div:not(.menu-bar) {
+.window-body > :not([role=menubar]),
+.dialog-body > :not([role=menubar]) {
   background: var(--button-bg);
   border: 1px solid var(--button-light);
   border-bottom-color: var(--button-dark);
   border-right-color: var(--button-dark);
 }
 
-[role=menu] {
+[role=menu],
+[role=menubar] {
   color: var(--button-fg);
   background-color: var(--button-bg);
   border: 1px solid var(--button-light);
@@ -485,7 +486,8 @@ hr {
   padding: 1px;
 }
 
-[role=menu] li {
+[role=menu] li,
+[role=menubar] li {
   border: 1px solid transparent;
   padding: 1px 3px;
 }
@@ -505,7 +507,7 @@ hr {
   min-width: 200px;
 }
 
-.menu-bar > li > ul {
+[role=menubar] > li > ul {
   left: 0;
   top: 100%;
   margin-left: -1px;
@@ -513,22 +515,26 @@ hr {
   min-width: 200px;
 }
 
-[role=menu] li:focus {
+[role=menu] li:focus,
+[role=menubar] li:focus {
   outline: none;
 }
 
-[role=menu] li:focus-within {
+[role=menu] li:focus-within,
+[role=menubar] li:focus-within {
   border: 1px solid var(--button-dark);
   border-right-color: var(--button-light);
   border-bottom-color: var(--button-light);
   background-color: var(--button-active-bg);
 }
 
-[role=menu] li:focus-within > ul {
+[role=menu] li:focus-within > ul,
+[role=menubar] li:focus-within > ul {
   display: block;
 }
 
-[role=menu] li[aria-disabled] {
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
   color: var(--button-dark);
   text-shadow: 1px 1px 0 var(--button-light);
   border-color: transparent;
@@ -542,22 +548,22 @@ hr {
   padding: 0;
 }
 
-[role=menu]:not(.menu-bar) > li[aria-haspopup=true] {
+[role=menu] > li[aria-haspopup=true] {
   background-image: url(arrow-right.png);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
 
-.menu-bar > li.help-menu {
+[role=menubar] > li.help-menu {
   margin-left: auto;
 }
 
-.menu-bar > li.help-menu > ul {
+[role=menubar] > li.help-menu > ul {
   right: 0;
   left: auto;
 }
 
-.dialog, [role=menu] {
+.dialog, [role=menu], [role=menubar] {
   --button-bg: var(--dialog-button-bg);
   --button-fg: var(--dialog-button-fg);
   --button-active-bg: var(--dialog-button-active-bg);
