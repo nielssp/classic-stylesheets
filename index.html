@@ -431,27 +431,27 @@
             <h2>Menus</h2>
             <div>
               <div class="example">
-                <div class="menu">
+                <div class="menu" style="width: 200px;">
                   <div class="title-bar">
                     <div class="title-bar-text">
                       Main Menu
                     </div>
                   </div>
-                  <ul>
+                  <ul role="menu">
                     <li tabindex=0 data-shortcut="Ctrl+S">Save</li>
                     <li tabindex=0>Save As&hellip;</li>
-                    <li tabindex=0 role="menu">
+                    <li tabindex=0 aria-haspopup="true">
                       <u>E</u>dit
-                      <ul>
+                      <ul role="menu">
                         <li tabindex=0 data-shortcut="Ctrl+Z" disabled>Undo</li>
                         <li role="separator"></li>
                         <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
                         <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
                         <li tabindex=0 data-shortcut="Ctrl+V" disabled>Paste</li>
                         <li role="separator"></li>
-                        <li tabindex=0 role="menu">
+                        <li tabindex=0 aria-haspopup="true">
                           Another Submenu
-                          <ul>
+                          <ul role="menu">
                             <li tabindex=0>Foo</li>
                             <li tabindex=0>Baz</li>
                           </ul>
@@ -465,16 +465,33 @@
                 </div>
               </div>
               <div class="example">
-                <ul class="menu-bar">
-                  <li tabindex=0>
+                <ul role="menu" style="width: 200px;">
+                  <li tabindex=0>Open</li>
+                  <li tabindex=0>Edit</li>
+                  <li tabindex=0>Print</li>
+                  <li role="separator"></li>
+                  <li tabindex=0 aria-haspopup="true">
+                    Send To
+                    <ul role="menu">
+                      <li tabindex=0>Compressed Folder</li>
+                      <li tabindex=0>Desktop</li>
+                    </ul>
+                  </li>
+                  <li role="separator"></li>
+                  <li tabindex=0>Properties</li>
+                </ul>
+              </div>
+              <div class="example">
+                <ul class="menu-bar" role="menu">
+                  <li tabindex=0 aria-haspopup="true">
                     <u>F</u>ile
-                    <ul>
+                    <ul role="menu">
                       <li tabindex=0>Save</li>
                       <li tabindex=0>Save As&hellip;</li>
                       <li role="separator"></li>
-                      <li tabindex=0 role="menu">
+                      <li tabindex=0 aria-haspopup="true">
                         Another Submenu
-                        <ul>
+                        <ul role="menu">
                           <li tabindex=0>Foo</li>
                           <li tabindex=0>Baz</li>
                         </ul>
@@ -483,9 +500,9 @@
                       <li tabindex=0>Quit</li>
                     </ul>
                   </li>
-                  <li tabindex=0>
+                  <li tabindex=0 aria-haspopup="true">
                     <u>E</u>dit
-                    <ul>
+                    <ul role="menu">
                       <li tabindex=0 data-shortcut="Ctrl+Z">Undo</li>
                       <li role="separator"></li>
                       <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
@@ -493,9 +510,9 @@
                       <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
                     </ul>
                   </li>
-                  <li tabindex=0 class="help-menu">
+                  <li tabindex=0 class="help-menu" aria-haspopup="true">
                     Help
-                    <ul>
+                    <ul role="menu">
                       <li tabindex=0>Overview</li>
                       <li role="separator"></li>
                       <li tabindex=0>About</li>
@@ -551,16 +568,16 @@
                     </div>
                   </div>
                   <div class="window-body">
-                    <ul class="menu-bar">
-                      <li tabindex=0>
+                    <ul class="menu-bar" role="menu">
+                      <li tabindex=0 aria-haspopup="true">
                         <u>F</u>ile
-                        <ul>
+                        <ul role="menu">
                           <li tabindex=0>Save</li>
                           <li tabindex=0>Save As&hellip;</li>
                           <li role="separator"></li>
-                          <li tabindex=0 role="menu">
+                          <li tabindex=0 aria-haspopup="true">
                             Another Submenu
-                            <ul>
+                            <ul role="menu">
                               <li tabindex=0>Foo</li>
                               <li tabindex=0>Baz</li>
                             </ul>
@@ -569,9 +586,9 @@
                           <li tabindex=0>Quit</li>
                         </ul>
                       </li>
-                      <li tabindex=0>
+                      <li tabindex=0 aria-haspopup="true">
                         <u>E</u>dit
-                        <ul>
+                        <ul role="menu">
                           <li data-shortcut="Ctrl+Z" aria-disabled>Undo</li>
                           <li role="separator"></li>
                           <li data-shortcut="Ctrl+X" aria-disabled>Cut</li>
@@ -579,9 +596,9 @@
                           <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
                         </ul>
                       </li>
-                      <li tabindex=0 class="help-menu">
+                      <li tabindex=0 class="help-menu" aria-haspopup="true">
                         Help
-                        <ul>
+                        <ul role="menu">
                           <li tabindex=0>Overview</li>
                           <li role="separator"></li>
                           <li tabindex=0>About</li>

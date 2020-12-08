@@ -172,6 +172,34 @@ pre {
   flex-grow: 1;
 }
 
+[role=menu] {
+  user-select: none;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.menu-bar {
+  flex-direction: row;
+}
+
+[role=menu] li {
+  position: relative;
+  text-overflow: ellipsis;
+  cursor: default;
+}
+
+[role=menu] li > ul {
+  position: absolute;
+  z-index: 1;
+  display: none;
+}
+
+[role=menu] li:focus-within > ul {
+  display: block;
+}
+
 .list [role="option"] {
   user-select: none;
 }

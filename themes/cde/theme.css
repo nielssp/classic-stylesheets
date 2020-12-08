@@ -468,35 +468,15 @@ hr {
   border-right-color: var(--button-dark);
 }
 
-.menu {
-  width: 200px;
-}
-
-.menu-bar {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  background-color: var(--button-bg);
-  color: var(--button-fg);
-  border: 1px solid var(--button-light);
-  border-right-color: var(--button-dark);
-  border-bottom-color: var(--button-dark);
-}
-
-.menu-bar ul,
-.menu ul {
+[role=menu] {
   color: var(--button-fg);
   background-color: var(--button-bg);
   border: 1px solid var(--button-light);
   border-right-color: var(--button-dark);
   border-bottom-color: var(--button-dark);
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  white-space: nowrap;
 }
 
-.menu > ul {
+.menu > [role=menu] {
   border-top: 0;
   border-left-color: var(--title-bar-active-dark);
   border-right-color: var(--title-bar-active-light);
@@ -505,35 +485,19 @@ hr {
   padding: 1px;
 }
 
-.menu-bar li,
-.menu li {
-  position: relative;
+[role=menu] li {
   border: 1px solid transparent;
   padding: 1px 3px;
-  text-overflow: ellipsis;
-  cursor: default;
 }
 
-.menu-bar li[data-shortcut]::after,
-.menu li[data-shortcut]::after {
+[role=menu] li[data-shortcut]::after {
   float: right;
   content: attr(data-shortcut);
   display: block;
   margin-left: 4px;
 }
 
-.menu-bar li > ul {
-  display: none;
-  position: absolute;
-  margin-left: -4px;
-  margin-top: 1px;
-  min-width: 200px;
-}
-
-.menu-bar li li > ul,
-.menu li > ul {
-  display: none;
-  position: absolute;
+[role=menu] li > ul {
   left: 100%;
   margin: 0;
   top: -1px;
@@ -541,42 +505,44 @@ hr {
   min-width: 200px;
 }
 
-.menu-bar li:focus,
-.menu li:focus {
+.menu-bar > li > ul {
+  left: 0;
+  top: 100%;
+  margin-left: -1px;
+  margin-top: 1px;
+  min-width: 200px;
+}
+
+[role=menu] li:focus {
   outline: none;
 }
 
-.menu-bar li:focus-within,
-.menu li:focus-within {
+[role=menu] li:focus-within {
   border: 1px solid var(--button-dark);
   border-right-color: var(--button-light);
   border-bottom-color: var(--button-light);
   background-color: var(--button-active-bg);
 }
 
-.menu-bar li:focus-within > ul,
-.menu li:focus-within > ul {
+[role=menu] li:focus-within > ul {
   display: block;
 }
 
-.menu-bar li[aria-disabled],
-.menu li[aria-disabled] {
+[role=menu] li[aria-disabled] {
   color: var(--button-dark);
   text-shadow: 1px 1px 0 var(--button-light);
   border-color: transparent;
   background-color: var(--button-bg);
 }
 
-.menu-bar li[role=separator],
-.menu li[role=separator] {
+[role=menu] li[role=separator] {
   border-top: 1px solid var(--button-dark);
   border-bottom: 1px solid var(--button-light);
   height: 0;
   padding: 0;
 }
 
-.menu-bar li li[role=menu],
-.menu li[role=menu] {
+[role=menu]:not(.menu-bar) > li[aria-haspopup=true] {
   background-image: url(arrow-right.png);
   background-repeat: no-repeat;
   background-position: right 8px center;
@@ -586,11 +552,12 @@ hr {
   margin-left: auto;
 }
 
-.menu-bar > li.help-menu >ul {
+.menu-bar > li.help-menu > ul {
   right: 0;
+  left: auto;
 }
 
-.dialog, .menu, .menu-bar {
+.dialog, [role=menu] {
   --button-bg: var(--dialog-button-bg);
   --button-fg: var(--dialog-button-fg);
   --button-active-bg: var(--dialog-button-active-bg);

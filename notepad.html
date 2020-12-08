@@ -32,10 +32,10 @@
           </div>
         </div>
         <div class="window-body stack-column">
-          <ul class="menu-bar">
-            <li tabindex=0>
+          <ul class="menu-bar" role="menu">
+            <li tabindex=0 aria-haspopup="true">
               <u>F</u>ile
-              <ul>
+              <ul role="menu">
                 <li tabindex=0><u>N</u>ew</li>
                 <li tabindex=0><u>O</u>pen</li>
                 <li tabindex=0><u>S</u>ave</li>
@@ -47,9 +47,9 @@
                 <li tabindex=0>E<u>x</u>it</li>
               </ul>
             </li>
-            <li tabindex=0>
+            <li tabindex=0 aria-haspopup="true">
               <u>E</u>dit
-              <ul>
+              <ul role="menu">
                 <li tabindex=0 data-shortcut="Ctrl+Z"><u>U</u>ndo</li>
                 <li role="separator"></li>
                 <li tabindex=0 data-shortcut="Ctrl+X">Cu<u>t</u></li>
@@ -64,16 +64,16 @@
                 <li tabindex=0>Set <u>F</u>ont&hellip;</li>
               </ul>
             </li>
-            <li tabindex=0>
+            <li tabindex=0 aria-haspopup="true">
               <u>S</u>earch
-              <ul>
+              <ul role="menu">
                 <li tabindex=0><u>F</u>ind</li>
                 <li tabindex=0 data-shortcut="F3">Find <u>N</u>ext</li>
               </ul>
             </li>
-            <li tabindex=0 class="help-menu">
+            <li tabindex=0 class="help-menu" aria-haspopup="true">
               <u>H</u>elp
-              <ul>
+              <ul role="menu">
                 <li tabindex=0><u>H</u>elp Topics</li>
                 <li role="separator"></li>
                 <li tabindex=0><u>A</u>bout Notepad</li>

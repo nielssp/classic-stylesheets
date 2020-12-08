@@ -397,30 +397,9 @@ hr {
   margin-bottom: 1px;
 }
 
-.menu {
-  width: 200px;
-}
-
-.menu-bar {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  background-color: var(--window-bg);
-  color: var(--window-fg);
-}
-
-.menu-bar ul,
-.menu ul {
+[role=menu] {
   color: var(--window-fg);
   background-color: var(--window-bg);
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  white-space: nowrap;
-}
-
-.menu-bar ul,
-.menu ul ul {
   border: 1px solid var(--light);
   border-right-color: var(--darkest);
   border-bottom-color: var(--darkest);
@@ -428,35 +407,26 @@ hr {
   padding: 2px;
 }
 
-.menu-bar li,
-.menu li {
-  position: relative;
-  border: 1px solid transparent;
-  padding: 1px 3px;
-  text-overflow: ellipsis;
-  cursor: default;
+.menu-bar,
+.menu > [role=menu] {
+  box-shadow: none;
+  border: none;
+  padding: 0;
 }
 
-.menu-bar li[data-shortcut]::after,
-.menu li[data-shortcut]::after {
+[role=menu] li {
+  border: 1px solid transparent;
+  padding: 1px 3px;
+}
+
+[role=menu] li[data-shortcut]::after {
   float: right;
   content: attr(data-shortcut);
   display: block;
   margin-left: 4px;
 }
 
-.menu-bar li > ul {
-  display: none;
-  position: absolute;
-  margin-left: -10px;
-  margin-top: 1px;
-  min-width: 200px;
-}
-
-.menu-bar li li > ul,
-.menu li > ul {
-  display: none;
-  position: absolute;
+[role=menu] li > ul {
   left: 100%;
   margin: 0;
   top: -1px;
@@ -464,8 +434,14 @@ hr {
   min-width: 200px;
 }
 
-.menu-bar li:focus,
-.menu li:focus {
+.menu-bar > li > ul {
+  left: 0;
+  top: 100%;
+  margin-left: -1px;
+  margin-top: 1px;
+}
+
+[role=menu] li:focus {
   outline: none;
 }
 
@@ -473,61 +449,51 @@ hr {
   padding: 1px 8px;
 }
 
+[role=menu] li:hover,
+[role=menu] li:focus-within {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
 .menu-bar > li:hover {
+  background: var(--window-bg);
+  color: var(--window-fg);
   border: 1px solid var(--lightest);
   border-right-color: var(--dark);
   border-bottom-color: var(--dark);
 }
 
 .menu-bar > li:focus-within {
+  background: var(--window-bg);
+  color: var(--window-fg);
   border: 1px solid var(--dark);
   border-right-color: var(--lightest);
   border-bottom-color: var(--lightest);
   padding: 2px 7px 0 9px;
 }
 
-.menu-bar li li:hover,
-.menu-bar li li:focus,
-.menu-bar li li[role=menu]:focus-within,
-.menu li:hover,
-.menu li:focus,
-.menu li[role=menu]:focus-within {
-  background: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
-.menu-bar li:focus-within > ul,
-.menu li:focus-within > ul {
-  display: block;
-}
-
-.menu-bar li[aria-disabled],
-.menu li[aria-disabled] {
+[role=menu] li[aria-disabled] {
   color: var(--dark);
   text-shadow: 1px 1px 0 var(--lightest);
   border-color: transparent;
   background-color: var(--button-bg);
 }
 
-.menu-bar li[role=separator],
-.menu li[role=separator] {
+[role=menu] li[role=separator] {
   border-top: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   height: 0;
   padding: 0;
 }
 
-.menu-bar li li[role=menu],
-.menu li[role=menu] {
+[role=menu]:not(.menu-bar) > li[aria-haspopup=true] {
   background-image: url(arrow-right.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
 
-.menu-bar li li[role=menu]:focus-within,
-.menu-bar li li[role=menu]:hover,
-.menu li[role=menu]:focus-within,
-.menu li[role=menu]:hover {
+[role=menu]:not(.menu-bar) > li[aria-haspopup=true]:focus-within,
+[role=menu]:not(.menu-bar) > li[aria-haspopup=true]:hover {
   background-image: url(arrow-right-active.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;

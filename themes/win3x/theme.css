@@ -417,75 +417,46 @@ hr {
   border-top: 1px solid var(--border);
 }
 
-.menu {
-  width: 200px;
-}
-
-.menu-bar {
-  list-style-type: none;
-  display: flex;
-  flex-direction: row;
-  background-color: var(--menu-bg);
-  color: var(--menu-fg);
-}
-
-.menu-bar ul,
-.menu ul {
+[role=menu] {
   color: var(--menu-fg);
   background-color: var(--menu-bg);
-  list-style-type: none;
-  display: flex;
-  flex-direction: column;
-  white-space: nowrap;
   border: 1px solid var(--border);
+}
+
+.menu > [role=menu] {
   border-top: 0;
 }
 
-.menu-bar ul,
-.menu ul ul {
-  border: 1px solid var(--border);
-  padding: 0px;
+.menu-bar {
+  border: 0;
 }
 
-.menu-bar li,
-.menu li {
-  position: relative;
+[role=menu] li {
   padding: 1px 3px;
-  text-overflow: ellipsis;
-  cursor: default;
 }
 
-.menu-bar li[data-shortcut]::after,
-.menu li[data-shortcut]::after {
+[role=menu] li[data-shortcut]::after {
   float: right;
   content: attr(data-shortcut);
   display: block;
   margin-left: 4px;
 }
 
-.menu-bar li > ul {
-  display: none;
-  position: absolute;
-  margin-left: -8px;
-  margin-top: 1px;
-  min-width: 200px;
-  z-index: 1;
-}
-
-.menu-bar li li > ul,
-.menu li > ul {
-  display: none;
-  position: absolute;
+[role=menu] li > ul {
   left: 100%;
   margin: 0;
   top: -1px;
-  margin-left: 0;
   min-width: 200px;
-  z-index: 1;
 }
 
-.menu-bar li:focus,
-.menu li:focus {
+.menu-bar > li > ul {
+  left: 0;
+  top: 100%;
+  margin-top: 1px;
+  min-width: 200px;
+}
+
+[role=menu] li:focus {
   outline: none;
 }
 
@@ -493,40 +464,30 @@ hr {
   padding: 1px 8px;
 }
 
-.menu-bar li:focus-within,
-.menu li:focus-within {
+[role=menu] li:focus-within {
   background: var(--selection-bg);
   color: var(--selection-fg);
 }
 
-.menu-bar li:focus-within > ul,
-.menu li:focus-within > ul {
-  display: block;
-}
-
-.menu-bar li[aria-disabled],
-.menu li[aria-disabled] {
+[role=menu] li[aria-disabled] {
   color: var(--disabled);
   border-color: transparent;
 }
 
-.menu-bar li[role=separator],
-.menu li[role=separator] {
+[role=menu] li[role=separator] {
   border-top: 1px solid var(--border);
   height: 0;
   padding: 0;
   margin: 2px 0;
 }
 
-.menu-bar li li[role=menu],
-.menu li[role=menu] {
+[role=menu]:not(.menu-bar) > li[aria-haspopup=true] {
   background-image: url(arrow-right.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
 
-.menu-bar li li[role=menu]:focus-within,
-.menu li[role=menu]:focus-within {
+[role=menu]:not(.menu-bar) > li[aria-haspopup=true]:focus-within {
   background-image: url(arrow-right-active.gif);
   background-repeat: no-repeat;
   background-position: right 8px center;
