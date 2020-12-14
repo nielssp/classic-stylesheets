@@ -436,7 +436,7 @@ hr {
   left: 100%;
   margin: 0;
   top: -4px;
-  margin-left: 2px;
+  margin-left: -1px;
   min-width: 200px;
 }
 
