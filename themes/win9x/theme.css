@@ -435,7 +435,7 @@ hr {
 [role=menu] li > ul {
   left: 100%;
   margin: 0;
-  top: -1px;
+  top: -4px;
   margin-left: 2px;
   min-width: 200px;
 }
@@ -476,12 +476,16 @@ hr {
   padding: 2px 7px 0 9px;
 }
 
-[role=menu] li[aria-disabled],
-[role=menubar] li[aria-disabled] {
+[role=menu] li[aria-disabled=true],
+[role=menubar] li[aria-disabled=true] {
   color: var(--dark);
   text-shadow: 1px 1px 0 var(--lightest);
   border-color: transparent;
-  background-color: var(--button-bg);
+}
+
+[role=menu] li[aria-disabled=true]:hover,
+[role=menu] li[aria-disabled=true]:focus {
+  text-shadow: none;
 }
 
 [role=menu] li[role=separator] {
