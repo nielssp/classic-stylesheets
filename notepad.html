@@ -9,8 +9,8 @@
     <link id="skin-link" rel="stylesheet" type="text/css" href="themes/cde/skins/crimson.css"/>
     <link rel="stylesheet" type="text/css" href="demo.css"/>
   </head>
-  <body class="stack-column" style="height: 100%;">
-    <div class="top-panel stack-row spacing align-center padding">
+  <body class="flex-column" style="height: 100%;">
+    <div class="top-panel flex-row spacing align-center padding">
       <div>Theme</div>
       <select id="theme-select" size=1>
         <option value="win9x">Windows 9x</option>
@@ -31,7 +31,7 @@
             <button data-maximize></button>
           </div>
         </div>
-        <div class="window-body stack-column">
+        <div class="window-body flex-column">
           <ul role="menubar">
             <li tabindex=0 aria-haspopup="true">
               <u>F</u>ile
@@ -86,5 +86,6 @@
     </main>
     <script type="text/javascript" src="demo.js"></script>
     <script type="text/javascript" src="modules/wm.js"></script>
+    <script type="text/javascript" src="modules/menu.js"></script>
   </body>
 </html>

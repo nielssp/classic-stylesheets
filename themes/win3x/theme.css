@@ -294,7 +294,7 @@ hr {
 .window,
 .dialog,
 .menu {
-  background: var(--window-frame-active);
+  background: var(--window-frame);
   border: 1px solid var(--border);
   position: relative;
   padding: 2px;
@@ -306,13 +306,23 @@ hr {
   padding: 0;
 }
 
+.window.active,
+.window:focus-within {
+  background-color: var(--window-frame-active);
+}
+
 .dialog {
-  background: var(--title-bar-active-bg);
+  background: var(--title-bar-bg);
+}
+
+.dialog.active,
+.dialog:focus-within {
+  background-color: var(--title-bar-active-bg);
 }
 
 .title-bar {
-  background: var(--title-bar-active-bg);
-  color: var(--title-bar-active-fg);
+  background: var(--title-bar-bg);
+  color: var(--title-bar-fg);
   display: flex;
   flex-direction: row;
   font-weight: bold;
@@ -395,20 +405,13 @@ hr {
   border-color: var(--window-bg);
 }
 
-.window.inactive,
-.dialog.inactive {
-  background-color: var(--window-frame);
-}
-
-.dialog.inactive {
-  background-color: var(--title-bar-bg);
-}
-
-.window.inactive > .title-bar,
-.dialog.inactive > .title-bar,
-.title-bar.inactive {
-  background: var(--title-bar-bg);
-  color: var(--title-bar-fg);
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.title-bar.active {
+  background: var(--title-bar-active-bg);
+  color: var(--title-bar-active-fg);
 }
 
 .window-body > * + *,

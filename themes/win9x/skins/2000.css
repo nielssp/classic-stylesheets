@@ -26,3 +26,7 @@
   --selection-inverse: #FFFF7F;
 }
 
+.menu > .title-bar {
+  background: linear-gradient(to bottom, #0000ff, #000000 225px, #000000);
+  color: #ffffff;
+}

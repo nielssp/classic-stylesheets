@@ -50,6 +50,9 @@ const skins = {
     'patchwork', 'plasma-power-saver', 'rugby', 'the-blues', 'tweed',
     'valentine', 'wingtips',
   ],
+  winxp: [
+    'default', 'olive-green', 'silver',
+  ],
 };
 
 

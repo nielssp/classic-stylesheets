@@ -1,0 +1,218 @@
+:root {
+  --desktop-bg: #9999CC;
+
+  --window-bg: #DDDDDD;
+  --window-fg: #000000;
+
+  --window-frame-bg: #CCCCCC;
+}
+
+body {
+  background-color: #000;
+  color: var(--window-fg);
+  font-family: system-ui;
+}
+
+.desktop {
+  background: var(--desktop-bg);
+}
+
+.top-panel, .right-panel, .buttom-panel, .left-panel {
+  background: var(--window-bg);
+}
+
+.top-panel {
+  border-bottom: 1px solid #000000;
+  box-shadow: inset 1px 0 0 #fff, inset 0 1px 0 #fff, inset -1px 0 0 #999, inset 0 -1px 0 #999;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.window,
+.dialog,
+.menu {
+  background: var(--window-frame-bg);
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0 #000000, inset 1px 0 0 #fff, inset 0 1px 0 #fff, inset -1px 0 0 #999, inset 0 -1px 0 #999;
+  padding: 2px 4px 4px;
+}
+
+.title-bar {
+  background: var(--window-frame-bg);
+  display: flex;
+  gap: 5px;
+}
+
+.title-bar-text {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.title-bar-text::before,
+.title-bar-text::after {
+  display: block;
+  content: '';
+  flex-grow: 1;
+  background: repeating-linear-gradient(0deg, #fff, #fff 1px, #777 1px, #777 2px);
+  height: 12px;
+}
+
+.title-bar-buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.title-bar-buttons:first-child {
+  margin-left: -1px;
+}
+
+.title-bar-buttons:last-child {
+  margin-right: -1px;
+}
+
+.title-bar-buttons button {
+  width: 11px;
+  height: 11px;
+  min-width: 0;
+  border-radius: 0;
+  border: 1px solid #222;
+  margin: 1px;
+  padding: 0;
+  background: linear-gradient(to bottom right, #999, #fff);
+  box-shadow: -1px -1px 0 #888, 1px 1px 0 #fff, inset 1px 1px 0 #ccc, inset -1px -1px 0 #888;
+}
+
+.title-bar-buttons button:active {
+  background: linear-gradient(to bottom right, #444, #bbb);
+  box-shadow: -1px -1px 0 #888, 1px 1px 0 #fff, inset -1px -1px 0 #999;
+}
+
+.window-body {
+  background: var(--window-bg);
+  border: 1px solid #000;
+  box-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #999, 0 -1px 0 #999;
+}
+
+.window.inactive,
+.dialog.inactive {
+  border: 1px solid #555;
+  background: #ddd;
+  box-shadow: none;
+}
+
+.window.inactive > .title-bar,
+.dialog.inactive > .title-bar {
+  background: #ddd;
+  color: #777;
+}
+
+.window.inactive > .title-bar > .title-bar-text::before,
+.window.inactive > .title-bar > .title-bar-text::after,
+.dialog.inactive > .title-bar > .title-bar-text::before,
+.dialog.inactive > .title-bar > .title-bar-text::after {
+  background: transparent;
+}
+
+.window.inactive > .window-body {
+  color: #555;
+  border-color: #555;
+  background: #eee;
+  box-shadow: none;
+}
+
+.window.inactive .title-bar-buttons {
+  visibility: hidden;
+}
+
+button,
+select[size="1"],
+select:not([size]) {
+  background-color: #DDDDDD;
+  color: #000000;
+  border: 1px solid #000;
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 0 #DDDDDD, inset 2px 2px 0 #fff, inset -1px -1px 1px #555;
+  padding: 2px 10px;
+  min-width: 58px;
+  text-align: center;
+  font-weight: bold;
+}
+
+button:active {
+  background-color: #666666;
+  color: #fff;
+  box-shadow: inset 1px 1px 1px #333, inset -1px -1px 1px #999;
+}
+
+input[type=text],
+textarea {
+  background: #fff;
+  border: 1px solid #000;
+  margin: 2px;
+  padding: 4px;
+}
+
+input[type=text]:focus {
+  outline: 2px solid #6666CC;
+}
+
+.tabs > menu {
+  display: flex;
+  gap: 10px;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+.tabs > menu > button {
+  border: 0;
+  box-shadow: none;
+  display: flex;
+  padding: 0;
+  border-top: 1px solid #000;
+  background: #ccc;
+  box-shadow: inset 0 1px 0 #ccc, inset 0 2px 0 #ddd;
+}
+
+.tabs > menu > button::before {
+  display: block;
+  content: '';
+  border-left: 1px solid #000;
+  box-shadow: inset 1px 0 #ccc;
+  transform-origin: top left;
+  transform: rotate(19.44deg);
+  background: #ccc;
+  width: 10px;
+}
+
+.tabs > menu > button::after {
+  display: block;
+  content: '';
+  box-shadow: inset -1px 0 #ccc;
+  border-right: 1px solid #000;
+  transform-origin: top right;
+  transform: rotate(-19.44deg);
+  background: #ccc;
+  width: 10px;
+}
+
+.tabs > menu > button[aria-selected="true"] {
+  background: #eee;
+  box-shadow: inset 0 1px 0 #ccc, inset 0 2px 0 #fff;
+}
+
+.tabs > menu > button[aria-selected="true"]::before,
+.tabs > menu > button[aria-selected="true"]::after {
+  background: #eee;
+}
+
+.tabs > [role="tabpanel"] {
+  margin-top: -3px;
+  background: #eee;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 0 #ccc, inset 2px 2px 0 #fff, inset -1px -1px 0 #999, inset -2px -2px 0 #bbb;
+}
+
