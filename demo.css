@@ -1,4 +1,5 @@
 body {
+  font-family: var(--preferred-font), system-ui;
 }
 
 #toolbar {

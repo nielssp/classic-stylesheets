@@ -1,4 +1,6 @@
 :root {
+  --preferred-font: 'Microsoft Sans Serif';
+
   --desktop-bg: #008080;
 
   --window-bg: #C0C0C0;
@@ -31,7 +33,6 @@
 body {
   background-color: var(--window-bg);
   color: var(--window-fg);
-  font-family: system-ui;
 }
 
 button::-moz-focus-inner {

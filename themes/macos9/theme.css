@@ -1,4 +1,6 @@
 :root {
+  --preferred-font: Charcoal;
+
   --desktop-bg: #9999CC;
 
   --window-bg: #DDDDDD;
@@ -10,7 +12,6 @@
 body {
   background-color: #000;
   color: var(--window-fg);
-  font-family: system-ui;
 }
 
 .desktop {
@@ -26,6 +27,11 @@ body {
   box-shadow: inset 1px 0 0 #fff, inset 0 1px 0 #fff, inset -1px 0 0 #999, inset 0 -1px 0 #999;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .window,
@@ -162,22 +168,41 @@ button:active {
   box-shadow: inset 1px 1px 1px #333, inset -1px -1px 1px #999;
 }
 
-input[type=text],
+input:not([type=button]):not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]),
+select[size]:not([size="1"]),
 textarea {
   background: #fff;
+  color: #000;
   border: 1px solid #000;
+  box-shadow: -1px -1px #888;
   margin: 2px;
   padding: 2px;
 }
 
-input[type=text]:focus,
-textarea:focus {
+input:not([type=button]):not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]):focus,
+textarea:focus,
+select[size]:not([size="1"]):focus {
   outline: 2px solid #6666CC;
+  border-radius: 1px;
+}
+
+
+input:not([type=button]):not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]):disabled,
+textarea:disabled,
+select[size]:not([size="1"]):disabled {
+  border-color: #555;
+  box-shadow: 0 0 0 1px #ddd;
+}
+
+input::selection,
+textarea::selection {
+  background-color: #ccf;
+  color: #000;
 }
 
 .tabs > menu {
   display: flex;
-  gap: 10px;
+  gap: 14px;
   overflow: hidden;
   padding: 0 10px;
 }
@@ -187,6 +212,8 @@ textarea:focus {
   box-shadow: none;
   display: flex;
   padding: 0;
+  min-width: 0;
+  height: 23px;
   border-top: 1px solid #000;
   background: #ccc;
   box-shadow: inset 0 1px 0 #ccc, inset 0 2px 0 #ddd;
@@ -244,10 +271,11 @@ textarea:focus {
 .tabs > [role="tabpanel"] {
   position: relative;
   z-index: 1;
-  margin-top: -3px;
+  margin-top: -2px;
   background: #eee;
   border: 1px solid #000;
-  box-shadow: inset 1px 1px 0 #ccc, inset 2px 2px 0 #fff, inset -1px -1px 0 #999, inset -2px -2px 0 #bbb;
+  /*box-shadow: inset 1px 1px 0 #ccc, inset 2px 2px 0 #fff, inset -1px -1px 0 #999, inset -2px -2px 0 #bbb;*/
+  box-shadow: inset 1px 0 0 #ccc, inset 2px 0 0 #fff, inset -1px -1px 0 #999, inset -2px -2px 0 #bbb;
 }
 
 input[type=checkbox] {
@@ -343,3 +371,83 @@ label > input[type=checkbox]:focus {
   outline-offset: 1px;
 }
 
+[role=menu] {
+  color: #000;
+  background-color: #ddd;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #888, 1px 1px #000;
+}
+
+[role=menubar] {
+  color: #000;
+  background-color: #ddd;
+  border: 1px solid #000;
+}
+
+.menu > [role=menu] {
+  border: 0;
+}
+
+[role=menu] li {
+  padding: 1px 3px;
+}
+
+[role=menu] li[data-shortcut]::after {
+  float: right;
+  content: attr(data-shortcut);
+  display: block;
+  margin-left: 4px;
+}
+
+[role=menu] li > ul {
+  left: 100%;
+  margin: 0;
+  top: -1px;
+  min-width: 200px;
+}
+
+[role=menubar] > li > ul {
+  left: 0;
+  top: 100%;
+  min-width: 200px;
+}
+
+[role=menu] li:focus,
+[role=menubar] li:focus {
+  outline: none;
+}
+
+[role=menubar] > li {
+  padding: 1px 8px;
+}
+
+[role=menu] li:focus-within,
+[role=menubar] li:focus-within {
+  background: #333399;
+  color: #fff;
+}
+
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
+  color: #777;
+}
+
+[role=menu] li[role=separator] {
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #fff;
+  height: 0;
+  padding: 0;
+  margin: 2px 0;
+}
+
+[role=menu] > li[aria-haspopup=true] {
+  background-image: url(arrow-right.gif);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+[role=menu] > li[aria-haspopup=true]:focus-within {
+  background-image: url(arrow-right-active.gif);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}

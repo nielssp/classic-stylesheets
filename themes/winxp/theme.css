@@ -1,4 +1,6 @@
 :root {
+  --preferred-font: 'Tahoma';
+
   --desktop-bg: #004E98;
 
   --window-bg: #ECE9D8;
@@ -17,7 +19,6 @@
 body {
   background-color: var(--window-bg);
   color: var(--window-fg);
-  font-family: system-ui;
 }
 
 button::-moz-focus-inner {
@@ -352,7 +353,7 @@ hr {
   border-top: 1px solid #688DE0;
   border-left: 1px solid #5B68CD;
   border-right: 1px solid #00138C;
-  font-family: 'Trebuchet MS';
+  font-family: 'Trebuchet MS', system-ui;
 }
 
 .window.active > .title-bar,

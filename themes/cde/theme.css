@@ -1,4 +1,6 @@
 :root {
+  --preferred-font: system-ui;
+
   --focus: #B24D7A;
 
   --desktop-bg: #63639C;
