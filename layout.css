@@ -89,8 +89,8 @@ pre {
   flex-direction: column;
 }
 
-.flex-row.spacing,
-.flex-column.spacing {
+.flex-row.gap,
+.flex-column.gap {
   gap: var(--spacing);
 }
 
@@ -137,16 +137,16 @@ pre {
   display: grid;
 }
 
-.grid.spacing {
+.grid.gap {
   grid-column-gap: var(--spacing);
   grid-row-gap: var(--spacing);
 }
 
-.grid.spacing-vertical {
+.grid.gap-vertical {
   grid-row-gap: var(--spacing);
 }
 
-.grid.spacing-horizontal {
+.grid.gap-horizontal {
   grid-column-gap: var(--spacing);
 }
 

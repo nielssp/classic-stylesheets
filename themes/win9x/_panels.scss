@@ -1,0 +1,62 @@
+.desktop {
+  background: var(--desktop-bg);
+}
+
+.raised {
+  background: var(--window-bg);
+  border: 1px solid var(--lightest);
+  border-bottom-color: var(--dark);
+  border-right-color: var(--dark);
+}
+
+.lowered {
+  background: var(--window-bg);
+  border: 1px solid var(--dark);
+  border-bottom-color: var(--lightest);
+  border-right-color: var(--lightest);
+}
+
+.top-panel {
+  background: var(--window-bg);
+  border-bottom: 1px solid var(--darkest);
+  box-shadow: inset 0 -1px 0 var(--dark);
+}
+
+.right-panel {
+  background: var(--window-bg);
+  border-left: 1px solid var(--light);
+  box-shadow: inset 1px 0 0 var(--lightest);
+}
+
+.bottom-panel {
+  background: var(--window-bg);
+  border-top: 1px solid var(--light);
+  box-shadow: inset 0 1px 0 var(--lightest);
+}
+
+.left-panel {
+  background: var(--window-bg);
+  border-right: 1px solid var(--darkest);
+  box-shadow: inset -1px 0 0 var(--dark);
+}
+
+fieldset {
+  border: 1px solid var(--dark);
+  border-bottom-color: var(--lightest);
+  border-right-color: var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
+  position: relative;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px;
+  background-color: var(--button-bg);
+  display: block;
+}
+
+hr {
+  border-top: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+}
+

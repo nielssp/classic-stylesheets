@@ -1,0 +1,18 @@
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+}
+
+progress::-webkit-progress-bar {
+  background: var(--button-bg);
+}
+
+progress::-webkit-progress-value,
+progress::-moz-progress-bar {
+  background: var(--selection-bg);
+}

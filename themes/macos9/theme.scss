@@ -1,8 +1,11 @@
 :root {
   --preferred-font: Charcoal;
+
   --desktop-bg: #9999CC;
+
   --window-bg: #DDDDDD;
   --window-fg: #000000;
+
   --window-frame-bg: #CCCCCC;
 }
 
@@ -76,7 +79,7 @@ button, input, textarea, select {
 .title-bar-text::before,
 .title-bar-text::after {
   display: block;
-  content: "";
+  content: '';
   flex-grow: 1;
   height: 12px;
 }
@@ -183,6 +186,7 @@ select[size]:not([size="1"]):focus {
   border-radius: 1px;
 }
 
+
 input:not([type=button]):not([type=submit]):not([type=reset]):not([type=radio]):not([type=checkbox]):disabled,
 textarea:disabled,
 select[size]:not([size="1"]):disabled {
@@ -218,7 +222,7 @@ textarea::selection {
 
 .tabs > menu > button::before {
   display: block;
-  content: "";
+  content: '';
   border-left: 1px solid #000;
   box-shadow: inset 1px 0 #ccc;
   transform-origin: top left;
@@ -229,7 +233,7 @@ textarea::selection {
 
 .tabs > menu > button::after {
   display: block;
-  content: "";
+  content: '';
   box-shadow: inset -1px 0 #ccc;
   border-right: 1px solid #000;
   transform-origin: top right;
@@ -237,35 +241,34 @@ textarea::selection {
   background: #ccc;
   width: 10px;
 }
-
-.tabs > menu > button:not([aria-selected=true]):active {
+.tabs > menu > button:not([aria-selected="true"]):active {
   background: #666;
   box-shadow: inset 0 1px 0 #444, inset 0 2px 0 #555;
 }
 
-.tabs > menu > button:not([aria-selected=true]):active::before {
+.tabs > menu > button:not([aria-selected="true"]):active::before {
   background: #666;
   box-shadow: inset 1px 0 #444, inset 1px 0 #555;
 }
 
-.tabs > menu > button:not([aria-selected=true]):active::after {
+.tabs > menu > button:not([aria-selected="true"]):active::after {
   background: #666;
   box-shadow: inset -1px 0 #444, inset -1px 0 #555;
 }
 
-.tabs > menu > button[aria-selected=true] {
+.tabs > menu > button[aria-selected="true"] {
   color: #000;
   background: #eee;
   box-shadow: inset 0 1px 0 #ccc, inset 0 2px 0 #fff;
   z-index: 2;
 }
 
-.tabs > menu > button[aria-selected=true]::before,
-.tabs > menu > button[aria-selected=true]::after {
+.tabs > menu > button[aria-selected="true"]::before,
+.tabs > menu > button[aria-selected="true"]::after {
   background: #eee;
 }
 
-.tabs > [role=tabpanel] {
+.tabs > [role="tabpanel"] {
   position: relative;
   z-index: 1;
   margin-top: -2px;
@@ -298,7 +301,7 @@ input[type=radio]:disabled {
 }
 
 input[type=checkbox]:checked::after {
-  content: "";
+  content: '';
   display: block;
   width: 10px;
   height: 4px;
@@ -341,7 +344,7 @@ input[type=radio]:active {
 }
 
 input[type=radio]:checked::after {
-  content: "";
+  content: '';
   display: block;
   width: 6px;
   height: 6px;
@@ -479,7 +482,7 @@ label > input[type=checkbox]:focus {
 
 .horizontal-scrollbar > button::after,
 .vertical-scrollbar > button::after {
-  content: "";
+  content: '';
   display: block;
   width: 0;
   height: 0;
@@ -584,7 +587,7 @@ label > input[type=checkbox]:focus {
 
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
   display: block;
-  content: "";
+  content: '';
   width: 8px;
   height: 8px;
   background: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
@@ -601,7 +604,7 @@ label > input[type=checkbox]:focus {
 
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
   display: block;
-  content: "";
+  content: '';
   width: 8px;
   height: 8px;
   background: repeating-linear-gradient(0, #ccf, #ccf 1px, #339 1px, #339 2px);
@@ -638,4 +641,3 @@ legend {
   display: block;
 }
 
-/*# sourceMappingURL=theme.css.map */

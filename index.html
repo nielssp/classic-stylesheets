@@ -10,7 +10,7 @@
     <link rel="stylesheet" type="text/css" href="demo.css"/>
   </head>
   <body class="flex-column">
-    <div id="toolbar" class="top-panel flex-row spacing align-center padding">
+    <div id="toolbar" class="top-panel flex-row gap align-center padding">
       <div>Theme</div>
       <select id="theme-select" size=1>
         <option value="win9x">Windows 9x</option>
@@ -119,16 +119,16 @@
               <h2>Radio buttons</h2>
               <div>
                 <div class="example">
-                  <div class="flex-column spacing">
-                    <div class="flex-row spacing align-center">
+                  <div class="flex-column gap">
+                    <div class="flex-row gap align-center">
                       <input type="radio" id="radio1" name="radio1"/>
                       <label for="radio1">Radio button 1</label>
                     </div>
-                    <div class="flex-row spacing align-center">
+                    <div class="flex-row gap align-center">
                       <input type="radio" id="radio2" name="radio1"/>
                       <label for="radio2">Radio button 2</label>
                     </div>
-                    <div class="flex-row spacing align-center">
+                    <div class="flex-row gap align-center">
                       <input type="radio" id="radio3" name="radio1"/>
                       <label for="radio3">Radio button 3</label>
                     </div>
@@ -170,13 +170,13 @@
               <h2>Flex layouts</h2>
               <div>
                 <div class="example">
-                  <div class="flex-row spacing">
+                  <div class="flex-row gap">
                     <div>Some text</div>
                     <input type="text" value="An input"/>
                   </div>
                 </div>
                 <div class="example">
-                  <div class="flex-column spacing">
+                  <div class="flex-column gap">
                     <div>Some text</div>
                     <input type="text" value="An input"/>
                   </div>
@@ -187,12 +187,12 @@
               <h2>Grid layouts</h2>
               <div>
                 <div class="example">
-                  <form class="grid spacing" style="grid-template-columns: max-content auto;" onsubmit="return false">
+                  <form class="grid gap" style="grid-template-columns: max-content auto;" onsubmit="return false">
                     <div>Some text</div>
                     <input type="text" value="An input"/>
                     <div>Some other text</div>
                     <input type="text" value="Another input"/>
-                    <div class="flex-row spacing justify-end" style="grid-column-end: span 2;">
+                    <div class="flex-row gap justify-end" style="grid-column-end: span 2;">
                       <button type="submit">Save</button>
                       <button>Cancel</button>
                     </div>
@@ -236,7 +236,7 @@
                 <div class="example">
                   <fieldset class="padding">
                     <legend>Legend</legend>
-                    <form class="flex-row spacing align-center" onsubmit="return false">
+                    <form class="flex-row gap align-center" onsubmit="return false">
                       <label for="fieldset-input">Save</label>
                       <input type="text" id="fieldset-input" />
                       <button type="submit">Save</button>
@@ -264,6 +264,35 @@
                     <div role="tabpanel" id="tab3" hidden class="padding">
                       Third tab panel
                     </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Scrollbars</h2>
+              <div>
+                <div class="example">
+                  <div class="horizontal-scrollbar">
+                    <button>
+                    </button>
+                    <div class="scrollbar-track">
+                      <div class="scrollbar-thumb">
+                      </div>
+                    </div>
+                    <button>
+                    </button>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="vertical-scrollbar" style="height: 100px">
+                    <button>
+                    </button>
+                    <div class="scrollbar-track">
+                      <div class="scrollbar-thumb">
+                      </div>
+                    </div>
+                    <button>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -658,7 +687,7 @@
                     </div>
                     <div class="dialog-body">
                       <div class="padding">Do you want to delete everything?</div>
-                      <div class="flex-row spacing padding justify-end">
+                      <div class="flex-row gap padding justify-end">
                         <button>Yes</button>
                         <button>No</button>
                       </div>
@@ -674,7 +703,7 @@
                     </div>
                     <div class="dialog-body">
                       <div class="padding">Do you want to delete everything?</div>
-                      <div class="flex-row spacing padding justify-end">
+                      <div class="flex-row gap padding justify-end">
                         <button>Yes</button>
                         <button>No</button>
                       </div>
@@ -688,8 +717,8 @@
       </main>
     </div>
     <script type="text/javascript" src="demo.js"></script>
-    <script type="text/javascript" src="modules/tabs.js"></script>
-    <script type="text/javascript" src="modules/lists.js"></script>
+    <script type="module" src="modules/tabs.js"></script>
+    <script type="module" src="modules/lists.js"></script>
     <script type="text/javascript" src="modules/menu.js"></script>
   </body>
 </html>

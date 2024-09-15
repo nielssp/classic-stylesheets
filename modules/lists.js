@@ -1,4 +1,4 @@
-class List {
+export default class List {
   constructor(root) {
     this.root = root;
 
@@ -149,11 +149,15 @@ class List {
     option.setAttribute('tabindex', 0);
     option.focus();
   }
+
+  static initDomElements() {
+    window.addEventListener('DOMContentLoaded', () => {
+      const lists = document.getElementsByClassName('list');
+      for (let list of lists) {
+        new List(list);
+      }
+    });
+  }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const lists = document.getElementsByClassName('list');
-  for (let list of lists) {
-    new List(list);
-  }
-});
+List.initDomElements();
