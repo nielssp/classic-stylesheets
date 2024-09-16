@@ -1,0 +1,82 @@
+[role=menu] {
+  color: #000;
+  background-color: #ddd;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #888, 1px 1px #000;
+}
+
+[role=menubar] {
+  color: #000;
+  background-color: #ddd;
+  border: 1px solid #000;
+}
+
+.menu > [role=menu] {
+  border: 0;
+}
+
+[role=menu] li {
+  padding: 1px 3px;
+}
+
+[role=menu] li[data-shortcut]::after {
+  float: right;
+  content: attr(data-shortcut);
+  display: block;
+  margin-left: 4px;
+}
+
+[role=menu] li > ul {
+  left: 100%;
+  margin: 0;
+  top: -1px;
+  min-width: 200px;
+}
+
+[role=menubar] > li > ul {
+  left: 0;
+  top: 100%;
+  min-width: 200px;
+}
+
+[role=menu] li:focus,
+[role=menubar] li:focus {
+  outline: none;
+}
+
+[role=menubar] > li {
+  padding: 1px 8px;
+}
+
+[role=menu] li:focus-within,
+[role=menubar] li:focus-within {
+  background: #333399;
+  box-shadow: inset 1px 0 #66c, inset -1px 0 #008;
+  color: #fff;
+}
+
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
+  color: #777;
+}
+
+[role=menu] li[role=separator] {
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #fff;
+  height: 0;
+  padding: 0;
+  margin: 2px 0;
+}
+
+[role=menu] > li[aria-haspopup=true] {
+  background-image: url(arrow-right.gif);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+
+[role=menu] > li[aria-haspopup=true]:focus-within {
+  background-image: url(arrow-right-active.gif);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+}
+

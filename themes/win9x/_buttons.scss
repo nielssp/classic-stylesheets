@@ -11,10 +11,10 @@
   min-width: 75px;
   text-align: center;
   line-height: 1;
+  cursor: default;
+  user-select: none;
 
-
-
-  &:focus {
+  &:focus, &.focus {
     border: 1px solid var(--darkest);
     outline: 1px dotted var(--darkest);
     box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
@@ -22,12 +22,12 @@
     outline-offset: -4px;
   }
 
-  &:disabled {
+  &:disabled, &.disabled {
     color: var(--dark);
     text-shadow: 1px 1px 0 var(--lightest);
   }
 
-  &:not(:disabled):active {
+  &:not(:disabled, .disabled):active, &.active {
     border: 1px solid var(--darkest);
     box-shadow: inset 1px 1px 0 var(--dark), inset -1px -1px 0 var(--dark);
     padding: 4px 9px 5px 11px;

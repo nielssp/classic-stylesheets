@@ -1,0 +1,159 @@
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: grid;
+
+  & > button {
+    display: flex;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    min-width: 0;
+    padding: 0;
+    background: #ddd;
+    box-shadow: inset 1px 1px #fff, inset -1px -1px #bbb;
+    border-radius: 0;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+    }
+
+    &:not(:disabled):active {
+      padding: 0;
+      background: #777;
+      box-shadow: inset 1px 1px #555, inset -1px -1px #999;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  & > .scrollbar-track {
+    flex-grow: 1;
+    background: #aaa;
+    position: relative;
+    box-shadow: inset 1px 1px #777, inset 2px 2px #888, inset -1px -1px #ccc, inset -2px -2px #bbb;
+    overflow: hidden;
+    border: 1px solid #000;
+
+    & > .scrollbar-thumb {
+      position: absolute;
+      background: #99f;
+      box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 1px 1px #777, 2px 2px #888;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:active {
+        background: #66c;
+        box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 1px 1px #777, 2px 2px #888;
+      }
+    }
+  }
+}
+
+.horizontal-scrollbar {
+  grid-template-columns: 1fr 16px 16px;
+
+  & > button:first-child {
+    border-left: 0;
+    border-right: 0;
+    grid-column: 2;
+
+    &::after {
+      border-right: 4px solid #000;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      margin: 3px 0 0 5px;
+    }
+  }
+
+  & > button:last-child {
+    grid-column: 3;
+
+
+    &::after {
+      border-left: 4px solid #000;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      margin: 3px 0 0 5px;
+    }
+  }
+
+  & > .scrollbar-track {
+    grid-column: 1;
+    grid-row: 1;
+
+    & > .scrollbar-thumb {
+      top: 0;
+      bottom: 0;
+      border-left: 1px solid #000;
+      border-right: 1px solid #000;
+
+      &::after {
+        display: block;
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
+      }
+
+      &:active::after {
+        background: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
+      }
+    }
+  }
+}
+
+.vertical-scrollbar {
+  grid-template-rows: 1fr 16px 16px;
+  width: 16px;
+
+  & > button:first-child {
+    border-top: 0;
+    border-bottom: 0;
+    grid-row: 2;
+
+    &::after {
+      border-bottom: 4px solid #000;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      margin: 5px 0 0 3px;
+    }
+  }
+
+  & > button:last-child {
+    grid-row: 3;
+
+    &::after {
+      border-top: 4px solid #000;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      margin: 5px 0 0 3px;
+    }
+  }
+
+  & > .scrollbar-track {
+    grid-row: 1;
+
+    & > .scrollbar-thumb {
+      left: 0;
+      right: 0;
+      border-top: 1px solid #000;
+      border-bottom: 1px solid #000;
+
+      &::after {
+        display: block;
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: repeating-linear-gradient(0, #339, #339 1px, #ccf 1px, #ccf 2px);
+      }
+
+      &:active::after {
+        background: repeating-linear-gradient(0, #005, #005 1px, #99f 1px, #99f 2px);
+      }
+    }
+  }
+}

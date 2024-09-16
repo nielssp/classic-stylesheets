@@ -1,6 +1,8 @@
 @import 'plum.css';
 
 :root {
+  --preferred-font: 'Tahoma';
+
   --title-bar-bg: linear-gradient(to right, #786058, #A89878);
   --title-bar-fg: #A89890;
   --title-bar-active-bg: linear-gradient(to right, #484060, #A084B8);

@@ -1,6 +1,8 @@
 @import 'teal.css';
 
 :root {
+  --preferred-font: 'Tahoma';
+
   --title-bar-bg: linear-gradient(to right, #808080, #98C8B8);
   --title-bar-active-bg: linear-gradient(to right, #008080, #00CCD8);
 }

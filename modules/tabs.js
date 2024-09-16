@@ -10,7 +10,7 @@ export default class Tabs {
     this.selectedTab = null;
 
     for (let tab of this.tabList.children) {
-      tab.addEventListener('click', () => this.change(tab));
+      tab.addEventListener('mousedown', () => this.change(tab));
       if (!tab.getAttribute('aria-selected')) {
         tab.setAttribute('tabindex', -1);
       } else {

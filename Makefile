@@ -6,7 +6,7 @@ all: $(OBJECTS)
 
 .PHONY: watch
 watch:
-	sass -w $(foreach I,$(SOURCES:.scss=),$I.scss:$I.css)
+	sass --no-source-map -w $(foreach I,$(SOURCES:.scss=),$I.scss:$I.css)
 
 %.css: %.scss
-	sass $< $@
+	sass --no-source-map $< $@

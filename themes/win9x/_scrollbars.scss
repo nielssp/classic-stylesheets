@@ -1,108 +1,99 @@
 .horizontal-scrollbar,
 .vertical-scrollbar {
   display: flex;
+
+  & > button {
+    display: flex;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    min-width: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      margin: 3px 0 0 3px;
+      background-repeat: no-repeat;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid var(--darkest);
+      border-top: 1px solid var(--light);
+      border-left: 1px solid var(--light);
+      box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+    }
+
+    &:not(:disabled):active {
+      padding: 0;
+      border: 1px solid var(--dark);
+      box-shadow: none;
+      outline: none;
+
+      &::after {
+        margin: 4px 0 0 4px;
+      }
+    }
+  }
+
+  & > .scrollbar-track {
+    flex-grow: 1;
+    background-color: var(--window-bg);
+    background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+    background-size: 2px 2px;
+    background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+    position: relative;
+
+    & > .scrollbar-thumb {
+      position: absolute;
+      background: var(--button-bg);
+      border: 1px solid var(--darkest);
+      border-top: 1px solid var(--light);
+      border-left: 1px solid var(--light);
+      box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+    }
+  }
+}
+
+.horizontal-scrollbar {
+  & > button:first-child::after {
+    background-image: url(arrow-left.gif);
+    background-position: 1px 0;
+  }
+
+  & > button:last-child::after {
+    background-image: url(arrow-right.gif);
+    background-position: 2px 0;
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    top: 0;
+    bottom: 0;
+  }
 }
 
 .vertical-scrollbar {
   flex-direction: column;
   width: 16px;
-}
 
-.horizontal-scrollbar > button,
-.vertical-scrollbar > button {
-  display: flex;
-  flex-shrink: 0;
-  width: 16px;
-  height: 16px;
-  min-width: 0;
-  padding: 0;
-  background-repeat: no-repeat;
-}
+  & > button:first-child::after {
+    background-image: url(arrow-up.gif);
+    background-position: 0 2px;
+  }
 
-.horizontal-scrollbar > button::after,
-.vertical-scrollbar > button::after {
-  content: '';
-  display: block;
-  width: 7px;
-  height: 7px;
-  margin: 3px 0 0 3px;
-  background-repeat: no-repeat;
-}
+  & > button:last-child::after {
+    background-image: url(arrow-down.gif);
+    background-position: 0 2px;
+  }
 
-.horizontal-scrollbar > button:focus,
-.vertical-scrollbar > button:focus {
-  outline: none;
-  border: 1px solid var(--darkest);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
-  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
-}
-
-.horizontal-scrollbar > button:first-child::after {
-  background-image: url(arrow-left.gif);
-  background-position: 1px 0;
-}
-
-.horizontal-scrollbar > button:last-child::after {
-  background-image: url(arrow-right.gif);
-  background-position: 2px 0;
-}
-
-.vertical-scrollbar > button:first-child::after {
-  background-image: url(arrow-up.gif);
-  background-position: 0 2px;
-}
-
-.vertical-scrollbar > button:last-child::after {
-  background-image: url(arrow-down.gif);
-  background-position: 0 2px;
-}
-
-.horizontal-scrollbar > button:active,
-.vertical-scrollbar > button:active {
-  padding: 0;
-  border: 1px solid var(--dark);
-  box-shadow: none;
-  outline: none;
-}
-
-.horizontal-scrollbar > button:active::after,
-.vertical-scrollbar > button:active::after {
-  margin: 4px 0 0 4px;
-}
-
-.horizontal-scrollbar > .scrollbar-track,
-.vertical-scrollbar > .scrollbar-track {
-  flex-grow: 1;
-  background-color: var(--window-bg);
-  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
-  background-size: 2px 2px;
-  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
-  position: relative;
-}
-
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
-  position: absolute;
-  background: var(--button-bg);
-  border: 1px solid var(--darkest);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
-  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
-}
-
-.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
-  top: 0;
-  bottom: 0;
-  left: 30%;
-  width: 30%;
-}
-
-.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
-  left: 0;
-  right: 0;
-  top: 30%;
-  height: 30%;
+  & > .scrollbar-track > .scrollbar-thumb {
+    left: 0;
+    right: 0;
+  }
 }
 
 ::-webkit-scrollbar {

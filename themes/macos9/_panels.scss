@@ -1,0 +1,28 @@
+.desktop {
+  background: var(--desktop-bg);
+}
+
+.top-panel, .right-panel, .buttom-panel, .left-panel {
+  background: var(--window-bg);
+}
+
+.top-panel {
+  border-bottom: 1px solid #000000;
+  box-shadow: inset 1px 0 0 #fff, inset 0 1px 0 #fff, inset -1px 0 0 #999, inset 0 -1px 0 #999;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+fieldset {
+  border: 1px solid #888;
+  box-shadow: inset 1px 1px 0 #fff, 1px 1px 0 #fff;
+  position: relative;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px 0.65em;
+  background-color: #ddd;
+  display: block;
+}
+

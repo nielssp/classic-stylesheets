@@ -8,30 +8,30 @@
   padding: 1px;
   overflow: auto;
   cursor: default;
-}
 
-.list > [role="option"] {
-  padding: 2px 6px 2px 6px;
-  white-space: nowrap;
-}
+  & > [role="option"] {
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
 
-.list:focus-within > [role="option"][aria-selected="true"] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-}
+    &[aria-selected="true"] {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
 
-.list > [role="option"][aria-selected="true"] {
-  background-color: var(--window-bg);
-  color: var(--window-fg);
-}
+    &:focus {
+      outline: 1px dotted var(--darkest);
+      outline-offset: -1px;
+    }
 
-.list > [role="option"]:focus {
-  outline: 1px dotted var(--darkest);
-  outline-offset: -1px;
-}
+    &[aria-selected="true"]:focus {
+      outline: 1px dotted var(--selection-inverse);
+    }
+  }
 
-.list > [role="option"][aria-selected="true"]:focus {
-  outline: 1px dotted var(--selection-inverse);
+  &:focus-within > [role="option"][aria-selected="true"] {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
 }
 
 .icon-grid {
@@ -39,135 +39,137 @@
   grid-template-columns: repeat(auto-fit, 128px);
   flex-direction: row;
   flex-wrap: wrap;
-}
 
-.icon-grid > .icon {
-  flex: 0 0 128px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 4px;
-}
+  & > .icon {
+    flex: 0 0 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px;
 
-.icon-grid > .icon > .icon-label {
-  margin-top: 5px;
-  text-align: center;
-  padding: 1px 1px;
-}
 
-.icon-grid > .icon:focus {
-  outline: none;
-}
+    & > .icon-label {
+      margin-top: 5px;
+      text-align: center;
+      padding: 1px 1px;
+    }
 
-.icon-grid > .icon:focus > .icon-label {
-  outline: 1px dotted var(--darkest);
-  outline-offset: -1px;
-}
+    &:focus {
+      outline: none;
+      & > .icon-label {
+        outline: 1px dotted var(--darkest);
+        outline-offset: -1px;
+      }
+    }
 
-.icon-grid:focus-within > .icon[aria-selected="true"] > .icon-label {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-}
+    &[aria-selected="true"] {
+      & > .icon-label {
+        background-color: var(--window-bg);
+        color: var(--window-fg);
+      }
+      &:focus > .icon-label {
+        outline: 1px dotted var(--selection-inverse);
+      }
+    }
+  }
 
-.icon-grid > .icon[aria-selected="true"] > .icon-label {
-  background-color: var(--window-bg);
-  color: var(--window-fg);
-}
-
-.icon-grid > .icon[aria-selected="true"]:focus > .icon-label {
-  outline: 1px dotted var(--selection-inverse);
+  &:focus-within > .icon[aria-selected="true"] > .icon-label {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
 }
 
 .detailed {
   width: 100%;
   border-spacing: 0;
-}
 
-.detailed th {
-  text-align: left;
-  font-weight: normal;
-  background-color: var(--button-bg);
-  color: var(--button-fg);
-  border: 1px solid var(--darkest);
-  border-top: 1px solid var(--lightest);
-  border-left: 1px solid var(--lightest);
-  box-shadow: inset -1px -1px 0 var(--dark);
-  padding: 2px 6px 2px 6px;
-  white-space: nowrap;
-}
 
-.detailed tr {
-  outline: none;
-}
+  th {
+    text-align: left;
+    font-weight: normal;
+    background-color: var(--button-bg);
+    color: var(--button-fg);
+    border: 1px solid var(--darkest);
+    border-top: 1px solid var(--lightest);
+    border-left: 1px solid var(--lightest);
+    box-shadow: inset -1px -1px 0 var(--dark);
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
+  }
 
-.detailed tr:focus {
-  outline: 1px dotted var(--darkest);
-  outline-offset: -1px;
-}
+  tr {
+    outline: none;
 
-.detailed:focus-within tr[aria-selected="true"] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-}
+    &:focus {
+      outline: 1px dotted var(--darkest);
+      outline-offset: -1px;
+    }
 
-.detailed tr[aria-selected="true"] {
-  background-color: var(--window-bg);
-  color: var(--window-fg);
-}
+    &[aria-selected="true"] {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
 
-.detailed tr[aria-selected="true"]:focus {
-  outline: 1px dotted var(--selection-inverse);
-}
+      &:focus {
+        outline: 1px dotted var(--selection-inverse);
+      }
+    }
+  }
 
-.detailed .icon:focus .icon-label {
-  outline: 1px dotted var(--darkest);
-  outline-offset: -1px;
-}
+  &:focus-within tr[aria-selected="true"] {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
 
-.detailed:focus-within .icon[aria-selected="true"] .icon-label {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-}
+  &:focus-within .icon[aria-selected="true"] .icon-label {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
 
-.detailed .icon[aria-selected="true"] .icon-label {
-  background-color: var(--window-bg);
-  color: var(--window-fg);
-}
+  td {
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
 
-.detailed .icon[aria-selected="true"]:focus .icon-label {
-  outline: 1px dotted var(--selection-inverse);
-}
+    &.icon {
+      display: flex;
+    }
+  }
 
-.detailed td {
-  padding: 2px 6px 2px 6px;
-  white-space: nowrap;
-}
+  .icon {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    outline: none;
 
-.detailed .icon {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  outline: none;
-}
+    & > img {
+      width: 16px;
+      height: 16px;
+      margin-right: 1px;
+      margin-left: -4px;
+    }
 
-.detailed td.icon {
-  display: flex;
-}
+    & > .icon-label {
+      text-align: center;
+      padding: 1px 3px;
+    }
 
-.detailed .icon > img {
-  width: 16px;
-  height: 16px;
-  margin-right: 1px;
-  margin-left: -4px;
-}
+    &:focus .icon-label {
+      outline: 1px dotted var(--darkest);
+      outline-offset: -1px;
+    }
 
-.detailed .icon > .icon-label {
-  text-align: center;
-  padding: 1px 3px;
-}
+    &[aria-selected="true"] > .icon-label {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
 
-.detailed thead {
-  position: sticky;
-  top: 0;
+    &[aria-selected="true"]:focus > .icon-label {
+      outline: 1px dotted var(--selection-inverse);
+    }
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+  }
 }
 

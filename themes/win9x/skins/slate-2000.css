@@ -1,6 +1,8 @@
 @import 'slate.css';
 
 :root {
+  --preferred-font: 'Tahoma';
+
   --title-bar-bg: linear-gradient(to right, #808080, #A0BCC8);
   --title-bar-active-bg: linear-gradient(to right, #558097, #88B8D8);
 }

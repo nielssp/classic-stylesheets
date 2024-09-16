@@ -1,5 +1,11 @@
 $buttons: 'button,\
-  details > summary,\
-  input[type="button"],\
-  input[type="submit"],\
-  input[type="reset"]';
+  input[type=button],\
+  input[type=submit],\
+  input[type=reset],\
+  .button';
+
+$textInputs: 'input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input';
+
+$singleSelects: 'select:not([size], [multiple]), select[size="1"]';
+
+$multiSelects: 'select[multiple], select[size]:not([size="1"])';

@@ -1,0 +1,32 @@
+:root {
+  --preferred-font: Charcoal;
+
+  --desktop-bg: #9999CC;
+
+  --window-bg: #DDDDDD;
+  --window-fg: #000000;
+
+  --window-frame-bg: #CCCCCC;
+}
+
+body {
+  background-color: #000;
+  color: var(--window-fg);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a:focus {
+  outline: 1px dotted var(--darkest);
+}
+
+code {
+  font-family: monospace;
+}

@@ -11,7 +11,7 @@ export default class List {
 
     for (let i = 0; i < this.options.length; i++) {
       const option = this.options[i];
-      option.addEventListener('click', e => {
+      option.addEventListener('mousedown', e => {
         e.stopPropagation();
         e.preventDefault();
         this.select(i, e.shiftKey, e.ctrlKey, true);
@@ -95,7 +95,7 @@ export default class List {
     if (this.selectedOption < 0 && this.options.length) {
       this.options[0].setAttribute('tabindex', 0);
     }
-    this.root.addEventListener('click', () => {
+    this.root.addEventListener('mousedown', () => {
       if (this.multiselect) {
         for (let option of this.options) {
           option.setAttribute('aria-selected', false);

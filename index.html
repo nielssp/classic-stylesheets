@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
-    <title>Classic stylesheets</title>
+    <title>Classic stylesheets 2.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="layout.css"/>
     <link id="theme-link" rel="stylesheet" type="text/css" href="themes/cde/theme.css"/>
@@ -12,27 +12,31 @@
   <body class="flex-column">
     <div id="toolbar" class="top-panel flex-row gap align-center padding">
       <div>Theme</div>
-      <select id="theme-select" size=1>
-        <option value="win9x">Windows 9x</option>
-        <option value="win3x">Windows 3.x</option>
-        <option value="winxp">Windows XP</option>
-        <option value="cde">CDE</option>
-        <option value="macos9">Mac OS 9</option>
-      </select>
+      <div class="dropdown">
+        <select id="theme-select" size=1>
+          <option value="win9x">Windows 9x</option>
+          <option value="win3x">Windows 3.x</option>
+          <option value="winxp">Windows XP</option>
+          <option value="cde">CDE</option>
+          <option value="macos9">Mac OS 9</option>
+        </select>
+      </div>
       <div>Skin</div>
-      <select id="skin-select" size=1>
-      </select>
+      <div class="dropdown">
+        <select id="skin-select" size=1>
+        </select>
+      </div>
     </div>
     <div class="desktop grow">
       <main class="margin window active" tabindex=0>
         <div class="title-bar">
           <div class="title-bar-text">
-            Classic stylesheets
+            Classic stylesheets 2.0
           </div>
         </div>
         <div class="window-body">
           <div class="padding">
-            <h1>Classic stylesheets for web applications</h1>
+            <h1>Classic stylesheets for web applications 2.0</h1>
             <p><a href="https://github.com/nielssp/classic-stylesheets">Source on GitHub</a></p>
             <section>
               <h2>Buttons</h2>
@@ -42,6 +46,14 @@
                 </div>
                 <div class="example">
                   <button disabled>Disabled</button>
+                </div>
+                <div class="example">
+                  <div class="flex-row gap">
+                    <div class="button">Default</div>
+                    <div class="button disabled">Disabled</div>
+                    <div class="button focus">Focus</div>
+                    <div class="button active">Active</div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -60,11 +72,28 @@
                 <div class="example">
                   <textarea>This is a textarea</textarea>
                 </div>
+                <div class="example">
+                  <div class="flex-row gap">
+                    <div class="input">Default</div>
+                    <div class="input disabled">Disabled</div>
+                    <div class="input readonly">Readonly</div>
+                    <div class="input focus">Focus</div>
+                  </div>
+                </div>
               </div>
             </section>
             <section>
               <h2>Selects</h2>
               <div>
+                <div class="example">
+                  <div class="dropdown">
+                    <select size=1>
+                      <option>Foo</option>
+                      <option>Bar</option>
+                      <option>Baz</option>
+                    </select>
+                  </div>
+                </div>
                 <div class="example">
                   <select size=1>
                     <option>Foo</option>
@@ -276,7 +305,7 @@
                     <button>
                     </button>
                     <div class="scrollbar-track">
-                      <div class="scrollbar-thumb">
+                      <div class="scrollbar-thumb" style="left: 30%; width: 30%;">
                       </div>
                     </div>
                     <button>
@@ -288,7 +317,7 @@
                     <button>
                     </button>
                     <div class="scrollbar-track">
-                      <div class="scrollbar-thumb">
+                      <div class="scrollbar-thumb" style="top: 30%; height: 30%;">
                       </div>
                     </div>
                     <button>

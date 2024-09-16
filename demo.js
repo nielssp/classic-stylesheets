@@ -158,8 +158,10 @@ for (let example of examples) {
   const summary = document.createElement('summary');
   const pre = document.createElement('pre');
   const code = document.createElement('code');
+  pre.className = 'input readonly';
   pre.appendChild(code);
   summary.textContent = 'Show Code';
+  summary.className = 'button';
   details.appendChild(summary);
   details.appendChild(pre);
   let source = example.innerHTML;

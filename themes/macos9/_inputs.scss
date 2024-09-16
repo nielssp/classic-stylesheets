@@ -1,0 +1,122 @@
+@use '../../util/util';
+
+#{util.$textInputs},
+#{util.$multiSelects} {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  box-shadow: -1px -1px #888;
+  margin: 2px;
+  padding: 2px;
+
+  &::selection {
+    background-color: #ccf;
+    color: #000;
+  }
+
+  &[readonly], .readonly {
+  }
+
+  &:disabled, &.disabled {
+    border-color: #555;
+    box-shadow: 0 0 0 1px #ddd;
+  }
+
+  &:focus, &.focus {
+    outline: 2px solid #6666CC;
+    border-radius: 1px;
+  }
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #ddd;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #888;
+  width: 12px;
+  height: 12px;
+}
+
+input[type=checkbox]:active {
+  background: #777;
+  box-shadow: inset 1px 1px 0 #555, inset -1px -1px 0 #999;
+}
+
+input[type=checkbox]:disabled,
+input[type=radio]:disabled {
+  border-color: #888;
+  box-shadow: none;
+}
+
+input[type=checkbox]:checked::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 4px;
+  border-bottom: 1px solid #000;
+  border-left: 1px solid #000;
+  margin-left: 1px;
+  transform: rotate(-45deg);
+  box-shadow: -1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+
+input[type=checkbox]:disabled:checked::after {
+  box-shadow: none;
+}
+
+input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+  color: var(--disabled);
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: linear-gradient(to bottom right, #fff, #888);
+  box-shadow: inset 1px 1px 0 #ddd, inset -1px -1px 0 #888;
+  border: 1px solid #000;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+input[type=radio]:checked {
+  background: linear-gradient(to bottom right, #555, #fff);
+  box-shadow: inset 1px 1px 0 #555;
+}
+
+input[type=radio]:active {
+  background: linear-gradient(to bottom right, #444, #bbb);
+  box-shadow: inset 1px 1px 0 #444;
+}
+
+input[type=radio]:checked::after {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #000;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+input[type=radio]:focus + label,
+input[type=checkbox]:focus + label {
+  outline: 1px dotted var(--border);
+  outline-offset: 0;
+}
+
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+}
+
+label > input[type=radio]:focus,
+label > input[type=checkbox]:focus {
+  outline: 1px dotted var(--border);
+  outline-offset: 1px;
+}

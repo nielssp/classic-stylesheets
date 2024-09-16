@@ -23,9 +23,9 @@
   --title-bar-active-bg: linear-gradient(to right, #000080, #A6CAF0);
   --title-bar-active-fg: #FFFFFF;
 
-  --selection-bg: #000080;
+  --selection-bg: #0A246A;
   --selection-fg: #FFFFFF;
-  --selection-inverse: #FFFF7F;
+  --selection-inverse: #F5DB95;
 }
 
 .menu > .title-bar {

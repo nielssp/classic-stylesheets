@@ -1,0 +1,29 @@
+@use '../../util/util';
+
+#{util.$buttons},
+#{util.$singleSelects} {
+  background-color: #DDDDDD;
+  color: #000000;
+  border: 1px solid #000;
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 0 #DDDDDD, inset 2px 2px 0 #fff, inset -1px -1px 1px #555;
+  padding: 2px 10px;
+  min-width: 58px;
+  text-align: center;
+  font-weight: bold;
+  cursor: default;
+  user-select: none;
+
+  &:disabled, &.disabled {
+    color: #777;
+    border-color: #888;
+    box-shadow: none;
+  }
+
+  &:not(:disabled, .disabled):active, &.active {
+    background-color: #666666;
+    color: #fff;
+    box-shadow: inset 1px 1px 1px #333, inset -1px -1px 1px #999;
+  }
+}
+
