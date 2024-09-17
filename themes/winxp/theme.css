@@ -166,11 +166,15 @@ input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=rad
 select:disabled,
 select.disabled {
   background: var(--window-bg);
-  color: var(--dark);
+  color: #ACA899;
 }
 
 select > option {
   padding: 2px 6px;
+}
+
+select:not([size], [multiple]):disabled, select[size="1"]:disabled {
+  border-color: #C9C7BA;
 }
 
 .dropdown {
@@ -179,7 +183,9 @@ select > option {
   grid-template-areas: "s";
 }
 .dropdown > select {
+  appearance: none;
   grid-area: s;
+  padding-right: 21px;
 }
 .dropdown > select:focus {
   background: var(--selection-bg);
@@ -195,6 +201,17 @@ select > option {
   border-color: #7C89DB;
   border-right-color: #B3C8F5;
   border-bottom-color: #B3C8F5;
+}
+.dropdown > select:disabled {
+  box-shadow: inset 0 0 0 2px #F5F4EA;
+}
+.dropdown > select:disabled + .dropdown-button {
+  background-image: radial-gradient(circle at top left, #F7F7F4, #E6E6DD);
+  border-color: #E7E7DE;
+  box-shadow: 0 0 0 1px #fff, -3px 0 #F5F4EA;
+}
+.dropdown > select:disabled + .dropdown-button::after {
+  background: #C9C9C2;
 }
 .dropdown > .dropdown-button {
   justify-self: end;
@@ -217,8 +234,11 @@ select > option {
   display: block;
   width: 9px;
   height: 6px;
-  background-image: url(arrow-down.gif);
-  background-repeat: no-repeat;
+  -webkit-mask-image: url(arrow-down.gif);
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url(arrow-down.gif);
+  mask-repeat: no-repeat;
+  background: #4D6185;
 }
 
 input[type=checkbox] {

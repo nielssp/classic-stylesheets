@@ -44,36 +44,55 @@ select,
 
   & > select {
     appearance: none;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
     grid-area: s;
-    padding-right: 22px;
+    padding-right: 21px;
+
+    &:active {
+      & + .dropdown-button {
+        border: 1px solid var(--dark);
+        box-shadow: none;
+        margin: 2px 0 0 1px;
+      }
+    }
+
+    &:disabled {
+      & + .dropdown-button {
+        box-shadow: inset -1px -1px var(--dark), inset 1px 1px var(--lightest);
+        &::after {
+          background: var(--dark);
+          filter: drop-shadow(1px 1px var(--lightest));
+        }
+      }
+    }
   }
 
-  &::after {
-    content: '';
+  & > .dropdown-button {
     justify-self: end;
     grid-area: s;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 1px;
     background-color: var(--button-bg);
     color: var(--button-fg);
-    background-image: url(arrow-down.gif);
-    background-repeat: no-repeat;
-    background-position: 3px 8px;
     border: 1px solid var(--darkest);
     border-top: 1px solid var(--light);
     border-left: 1px solid var(--light);
     box-shadow: inset -1px -1px var(--dark), inset 1px 1px var(--lightest), -1px 0 var(--input-bg);
     width: 16px;
     pointer-events: none;
-  }
 
-  &:active::after {
-    border: 1px solid var(--dark);
-    box-shadow: none;
-    background-position: 4px 9px;
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 4px;
+      -webkit-mask-image: url(arrow-down.gif);
+      -webkit-mask-repeat: no-repeat;
+      mask-image: url(arrow-down.gif);
+      mask-repeat: no-repeat;
+      background: #000;
+    }
   }
 }
 
