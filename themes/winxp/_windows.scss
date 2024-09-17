@@ -1,0 +1,180 @@
+.window,
+.dialog,
+.menu {
+  background: linear-gradient(to bottom right, #758CDD, #7587DD 100%);
+  border-left: 1px solid #5B68CD;
+  border-bottom: 1px solid #4F53BC;
+  border-right: 1px solid #4F53BC;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: relative;
+  padding: 2px;
+  box-shadow: inset -1px -1px 0 #6D74CD, inset -2px -2px 0 #7587DD, inset 1px 0 0 #7480DC, inset 2px 0 0 #758CDD;
+}
+
+.window {
+  padding: 3px;
+}
+
+.window.maximized,
+.dialog.maximized {
+  border: none;
+  padding: 0;
+}
+
+.window.active,
+.window:focus-within,
+.dialog.active,
+.dialog:focus-within,
+.menu.active,
+.menu:focus-within {
+  background: linear-gradient(to bottom right, #166AEE, #002CBC 100%);
+  border-left-color: #0734DA;
+  border-bottom-color: #00138C;
+  border-right-color: #00138C;
+  box-shadow: inset -1px -1px 0 #001DA0, inset -2px -2px 0 #003DDC, inset 1px 0 0 #166AEE, inset 2px 0 0 #0855DD;
+}
+
+.title-bar {
+  background: linear-gradient(90deg, #7783DA, transparent 5px),
+    linear-gradient(270deg, rgba(37, 39, 105, 0.5), transparent 5px),
+    linear-gradient(180deg, #98B2E8 0%, #9DB9EB 5%, #7996DE 10%, #7D9BE3 84%, #80A5E7 90%, #7A93DF 97%, #7A93DF 100%);
+  color: #D8E4F8;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border-top: 1px solid #688DE0;
+  border-left: 1px solid #5B68CD;
+  border-right: 1px solid #00138C;
+  font-family: 'Trebuchet MS', system-ui;
+}
+
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.title-bar.active {
+  background: linear-gradient(90deg, #003DDC, transparent 5px),
+    linear-gradient(270deg, rgba(0, 14, 125, 0.5), transparent 5px),
+    linear-gradient(180deg, #3D95FF 0%, #3D95FF 5%, #0054E3 10%, #0372FF 84%, #026AFE 90%, #0144D0 97%, #0144D0 100%);
+  color: #FFFFFF;
+  border-top-color: #0058EB;
+  border-left-color: #001ABC;
+}
+
+.window > .title-bar {
+  margin: -3px -4px 0 -4px;
+}
+
+.dialog > .title-bar,
+.menu > .title-bar {
+  margin: -2px -3px 0 -3px;
+}
+
+.title-bar-text {
+  text-align: left;
+  font-weight: bold;
+  padding: 7px 6px 4px;
+  flex-grow: 1;
+  cursor: default;
+  font-size: 14px;
+}
+
+.window.active > .title-bar .title-bar-text,
+.window:focus-within > .title-bar .title-bar-text,
+.dialog.active > .title-bar .title-bar-text,
+.dialog:focus-within > .title-bar .title-bar-text,
+.title-bar.active .title-bar-text {
+  text-shadow: 1px 1px 0 #0A1883;
+}
+
+.title-bar-buttons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 5px 5px 3px 5px;
+  align-items: center;
+}
+
+.title-bar-buttons button {
+  flex-shrink: 0;
+  width: 21px;
+  height: 21px;
+  min-width: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: 3px 3px;
+  border: 1px solid #fff;
+  box-shadow: none;
+  margin-left: 2px;
+  background: linear-gradient(135deg, #BFD1FC 0%, transparent 20%),
+    linear-gradient(90deg, #5E8BF7 0%, transparent 40%),
+    linear-gradient(180deg, #5E8BF7 0%, transparent 30%),
+    linear-gradient(to bottom right, #467EF5, #0760F3);
+  box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset -2px -2px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title-bar-buttons button:hover {
+  filter: brightness(1.2);
+}
+
+.title-bar-buttons button:active {
+  outline: none;
+  filter: brightness(0.8);
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.8);
+}
+
+.title-bar-buttons button::after {
+  display: none;
+  position: initial;
+}
+
+.title-bar-buttons button[data-close] {
+  background: linear-gradient(135deg, #EFA390 0%, transparent 20%),
+    linear-gradient(90deg, #E98168 0%, transparent 40%),
+    linear-gradient(180deg, #E98168 0%, transparent 30%),
+    linear-gradient(to bottom right, #E66A4D, #E03802);
+}
+
+
+.title-bar-buttons button[data-close]::after,
+.title-bar-buttons button[data-minimize]::after,
+.title-bar-buttons button[data-maximize]::after,
+.maximized .title-bar-buttons button[data-maximize]::after {
+  display: block;
+  content: '';
+  width: 11px;
+  height: 11px;
+  border: 0;
+  outline: none;
+  margin: auto;
+}
+
+.title-bar-buttons button[data-close]::after {
+  background-image: url(close.gif);
+}
+
+.title-bar-buttons button[data-minimize]::after {
+  background-image: url(minimize.gif);
+}
+
+.title-bar-buttons button[data-maximize]::after {
+  background-image: url(maximize.gif);
+}
+
+.maximized .title-bar-buttons button[data-maximize]::after {
+  background-image: url(restore.gif);
+}
+
+.window-body,
+.dialog-body {
+  background: var(--window-bg);
+  color: var(--window-fg);
+}
+
+

@@ -1,0 +1,63 @@
+@use '../../util/util';
+
+#{util.$buttons} {
+  background: linear-gradient(180deg, #ffffff 0%, #F0F0EA 100%);
+  color: #000;
+  border: 1px solid #003C74;
+  border-radius: 4px;
+  padding: 2px 16px;
+  box-shadow: -1px -1px 0 #E2DED4, 1px 1px 0 #FBFAF8, inset -1px -2px 1px #D6D0C5;
+  text-align: center;
+  line-height: 1;
+  position: relative;
+  min-width: 90px;
+  cursor: default;
+  user-select: none;
+
+  &::after {
+    content: '';
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+
+  &:disabled, &.disabled {
+    background: #F5F4EA;
+    color: #A1A192;
+    border: 1px solid #C9C7BA;
+    box-shadow: none;
+  }
+
+  &:focus, &.focus {
+    outline: none;
+
+    &::after {
+      display: block;
+      border: 2px solid #6F98CFB2;
+    }
+  }
+
+  &:not(:disabled, .disabled):hover, &.hover {
+    &::after {
+      display: block;
+      border: 2px solid #F5C05DB2;
+    }
+  }
+
+  &:focus-visible::after {
+    outline: 1px dotted #563A2E;
+    outline-offset: -2px;
+  }
+
+  &:not(:disabled, .disabled):active, &.active {
+    background: #E2E1D9;
+    box-shadow: inset 1px 2px 1px #D1CCC1, inset 0 -1px 1px #fff;
+
+    &::after {
+      display: none;
+    }
+  }
+}

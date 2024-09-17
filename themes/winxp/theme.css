@@ -72,9 +72,25 @@ code {
   border-right: 1px solid #1941A5;
 }
 
-details > summary,
-button,
-button:disabled:active {
+fieldset {
+  border: 1px solid #D0D0BF;
+  border-radius: 3px;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px;
+  color: #0046D5;
+  background-color: var(--button-bg);
+  display: block;
+}
+
+hr {
+  border-top: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+}
+
+button, input[type=button], input[type=submit], input[type=reset], .button {
   background: linear-gradient(180deg, #ffffff 0%, #F0F0EA 100%);
   color: #000;
   border: 1px solid #003C74;
@@ -85,26 +101,10 @@ button:disabled:active {
   line-height: 1;
   position: relative;
   min-width: 90px;
+  cursor: default;
+  user-select: none;
 }
-
-button:disabled,
-button:disabled:active,
-select:not([size]):disabled {
-  background: #F5F4EA;
-  color: #A1A192;
-  border: 1px solid #C9C7BA;
-  box-shadow: none;
-}
-
-details > summary:active,
-details[open] > summary,
-button:active {
-  background: #E2E1D9;
-  box-shadow: inset 1px 2px 1px #D1CCC1, inset 0 -1px 1px #fff;
-}
-
-details > summary::after,
-button::after {
+button::after, input[type=button]::after, input[type=submit]::after, input[type=reset]::after, .button::after {
   content: "";
   display: none;
   position: absolute;
@@ -113,44 +113,36 @@ button::after {
   right: 0;
   bottom: 0;
 }
-
-details > summary:focus,
-button:focus {
+button:disabled, button.disabled, input[type=button]:disabled, input[type=button].disabled, input[type=submit]:disabled, input[type=submit].disabled, input[type=reset]:disabled, input[type=reset].disabled, .button:disabled, .button.disabled {
+  background: #F5F4EA;
+  color: #A1A192;
+  border: 1px solid #C9C7BA;
+  box-shadow: none;
+}
+button:focus, button.focus, input[type=button]:focus, input[type=button].focus, input[type=submit]:focus, input[type=submit].focus, input[type=reset]:focus, input[type=reset].focus, .button:focus, .button.focus {
   outline: none;
 }
-
-details > summary:focus::after,
-button:focus::after {
+button:focus::after, button.focus::after, input[type=button]:focus::after, input[type=button].focus::after, input[type=submit]:focus::after, input[type=submit].focus::after, input[type=reset]:focus::after, input[type=reset].focus::after, .button:focus::after, .button.focus::after {
   display: block;
   border: 2px solid rgba(111, 152, 207, 0.6980392157);
 }
-
-details > summary:hover::after,
-button:hover::after {
+button:not(:disabled, .disabled):hover::after, button.hover::after, input[type=button]:not(:disabled, .disabled):hover::after, input[type=button].hover::after, input[type=submit]:not(:disabled, .disabled):hover::after, input[type=submit].hover::after, input[type=reset]:not(:disabled, .disabled):hover::after, input[type=reset].hover::after, .button:not(:disabled, .disabled):hover::after, .button.hover::after {
   display: block;
   border: 2px solid rgba(245, 192, 93, 0.6980392157);
 }
-
-details > summary:focus-visible::after,
-button:focus-visible::after {
+button:focus-visible::after, input[type=button]:focus-visible::after, input[type=submit]:focus-visible::after, input[type=reset]:focus-visible::after, .button:focus-visible::after {
   outline: 1px dotted #563A2E;
   outline-offset: -2px;
 }
-
-details > summary:active::after,
-button:active::after,
-details > summary:disabled::after,
-button:disabled::after {
+button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active {
+  background: #E2E1D9;
+  box-shadow: inset 1px 2px 1px #D1CCC1, inset 0 -1px 1px #fff;
+}
+button:not(:disabled, .disabled):active::after, button.active::after, input[type=button]:not(:disabled, .disabled):active::after, input[type=button].active::after, input[type=submit]:not(:disabled, .disabled):active::after, input[type=submit].active::after, input[type=reset]:not(:disabled, .disabled):active::after, input[type=reset].active::after, .button:not(:disabled, .disabled):active::after, .button.active::after {
   display: none;
 }
 
-select > option {
-  padding: 2px 6px;
-}
-
-input[type=text],
-pre,
-textarea,
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
 select {
   background-color: var(--input-bg);
   color: var(--input-fg);
@@ -160,31 +152,73 @@ select {
   font-size: inherit;
   outline: none;
 }
-
-input::selection,
-textarea::selection {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]) ::selection, textarea ::selection, .input ::selection,
+select ::selection {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
 }
-
-select:not([size]):not(:active):focus,
-select[size="1"]:not(:active):focus {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--light), inset 2px 2px 0 var(--input-bg), inset -2px -2px 0 var(--input-bg);
-}
-
-input[type=text][readonly],
-textarea[readonly] {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])[readonly], input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).readonly, textarea[readonly], textarea.readonly, .input[readonly], .input.readonly,
+select[readonly],
+select.readonly {
   background: var(--window-bg);
 }
-
-input[type=text]:disabled,
-textarea:disabled,
-select:disabled > option,
-select:disabled {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled,
+select:disabled,
+select.disabled {
   background: var(--window-bg);
   color: var(--dark);
+}
+
+select > option {
+  padding: 2px 6px;
+}
+
+.dropdown {
+  display: inline-grid;
+  padding: 0;
+  grid-template-areas: "s";
+}
+.dropdown > select {
+  grid-area: s;
+}
+.dropdown > select:focus {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+.dropdown > select:hover + .dropdown-button {
+  background-image: radial-gradient(circle at top left, #FFFFFF, #B9DAFB);
+  border-color: #8AA6E3;
+}
+.dropdown > select:active + .dropdown-button {
+  background-image: radial-gradient(circle at top left, #6E8EF1, #D2DEEB);
+  border-color: #7C89DB;
+  border-right-color: #B3C8F5;
+  border-bottom-color: #B3C8F5;
+}
+.dropdown > .dropdown-button {
+  justify-self: end;
+  grid-area: s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2px;
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  background-image: radial-gradient(circle at top left, #E1EAFE, #AEC8F7);
+  border: 1px solid #ADC3F6;
+  border-radius: 2px;
+  width: 15px;
+  pointer-events: none;
+  box-shadow: -2px 0 #fff;
+}
+.dropdown > .dropdown-button::after {
+  content: "";
+  display: block;
+  width: 9px;
+  height: 6px;
+  background-image: url(arrow-down.gif);
+  background-repeat: no-repeat;
 }
 
 input[type=checkbox] {
@@ -196,23 +230,10 @@ input[type=checkbox] {
   width: 13px;
   height: 13px;
 }
-
-input[type=checkbox]:active,
-input[type=checkbox]:disabled,
-input[type=radio]:active,
-input[type=radio]:disabled {
-  background: var(--window-bg);
-}
-
 input[type=checkbox]:checked {
   background-image: url(checkmark.gif);
   background-repeat: no-repeat;
   background-position: 2px 2px;
-}
-
-input[type=checkbox]:disabled + label,
-input[type=radio]:disabled + label {
-  color: var(--dark);
 }
 
 input[type=radio] {
@@ -225,7 +246,6 @@ input[type=radio] {
   height: 13px;
   border-radius: 50%;
 }
-
 input[type=radio]:checked::after {
   content: "";
   display: block;
@@ -237,25 +257,33 @@ input[type=radio]:checked::after {
   margin-left: 3px;
 }
 
-input[type=radio]:focus + label,
-input[type=checkbox]:focus + label {
+input[type=checkbox],
+input[type=radio] {
+  background: var(--window-bg);
+}
+input[type=checkbox]:active, input[type=checkbox]:disabled,
+input[type=radio]:active,
+input[type=radio]:disabled {
+  background: var(--window-bg);
+}
+input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+  color: var(--dark);
+}
+input[type=checkbox]:focus,
+input[type=radio]:focus {
+  outline: none;
+}
+input[type=checkbox]:focus + label,
+input[type=radio]:focus + label {
   outline: 1px dotted var(--darkest);
   outline-offset: 0;
-}
-
-input[type=radio]:focus,
-input[type=checkbox]:focus {
-  outline: none;
 }
 
 label > input[type=radio]:focus,
 label > input[type=checkbox]:focus {
   outline: 1px dotted var(--darkest);
   outline-offset: 1px;
-}
-
-code {
-  font-family: monospace;
 }
 
 progress {
@@ -275,24 +303,6 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value,
 progress::-moz-progress-bar {
   background: var(--selection-bg);
-}
-
-fieldset {
-  border: 1px solid #D0D0BF;
-  border-radius: 3px;
-}
-
-legend {
-  text-align: left;
-  padding: 0 4px;
-  color: #0046D5;
-  background-color: var(--button-bg);
-  display: block;
-}
-
-hr {
-  border-top: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
 }
 
 .window,
