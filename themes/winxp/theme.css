@@ -196,6 +196,10 @@ select:not([size], [multiple]):disabled, select[size="1"]:disabled {
   background-image: radial-gradient(circle at top left, #FFFFFF, #B9DAFB);
   border-color: #8AA6E3;
 }
+.dropdown > select:active {
+  background: var(--input-bg);
+  color: var(--input-fg);
+}
 .dropdown > select:active + .dropdown-button {
   background-image: radial-gradient(circle at top left, #6E8EF1, #D2DEEB);
   border-color: #7C89DB;
@@ -245,23 +249,32 @@ input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: radial-gradient(circle at 0 0, #DCDCD7 0, #FFFFFF 75%);
-  border: 1px solid #1C5180;
   width: 13px;
   height: 13px;
 }
-input[type=checkbox]:checked {
-  background-image: url(checkmark.gif);
-  background-repeat: no-repeat;
-  background-position: 2px 2px;
+input[type=checkbox]:checked::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 2px 0 0 2px;
+  background: #21A121;
+  -webkit-mask-image: url(checkmark.gif);
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url(checkmark.gif);
+  mask-repeat: no-repeat;
+}
+input[type=checkbox]:not(:disabled):active:checked::after {
+  background: #1D8C1B;
+}
+input[type=checkbox]:disabled:checked::after {
+  background: #CAC8BB;
 }
 
 input[type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background: radial-gradient(circle at 0 0, #DCDCD7 0, #FFFFFF 75%);
-  border: 1px solid #1C5180;
   width: 13px;
   height: 13px;
   border-radius: 50%;
@@ -276,33 +289,46 @@ input[type=radio]:checked::after {
   margin-top: 3px;
   margin-left: 3px;
 }
+input[type=radio]:disabled:checked::after {
+  background: #CAC8BB;
+}
 
 input[type=checkbox],
 input[type=radio] {
-  background: var(--window-bg);
+  background: radial-gradient(circle at 0 0, #DCDCD7 0, #FFFFFF 75%);
+  border: 1px solid #1C5180;
 }
-input[type=checkbox]:active, input[type=checkbox]:disabled,
-input[type=radio]:active,
+input[type=checkbox]:not(:disabled):hover,
+input[type=radio]:not(:disabled):hover {
+  box-shadow: inset 1px 1px 1px #FFF0CF, inset 0 0 0 2px #F8B636;
+}
+input[type=checkbox]:not(:disabled):active,
+input[type=radio]:not(:disabled):active {
+  background: radial-gradient(circle at 0 0, #B0B0A7 0, #F1EFDF 75%);
+  box-shadow: none;
+}
+input[type=checkbox]:disabled,
 input[type=radio]:disabled {
-  background: var(--window-bg);
+  background: #FFF;
+  border-color: #CAC8BB;
 }
 input[type=checkbox]:disabled + label,
 input[type=radio]:disabled + label {
-  color: var(--dark);
+  color: #A1A192;
 }
 input[type=checkbox]:focus,
 input[type=radio]:focus {
   outline: none;
 }
-input[type=checkbox]:focus + label,
-input[type=radio]:focus + label {
-  outline: 1px dotted var(--darkest);
+input[type=checkbox]:focus:focus-visible + label,
+input[type=radio]:focus:focus-visible + label {
+  outline: 1px dotted #000;
   outline-offset: 0;
 }
 
-label > input[type=radio]:focus,
-label > input[type=checkbox]:focus {
-  outline: 1px dotted var(--darkest);
+label > input[type=radio]:focus-visible,
+label > input[type=checkbox]:focus-visible {
+  outline: 1px dotted #000;
   outline-offset: 1px;
 }
 

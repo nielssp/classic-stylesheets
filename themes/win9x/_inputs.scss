@@ -48,6 +48,9 @@ select,
     padding-right: 21px;
 
     &:active {
+      background: var(--input-bg);
+      color: var(--input-fg);
+
       & + .dropdown-button {
         border: 1px solid var(--dark);
         box-shadow: none;

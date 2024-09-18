@@ -349,6 +349,10 @@ select:not([size], [multiple]), select[size="1"]:not(:active):focus {
   grid-area: s;
   padding-right: 21px;
 }
+.dropdown > select:active {
+  background: var(--input-bg);
+  color: var(--input-fg);
+}
 .dropdown > select:active + .dropdown-button {
   border: 1px solid var(--dark);
   box-shadow: none;
