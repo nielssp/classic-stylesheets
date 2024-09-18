@@ -130,10 +130,12 @@ input[type=checkbox] {
     height: 7px;
     margin: 2px 0 0 2px;
     background: #21A121;
-    -webkit-mask-image: url(checkmark.gif);
+    -webkit-mask-image: url(checkmark.svg);
     -webkit-mask-repeat: no-repeat;
-    mask-image: url(checkmark.gif);
+    -webkit-mask-size: 7px 7px;
+    mask-image: url(checkmark.svg);
     mask-repeat: no-repeat;
+    mask-size: 7px 7px;
   }
 
   &:not(:disabled):active {
@@ -210,3 +212,62 @@ label > input[type=checkbox]:focus-visible {
   outline-offset: 1px;
 }
 
+@mixin range-track {
+  height: 2px;
+  background: #F0EDE0;
+  border: 1px solid #FFFFFF;
+  border-top: 1px solid #9D9C99;
+  border-left: 1px solid #9D9C99;
+  border-radius: 2px;
+  box-shadow: inset 0 1px #F2F1E9;
+  margin: 0 5px;
+}
+
+@mixin range-thumb {
+  border-radius: 0;
+  background: #F3F3EF;
+  border: 1px solid #778892;
+  border-top: 1px solid #B5C4CD;
+  border-left: 1px solid #B5C4CD;
+  width: 9px;
+  height: 20px;
+  box-shadow: inset 0 2px #48CB46, inset 0 -2px #48CB46;
+
+  &:hover {
+    box-shadow: inset 0 2px #F9B435, inset 0 -2px #F9B435;
+  }
+
+  &:active {
+    box-shadow: inset 0 2px #229512, inset 0 -2px #229512;
+  }
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; 
+  padding: 2px;
+
+  &:focus {
+    outline: 1px dotted #131627;
+  }
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+    margin: 10px 5px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -10px;
+    @include range-thumb;
+  }
+}

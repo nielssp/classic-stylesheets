@@ -97,16 +97,30 @@
 }
 
 [role=menu] > li[aria-haspopup=true] {
-  background-image: url(arrow-right.gif);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 8px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: currentColor;
+    -webkit-mask-image: url(arrow-right.svg);
+    -webkit-mask-size: 4px 7px;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center center;
+    mask-image: url(arrow-right.svg);
+    mask-size: 4px 7px;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+  }
 }
 
 [role=menu] > li[aria-haspopup=true]:focus-within,
 [role=menu] > li[aria-haspopup=true]:hover {
-  background-image: url(arrow-right-active.gif);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
 }
 
 .menu {

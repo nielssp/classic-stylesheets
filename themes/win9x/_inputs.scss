@@ -104,6 +104,7 @@ input[type=checkbox] {
   -moz-appearance: none;
   appearance: none;
   background: var(--input-bg);
+  color: var(--darkest);
   border: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   border-right: 1px solid var(--lightest);
@@ -116,12 +117,27 @@ input[type=checkbox] {
   }
 
   &:checked, &.checked {
-    background-image: url(checkmark.gif);
-    background-repeat: no-repeat;
-    background-position: 2px 2px;
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      margin: 2px 0 0 2px;
+      background: currentColor;
+      -webkit-mask-image: url(checkmark.svg);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 7px 7px;
+      mask-image: url(checkmark.svg);
+      mask-repeat: no-repeat;
+      mask-size: 7px 7px;
+    }
   }
 
-  &:disabled + label, &.disabled + labwel {
+  &:disabled, &.disabled {
+    color: var(--dark);
+  }
+
+  &:disabled + label, &.disabled + label {
     color: var(--dark);
     text-shadow: 1px 1px 0 var(--lightest);
   }
@@ -141,6 +157,7 @@ input[type=radio] {
   -moz-appearance: none;
   appearance: none;
   background: var(--input-bg);
+  color: var(--darkest);
   border: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   border-right: 1px solid var(--lightest);
@@ -159,12 +176,16 @@ input[type=radio] {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background-color: var(--darkest);
+    background-color: currentColor;
     margin-top: 3px;
     margin-left: 3px;
   }
 
-  &:disabled + label, &.disabled + labwel {
+  &:disabled, &.disabled {
+    color: var(--dark);
+  }
+
+  &:disabled + label, &.disabled + label {
     color: var(--dark);
     text-shadow: 1px 1px 0 var(--lightest);
   }

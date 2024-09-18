@@ -57,6 +57,7 @@
   border: 1px solid var(--lightest);
   border-top: 1px solid var(--darkest);
   border-left: 1px solid var(--darkest);
+  padding: 0;
 }
 
 .title-bar-buttons button:not(:active):focus {
@@ -67,20 +68,20 @@
 }
 
 .title-bar-buttons button[data-close] {
-  background-image: url(close2.gif);
+  background-image: url(close.svg);
   margin-left: 2px;
 }
 
 .title-bar-buttons button[data-minimize] {
-  background-image: url(minimize2.gif);
+  background-image: url(minimize.svg);
 }
 
 .title-bar-buttons button[data-maximize] {
-  background-image: url(maximize2.gif);
+  background-image: url(maximize.svg);
 }
 
 .maximized .title-bar-buttons button[data-maximize] {
-  background-image: url(restore2.gif);
+  background-image: url(restore.svg);
 }
 
 .window-body,
