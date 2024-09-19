@@ -26,8 +26,7 @@
 .window:focus-within,
 .dialog.active,
 .dialog:focus-within,
-.menu.active,
-.menu:focus-within {
+.menu {
   background: linear-gradient(to bottom right, #166AEE, #002CBC 100%);
   border-left-color: #0734DA;
   border-bottom-color: #00138C;
@@ -55,7 +54,8 @@
 .window:focus-within > .title-bar,
 .dialog.active > .title-bar,
 .dialog:focus-within > .title-bar,
-.title-bar.active {
+.title-bar.active,
+.menu .title-bar {
   background: linear-gradient(90deg, #003DDC, transparent 5px),
     linear-gradient(270deg, rgba(0, 14, 125, 0.5), transparent 5px),
     linear-gradient(180deg, #3D95FF 0%, #3D95FF 5%, #0054E3 10%, #0372FF 84%, #026AFE 90%, #0144D0 97%, #0144D0 100%);
@@ -109,36 +109,40 @@
   border: 1px solid #fff;
   box-shadow: none;
   margin-left: 2px;
-  background: linear-gradient(135deg, #BFD1FC 0%, transparent 20%),
-    linear-gradient(90deg, #5E8BF7 0%, transparent 40%),
-    linear-gradient(180deg, #5E8BF7 0%, transparent 30%),
-    linear-gradient(to bottom right, #467EF5, #0760F3);
   box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset -2px -2px 2px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.title-bar-buttons button:hover {
-  filter: brightness(1.2);
-}
 
-.title-bar-buttons button:active {
-  outline: none;
-  filter: brightness(0.8);
-  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.8);
-}
+  &:hover {
+    filter: brightness(1.2);
+  }
 
-.title-bar-buttons button::after {
-  display: none;
-  position: initial;
-}
+  &, &:active {
+    background: linear-gradient(135deg, #BFD1FC 0%, transparent 20%),
+      linear-gradient(90deg, #5E8BF7 0%, transparent 40%),
+      linear-gradient(180deg, #5E8BF7 0%, transparent 30%),
+      linear-gradient(to bottom right, #467EF5, #0760F3);
+  }
 
-.title-bar-buttons button[data-close] {
-  background: linear-gradient(135deg, #EFA390 0%, transparent 20%),
+  &:active {
+    outline: none;
+    filter: brightness(0.8);
+    box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.8);
+  }
+
+  &::after {
+    display: none;
+    position: initial;
+  }
+
+  &[data-close] {
+    background: linear-gradient(135deg, #EFA390 0%, transparent 20%),
     linear-gradient(90deg, #E98168 0%, transparent 40%),
     linear-gradient(180deg, #E98168 0%, transparent 30%),
     linear-gradient(to bottom right, #E66A4D, #E03802);
+  }
 }
 
 
@@ -153,22 +157,27 @@
   border: 0;
   outline: none;
   margin: auto;
+  background: white;
 }
 
 .title-bar-buttons button[data-close]::after {
-  background-image: url(close.gif);
+  -webkit-mask-image: url(close.svg);
+  mask-image: url(close.svg);
 }
 
 .title-bar-buttons button[data-minimize]::after {
-  background-image: url(minimize.gif);
+  -webkit-mask-image: url(minimize.svg);
+  mask-image: url(minimize.svg);
 }
 
 .title-bar-buttons button[data-maximize]::after {
-  background-image: url(maximize.gif);
+  -webkit-mask-image: url(maximize.svg);
+  mask-image: url(maximize.svg);
 }
 
 .maximized .title-bar-buttons button[data-maximize]::after {
-  background-image: url(restore.gif);
+  -webkit-mask-image: url(restore.svg);
+  mask-image: url(restore.svg);
 }
 
 .window-body,

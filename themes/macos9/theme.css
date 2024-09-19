@@ -266,7 +266,7 @@ input[type=checkbox] {
   height: 12px;
 }
 
-input[type=checkbox]:active {
+input[type=checkbox]:not(:disabled):active {
   background: #777;
   box-shadow: inset 1px 1px 0 #555, inset -1px -1px 0 #999;
 }
@@ -315,7 +315,7 @@ input[type=radio]:checked {
   box-shadow: inset 1px 1px 0 #555;
 }
 
-input[type=radio]:active {
+input[type=radio]:not(:disabled):active {
   background: linear-gradient(to bottom right, #444, #bbb);
   box-shadow: inset 1px 1px 0 #444;
 }

@@ -584,8 +584,7 @@ progress::-moz-progress-bar {
 .window:focus-within,
 .dialog.active,
 .dialog:focus-within,
-.menu.active,
-.menu:focus-within {
+.menu {
   background: linear-gradient(to bottom right, #166AEE, #002CBC 100%);
   border-left-color: #0734DA;
   border-bottom-color: #00138C;
@@ -611,7 +610,8 @@ progress::-moz-progress-bar {
 .window:focus-within > .title-bar,
 .dialog.active > .title-bar,
 .dialog:focus-within > .title-bar,
-.title-bar.active {
+.title-bar.active,
+.menu .title-bar {
   background: linear-gradient(90deg, #003DDC, transparent 5px), linear-gradient(270deg, rgba(0, 14, 125, 0.5), transparent 5px), linear-gradient(180deg, #3D95FF 0%, #3D95FF 5%, #0054E3 10%, #0372FF 84%, #026AFE 90%, #0144D0 97%, #0144D0 100%);
   color: #FFFFFF;
   border-top-color: #0058EB;
@@ -663,28 +663,26 @@ progress::-moz-progress-bar {
   border: 1px solid #fff;
   box-shadow: none;
   margin-left: 2px;
-  background: linear-gradient(135deg, #BFD1FC 0%, transparent 20%), linear-gradient(90deg, #5E8BF7 0%, transparent 40%), linear-gradient(180deg, #5E8BF7 0%, transparent 30%), linear-gradient(to bottom right, #467EF5, #0760F3);
   box-shadow: inset 1px 1px 0 rgba(0, 0, 0, 0.1), inset -2px -2px 2px rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
 }
-
 .title-bar-buttons button:hover {
   filter: brightness(1.2);
 }
-
+.title-bar-buttons button, .title-bar-buttons button:active {
+  background: linear-gradient(135deg, #BFD1FC 0%, transparent 20%), linear-gradient(90deg, #5E8BF7 0%, transparent 40%), linear-gradient(180deg, #5E8BF7 0%, transparent 30%), linear-gradient(to bottom right, #467EF5, #0760F3);
+}
 .title-bar-buttons button:active {
   outline: none;
   filter: brightness(0.8);
   box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.8);
 }
-
 .title-bar-buttons button::after {
   display: none;
   position: initial;
 }
-
 .title-bar-buttons button[data-close] {
   background: linear-gradient(135deg, #EFA390 0%, transparent 20%), linear-gradient(90deg, #E98168 0%, transparent 40%), linear-gradient(180deg, #E98168 0%, transparent 30%), linear-gradient(to bottom right, #E66A4D, #E03802);
 }
@@ -700,22 +698,27 @@ progress::-moz-progress-bar {
   border: 0;
   outline: none;
   margin: auto;
+  background: white;
 }
 
 .title-bar-buttons button[data-close]::after {
-  background-image: url(close.gif);
+  -webkit-mask-image: url(close.svg);
+  mask-image: url(close.svg);
 }
 
 .title-bar-buttons button[data-minimize]::after {
-  background-image: url(minimize.gif);
+  -webkit-mask-image: url(minimize.svg);
+  mask-image: url(minimize.svg);
 }
 
 .title-bar-buttons button[data-maximize]::after {
-  background-image: url(maximize.gif);
+  -webkit-mask-image: url(maximize.svg);
+  mask-image: url(maximize.svg);
 }
 
 .maximized .title-bar-buttons button[data-maximize]::after {
-  background-image: url(restore.gif);
+  -webkit-mask-image: url(restore.svg);
+  mask-image: url(restore.svg);
 }
 
 .window-body,
@@ -727,6 +730,15 @@ progress::-moz-progress-bar {
 [role=menubar] {
   padding: 1px;
 }
+[role=menubar] > li {
+  border: 1px solid transparent;
+  padding: 1px 8px;
+}
+[role=menubar] > li > ul {
+  left: 0;
+  top: 100%;
+  min-width: 200px;
+}
 
 [role=menu] {
   color: #000000;
@@ -735,30 +747,17 @@ progress::-moz-progress-bar {
   padding: 2px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
-
-[role=menubar],
-.menu > [role=menu] {
-  box-shadow: none;
-  border: none;
-}
-
 [role=menu] li {
+  position: relative;
   border: 1px solid transparent;
-  padding: 1px 3px;
+  padding: 1px 3px 1px 19px;
 }
-
-[role=menubar] > li {
-  border: 1px solid transparent;
-  padding: 1px 8px;
-}
-
 [role=menu] li[data-shortcut]::after {
   float: right;
   content: attr(data-shortcut);
   display: block;
   margin-left: 4px;
 }
-
 [role=menu] li > ul {
   left: 100%;
   margin: 0;
@@ -766,56 +765,85 @@ progress::-moz-progress-bar {
   margin-left: -3px;
   min-width: 200px;
 }
+[role=menu] li[role=separator] {
+  border-top: 1px solid #ACA899;
+  margin: 3px;
+  height: 0;
+  padding: 0;
+}
+[role=menu] li[role=checkbox][aria-checked=true]::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  margin-top: -3.5px;
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  -webkit-mask-image: url(checkmark.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 7px 7px;
+  mask-image: url(checkmark.svg);
+  mask-repeat: no-repeat;
+  mask-size: 7px 7px;
+}
+[role=menu] li[role=radio][aria-checked=true]::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  margin-top: -2px;
+  display: block;
+  background: currentColor;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+}
+[role=menu] li[aria-haspopup=true]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: currentColor;
+  -webkit-mask-image: url(menu-right.svg);
+  -webkit-mask-size: 4px 7px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-image: url(menu-right.svg);
+  mask-size: 4px 7px;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+}
 
-[role=menubar] > li > ul {
-  left: 0;
-  top: 100%;
-  min-width: 200px;
+.menu > [role=menu] {
+  box-shadow: none;
+  border: none;
 }
 
 [role=menu] li:focus,
 [role=menubar] li:focus {
   outline: none;
 }
-
-[role=menu] li:hover,
-[role=menu] li:focus-within,
-[role=menubar] > li:hover,
-[role=menubar] > li:focus-within {
+[role=menu] li:hover, [role=menu] li:focus-within,
+[role=menubar] li:hover,
+[role=menubar] li:focus-within {
   background: var(--selection-bg);
   color: var(--selection-fg);
 }
-
 [role=menu] li[aria-disabled=true],
 [role=menubar] li[aria-disabled=true] {
   color: var(--dark);
   text-shadow: 1px 1px 0 var(--lightest);
   border-color: transparent;
 }
-
-[role=menu] li[aria-disabled=true]:hover,
-[role=menu] li[aria-disabled=true]:focus {
+[role=menu] li[aria-disabled=true]:hover, [role=menu] li[aria-disabled=true]:focus,
+[role=menubar] li[aria-disabled=true]:hover,
+[role=menubar] li[aria-disabled=true]:focus {
   text-shadow: none;
-}
-
-[role=menu] li[role=separator] {
-  border-top: 1px solid #ACA899;
-  margin: 2px;
-  height: 0;
-  padding: 0;
-}
-
-[role=menu] > li[aria-haspopup=true] {
-  background-image: url(arrow-right.gif);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-}
-
-[role=menu] > li[aria-haspopup=true]:focus-within,
-[role=menu] > li[aria-haspopup=true]:hover {
-  background-image: url(arrow-right-active.gif);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
 }
 
 .tabs > menu {

@@ -1,5 +1,16 @@
 [role=menubar] {
   padding: 1px;
+
+  & > li {
+    border: 1px solid transparent;
+    padding: 1px 8px;
+
+    & > ul {
+      left: 0;
+      top: 100%;
+      min-width: 200px;
+    }
+  }
 }
 
 [role=menu] {
@@ -8,88 +19,116 @@
   border: 1px solid #ACA899;
   padding: 2px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+  li {
+    position: relative;
+    border: 1px solid transparent;
+    padding: 1px 3px 1px 19px;
+
+    &[data-shortcut]::after {
+      float: right;
+      content: attr(data-shortcut);
+      display: block;
+      margin-left: 4px;
+    }
+
+    & > ul {
+      left: 100%;
+      margin: 0;
+      top: -4px;
+      margin-left: -3px;
+      min-width: 200px;
+    }
+
+    &[role=separator] {
+      border-top: 1px solid #ACA899;
+      margin: 3px;
+      height: 0;
+      padding: 0;
+    }
+
+    &[role=checkbox][aria-checked=true]::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      margin-top: -3.5px;
+      display: block;
+      width: 7px;
+      height: 7px;
+      background: currentColor;
+      -webkit-mask-image: url(checkmark.svg);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 7px 7px;
+      mask-image: url(checkmark.svg);
+      mask-repeat: no-repeat;
+      mask-size: 7px 7px;
+    }
+
+    &[role=radio][aria-checked=true]::before {
+      content: '';
+      position: absolute;
+      left: 7px;
+      top: 50%;
+      margin-top: -2px;
+      display: block;
+      background: currentColor;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    &[aria-haspopup=true] {
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 8px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: currentColor;
+        -webkit-mask-image: url(menu-right.svg);
+        -webkit-mask-size: 4px 7px;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center center;
+        mask-image: url(menu-right.svg);
+        mask-size: 4px 7px;
+        mask-repeat: no-repeat;
+        mask-position: center center;
+      }
+    }
+  }
 }
 
-[role=menubar],
 .menu > [role=menu] {
   box-shadow: none;
   border: none;
 }
 
-[role=menu] li {
-  border: 1px solid transparent;
-  padding: 1px 3px;
-}
+[role=menu],
+[role=menubar] {
+  li {
+    &:focus {
+      outline: none;
+    }
 
-[role=menubar] > li {
-  border: 1px solid transparent;
-  padding: 1px 8px;
-}
+    &:hover,
+    &:focus-within {
+      background: var(--selection-bg);
+      color: var(--selection-fg);
+    }
 
-[role=menu] li[data-shortcut]::after {
-  float: right;
-  content: attr(data-shortcut);
-  display: block;
-  margin-left: 4px;
-}
 
-[role=menu] li > ul {
-  left: 100%;
-  margin: 0;
-  top: -4px;
-  margin-left: -3px;
-  min-width: 200px;
-}
+    &[aria-disabled=true] {
+      color: var(--dark);
+      text-shadow: 1px 1px 0 var(--lightest);
+      border-color: transparent;
 
-[role=menubar] > li > ul {
-  left: 0;
-  top: 100%;
-  min-width: 200px;
+      &:hover, &:focus {
+        text-shadow: none;
+      }
+    }
+  }
 }
-
-[role=menu] li:focus,
-[role=menubar] li:focus {
-  outline: none;
-}
-
-[role=menu] li:hover,
-[role=menu] li:focus-within,
-[role=menubar] > li:hover,
-[role=menubar] > li:focus-within {
-  background: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
-[role=menu] li[aria-disabled=true],
-[role=menubar] li[aria-disabled=true] {
-  color: var(--dark);
-  text-shadow: 1px 1px 0 var(--lightest);
-  border-color: transparent;
-}
-
-[role=menu] li[aria-disabled=true]:hover,
-[role=menu] li[aria-disabled=true]:focus {
-  text-shadow: none;
-}
-
-[role=menu] li[role=separator] {
-  border-top: 1px solid #ACA899;
-  margin: 2px;
-  height: 0;
-  padding: 0;
-}
-
-[role=menu] > li[aria-haspopup=true] {
-  background-image: url(arrow-right.gif);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-}
-
-[role=menu] > li[aria-haspopup=true]:focus-within,
-[role=menu] > li[aria-haspopup=true]:hover {
-  background-image: url(arrow-right-active.gif);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-}
-
 
