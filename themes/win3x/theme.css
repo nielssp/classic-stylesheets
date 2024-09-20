@@ -208,7 +208,7 @@ input[type=radio]:disabled {
 }
 
 input[type=checkbox]:checked {
-  background-image: url(checkmark.gif);
+  background-image: url(checkmark.svg);
   background-repeat: no-repeat;
   background-position: 0 0;
 }
@@ -380,19 +380,19 @@ hr {
 }
 
 .title-bar-buttons button[data-close] {
-  background-image: url(close.gif);
+  background-image: url(close.svg);
 }
 
 .title-bar-buttons button[data-minimize] {
-  background-image: url(minimize.gif);
+  background-image: url(minimize.svg);
 }
 
 .title-bar-buttons button[data-maximize] {
-  background-image: url(maximize.gif);
+  background-image: url(maximize.svg);
 }
 
 .maximized .title-bar-buttons button[data-maximize] {
-  background-image: url(restore.gif);
+  background-image: url(restore.svg);
 }
 
 .window-body,

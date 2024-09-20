@@ -106,7 +106,6 @@ hr {
   background: radial-gradient(circle at 0 0, #EEEDE5, #AEC8F7 75%);
   border: 1px solid #fff;
   border-radius: 2px;
-  box-shadow: 1px 1px #7DA0D4, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
   margin-bottom: 1px;
   margin-right: 1px;
 }
@@ -140,6 +139,14 @@ hr {
 .vertical-scrollbar > button:not(:disabled):active::after {
   margin: 4px 0 0 4px;
 }
+.horizontal-scrollbar > button:hover,
+.vertical-scrollbar > button:hover {
+  filter: brightness(1.1);
+}
+.horizontal-scrollbar > button:active,
+.vertical-scrollbar > button:active {
+  filter: brightness(0.8);
+}
 .horizontal-scrollbar > .scrollbar-track,
 .vertical-scrollbar > .scrollbar-track {
   flex-grow: 1;
@@ -159,9 +166,23 @@ hr {
   align-items: center;
   justify-content: center;
 }
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+  filter: brightness(1.05) contrast(1.05);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+  filter: brightness(0.8) contrast(1.5);
+}
 
-.horizontal-scrollbar > button:first-child::after {
+.horizontal-scrollbar {
+  padding: 1px 0;
+}
+.horizontal-scrollbar > button {
   height: 15px;
+  box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
+}
+.horizontal-scrollbar > button:first-child::after {
   -webkit-mask-image: url(arrow-left.svg);
   -webkit-mask-size: 6px 9px;
   mask-image: url(arrow-left.svg);
@@ -169,17 +190,17 @@ hr {
   margin: 2px 0 0 3px;
 }
 .horizontal-scrollbar > button:last-child::after {
-  height: 15px;
   -webkit-mask-image: url(arrow-right.svg);
   -webkit-mask-size: 6px 9px;
   mask-image: url(arrow-right.svg);
   mask-size: 6px 9px;
-  margin: 2px 0 0 3px;
+  margin: 2px 0 0 5px;
 }
 .horizontal-scrollbar > .scrollbar-track {
   background: linear-gradient(to bottom, #F3F1EC, #FEFEFB);
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  height: 15px;
   background: linear-gradient(to bottom, #C8D6FB, #B9CBF3);
   top: 0;
   bottom: 0;
@@ -194,18 +215,21 @@ hr {
 
 .vertical-scrollbar {
   flex-direction: column;
+  width: 17px;
+  padding: 0 1px;
+}
+.vertical-scrollbar > button {
   width: 15px;
+  box-shadow: 1px 0 #A0B5D3, 0 1px #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
 }
 .vertical-scrollbar > button:first-child::after {
-  width: 15px;
   -webkit-mask-image: url(arrow-up.svg);
   -webkit-mask-size: 9px 6px;
   mask-image: url(arrow-up.svg);
   mask-size: 9px 6px;
-  margin: 5px 0 0 2px;
+  margin: 4px 0 0 2px;
 }
 .vertical-scrollbar > button:last-child::after {
-  width: 15px;
   -webkit-mask-image: url(arrow-down.svg);
   -webkit-mask-size: 9px 6px;
   mask-image: url(arrow-down.svg);
@@ -216,6 +240,7 @@ hr {
   background: linear-gradient(to right, #F3F1EC, #FEFEFB);
 }
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  width: 15px;
   background: linear-gradient(to right, #C8D6FB, #B9CBF3);
   left: 0;
   right: 0;
@@ -376,9 +401,9 @@ select:not([size], [multiple]):disabled, select[size="1"]:disabled {
   display: block;
   width: 9px;
   height: 6px;
-  -webkit-mask-image: url(arrow-down.gif);
+  -webkit-mask-image: url(arrow-down.svg);
   -webkit-mask-repeat: no-repeat;
-  mask-image: url(arrow-down.gif);
+  mask-image: url(arrow-down.svg);
   mask-repeat: no-repeat;
   background: #4D6185;
 }

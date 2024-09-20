@@ -61,12 +61,12 @@
 
 .horizontal-scrollbar {
   & > button:first-child::after {
-    background-image: url(arrow-left.gif);
+    background-image: url(arrow-left.svg);
     background-position: 1px 0;
   }
 
   & > button:last-child::after {
-    background-image: url(arrow-right.gif);
+    background-image: url(arrow-right.svg);
     background-position: 2px 0;
   }
 
@@ -81,12 +81,12 @@
   width: 16px;
 
   & > button:first-child::after {
-    background-image: url(arrow-up.gif);
+    background-image: url(arrow-up.svg);
     background-position: 0 2px;
   }
 
   & > button:last-child::after {
-    background-image: url(arrow-down.gif);
+    background-image: url(arrow-down.svg);
     background-position: 0 2px;
   }
 
@@ -102,13 +102,6 @@
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
   width: 16px;
-}
-
-::-webkit-scrollbar::before {
-  display: block;
-  width: 16px;
-  height: 16px;
-  background: blue;
 }
 
 ::-webkit-scrollbar-button,
@@ -137,25 +130,25 @@
 }
 
 ::-webkit-scrollbar-button:vertical:decrement {
-  background-image: url(arrow-up.gif);
+  background-image: url(arrow-up.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar-button:vertical:increment {
-  background-image: url(arrow-down.gif);
+  background-image: url(arrow-down.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement {
-  background-image: url(arrow-left.gif);
+  background-image: url(arrow-left.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar-button:horizontal:increment {
-  background-image: url(arrow-down.gif);
+  background-image: url(arrow-rgiht.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
 }

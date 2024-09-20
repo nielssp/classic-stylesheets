@@ -173,11 +173,11 @@ hr {
 }
 
 .horizontal-scrollbar > button:first-child::after {
-  background-image: url(arrow-left.gif);
+  background-image: url(arrow-left.svg);
   background-position: 1px 0;
 }
 .horizontal-scrollbar > button:last-child::after {
-  background-image: url(arrow-right.gif);
+  background-image: url(arrow-right.svg);
   background-position: 2px 0;
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
@@ -190,11 +190,11 @@ hr {
   width: 16px;
 }
 .vertical-scrollbar > button:first-child::after {
-  background-image: url(arrow-up.gif);
+  background-image: url(arrow-up.svg);
   background-position: 0 2px;
 }
 .vertical-scrollbar > button:last-child::after {
-  background-image: url(arrow-down.gif);
+  background-image: url(arrow-down.svg);
   background-position: 0 2px;
 }
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
@@ -208,13 +208,6 @@ hr {
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
   width: 16px;
-}
-
-::-webkit-scrollbar::before {
-  display: block;
-  width: 16px;
-  height: 16px;
-  background: blue;
 }
 
 ::-webkit-scrollbar-button,
@@ -243,25 +236,25 @@ hr {
 }
 
 ::-webkit-scrollbar-button:vertical:decrement {
-  background-image: url(arrow-up.gif);
+  background-image: url(arrow-up.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar-button:vertical:increment {
-  background-image: url(arrow-down.gif);
+  background-image: url(arrow-down.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement {
-  background-image: url(arrow-left.gif);
+  background-image: url(arrow-left.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar-button:horizontal:increment {
-  background-image: url(arrow-down.gif);
+  background-image: url(arrow-rgiht.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
 }
@@ -386,9 +379,9 @@ select:not([size], [multiple]), select[size="1"]:not(:active):focus {
   display: block;
   width: 7px;
   height: 4px;
-  -webkit-mask-image: url(arrow-down.gif);
+  -webkit-mask-image: url(arrow-down.svg);
   -webkit-mask-repeat: no-repeat;
-  mask-image: url(arrow-down.gif);
+  mask-image: url(arrow-down.svg);
   mask-repeat: no-repeat;
   background: #000;
 }
@@ -543,9 +536,12 @@ progress::-webkit-progress-bar {
   background: var(--button-bg);
 }
 
-progress::-webkit-progress-value,
+progress::-webkit-progress-value {
+  border: 1px solid var(--button-bg);
+  background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
+}
+
 progress::-moz-progress-bar {
-  /*background: var(--selection-bg);*/
   border: 1px solid var(--button-bg);
   background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
 }

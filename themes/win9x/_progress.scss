@@ -12,9 +12,12 @@ progress::-webkit-progress-bar {
   background: var(--button-bg);
 }
 
-progress::-webkit-progress-value,
+progress::-webkit-progress-value {
+  border: 1px solid var(--button-bg);
+  background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
+}
+
 progress::-moz-progress-bar {
-  /*background: var(--selection-bg);*/
   border: 1px solid var(--button-bg);
   background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
 }

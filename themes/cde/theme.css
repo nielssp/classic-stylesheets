@@ -206,7 +206,7 @@ input[type=checkbox]:disabled:active {
 input[type=checkbox]:checked,
 input[type=checkbox]:active,
 input[type=checkbox]:checked:disabled:active {
-  background: var(--button-active-bg) url(checkmark.gif);
+  background: var(--button-active-bg) url(checkmark.svg);
   color: var(--button-active-fg);
   border: 1px solid var(--button-light);
   border-top: 1px solid var(--button-dark);

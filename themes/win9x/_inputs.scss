@@ -90,9 +90,9 @@ select,
       display: block;
       width: 7px;
       height: 4px;
-      -webkit-mask-image: url(arrow-down.gif);
+      -webkit-mask-image: url(arrow-down.svg);
       -webkit-mask-repeat: no-repeat;
-      mask-image: url(arrow-down.gif);
+      mask-image: url(arrow-down.svg);
       mask-repeat: no-repeat;
       background: #000;
     }
