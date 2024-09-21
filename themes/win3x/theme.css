@@ -169,6 +169,7 @@ select {
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
+  outline: none;
 }
 
 input::selection,
@@ -199,6 +200,7 @@ input[type=checkbox] {
   border: 1px solid var(--input-fg);
   width: 13px;
   height: 13px;
+  border-radius: 0;
 }
 
 input[type=checkbox]:active,

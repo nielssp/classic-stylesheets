@@ -39,6 +39,7 @@ button::-moz-focus-inner {
 button, input, textarea, select {
   font-family: inherit;
   font-size: inherit;
+  border-radius: 0;
 }
 
 a:focus {
