@@ -586,6 +586,24 @@ progress::-moz-progress-bar {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6666666667), transparent 50%, rgba(255, 255, 255, 0.6666666667) 100%), repeating-linear-gradient(90deg, #2ED331, #2ED331 6px, transparent 6px, transparent 8px);
 }
 
+progress:indeterminate::-moz-progress-bar {
+  width: 30px;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress:indeterminate::-webkit-progress-value {
+  width: 30px;
+  animation: 1s infinite linear indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -30px;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
 .window,
 .dialog,
 .menu {

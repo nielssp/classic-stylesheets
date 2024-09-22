@@ -547,6 +547,24 @@ progress::-moz-progress-bar {
   background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
 }
 
+progress:indeterminate::-moz-progress-bar {
+  width: 30px;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress:indeterminate::-webkit-progress-value {
+  width: 30px;
+  animation: 1s infinite linear indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -30px;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
 .window,
 .dialog,
 .menu {
