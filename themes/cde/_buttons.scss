@@ -1,0 +1,37 @@
+details > summary:focus,
+button:focus,
+select:focus,
+input[type=text]:focus,
+textarea:focus,
+a:focus {
+  outline: 1px solid var(--focus);
+  outline-offset: 0;
+}
+
+details > summary,
+button,
+button:disabled:active {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  padding: 2px 4px;
+}
+
+button:disabled,
+button:disabled:active,
+select:not([size]):disabled {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+}
+
+details > summary:active,
+button:active {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+

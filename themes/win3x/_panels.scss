@@ -1,0 +1,61 @@
+.desktop {
+  background: var(--desktop-bg);
+}
+
+.raised {
+  background: var(--window-bg);
+  border: 1px solid var(--border);
+}
+
+.lowered {
+  background: var(--window-bg);
+  border: 1px solid var(--border);
+}
+
+.raised > .lowered {
+  border: 0;
+}
+
+.raised.stack-row > .lowered + .lowered {
+  border-left: 1px solid var(--border);
+}
+
+.raised.stack-column > .lowered + .lowered {
+  border-top: 1px solid var(--border);
+}
+
+.top-panel {
+  background: var(--window-bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.right-panel {
+  background: var(--window-bg);
+  border-left: 1px solid var(--border);
+}
+
+.bottom-panel {
+  background: var(--window-bg);
+  border-top: 1px solid var(--border);
+}
+
+.left-panel {
+  background: var(--window-bg);
+  border-right: 1px solid var(--border);
+}
+
+fieldset {
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+legend {
+  text-align: left;
+  padding: 0 2px;
+  display: block;
+}
+
+hr {
+  border-top: 1px solid var(--border);
+}
+

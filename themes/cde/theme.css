@@ -1,10 +1,7 @@
 :root {
   --preferred-font: system-ui;
-
   --focus: #B24D7A;
-
   --desktop-bg: #63639C;
-
   --button-bg: #AEB2C3;
   --button-fg: #000000;
   --button-active-bg: #9397A5;
@@ -15,7 +12,6 @@
   --input-fg: #000;
   --input-dark: #99948B;
   --input-light: #CCC5BA;
-
   --dialog-button-bg: var(--button-bg);
   --dialog-button-fg: var(--button-fg);
   --dialog-button-active-bg: var(--button-active-bg);
@@ -26,15 +22,12 @@
   --dialog-input-fg: var(--input-fg);
   --dialog-input-dark: var(--input-dark);
   --dialog-input-light: var(--input-light);
-
   --select-active-bg: #000000;
   --select-active-fg: #FFFFFF;
-
   --title-bar-bg: var(--button-bg);
   --title-bar-fg: var(--button-fg);
   --title-bar-dark: var(--button-dark);
   --title-bar-light: var(--button-light);
-
   --title-bar-active-bg: #B24D7A;
   --title-bar-active-fg: #FFFFFF;
   --title-bar-active-dark: #58263C;
@@ -49,6 +42,15 @@ body {
 
 button::-moz-focus-inner {
   border: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+code {
+  font-family: monospace;
 }
 
 .desktop {
@@ -76,9 +78,24 @@ button::-moz-focus-inner {
   border-right-color: var(--button-dark);
 }
 
-button, input, textarea, select {
-  font-family: inherit;
-  font-size: inherit;
+fieldset {
+  border: 1px solid var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-right-color: var(--button-light);
+  box-shadow: inset 1px 1px 0 var(--button-light), inset -1px -1px 0 var(--button-dark);
+  position: relative;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px;
+  background-color: var(--button-bg);
+  display: block;
+}
+
+hr {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
 }
 
 details > summary:focus,
@@ -247,7 +264,7 @@ input[type=radio]:checked:disabled:active {
 
 input[type=radio]:checked::after,
 input[type=radio]:active::after {
-  content: '';
+  content: "";
   display: block;
   width: 10px;
   height: 10px;
@@ -278,10 +295,6 @@ label > input[type=checkbox]:focus {
   outline-offset: 1px;
 }
 
-code {
-  font-family: monospace;
-}
-
 progress {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -296,29 +309,12 @@ progress::-webkit-progress-bar {
   background: var(--button-bg);
 }
 
-progress::-webkit-progress-value,
-progress::-moz-progress-bar {
+progress::-webkit-progress-value {
   background: var(--button-active-bg);
 }
 
-fieldset {
-  border: 1px solid var(--button-dark);
-  border-bottom-color: var(--button-light);
-  border-right-color: var(--button-light);
-  box-shadow: inset 1px 1px 0 var(--button-light), inset -1px -1px 0 var(--button-dark);
-  position: relative;
-}
-
-legend {
-  text-align: left;
-  padding: 0 4px;
-  background-color: var(--button-bg);
-  display: block;
-}
-
-hr {
-  border-top: 1px solid var(--button-dark);
-  border-bottom: 1px solid var(--button-light);
+progress::-moz-progress-bar {
+  background: var(--button-active-bg);
 }
 
 .window,
@@ -361,7 +357,7 @@ hr {
   border-right: 1px solid var(--title-bar-dark);
   padding: 2px var(--padding);
   flex-grow: 1;
-  cursor: default
+  cursor: default;
 }
 
 .title-bar-buttons {
@@ -615,18 +611,14 @@ hr {
   background-color: var(--button-bg);
 }
 
-.tabs > menu > button:focus,
-.tabs > menu > button:active {
-}
-
-.tabs > menu > button[aria-selected="true"] {
+.tabs > menu > button[aria-selected=true] {
   margin-bottom: -1px;
   padding-bottom: 3px;
   box-shadow: none;
   z-index: 1;
 }
 
-.tabs > [role="tabpanel"] {
+.tabs > [role=tabpanel] {
   background: var(--button-bg);
   border: 1px solid var(--button-light);
   border-bottom-color: var(--button-dark);
@@ -643,17 +635,17 @@ hr {
   cursor: default;
 }
 
-.list > [role="option"] {
+.list > [role=option] {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
 
-.list > [role="option"][aria-selected="true"] {
+.list > [role=option][aria-selected=true] {
   background-color: #FFFFFF;
   color: #000000;
 }
 
-.list > [role="option"]:focus {
+.list > [role=option]:focus {
   outline: 2px solid var(--focus);
   outline-offset: -2px;
 }
@@ -701,12 +693,12 @@ hr {
   border-color: var(--focus);
 }
 
-.icon-grid > .icon[aria-selected="true"] > img {
+.icon-grid > .icon[aria-selected=true] > img {
   background-color: #ffffff;
   color: #000000;
 }
 
-.icon-grid > .icon[aria-selected="true"] > .icon-label {
+.icon-grid > .icon[aria-selected=true] > .icon-label {
   background-color: #ffffff;
   color: #000000;
 }
@@ -737,7 +729,7 @@ hr {
   outline-offset: -2px;
 }
 
-.detailed tr[aria-selected="true"] {
+.detailed tr[aria-selected=true] {
   background-color: #ffffff;
   color: #000000;
 }
@@ -747,7 +739,7 @@ hr {
   outline: 2px solid var(--focus);
 }
 
-.detailed .icon[aria-selected="true"] {
+.detailed .icon[aria-selected=true] {
   background-color: #ffffff;
   color: #000000;
 }

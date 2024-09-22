@@ -1,0 +1,57 @@
+@use '../../util/util';
+
+#{util.$buttons} {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--border);
+  border-radius: 2.5px;
+  padding: 2px 32px;
+  position: relative;
+  box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), 
+    inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
+  outline: none;
+
+  &:focus, &.focus {
+    box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border),
+    inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), 
+    inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 30px;
+      right: 30px;
+      border: 1px dotted var(--button-dark);
+    }
+  }
+
+  &:disabled, &.disabled {
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      right: 3px;
+      bottom: 3px;
+      background-image: linear-gradient(45deg, var(--button-bg) 25%, transparent 25%), linear-gradient(-45deg, var(--button-bg) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--button-bg) 75%), linear-gradient(-45deg, transparent 75%, var(--button-bg) 75%);
+      background-size: 2px 2px;
+      background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+    }
+  }
+
+  &:not(:disabled, .disabled):active, &.active {
+    box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset 2px 2px 0 var(--button-dark);
+    padding: 3px 31px 1px 33px;
+
+    &::after {
+      top: 4px;
+      bottom: 2px;
+      left: 31px;
+      right: 29px;
+    }
+  }
+}

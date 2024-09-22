@@ -1,0 +1,129 @@
+.window,
+.dialog,
+.menu {
+  background: var(--window-frame);
+  border: 1px solid var(--border);
+  position: relative;
+  padding: 2px;
+}
+
+.window.maximized,
+.dialog.maximized {
+  border: none;
+  padding: 0;
+}
+
+.window.active,
+.window:focus-within {
+  background-color: var(--window-frame-active);
+}
+
+.dialog {
+  background: var(--title-bar-bg);
+}
+
+.dialog.active,
+.dialog:focus-within {
+  background-color: var(--title-bar-active-bg);
+}
+
+.title-bar {
+  background: var(--title-bar-bg);
+  color: var(--title-bar-fg);
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  border: 1px solid var(--border);
+}
+
+.dialog > .title-bar {
+  border: 1px solid var(--window-bg);
+  border-bottom-color: var(--border)
+}
+
+.title-bar-text {
+  text-align: center;
+  font-weight: bold;
+  padding: 2px 4px;
+  flex-grow: 1;
+  cursor: default;
+}
+
+.title-bar-buttons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.title-bar-buttons button {
+  flex-shrink: 0;
+  width: 24px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-left: 1px solid var(--border);
+  border-radius: 0;
+  background-color: var(--button-bg);
+  background-repeat: no-repeat;
+  background-position: 7px 8px;
+}
+
+.title-bar-buttons button::after {
+  display: none;
+}
+
+.title-bar-buttons:first-child button { 
+  border: 0;
+  border-right: 1px solid var(--border);
+}
+
+.title-bar-buttons button:active {
+  outline: none;
+  box-shadow: inset 1px 1px 0 var(--button-dark);
+  background-position: 8px 10px;
+}
+
+.title-bar-buttons button[data-close] {
+  background-image: url(close.svg);
+}
+
+.title-bar-buttons button[data-minimize] {
+  background-image: url(minimize.svg);
+}
+
+.title-bar-buttons button[data-maximize] {
+  background-image: url(maximize.svg);
+}
+
+.maximized .title-bar-buttons button[data-maximize] {
+  background-image: url(restore.svg);
+}
+
+.window-body,
+.dialog-body {
+  background: var(--window-bg);
+  color: var(--window-fg);
+  border: 1px solid var(--border);
+  border-top: 0;
+}
+
+.dialog-body {
+  border-color: var(--window-bg);
+}
+
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.title-bar.active {
+  background: var(--title-bar-active-bg);
+  color: var(--title-bar-active-fg);
+}
+
+.window-body > * + *,
+.dialog-body > * + * {
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+

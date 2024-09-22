@@ -1,0 +1,30 @@
+.tabs > menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.tabs > menu > button {
+  border-bottom: 0;
+  min-width: 0;
+  background-color: var(--button-bg);
+}
+
+.tabs > menu > button:focus,
+.tabs > menu > button:active {
+}
+
+.tabs > menu > button[aria-selected="true"] {
+  margin-bottom: -1px;
+  padding-bottom: 3px;
+  box-shadow: none;
+  z-index: 1;
+}
+
+.tabs > [role="tabpanel"] {
+  background: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-bottom-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+}
+
+

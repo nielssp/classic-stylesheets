@@ -1,0 +1,22 @@
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+  border-right: 1px solid var(--button-light);
+}
+
+progress::-webkit-progress-bar {
+  background: var(--button-bg);
+}
+
+progress::-webkit-progress-value {
+  background: var(--button-active-bg);
+}
+
+progress::-moz-progress-bar {
+  background: var(--button-active-bg);
+}
+

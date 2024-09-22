@@ -47,7 +47,7 @@ select,
     grid-area: s;
     padding-right: 21px;
 
-    &:active {
+    &:not(:disabled):active {
       background: var(--input-bg);
       color: var(--input-fg);
 

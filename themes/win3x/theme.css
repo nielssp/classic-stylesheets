@@ -1,38 +1,29 @@
 :root {
-  --preferred-font: 'Microsoft Sans Serif';
-
+  --preferred-font: "Microsoft Sans Serif";
   --desktop-bg: #C0C0C0;
-
   --workspace-bg: #FFFFFF;
-
   --window-bg: #FFFFFF;
   --window-fg: #000000;
-
   --button-bg: #C0C0C0;
   --button-fg: #000000;
   --button-dark: #808080;
   --button-light: #FFFFFF;
   --input-bg: var(--window-bg);
   --input-fg: var(--window-fg);
-
   --border: #000000;
   --disabled: #808080;
-
   --window-frame: #C0C0C0;
   --window-frame-active: var(--window-frame);
-
   --menu-bg: #FFFFFF;
   --menu-fg: #000000;
-
   --title-bar-bg: #FFFFFF;
   --title-bar-fg: #000000;
-
   --title-bar-active-bg: #0000C0;
   --title-bar-active-fg: #FFFFFF;
-
   --selection-bg: #0000C0;
   --selection-fg: #FFFFFF;
   --selection-inverse: #FFFF3F;
+  --scrollbar-bg: #C0C0C0;
 }
 
 body {
@@ -41,8 +32,25 @@ body {
   font-family: system-ui;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 button::-moz-focus-inner {
   border: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a:focus {
+  outline: 1px dotted var(--border);
+}
+
+code {
+  font-family: monospace;
 }
 
 .desktop {
@@ -91,39 +99,126 @@ button::-moz-focus-inner {
   border-right: 1px solid var(--border);
 }
 
-button, input, textarea, select {
-  font-family: inherit;
-  font-size: inherit;
+fieldset {
+  border: 1px solid var(--border);
+  position: relative;
 }
 
-a:focus {
-  outline: 1px dotted var(--border);
+legend {
+  text-align: left;
+  padding: 0 2px;
+  display: block;
 }
 
-details > summary,
-button,
-button:disabled:active {
+hr {
+  border-top: 1px solid var(--border);
+}
+
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+}
+.horizontal-scrollbar > button,
+.vertical-scrollbar > button {
+  display: flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  min-width: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background: #C0C0C0;
+  border: 1px solid var(--border);
+  box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
+  border-radius: 0;
+}
+.horizontal-scrollbar > button::after, .horizontal-scrollbar > button:active::after,
+.vertical-scrollbar > button::after,
+.vertical-scrollbar > button:active::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 3px 0 0 3px;
+  background-repeat: no-repeat;
+}
+.horizontal-scrollbar > button:focus,
+.vertical-scrollbar > button:focus {
+  outline: none;
+}
+.horizontal-scrollbar > button:not(:disabled):active,
+.vertical-scrollbar > button:not(:disabled):active {
+  padding: 1px 0 0 2px;
+  box-shadow: inset 1px 1px var(--button-dark);
+  outline: none;
+}
+.horizontal-scrollbar > .scrollbar-track,
+.vertical-scrollbar > .scrollbar-track {
+  flex-grow: 1;
+  background: var(--scrollbar-bg);
+  position: relative;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  position: absolute;
+  background: var(--button-bg);
+  border: 1px solid var(--border);
+  box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
+}
+
+.horizontal-scrollbar > button:first-child::after {
+  background-image: url(scroll-left.svg);
+}
+.horizontal-scrollbar > button:last-child::after {
+  background-image: url(scroll-right.svg);
+}
+.horizontal-scrollbar > .scrollbar-track {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  top: 0;
+  bottom: 0;
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 16px;
+}
+.vertical-scrollbar > button:first-child::after {
+  background-image: url(scroll-up.svg);
+}
+.vertical-scrollbar > button:last-child::after {
+  background-image: url(scroll-down.svg);
+}
+.vertical-scrollbar > .scrollbar-track {
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  left: 0;
+  right: 0;
+  border-left: 0;
+  border-right: 0;
+}
+
+button, input[type=button], input[type=submit], input[type=reset], .button {
   background-color: var(--button-bg);
   color: var(--button-fg);
   border: 1px solid var(--border);
   border-radius: 2.5px;
   padding: 2px 32px;
   position: relative;
-  box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), 
-    inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
+  box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
   outline: none;
 }
-
-button:focus,
-details > summary:focus {
-  box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border),
-    inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), 
-    inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
+button:focus, button.focus, input[type=button]:focus, input[type=button].focus, input[type=submit]:focus, input[type=submit].focus, input[type=reset]:focus, input[type=reset].focus, .button:focus, .button.focus {
+  box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
 }
-
-button:focus:after,
-details > summary:focus:after {
-  content: '';
+button:focus::after, button.focus::after, input[type=button]:focus::after, input[type=button].focus::after, input[type=submit]:focus::after, input[type=submit].focus::after, input[type=reset]:focus::after, input[type=reset].focus::after, .button:focus::after, .button.focus::after {
+  content: "";
   display: block;
   position: absolute;
   top: 3px;
@@ -132,36 +227,30 @@ details > summary:focus:after {
   right: 30px;
   border: 1px dotted var(--button-dark);
 }
-
-button:disabled,
-button:disabled:active,
-select:not([size]):disabled {
-  color: var(--disabled);
+button:disabled::after, button.disabled::after, input[type=button]:disabled::after, input[type=button].disabled::after, input[type=submit]:disabled::after, input[type=submit].disabled::after, input[type=reset]:disabled::after, input[type=reset].disabled::after, .button:disabled::after, .button.disabled::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background-image: linear-gradient(45deg, var(--button-bg) 25%, transparent 25%), linear-gradient(-45deg, var(--button-bg) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--button-bg) 75%), linear-gradient(-45deg, transparent 75%, var(--button-bg) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
 }
-
-details > summary:active,
-button:active {
-  box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border),
-    inset 2px 2px 0 var(--button-dark);
+button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active {
+  box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset 2px 2px 0 var(--button-dark);
   padding: 3px 31px 1px 33px;
 }
-
-details > summary:active:after,
-button:active:after {
+button:not(:disabled, .disabled):active::after, button.active::after, input[type=button]:not(:disabled, .disabled):active::after, input[type=button].active::after, input[type=submit]:not(:disabled, .disabled):active::after, input[type=submit].active::after, input[type=reset]:not(:disabled, .disabled):active::after, input[type=reset].active::after, .button:not(:disabled, .disabled):active::after, .button.active::after {
   top: 4px;
   bottom: 2px;
   left: 31px;
   right: 29px;
 }
 
-
-select > option {
-  padding: 2px 6px;
-}
-
-input[type="text"],
-pre,
-textarea,
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
 select {
   background-color: var(--input-bg);
   color: var(--input-fg);
@@ -171,11 +260,19 @@ select {
   font-size: inherit;
   outline: none;
 }
-
-input::selection,
-textarea::selection {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection,
+select::selection {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
+}
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled,
+select:disabled,
+select.disabled {
+  color: var(--disabled);
+}
+
+select > option {
+  padding: 2px 6px;
 }
 
 select:not([size]):not(:active):focus,
@@ -185,11 +282,53 @@ select[size="1"]:not(:active):focus {
   box-shadow: inset 1px 1px 0 var(--input-bg), inset -1px -1px 0 var(--input-bg);
 }
 
-input[type=text]:disabled,
-textarea:disabled,
-select:disabled > option,
-select:disabled {
+.dropdown {
+  display: inline-grid;
+  padding: 0;
+  grid-template-areas: "s";
+}
+.dropdown > select {
+  appearance: none;
+  grid-area: s;
+  padding-right: 21px;
+}
+.dropdown > select:not(:disabled):active {
+  background: var(--input-bg);
+  color: var(--input-fg);
+}
+.dropdown > select:not(:disabled):active + .dropdown-button {
+  box-shadow: inset 1px 1px var(--button-dark), -1px 0 var(--input-bg);
+}
+.dropdown > select:not(:disabled):active + .dropdown-button::after {
+  margin: 1px 0 0 2px;
+}
+.dropdown > select:disabled + .dropdown-button {
   color: var(--disabled);
+}
+.dropdown > .dropdown-button {
+  justify-self: end;
+  grid-area: s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px;
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border-left: 1px solid var(--border);
+  box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark), -1px 0 var(--input-bg);
+  width: 16px;
+  pointer-events: none;
+}
+.dropdown > .dropdown-button::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 9px;
+  -webkit-mask-image: url(dropdown-arrow.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url(dropdown-arrow.svg);
+  mask-repeat: no-repeat;
+  background: currentColor;
 }
 
 input[type=checkbox] {
@@ -202,13 +341,6 @@ input[type=checkbox] {
   height: 13px;
   border-radius: 0;
 }
-
-input[type=checkbox]:active,
-input[type=checkbox]:disabled,
-input[type=radio]:active,
-input[type=radio]:disabled {
-}
-
 input[type=checkbox]:checked {
   background-image: url(checkmark.svg);
   background-repeat: no-repeat;
@@ -230,9 +362,8 @@ input[type=radio] {
   height: 12px;
   border-radius: 50%;
 }
-
 input[type=radio]:checked::after {
-  content: '';
+  content: "";
   display: block;
   width: 6px;
   height: 6px;
@@ -242,25 +373,20 @@ input[type=radio]:checked::after {
   margin-left: 2px;
 }
 
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+}
 input[type=radio]:focus + label,
 input[type=checkbox]:focus + label {
   outline: 1px dotted var(--border);
   outline-offset: 0;
 }
 
-input[type=radio]:focus,
-input[type=checkbox]:focus {
-  outline: none;
-}
-
 label > input[type=radio]:focus,
 label > input[type=checkbox]:focus {
   outline: 1px dotted var(--border);
   outline-offset: 1px;
-}
-
-code {
-  font-family: monospace;
 }
 
 progress {
@@ -275,24 +401,12 @@ progress::-webkit-progress-bar {
   background: var(--input-bg);
 }
 
-progress::-webkit-progress-value,
-progress::-moz-progress-bar {
+progress::-webkit-progress-value {
   background: var(--selection-bg);
 }
 
-fieldset {
-  border: 1px solid var(--border);
-  position: relative;
-}
-
-legend {
-  text-align: left;
-  padding: 0 2px;
-  display: block;
-}
-
-hr {
-  border-top: 1px solid var(--border);
+progress::-moz-progress-bar {
+  background: var(--selection-bg);
 }
 
 .window,
@@ -335,7 +449,7 @@ hr {
 
 .dialog > .title-bar {
   border: 1px solid var(--window-bg);
-  border-bottom-color: var(--border)
+  border-bottom-color: var(--border);
 }
 
 .title-bar-text {
@@ -370,7 +484,7 @@ hr {
   display: none;
 }
 
-.title-bar-buttons:first-child button { 
+.title-bar-buttons:first-child button {
   border: 0;
   border-right: 1px solid var(--border);
 }
@@ -515,8 +629,7 @@ hr {
   border-bottom-right-radius: 0;
   min-width: 0;
   padding: 2px 10px 2px 10px;
-  box-shadow: inset -1px 0 0 var(--button-dark), inset 1px 1px 0 var(--button-light), 
-    inset -2px 0 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
+  box-shadow: inset -1px 0 0 var(--button-dark), inset 1px 1px 0 var(--button-light), inset -2px 0 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
 }
 
 .tabs > menu > button:focus,
@@ -529,7 +642,7 @@ hr {
   right: 8px;
 }
 
-.tabs > menu > button[aria-selected="true"] {
+.tabs > menu > button[aria-selected=true] {
   margin-right: -2px;
   margin-left: -2px;
   margin-top: -2px;
@@ -540,7 +653,7 @@ hr {
   z-index: 1;
 }
 
-.tabs > [role="tabpanel"] {
+.tabs > [role=tabpanel] {
   border: 1px solid var(--border);
 }
 
@@ -552,22 +665,22 @@ hr {
   cursor: default;
 }
 
-.list > [role="option"] {
+.list > [role=option] {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
 
-.list > [role="option"][aria-selected="true"] {
+.list > [role=option][aria-selected=true] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
 }
 
-.list > [role="option"]:focus {
+.list > [role=option]:focus {
   outline: 1px dotted var(--border);
   outline-offset: -1px;
 }
 
-.list > [role="option"][aria-selected="true"]:focus {
+.list > [role=option][aria-selected=true]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
 
@@ -600,17 +713,17 @@ hr {
   outline-offset: -1px;
 }
 
-.icon-grid > .icon[aria-selected="true"] > .icon-label {
+.icon-grid > .icon[aria-selected=true] > .icon-label {
   outline: 1px solid var(--selection-bg);
 }
 
-.icon-grid:focus-within > .icon[aria-selected="true"] > .icon-label {
+.icon-grid:focus-within > .icon[aria-selected=true] > .icon-label {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
   outline: none;
 }
 
-.icon-grid > .icon[aria-selected="true"]:focus > .icon-label {
+.icon-grid > .icon[aria-selected=true]:focus > .icon-label {
   outline: 1px dotted var(--selection-inverse);
 }
 
@@ -625,6 +738,7 @@ hr {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
+
 .detailed tr {
   outline: none;
 }
@@ -634,12 +748,12 @@ hr {
   outline-offset: -1px;
 }
 
-.detailed tr[aria-selected="true"] {
+.detailed tr[aria-selected=true] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
 }
 
-.detailed tr[aria-selected="true"]:focus {
+.detailed tr[aria-selected=true]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
 
@@ -648,17 +762,17 @@ hr {
   outline-offset: -1px;
 }
 
-.detailed .icon[aria-selected="true"] .icon-label {
+.detailed .icon[aria-selected=true] .icon-label {
   outline: 1px solid var(--selection-bg);
 }
 
-.detailed:focus-within .icon[aria-selected="true"] .icon-label {
+.detailed:focus-within .icon[aria-selected=true] .icon-label {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
   outline: none;
 }
 
-.detailed .icon[aria-selected="true"]:focus .icon-label {
+.detailed .icon[aria-selected=true]:focus .icon-label {
   outline: 1px dotted var(--selection-inverse);
 }
 

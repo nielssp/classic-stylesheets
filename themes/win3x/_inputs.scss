@@ -1,0 +1,152 @@
+@use '../../util/util';
+
+#{util.$textInputs},
+select {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+
+  &::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  &:disabled, &.disabled {
+    color: var(--disabled);
+  }
+}
+
+select > option {
+  padding: 2px 6px;
+}
+
+select:not([size]):not(:active):focus,
+select[size="1"]:not(:active):focus {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+  box-shadow: inset 1px 1px 0 var(--input-bg), inset -1px -1px 0 var(--input-bg);
+}
+
+.dropdown {
+  display: inline-grid;
+  padding: 0;
+  grid-template-areas: 's';
+
+  & > select {
+    appearance: none;
+    grid-area: s;
+    padding-right: 21px;
+
+    &:not(:disabled):active {
+      background: var(--input-bg);
+      color: var(--input-fg);
+
+      & + .dropdown-button {
+        box-shadow: inset 1px 1px var(--button-dark), -1px 0 var(--input-bg);
+
+        &::after {
+          margin: 1px 0 0 2px;
+        }
+      }
+    }
+
+    &:disabled {
+      & + .dropdown-button {
+        color: var(--disabled);
+      }
+    }
+  }
+
+  & > .dropdown-button {
+    justify-self: end;
+    grid-area: s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+    background-color: var(--button-bg);
+    color: var(--button-fg);
+    border-left: 1px solid var(--border);
+    box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark), -1px 0 var(--input-bg);
+    width: 16px;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 9px;
+      -webkit-mask-image: url(dropdown-arrow.svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-image: url(dropdown-arrow.svg);
+      mask-repeat: no-repeat;
+      background: currentColor;
+    }
+  }
+}
+
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--input-bg);
+  border: 1px solid var(--input-fg);
+  width: 13px;
+  height: 13px;
+  border-radius: 0;
+
+
+  &:checked {
+    background-image: url(checkmark.svg);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+  }
+}
+
+input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+  color: var(--disabled);
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--input-bg);
+  border: 1px solid var(--input-fg);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  &:checked::after {
+    content: '';
+    display: block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--input-fg);
+    margin-top: 2px;
+    margin-left: 2px;
+  }
+}
+
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+
+  & + label {
+    outline: 1px dotted var(--border);
+    outline-offset: 0;
+  }
+}
+
+label > input[type=radio]:focus,
+label > input[type=checkbox]:focus {
+  outline: 1px dotted var(--border);
+  outline-offset: 1px;
+}

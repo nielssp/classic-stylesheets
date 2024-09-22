@@ -1,0 +1,161 @@
+select > option {
+  padding: 2px 6px;
+}
+
+input[type=text],
+pre,
+textarea,
+select:not([size="1"]) {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--input-dark);
+  border-bottom: 1px solid var(--input-light);
+  border-right: 1px solid var(--input-light);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+input::selection,
+textarea::selection {
+  background-color: var(--input-fg);
+  color: var(--input-bg);
+}
+
+select:not([size="1"]) {
+  padding: 0;
+}
+
+input[type=text]:disabled,
+textarea:disabled,
+select:not([size="1"]):disabled {
+  color: var(--input-dark);
+  text-shadow: 1px 1px 0 var(--input-light);
+}
+
+select:not([size]),
+select[size="1"],
+select:not([size]):disabled:active,
+select[size="1"]:disabled:active {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--button-bg);
+  background-image: url(select.png);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  padding: 2px 25px 2px 4px;
+}
+
+select:not([size]):disabled,
+select[size="1"]:disabled,
+select:not([size]):disabled:active,
+select[size="1"]:disabled:active {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+}
+
+select:not([size]):active,
+select[size="1"]:active {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=checkbox],
+input[type=checkbox]:checked:active,
+input[type=checkbox]:disabled:active {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  width: 12px;
+  height: 12px;
+}
+
+input[type=checkbox]:checked,
+input[type=checkbox]:active,
+input[type=checkbox]:checked:disabled:active {
+  background: var(--button-active-bg) url(checkmark.svg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+}
+
+input[type=radio],
+input[type=radio]:checked:active,
+input[type=radio]:disabled:active {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+input[type=radio]:checked,
+input[type=radio]:active,
+input[type=radio]:checked:disabled:active {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=radio]:checked::after,
+input[type=radio]:active::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--focus);
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+input[type=radio]:disabled:not(:checked):active::after {
+  display: none;
+}
+
+input[type=radio]:focus + label,
+input[type=checkbox]:focus + label {
+  outline: 1px solid var(--focus);
+  outline-offset: 1px;
+}
+
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+}
+
+label > input[type=radio]:focus,
+label > input[type=checkbox]:focus {
+  outline: 1px solid var(--focus);
+  outline-offset: 1px;
+}
+
+
