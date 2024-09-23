@@ -27,7 +27,7 @@ progress:indeterminate::-moz-progress-bar {
   animation: 1s infinite linear indeterminate;
 }
 
-progress:indeterminate::-webkit-progress-value {
+progress:not([value])::-webkit-progress-value {
   width: 30px;
   animation: 1s infinite linear indeterminate;
 }

@@ -5,16 +5,19 @@
   color: var(--button-fg);
   border: 1px solid var(--border);
   border-radius: 2.5px;
-  padding: 2px 32px;
+  min-width: 70px;
+  padding: 2px 4px;
   position: relative;
   box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), 
     inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
   outline: none;
+  cursor: default;
+  user-select: none;
 
   &:focus, &.focus {
     box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border),
-    inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), 
-    inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
+      inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), 
+      inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
 
     &::after {
       content: '';
@@ -45,7 +48,7 @@
 
   &:not(:disabled, .disabled):active, &.active {
     box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset 2px 2px 0 var(--button-dark);
-    padding: 3px 31px 1px 33px;
+    padding: 3px 3px 1px 5px;
 
     &::after {
       top: 4px;

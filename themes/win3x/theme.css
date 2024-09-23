@@ -141,14 +141,20 @@ hr {
   height: 7px;
   margin: 3px 0 0 3px;
   background-repeat: no-repeat;
+  position: initial;
 }
 .horizontal-scrollbar > button:focus,
 .vertical-scrollbar > button:focus {
   outline: none;
 }
+.horizontal-scrollbar > button:focus::after,
+.vertical-scrollbar > button:focus::after {
+  position: initial;
+  border: unset;
+}
 .horizontal-scrollbar > button:not(:disabled):active,
 .vertical-scrollbar > button:not(:disabled):active {
-  padding: 1px 0 0 2px;
+  padding: 1px 0 0 1px;
   box-shadow: inset 1px 1px var(--button-dark);
   outline: none;
 }
@@ -204,15 +210,75 @@ hr {
   border-right: 0;
 }
 
+::-webkit-scrollbar {
+  background-color: var(--scrollbar-bg);
+  width: 17px;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--border);
+  box-shadow: inset 1px 1px 0 var(--button-light), inset -2px -2px var(--button-dark);
+}
+
+::-webkit-scrollbar-track-piece {
+  border: 1px solid var(--border);
+}
+
+::-webkit-scrollbar-button {
+  width: 17px;
+  height: 17px;
+  display: none;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+  background-position: 4px 4px;
+}
+
+::-webkit-scrollbar-button:active {
+  box-shadow: inset 1px 1px var(--button-dark);
+  background-position: 5px 5px;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(scroll-up.svg);
+  background-repeat: no-repeat;
+  border-bottom: 0;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(scroll-down.svg);
+  background-repeat: no-repeat;
+  border-top: 0;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(scroll-left.svg);
+  background-repeat: no-repeat;
+  border-right: 0;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(scroll-rgiht.svg);
+  background-repeat: no-repeat;
+  border-left: 0;
+}
+
 button, input[type=button], input[type=submit], input[type=reset], .button {
   background-color: var(--button-bg);
   color: var(--button-fg);
   border: 1px solid var(--border);
   border-radius: 2.5px;
-  padding: 2px 32px;
+  min-width: 70px;
+  padding: 2px 4px;
   position: relative;
   box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
   outline: none;
+  cursor: default;
+  user-select: none;
 }
 button:focus, button.focus, input[type=button]:focus, input[type=button].focus, input[type=submit]:focus, input[type=submit].focus, input[type=reset]:focus, input[type=reset].focus, .button:focus, .button.focus {
   box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
@@ -241,7 +307,7 @@ button:disabled::after, button.disabled::after, input[type=button]:disabled::aft
 }
 button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active {
   box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset 2px 2px 0 var(--button-dark);
-  padding: 3px 31px 1px 33px;
+  padding: 3px 3px 1px 5px;
 }
 button:not(:disabled, .disabled):active::after, button.active::after, input[type=button]:not(:disabled, .disabled):active::after, input[type=button].active::after, input[type=submit]:not(:disabled, .disabled):active::after, input[type=submit].active::after, input[type=reset]:not(:disabled, .disabled):active::after, input[type=reset].active::after, .button:not(:disabled, .disabled):active::after, .button.active::after {
   top: 4px;

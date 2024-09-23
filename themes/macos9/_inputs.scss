@@ -28,6 +28,50 @@
   }
 }
 
+.dropdown {
+  display: inline-grid;
+  grid-template-areas: 's';
+
+  & > select {
+    appearance: none;
+    grid-area: s;
+    padding-right: 27px;
+    text-align: left;
+    box-shadow: inset 1px 1px #fff, inset -1px -1px #aaa;
+
+    &:not(:disabled):active {
+      & + .dropdown-button {
+        color: #fff;
+      }
+    }
+  }
+
+  & > .dropdown-button {
+    justify-self: end;
+    grid-area: s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000000;
+    width: 20px;
+    pointer-events: none;
+    box-shadow: inset 1px 1px #ddd, inset 2px 2px #fff, inset -1px -1px #777, inset -2px -2px #aaa, 0 -1px #aaa;
+    margin: 1px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 10px;
+      -webkit-mask-image: url(dropdown.svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-image: url(dropdown.svg);
+      mask-repeat: no-repeat;
+      background: currentColor;
+    }
+  }
+}
+
 input[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
