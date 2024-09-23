@@ -1,0 +1,156 @@
+.list {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  box-shadow: -1px -1px #888, 1px 1px #fff;
+  overflow: auto;
+  cursor: default;
+
+  & > [role="option"] {
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
+
+    &[aria-selected="true"] {
+      background-color: #ccf;
+      color: #000;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &:focus-within {
+    box-shadow: none;
+    outline: 2px solid #66c;
+    border-radius: 1px;
+  }
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 128px);
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & > .icon {
+    flex: 0 0 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px;
+
+
+    & > .icon-label {
+      margin-top: 5px;
+      text-align: center;
+      padding: 1px 1px;
+    }
+
+    &:focus {
+      outline: none;
+      & > .icon-label {
+        outline: 1px dotted #000;
+        outline-offset: -1px;
+      }
+    }
+
+    &[aria-selected="true"] {
+      & > .icon-label {
+        background-color: #000;
+        color: #fff;
+      }
+      &:focus > .icon-label {
+        outline: 1px dotted #fff;
+      }
+    }
+  }
+
+  &:focus-within > .icon[aria-selected="true"] > .icon-label {
+    background-color: #000;
+    color: #fff;
+  }
+}
+
+.detailed {
+  width: 100%;
+  border-spacing: 0;
+
+
+  th {
+    text-align: left;
+    font-weight: normal;
+    background-color: #ccc;
+    color: #000;
+    border: 1px solid #333;
+    border-top-color: #666;
+    border-left-color: #666;
+    box-shadow: inset 1px 1px #fff, inset -1px -1px #888;
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
+  }
+
+  tr {
+    outline: none;
+    background: #eee;
+
+    &:focus {
+      outline: none;
+    }
+
+    &[aria-selected="true"] {
+      background-color: #ccf;
+      color: #000;
+    }
+  }
+
+  .icon[aria-selected="true"] .icon-label {
+    background-color: #000;
+    color: #fff;
+  }
+
+  td {
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
+    border-bottom: 1px solid #fff;
+
+    &.icon {
+      display: flex;
+    }
+  }
+
+  .icon {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    outline: none;
+
+    & > img {
+      width: 16px;
+      height: 16px;
+      margin-right: 1px;
+      margin-left: -4px;
+    }
+
+    & > .icon-label {
+      text-align: center;
+      padding: 1px 3px;
+    }
+
+    &:focus .icon-label {
+      outline: none;
+    }
+
+    &[aria-selected="true"] > .icon-label {
+      background-color: #000;
+      color: #fff;
+    }
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+  }
+}
+
+

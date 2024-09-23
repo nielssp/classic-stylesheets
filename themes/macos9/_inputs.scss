@@ -39,9 +39,15 @@
     text-align: left;
     box-shadow: inset 1px 1px #fff, inset -1px -1px #aaa;
 
+    &:disabled + .dropdown-button {
+      color: #888;
+      box-shadow: -1px 0 #aaa;
+    }
+
     &:not(:disabled):active {
       & + .dropdown-button {
         color: #fff;
+        box-shadow: inset 1px 1px #444, inset 2px 2px #555, inset -1px -1px #888, inset -2px -2px #777, -1px 0 #222;
       }
     }
   }
@@ -55,7 +61,7 @@
     color: #000000;
     width: 20px;
     pointer-events: none;
-    box-shadow: inset 1px 1px #ddd, inset 2px 2px #fff, inset -1px -1px #777, inset -2px -2px #aaa, 0 -1px #aaa;
+    box-shadow: inset 1px 1px #ddd, inset 2px 2px #fff, inset -1px -1px #777, inset -2px -2px #aaa, -1px 0 #aaa;
     margin: 1px;
 
     &::after {
@@ -163,4 +169,63 @@ label > input[type=radio]:focus,
 label > input[type=checkbox]:focus {
   outline: 1px dotted var(--border);
   outline-offset: 1px;
+}
+
+@mixin range-track {
+  height: 3px;
+  background: #AAA;
+  border: 1px solid #222;
+  border-radius: 2px;
+  box-shadow: -1px -1px #AAA, 1px 1px #FFF;
+  margin: 0 5px;
+}
+
+@mixin range-thumb {
+  border-radius: 0;
+  background-color: #99F;
+  background-image: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
+  background-size: 6px 5px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #000;
+  width: 13px;
+  height: 11px;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px #CCF, inset -1px -1px #66C;
+
+  &:active {
+    background-color: #66C;
+    background-image: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
+    box-shadow: inset 1px 1px #99F, inset -1px -1px #339;
+  }
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; 
+  padding: 2px;
+
+  &:focus-visible {
+    outline: 1px dotted #131627;
+  }
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+    margin: 10px 5px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -5px;
+    @include range-thumb;
+  }
 }
