@@ -16,7 +16,7 @@
     margin-bottom: 1px;
     margin-right: 1px;
 
-    &::after {
+    &::after, &:active::after, &:hover::after {
       content: '';
       display: block;
       width: 9px;
@@ -25,25 +25,17 @@
       background: #4D6185;
       -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
+      position: initial;
+      box-shadow: none;
+      border: 0;
     }
 
     &:focus {
       outline: none;
-      border: 1px solid var(--darkest);
-      border-top: 1px solid var(--light);
-      border-left: 1px solid var(--light);
-      box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
     }
 
     &:not(:disabled):active {
       padding: 0;
-      border: 1px solid var(--dark);
-      box-shadow: none;
-      outline: none;
-
-      &::after {
-        margin: 4px 0 0 4px;
-      }
     }
 
     &:hover {
@@ -57,10 +49,6 @@
 
   & > .scrollbar-track {
     flex-grow: 1;
-    background-color: var(--window-bg);
-    background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
-    background-size: 2px 2px;
-    background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
     position: relative;
 
     & > .scrollbar-thumb {

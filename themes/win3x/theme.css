@@ -455,6 +455,63 @@ label > input[type=checkbox]:focus {
   outline-offset: 1px;
 }
 
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  padding: 2px;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]:focus::-moz-range-thumb {
+  animation: 1s infinite linear range-focus;
+}
+input[type=range]:focus::-webkit-slider-thumb {
+  animation: 1s infinite linear range-focus;
+}
+input[type=range]::-moz-range-track {
+  height: 16px;
+  background: var(--scrollbar-bg);
+  border: 1px solid var(--border);
+}
+input[type=range]::-moz-range-thumb {
+  border-radius: 0;
+  height: 16px;
+  width: 32px;
+  background: var(--button-bg);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  border: 1px solid var(--border);
+  box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 16px;
+  background: var(--scrollbar-bg);
+  border: 1px solid var(--border);
+  margin: 10px 5px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -1px;
+  border-radius: 0;
+  height: 16px;
+  width: 32px;
+  background: var(--button-bg);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  border: 1px solid var(--border);
+  box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
+}
+
+@keyframes range-focus {
+  from {
+    background-image: linear-gradient(45deg, var(--button-dark) 25%, transparent 25%), linear-gradient(-45deg, var(--button-dark) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--button-dark) 75%), linear-gradient(-45deg, transparent 75%, var(--button-dark) 75%);
+  }
+  to {
+    background-image: none;
+  }
+}
 progress {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -475,6 +532,24 @@ progress::-moz-progress-bar {
   background: var(--selection-bg);
 }
 
+progress:indeterminate::-moz-progress-bar {
+  width: 42px;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress:not([value])::-webkit-progress-value {
+  width: 42px;
+  animation: 1s infinite linear indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -30px;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
 .window,
 .dialog,
 .menu {

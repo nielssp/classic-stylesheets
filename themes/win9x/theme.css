@@ -487,18 +487,8 @@ input[type=range] {
   background: transparent;
   padding: 2px;
 }
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-}
 input[type=range]:focus {
   outline: 1px dotted var(--darkest);
-}
-input[type=range]::-ms-track {
-  width: 100%;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
 }
 input[type=range]::-moz-range-track {
   height: 2px;
@@ -520,7 +510,38 @@ input[type=range]::-moz-range-thumb {
   box-shadow: inset -1px -1px 0 var(--dark);
 }
 input[type=range]::-moz-range-thumb:active {
-  background: var(--lighter);
+  background-color: var(--window-bg);
+  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--light);
+  border: 1px solid var(--lightest);
+  border-top: 1px solid var(--dark);
+  border-left: 1px solid var(--dark);
+  box-shadow: inset 1px 1px 0 var(--darkest);
+  margin: 0 5px;
+  margin: 10px 5px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -11px;
+  border-radius: 0;
+  background: var(--button-bg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  width: 11px;
+  height: 21px;
+  box-shadow: inset -1px -1px 0 var(--dark);
+}
+input[type=range]::-webkit-slider-thumb:active {
+  background-color: var(--window-bg);
+  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
 }
 
 progress {

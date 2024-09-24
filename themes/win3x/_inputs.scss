@@ -150,3 +150,68 @@ label > input[type=checkbox]:focus {
   outline: 1px dotted var(--border);
   outline-offset: 1px;
 }
+
+@mixin range-track {
+  height: 16px;
+  background: var(--scrollbar-bg);
+  border: 1px solid var(--border);
+}
+
+@mixin range-thumb {
+  border-radius: 0;
+  height: 16px;
+  width: 32px;
+  background: var(--button-bg);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  border: 1px solid var(--border);
+  box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; 
+  padding: 2px;
+
+  &:focus {
+    outline: none;
+
+    &::-moz-range-thumb {
+      animation: 1s infinite linear range-focus;
+    }
+
+    &::-webkit-slider-thumb {
+      animation: 1s infinite linear range-focus;
+    }
+  }
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+    margin: 10px 5px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -1px;
+    @include range-thumb;
+  }
+}
+
+@keyframes range-focus {
+  from {
+    background-image: linear-gradient(45deg, var(--button-dark) 25%, transparent 25%), linear-gradient(-45deg, var(--button-dark) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--button-dark) 75%), linear-gradient(-45deg, transparent 75%, var(--button-dark) 75%);
+  }
+
+  to {
+    background-image: none;
+  }
+}

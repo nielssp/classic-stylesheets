@@ -18,4 +18,22 @@ progress::-moz-progress-bar {
   background: var(--selection-bg);
 }
 
+progress:indeterminate::-moz-progress-bar {
+  width: 42px;
+  animation: 1s infinite linear indeterminate;
+}
 
+progress:not([value])::-webkit-progress-value {
+  width: 42px;
+  animation: 1s infinite linear indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -30px;
+  }
+
+  to {
+    margin-left: 100%;
+  }
+}

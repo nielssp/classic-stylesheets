@@ -109,8 +109,10 @@ hr {
   margin-bottom: 1px;
   margin-right: 1px;
 }
-.horizontal-scrollbar > button::after,
-.vertical-scrollbar > button::after {
+.horizontal-scrollbar > button::after, .horizontal-scrollbar > button:active::after, .horizontal-scrollbar > button:hover::after,
+.vertical-scrollbar > button::after,
+.vertical-scrollbar > button:active::after,
+.vertical-scrollbar > button:hover::after {
   content: "";
   display: block;
   width: 9px;
@@ -119,25 +121,17 @@ hr {
   background: #4D6185;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
+  position: initial;
+  box-shadow: none;
+  border: 0;
 }
 .horizontal-scrollbar > button:focus,
 .vertical-scrollbar > button:focus {
   outline: none;
-  border: 1px solid var(--darkest);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
-  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
 }
 .horizontal-scrollbar > button:not(:disabled):active,
 .vertical-scrollbar > button:not(:disabled):active {
   padding: 0;
-  border: 1px solid var(--dark);
-  box-shadow: none;
-  outline: none;
-}
-.horizontal-scrollbar > button:not(:disabled):active::after,
-.vertical-scrollbar > button:not(:disabled):active::after {
-  margin: 4px 0 0 4px;
 }
 .horizontal-scrollbar > button:hover,
 .vertical-scrollbar > button:hover {
@@ -150,10 +144,6 @@ hr {
 .horizontal-scrollbar > .scrollbar-track,
 .vertical-scrollbar > .scrollbar-track {
   flex-grow: 1;
-  background-color: var(--window-bg);
-  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
-  background-size: 2px 2px;
-  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
   position: relative;
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
