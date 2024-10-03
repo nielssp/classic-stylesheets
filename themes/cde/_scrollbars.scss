@@ -1,0 +1,94 @@
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+  background: var(--button-active-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+
+  & > button {
+    display: flex;
+    flex-shrink: 0;
+    width: 11px;
+    height: 11px;
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+
+    &:focus {
+      outline: none;
+      border: 1px solid var(--darkest);
+      border-top: 1px solid var(--light);
+      border-left: 1px solid var(--light);
+      box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+    }
+
+    &:not(:disabled):active {
+      padding: 0;
+      background-color: var(--button-bg);
+      border: 1px solid var(--dark);
+      box-shadow: none;
+      outline: none;
+
+      &::after {
+        margin: 4px 0 0 4px;
+      }
+    }
+  }
+
+  & > .scrollbar-track {
+    flex-grow: 1;
+    position: relative;
+
+    & > .scrollbar-thumb {
+      position: absolute;
+      background: var(--button-bg);
+      border: 1px solid var(--button-light);
+      border-right-color: var(--button-dark);
+      border-bottom-color: var(--button-dark);
+    }
+  }
+}
+
+.horizontal-scrollbar {
+  & > button:first-child {
+    background-color: var(--button-bg);
+    background-image: url(scroll-left.svg);
+
+    &:active {
+      background-position: -11px 0;
+    }
+  }
+
+  & > button:last-child::after {
+    background-image: url(arrow-right.svg);
+    background-position: 2px 0;
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 13px;
+
+  & > button:first-child::after {
+    background-image: url(arrow-up.svg);
+    background-position: 0 2px;
+  }
+
+  & > button:last-child::after {
+    background-image: url(arrow-down.svg);
+    background-position: 0 2px;
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    left: 0;
+    right: 0;
+  }
+}
+

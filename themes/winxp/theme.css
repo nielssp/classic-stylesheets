@@ -243,6 +243,59 @@ hr {
   background: repeating-linear-gradient(to bottom, #EEF4FE, #EEF4FE 1px, #8CB0F8 1px, #8CB0F8 2px);
 }
 
+::-webkit-scrollbar {
+  background: linear-gradient(to bottom, #F3F1EC, #FEFEFB);
+  width: 17px;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 15px;
+  background: linear-gradient(to bottom, #C8D6FB, #B9CBF3);
+  border: 1px solid #fff;
+  border-radius: 2px;
+  box-shadow: 1px 1px #7DA0D4, inset 1px -1px #B4C8F6, inset 0 1px #BDCEF7, inset 0 2px #D1E0FD;
+}
+
+::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+  border: 1px solid #fff;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-button:active {
+  border: 1px solid var(--dark);
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(scroll-up.svg);
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(arrow-down.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(arrow-left.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(arrow-right.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+}
+
 button, input[type=button], input[type=submit], input[type=reset], .button {
   background: linear-gradient(180deg, #ffffff 0%, #F0F0EA 100%);
   color: #000;

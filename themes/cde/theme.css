@@ -98,19 +98,93 @@ hr {
   border-bottom: 1px solid var(--button-light);
 }
 
-details > summary:focus,
-button:focus,
-select:focus,
-input[type=text]:focus,
-textarea:focus,
-a:focus {
-  outline: 1px solid var(--focus);
-  outline-offset: 0;
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+  background: var(--button-active-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+}
+.horizontal-scrollbar > button,
+.vertical-scrollbar > button {
+  display: flex;
+  flex-shrink: 0;
+  width: 11px;
+  height: 11px;
+  min-width: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+}
+.horizontal-scrollbar > button:focus,
+.vertical-scrollbar > button:focus {
+  outline: none;
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--light);
+  border-left: 1px solid var(--light);
+  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+}
+.horizontal-scrollbar > button:not(:disabled):active,
+.vertical-scrollbar > button:not(:disabled):active {
+  padding: 0;
+  background-color: var(--button-bg);
+  border: 1px solid var(--dark);
+  box-shadow: none;
+  outline: none;
+}
+.horizontal-scrollbar > button:not(:disabled):active::after,
+.vertical-scrollbar > button:not(:disabled):active::after {
+  margin: 4px 0 0 4px;
+}
+.horizontal-scrollbar > .scrollbar-track,
+.vertical-scrollbar > .scrollbar-track {
+  flex-grow: 1;
+  position: relative;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  position: absolute;
+  background: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
 }
 
-details > summary,
-button,
-button:disabled:active {
+.horizontal-scrollbar > button:first-child {
+  background-color: var(--button-bg);
+  background-image: url(scroll-left.svg);
+}
+.horizontal-scrollbar > button:first-child:active {
+  background-position: -11px 0;
+}
+.horizontal-scrollbar > button:last-child::after {
+  background-image: url(arrow-right.svg);
+  background-position: 2px 0;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  top: 0;
+  bottom: 0;
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 13px;
+}
+.vertical-scrollbar > button:first-child::after {
+  background-image: url(arrow-up.svg);
+  background-position: 0 2px;
+}
+.vertical-scrollbar > button:last-child::after {
+  background-image: url(arrow-down.svg);
+  background-position: 0 2px;
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  left: 0;
+  right: 0;
+}
+
+button, input[type=button], input[type=submit], input[type=reset], .button {
   background-color: var(--button-bg);
   color: var(--button-fg);
   border: 1px solid var(--button-light);
@@ -118,16 +192,15 @@ button:disabled:active {
   border-right: 1px solid var(--button-dark);
   padding: 2px 4px;
 }
-
-button:disabled,
-button:disabled:active,
-select:not([size]):disabled {
+button:focus, button.focus, input[type=button]:focus, input[type=button].focus, input[type=submit]:focus, input[type=submit].focus, input[type=reset]:focus, input[type=reset].focus, .button:focus, .button.focus {
+  outline: 1px solid var(--focus);
+  outline-offset: 0;
+}
+button:disabled, button.disabled, input[type=button]:disabled, input[type=button].disabled, input[type=submit]:disabled, input[type=submit].disabled, input[type=reset]:disabled, input[type=reset].disabled, .button:disabled, .button.disabled {
   color: var(--button-dark);
   text-shadow: 1px 1px 0 var(--button-light);
 }
-
-details > summary:active,
-button:active {
+button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active {
   background-color: var(--button-active-bg);
   color: var(--button-active-fg);
   border: 1px solid var(--button-light);
@@ -135,14 +208,8 @@ button:active {
   border-left: 1px solid var(--button-dark);
 }
 
-select > option {
-  padding: 2px 6px;
-}
-
-input[type=text],
-pre,
-textarea,
-select:not([size="1"]) {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
+select[multiple], select[size]:not([size="1"]) {
   background-color: var(--input-bg);
   color: var(--input-fg);
   border: 1px solid var(--input-dark);
@@ -151,23 +218,26 @@ select:not([size="1"]) {
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
+  outline: none;
 }
-
-input::selection,
-textarea::selection {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection,
+select[multiple]::selection, select[size]:not([size="1"])::selection {
   background-color: var(--input-fg);
   color: var(--input-bg);
+}
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled,
+select[multiple]:disabled,
+select[multiple].disabled, select[size]:not([size="1"]):disabled, select[size]:not([size="1"]).disabled {
+  color: var(--input-dark);
+  text-shadow: 1px 1px 0 var(--input-light);
+}
+
+select > option {
+  padding: 2px 6px;
 }
 
 select:not([size="1"]) {
   padding: 0;
-}
-
-input[type=text]:disabled,
-textarea:disabled,
-select:not([size="1"]):disabled {
-  color: var(--input-dark);
-  text-shadow: 1px 1px 0 var(--input-light);
 }
 
 select:not([size]),
@@ -293,6 +363,57 @@ label > input[type=radio]:focus,
 label > input[type=checkbox]:focus {
   outline: 1px solid var(--focus);
   outline-offset: 1px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  height: 17px;
+}
+input[type=range]:focus {
+  outline: 2px solid var(--focus);
+}
+input[type=range]::-moz-range-track {
+  height: 15px;
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+}
+input[type=range]::-moz-range-thumb {
+  border-radius: 0;
+  height: 13px;
+  width: 28px;
+  background: var(--button-bg);
+  background-image: linear-gradient(to right, var(--button-dark), var(--button-dark) 50%, var(--button-light) 50%, var(--button-light));
+  background-size: 2px 13px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 15px;
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border-radius: 0;
+  height: 13px;
+  width: 28px;
+  background: var(--button-bg);
+  background-image: linear-gradient(to right, var(--button-dark), var(--button-dark) 50%, var(--button-light) 50%, var(--button-light));
+  background-size: 2px 13px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
 }
 
 progress {

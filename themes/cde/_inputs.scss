@@ -1,11 +1,7 @@
-select > option {
-  padding: 2px 6px;
-}
+@use '../../util/util';
 
-input[type=text],
-pre,
-textarea,
-select:not([size="1"]) {
+#{util.$textInputs},
+#{util.$multiSelects} {
   background-color: var(--input-bg);
   color: var(--input-fg);
   border: 1px solid var(--input-dark);
@@ -14,24 +10,29 @@ select:not([size="1"]) {
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
+  outline: none;
+
+
+  &::selection {
+    background-color: var(--input-fg);
+    color: var(--input-bg);
+  }
+
+  &:disabled, &.disabled {
+    color: var(--input-dark);
+    text-shadow: 1px 1px 0 var(--input-light);
+  }
 }
 
-input::selection,
-textarea::selection {
-  background-color: var(--input-fg);
-  color: var(--input-bg);
+
+select > option {
+  padding: 2px 6px;
 }
 
 select:not([size="1"]) {
   padding: 0;
 }
 
-input[type=text]:disabled,
-textarea:disabled,
-select:not([size="1"]):disabled {
-  color: var(--input-dark);
-  text-shadow: 1px 1px 0 var(--input-light);
-}
 
 select:not([size]),
 select[size="1"],
@@ -158,4 +159,54 @@ label > input[type=checkbox]:focus {
   outline-offset: 1px;
 }
 
+
+@mixin range-track {
+  height: 15px;
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+}
+
+@mixin range-thumb {
+  border-radius: 0;
+  height: 13px;
+  width: 28px;
+  background: var(--button-bg);
+  background-image: linear-gradient(to right, var(--button-dark), var(--button-dark) 50%, var(--button-light) 50%, var(--button-light));
+  background-size: 2px 13px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; 
+  height: 17px;
+
+  &:focus {
+    outline: 2px solid var(--focus);
+  }
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @include range-thumb;
+  }
+}
 
