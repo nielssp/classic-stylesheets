@@ -114,22 +114,19 @@ hr {
   height: 11px;
   min-width: 0;
   padding: 0;
-  background: transparent;
   border: 0;
+  background-color: var(--button-bg);
 }
 .horizontal-scrollbar > button:focus,
 .vertical-scrollbar > button:focus {
   outline: none;
-  border: 1px solid var(--darkest);
-  border-top: 1px solid var(--light);
-  border-left: 1px solid var(--light);
-  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
 }
 .horizontal-scrollbar > button:not(:disabled):active,
 .vertical-scrollbar > button:not(:disabled):active {
   padding: 0;
   background-color: var(--button-bg);
-  border: 1px solid var(--dark);
+  background-position: -11px 0;
+  border: 0;
   box-shadow: none;
   outline: none;
 }
@@ -152,15 +149,10 @@ hr {
 }
 
 .horizontal-scrollbar > button:first-child {
-  background-color: var(--button-bg);
   background-image: url(scroll-left.svg);
 }
-.horizontal-scrollbar > button:first-child:active {
-  background-position: -11px 0;
-}
-.horizontal-scrollbar > button:last-child::after {
-  background-image: url(arrow-right.svg);
-  background-position: 2px 0;
+.horizontal-scrollbar > button:last-child {
+  background-image: url(scroll-right.svg);
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
   top: 0;
@@ -171,17 +163,107 @@ hr {
   flex-direction: column;
   width: 13px;
 }
-.vertical-scrollbar > button:first-child::after {
-  background-image: url(arrow-up.svg);
-  background-position: 0 2px;
+.vertical-scrollbar > button:not(:disabled):active {
+  background-position: 0 -11px;
 }
-.vertical-scrollbar > button:last-child::after {
-  background-image: url(arrow-down.svg);
-  background-position: 0 2px;
+.vertical-scrollbar > button:first-child {
+  background-image: url(scroll-up.svg);
+}
+.vertical-scrollbar > button:last-child {
+  background-image: url(scroll-down.svg);
 }
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
   left: 0;
   right: 0;
+}
+
+::-webkit-scrollbar {
+  background: var(--button-active-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+  width: 13px;
+  height: 13px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--button-bg);
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 1px 1px var(--button-light), inset -1px -1px var(--button-dark);
+}
+::-webkit-scrollbar-thumb:vertical {
+  border-left: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-light);
+}
+::-webkit-scrollbar-thumb:horizontal {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+}
+
+::-webkit-scrollbar-button {
+  width: 13px;
+  height: 13px;
+  display: none;
+  border: 1px solid transparent;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+}
+
+::-webkit-scrollbar-button:vertical {
+  height: 12px;
+}
+
+::-webkit-scrollbar-button:vertical:active {
+  background-position: 0 -11px;
+}
+
+::-webkit-scrollbar-button:horizontal {
+  width: 12px;
+}
+
+::-webkit-scrollbar-button:horizontal:active {
+  background-position: -11px 0;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(scroll-up.svg);
+  border-top-color: var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom: 0;
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(scroll-down.svg);
+  border-top: 0;
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(scroll-left.svg);
+  border-top-color: var(--button-dark);
+  border-right: 0;
+  border-bottom-color: var(--button-light);
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(scroll-right.svg);
+  border-top-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-left: 0;
 }
 
 button, input[type=button], input[type=submit], input[type=reset], .button {
@@ -248,7 +330,7 @@ select[size="1"]:disabled:active {
   -webkit-appearance: none;
   appearance: none;
   background-color: var(--button-bg);
-  background-image: url(select.png);
+  background-image: url(select.svg);
   background-repeat: no-repeat;
   background-position: right 8px center;
   color: var(--button-fg);

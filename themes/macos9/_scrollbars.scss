@@ -163,6 +163,11 @@
   box-shadow: inset 1px 1px #777, inset 2px 2px #888, inset -1px -1px #ccc, inset -2px -2px #bbb;
   border: 1px solid #000;
   width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #aaa;
 }
 
 ::-webkit-scrollbar-button,
@@ -178,7 +183,14 @@
   background-repeat: no-repeat;
   background-size: 8px 8px;
   background-position: center center;
-  box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 1px 1px #777, 2px 2px #888;
+
+  &:vertical {
+    box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 0 1px #777, 0 2px #888;
+  }
+
+  &:horizontal {
+    box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 1px 0 #777, 2px 0 #888;
+  }
 
   &:active {
     background-color: #66c;
@@ -224,12 +236,12 @@
 
 ::-webkit-scrollbar-button:horizontal:decrement {
   background-image: url(arrow-left.svg);
-  background-position: 3px 5px;
+  background-position: 4px 3px;
   background-repeat: no-repeat;
 }
 
 ::-webkit-scrollbar-button:horizontal:increment {
   background-image: url(arrow-right.svg);
-  background-position: 3px 5px;
+  background-position: 4px 3px;
   background-repeat: no-repeat;
 }

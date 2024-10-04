@@ -213,6 +213,11 @@ hr {
 ::-webkit-scrollbar {
   background-color: var(--scrollbar-bg);
   width: 17px;
+  height: 17px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-bg);
 }
 
 ::-webkit-scrollbar-button,
@@ -262,7 +267,7 @@ hr {
 }
 
 ::-webkit-scrollbar-button:horizontal:increment {
-  background-image: url(scroll-rgiht.svg);
+  background-image: url(scroll-right.svg);
   background-repeat: no-repeat;
   border-left: 0;
 }

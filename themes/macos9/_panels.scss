@@ -13,6 +13,18 @@
   border-top-right-radius: 10px;
 }
 
+.lowered {
+  border: 1px solid #888;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+}
+
+.raised {
+  border: 1px solid #fff;
+  border-right-color: #888;
+  border-bottom-color: #888;
+}
+
 fieldset {
   border: 1px solid #888;
   box-shadow: inset 1px 1px 0 #fff, 1px 1px 0 #fff;

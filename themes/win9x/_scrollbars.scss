@@ -102,6 +102,11 @@
   background-size: 2px 2px;
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
   width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--window-bg);
 }
 
 ::-webkit-scrollbar-button,
@@ -133,22 +138,38 @@
   background-image: url(arrow-up.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
+
+  &:active {
+    background-position: 4px 6px;
+  }
 }
 
 ::-webkit-scrollbar-button:vertical:increment {
   background-image: url(arrow-down.svg);
   background-position: 3px 5px;
   background-repeat: no-repeat;
+
+  &:active {
+    background-position: 4px 6px;
+  }
 }
 
 ::-webkit-scrollbar-button:horizontal:decrement {
   background-image: url(arrow-left.svg);
-  background-position: 3px 5px;
+  background-position: 4px 3px;
   background-repeat: no-repeat;
+
+  &:active {
+    background-position: 5px 4px;
+  }
 }
 
 ::-webkit-scrollbar-button:horizontal:increment {
   background-image: url(arrow-right.svg);
-  background-position: 3px 5px;
+  background-position: 5px 3px;
   background-repeat: no-repeat;
+
+  &:active {
+    background-position: 6px 4px;
+  }
 }
