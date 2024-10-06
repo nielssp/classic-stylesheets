@@ -494,7 +494,7 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 16px;
   background: var(--scrollbar-bg);
   border: 1px solid var(--border);
-  margin: 10px 5px;
+  margin: 10px 0;
 }
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -795,6 +795,7 @@ progress:not([value])::-webkit-progress-value {
   margin-bottom: -2px;
   padding: 0px 12px 4px 12px;
   background-color: var(--window-bg);
+  color: var(--window-fg);
   box-shadow: none;
   z-index: 1;
 }

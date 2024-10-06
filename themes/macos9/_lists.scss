@@ -11,8 +11,8 @@
     white-space: nowrap;
 
     &[aria-selected="true"] {
-      background-color: #ccf;
-      color: #000;
+      background-color: var(--selection-bg);
+      color: var(--selection-fg);
     }
 
     &:focus {
@@ -22,7 +22,7 @@
 
   &:focus-within {
     box-shadow: none;
-    outline: 2px solid #66c;
+    outline: 2px solid var(--primary-3);
     border-radius: 1px;
   }
 }
@@ -99,8 +99,8 @@
     }
 
     &[aria-selected="true"] {
-      background-color: #ccf;
-      color: #000;
+      background-color: var(--selection-bg);
+      color: var(--selection-fg);
     }
   }
 

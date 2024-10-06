@@ -14,13 +14,13 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: linear-gradient(to bottom, #339, #eee 50%, #005);
+  background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
   border-right: 1px solid #000;
-  box-shadow: inset 1px 0 #6666CC, inset 2px 0 #fff3, inset -1px #000055, inset -2px #333399, 1px 0 #555555, 2px 0 #888888;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 #fff3, inset -1px var(--primary-1), inset -2px var(--primary-2), 1px 0 #555555, 2px 0 #888888;
 }
 
 progress::-moz-progress-bar {
-  background: linear-gradient(to bottom, #339, #eee 50%, #005);
+  background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
   border-right: 1px solid #000;
-  box-shadow: inset 1px 0 #6666CC, inset 2px 0 #fff3, inset -1px #000055, inset -2px #333399, 1px 0 #555555, 2px 0 #888888;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 #fff3, inset -1px var(--primary-1), inset -2px var(--primary-2), 1px 0 #555555, 2px 0 #888888;
 }

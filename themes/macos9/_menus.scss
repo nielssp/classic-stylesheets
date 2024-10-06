@@ -100,8 +100,8 @@
 
 [role=menu] li:focus-within,
 [role=menubar] li:focus-within {
-  background: #333399;
-  box-shadow: inset 1px 0 #66c, inset -1px 0 #008;
+  background: var(--primary-2);
+  box-shadow: inset 1px 0 var(--primary-3), inset -1px 0 #008;
   color: #fff;
 }
 

@@ -196,7 +196,7 @@ input[type=range] {
 
   &::-webkit-slider-runnable-track {
     @include range-track;
-    margin: 10px 5px;
+    margin: 10px 0;
   }
 
   &::-webkit-slider-thumb {

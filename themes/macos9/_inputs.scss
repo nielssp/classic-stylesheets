@@ -10,20 +10,21 @@
   padding: 2px;
 
   &::selection {
-    background-color: #ccf;
-    color: #000;
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
   }
 
   &[readonly], .readonly {
   }
 
   &:disabled, &.disabled {
+    color: #808080;
     border-color: #555;
     box-shadow: 0 0 0 1px #ddd;
   }
 
   &:focus, &.focus {
-    outline: 2px solid #6666CC;
+    outline: 2px solid var(--primary-3);
     border-radius: 1px;
   }
 }
@@ -182,8 +183,8 @@ label > input[type=checkbox]:focus {
 
 @mixin range-thumb {
   border-radius: 0;
-  background-color: #99F;
-  background-image: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
+  background-color: var(--primary-4);
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
   background-size: 6px 5px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -191,12 +192,12 @@ label > input[type=checkbox]:focus {
   width: 13px;
   height: 11px;
   border-radius: 2px;
-  box-shadow: inset 1px 1px #CCF, inset -1px -1px #66C;
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3);
 
   &:active {
-    background-color: #66C;
-    background-image: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
-    box-shadow: inset 1px 1px #99F, inset -1px -1px #339;
+    background-color: var(--primary-3);
+    background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+    box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
   }
 }
 

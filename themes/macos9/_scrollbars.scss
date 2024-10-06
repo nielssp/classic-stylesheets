@@ -39,15 +39,15 @@
 
     & > .scrollbar-thumb {
       position: absolute;
-      background: #99f;
-      box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 1px 1px #777, 2px 2px #888;
+      background: var(--primary-4);
+      box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 1px 1px #777, 2px 2px #888;
       display: flex;
       align-items: center;
       justify-content: center;
 
       &:active {
-        background: #66c;
-        box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 1px 1px #777, 2px 2px #888;
+        background: var(--primary-3);
+        box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 1px 1px #777, 2px 2px #888;
       }
     }
   }
@@ -96,11 +96,11 @@
         content: '';
         width: 8px;
         height: 8px;
-        background: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
+        background: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
       }
 
       &:active::after {
-        background: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
+        background: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
       }
     }
   }
@@ -148,11 +148,11 @@
         content: '';
         width: 8px;
         height: 8px;
-        background: repeating-linear-gradient(0, #339, #339 1px, #ccf 1px, #ccf 2px);
+        background: repeating-linear-gradient(0, var(--primary-3), var(--primary-3) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
       }
 
       &:active::after {
-        background: repeating-linear-gradient(0, #005, #005 1px, #99f 1px, #99f 2px);
+        background: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
       }
     }
   }
@@ -178,32 +178,32 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #99f;
+  background-color: var(--primary-4);
   background-repeat: no-repeat;
   background-size: 8px 8px;
   background-position: center center;
 
   &:vertical {
-    background-image: repeating-linear-gradient(0, #339, #339 1px, #ccf 1px, #ccf 2px);
-    box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 0 1px #777, 0 2px #888;
+    background-image: repeating-linear-gradient(0, var(--primary-2), var(--primary-2) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
+    box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 0 1px #777, 0 2px #888;
   }
 
   &:horizontal {
-    background-image: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
-    box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 1px 0 #777, 2px 0 #888;
+    background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+    box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 1px 0 #777, 2px 0 #888;
   }
 
   &:active {
-    background-color: #66c;
+    background-color: var(--primary-3);
 
     &:vertical {
-      background-image: repeating-linear-gradient(0, #005, #005 1px, #99f 1px, #99f 2px);
-      box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 0 1px #777, 0 2px #888;
+      background-image: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
+      box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 0 1px #777, 0 2px #888;
     }
 
     &:horizontal {
-      background-image: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
-      box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 1px 0 #777, 2px 0 #888;
+      background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+      box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 1px 0 #777, 2px 0 #888;
     }
   }
 }

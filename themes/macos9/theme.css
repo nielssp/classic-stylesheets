@@ -1,9 +1,18 @@
 :root {
-  --preferred-font: Charcoal;
+  --preferred-font: "Charcoal";
   --desktop-bg: #9999CC;
   --window-bg: #DDDDDD;
   --window-fg: #000000;
   --window-frame-bg: #CCCCCC;
+  --primary-0: #000;
+  --primary-1: #005;
+  --primary-2: #339;
+  --primary-3: #66c;
+  --primary-4: #99f;
+  --primary-5: #ccf;
+  --primary-6: #eee;
+  --selection-bg: var(--primary-5);
+  --selection-fg: #000;
 }
 
 body {
@@ -111,16 +120,16 @@ legend {
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
   position: absolute;
-  background: #99f;
-  box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 1px 1px #777, 2px 2px #888;
+  background: var(--primary-4);
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 1px 1px #777, 2px 2px #888;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active,
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
-  background: #66c;
-  box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 1px 1px #777, 2px 2px #888;
+  background: var(--primary-3);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 1px 1px #777, 2px 2px #888;
 }
 
 .horizontal-scrollbar {
@@ -161,10 +170,10 @@ legend {
   content: "";
   width: 8px;
   height: 8px;
-  background: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
+  background: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after {
-  background: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
+  background: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
 }
 
 .vertical-scrollbar {
@@ -205,10 +214,10 @@ legend {
   content: "";
   width: 8px;
   height: 8px;
-  background: repeating-linear-gradient(0, #339, #339 1px, #ccf 1px, #ccf 2px);
+  background: repeating-linear-gradient(0, var(--primary-3), var(--primary-3) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
 }
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after {
-  background: repeating-linear-gradient(0, #005, #005 1px, #99f 1px, #99f 2px);
+  background: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
 }
 
 ::-webkit-scrollbar {
@@ -231,29 +240,29 @@ legend {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #99f;
+  background-color: var(--primary-4);
   background-repeat: no-repeat;
   background-size: 8px 8px;
   background-position: center center;
 }
 ::-webkit-scrollbar-thumb:vertical {
-  background-image: repeating-linear-gradient(0, #339, #339 1px, #ccf 1px, #ccf 2px);
-  box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 0 1px #777, 0 2px #888;
+  background-image: repeating-linear-gradient(0, var(--primary-2), var(--primary-2) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 0 1px #777, 0 2px #888;
 }
 ::-webkit-scrollbar-thumb:horizontal {
-  background-image: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
-  box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 1px 0 #777, 2px 0 #888;
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 1px 0 #777, 2px 0 #888;
 }
 ::-webkit-scrollbar-thumb:active {
-  background-color: #66c;
+  background-color: var(--primary-3);
 }
 ::-webkit-scrollbar-thumb:active:vertical {
-  background-image: repeating-linear-gradient(0, #005, #005 1px, #99f 1px, #99f 2px);
-  box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 0 1px #777, 0 2px #888;
+  background-image: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 0 1px #777, 0 2px #888;
 }
 ::-webkit-scrollbar-thumb:active:horizontal {
-  background-image: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
-  box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 1px 0 #777, 2px 0 #888;
+  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 1px 0 #777, 2px 0 #888;
 }
 
 ::-webkit-scrollbar-button {
@@ -342,19 +351,20 @@ select[multiple], select[size]:not([size="1"]) {
 }
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection,
 select[multiple]::selection, select[size]:not([size="1"])::selection {
-  background-color: #ccf;
-  color: #000;
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
 }
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled,
 select[multiple]:disabled,
 select[multiple].disabled, select[size]:not([size="1"]):disabled, select[size]:not([size="1"]).disabled {
+  color: #808080;
   border-color: #555;
   box-shadow: 0 0 0 1px #ddd;
 }
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):focus, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).focus, textarea:focus, textarea.focus, .input:focus, .input.focus,
 select[multiple]:focus,
 select[multiple].focus, select[size]:not([size="1"]):focus, select[size]:not([size="1"]).focus {
-  outline: 2px solid #6666CC;
+  outline: 2px solid var(--primary-3);
   border-radius: 1px;
 }
 
@@ -513,8 +523,8 @@ input[type=range]::-moz-range-track {
 }
 input[type=range]::-moz-range-thumb {
   border-radius: 0;
-  background-color: #99F;
-  background-image: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
+  background-color: var(--primary-4);
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
   background-size: 6px 5px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -522,12 +532,12 @@ input[type=range]::-moz-range-thumb {
   width: 13px;
   height: 11px;
   border-radius: 2px;
-  box-shadow: inset 1px 1px #CCF, inset -1px -1px #66C;
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3);
 }
 input[type=range]::-moz-range-thumb:active {
-  background-color: #66C;
-  background-image: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
-  box-shadow: inset 1px 1px #99F, inset -1px -1px #339;
+  background-color: var(--primary-3);
+  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
 }
 input[type=range]::-webkit-slider-runnable-track {
   height: 3px;
@@ -542,8 +552,8 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: -5px;
   border-radius: 0;
-  background-color: #99F;
-  background-image: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
+  background-color: var(--primary-4);
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
   background-size: 6px 5px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -551,12 +561,12 @@ input[type=range]::-webkit-slider-thumb {
   width: 13px;
   height: 11px;
   border-radius: 2px;
-  box-shadow: inset 1px 1px #CCF, inset -1px -1px #66C;
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3);
 }
 input[type=range]::-webkit-slider-thumb:active {
-  background-color: #66C;
-  background-image: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
-  box-shadow: inset 1px 1px #99F, inset -1px -1px #339;
+  background-color: var(--primary-3);
+  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
 }
 
 progress {
@@ -575,15 +585,15 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-  background: linear-gradient(to bottom, #339, #eee 50%, #005);
+  background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
   border-right: 1px solid #000;
-  box-shadow: inset 1px 0 #6666CC, inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px #000055, inset -2px #333399, 1px 0 #555555, 2px 0 #888888;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px var(--primary-1), inset -2px var(--primary-2), 1px 0 #555555, 2px 0 #888888;
 }
 
 progress::-moz-progress-bar {
-  background: linear-gradient(to bottom, #339, #eee 50%, #005);
+  background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
   border-right: 1px solid #000;
-  box-shadow: inset 1px 0 #6666CC, inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px #000055, inset -2px #333399, 1px 0 #555555, 2px 0 #888888;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px var(--primary-1), inset -2px var(--primary-2), 1px 0 #555555, 2px 0 #888888;
 }
 
 .window,
@@ -789,8 +799,8 @@ progress::-moz-progress-bar {
 
 [role=menu] li:focus-within,
 [role=menubar] li:focus-within {
-  background: #333399;
-  box-shadow: inset 1px 0 #66c, inset -1px 0 #008;
+  background: var(--primary-2);
+  box-shadow: inset 1px 0 var(--primary-3), inset -1px 0 #008;
   color: #fff;
 }
 
@@ -890,15 +900,15 @@ progress::-moz-progress-bar {
   white-space: nowrap;
 }
 .list > [role=option][aria-selected=true] {
-  background-color: #ccf;
-  color: #000;
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
 }
 .list > [role=option]:focus {
   outline: none;
 }
 .list:focus-within {
   box-shadow: none;
-  outline: 2px solid #66c;
+  outline: 2px solid var(--primary-3);
   border-radius: 1px;
 }
 
@@ -963,8 +973,8 @@ progress::-moz-progress-bar {
   outline: none;
 }
 .detailed tr[aria-selected=true] {
-  background-color: #ccf;
-  color: #000;
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
 }
 .detailed .icon[aria-selected=true] .icon-label {
   background-color: #000;

@@ -53,6 +53,14 @@ const skins = {
   winxp: [
     'default', 'olive-green', 'silver',
   ],
+  macos9: [
+    'default', 'bubbles', 'convergence', 'golden-poppy', 'gray-space',
+    'lollipop', 'lollipop-2', 'lollipop-3', 'lollipop-4', 'lollipop-5',
+    'mono-blue', 'rio-azul', 'roswell', 'sunny', 'blueberry-oxygen',
+    'blueberry-union', 'grape-gravity', 'grape-mission', 'lime-horizon',
+    'lime-sharp', 'quantum-foam', 'strawberry-baby', 'strawberry-parabola',
+    'tangerine-fusion', 'tangerine-melt',
+  ],
 };
 
 
