@@ -273,6 +273,8 @@ button, input[type=button], input[type=submit], input[type=reset], .button {
   border-bottom: 1px solid var(--button-dark);
   border-right: 1px solid var(--button-dark);
   padding: 2px 4px;
+  cursor: default;
+  user-select: none;
 }
 button:focus, button.focus, input[type=button]:focus, input[type=button].focus, input[type=submit]:focus, input[type=submit].focus, input[type=reset]:focus, input[type=reset].focus, .button:focus, .button.focus {
   outline: 1px solid var(--focus);

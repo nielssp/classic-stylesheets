@@ -179,23 +179,32 @@
 
 ::-webkit-scrollbar-thumb {
   background-color: #99f;
-  background-image: repeating-linear-gradient(0, #339, #339 1px, #ccf 1px, #ccf 2px);
   background-repeat: no-repeat;
   background-size: 8px 8px;
   background-position: center center;
 
   &:vertical {
+    background-image: repeating-linear-gradient(0, #339, #339 1px, #ccf 1px, #ccf 2px);
     box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 0 1px #777, 0 2px #888;
   }
 
   &:horizontal {
+    background-image: repeating-linear-gradient(90deg, #ccf, #ccf 1px, #339 1px, #339 2px);
     box-shadow: inset 1px 1px #ccf, inset -1px -1px #66c, 1px 0 #777, 2px 0 #888;
   }
 
   &:active {
     background-color: #66c;
-    background-image: repeating-linear-gradient(0, #005, #005 1px, #99f 1px, #99f 2px);
-    box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 1px 1px #777, 2px 2px #888;
+
+    &:vertical {
+      background-image: repeating-linear-gradient(0, #005, #005 1px, #99f 1px, #99f 2px);
+      box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 0 1px #777, 0 2px #888;
+    }
+
+    &:horizontal {
+      background-image: repeating-linear-gradient(90deg, #99f, #99f 1px, #005 1px, #005 2px);
+      box-shadow: inset 1px 1px #99f, inset -1px -1px #339, 1px 0 #777, 2px 0 #888;
+    }
   }
 }
 
