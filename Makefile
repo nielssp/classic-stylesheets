@@ -1,4 +1,4 @@
-SOURCES := $(wildcard themes/*/theme.scss)
+SOURCES := $(wildcard themes/*/theme.scss) $(wildcard themes/winxp/skins/*.scss)
 OBJECTS := $(SOURCES:.scss=.css)
 
 .PHONY: all

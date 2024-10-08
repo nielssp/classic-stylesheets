@@ -25,5 +25,10 @@
     color: #fff;
     box-shadow: inset 1px 1px 1px #333, inset -1px -1px 1px #999;
   }
+
+  &:focus-visible, &.focus {
+    outline: 2px solid var(--primary-3);
+    border-radius: 1px;
+  }
 }
 

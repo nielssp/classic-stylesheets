@@ -10,7 +10,7 @@ select {
   font-size: inherit;
   outline: none;
 
-  ::selection {
+  &::selection {
     background-color: var(--selection-bg);
     color: var(--selection-fg);
   }

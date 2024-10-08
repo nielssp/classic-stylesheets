@@ -339,6 +339,12 @@ select:not([size], [multiple]).active, select[size="1"]:not(:disabled, .disabled
   color: #fff;
   box-shadow: inset 1px 1px 1px #333, inset -1px -1px 1px #999;
 }
+button:focus-visible, button.focus, input[type=button]:focus-visible, input[type=button].focus, input[type=submit]:focus-visible, input[type=submit].focus, input[type=reset]:focus-visible, input[type=reset].focus, .button:focus-visible, .button.focus,
+select:not([size], [multiple]):focus-visible,
+select:not([size], [multiple]).focus, select[size="1"]:focus-visible, select[size="1"].focus {
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
 
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
 select[multiple], select[size]:not([size="1"]) {
@@ -421,37 +427,33 @@ input[type=checkbox] {
   width: 12px;
   height: 12px;
 }
-
 input[type=checkbox]:not(:disabled):active {
   background: #777;
   box-shadow: inset 1px 1px 0 #555, inset -1px -1px 0 #999;
 }
-
-input[type=checkbox]:disabled,
-input[type=radio]:disabled {
-  border-color: #888;
-  box-shadow: none;
-}
-
 input[type=checkbox]:checked::after {
   content: "";
   display: block;
   width: 10px;
-  height: 4px;
-  border-bottom: 1px solid #000;
-  border-left: 1px solid #000;
-  margin-left: 1px;
+  height: 5px;
+  border-bottom: 1.5px solid #000;
+  border-left: 1.5px solid #000;
+  margin-left: 1.5px;
   transform: rotate(-45deg);
   box-shadow: -1px 1px 0 rgba(0, 0, 0, 0.3);
 }
-
-input[type=checkbox]:disabled:checked::after {
+input[type=checkbox]:disabled {
+  border-color: #888;
   box-shadow: none;
+}
+input[type=checkbox]:disabled::after {
+  box-shadow: none;
+  border-color: #888;
 }
 
 input[type=checkbox]:disabled + label,
 input[type=radio]:disabled + label {
-  color: var(--disabled);
+  color: #777;
 }
 
 input[type=radio] {
@@ -465,17 +467,10 @@ input[type=radio] {
   height: 12px;
   border-radius: 50%;
 }
-
 input[type=radio]:checked {
   background: linear-gradient(to bottom right, #555, #fff);
   box-shadow: inset 1px 1px 0 #555;
 }
-
-input[type=radio]:not(:disabled):active {
-  background: linear-gradient(to bottom right, #444, #bbb);
-  box-shadow: inset 1px 1px 0 #444;
-}
-
 input[type=radio]:checked::after {
   content: "";
   display: block;
@@ -486,10 +481,23 @@ input[type=radio]:checked::after {
   margin-top: 2px;
   margin-left: 2px;
 }
+input[type=radio]:not(:disabled):active {
+  background: linear-gradient(to bottom right, #444, #bbb);
+  box-shadow: inset 1px 1px 0 #444;
+}
+input[type=radio]:disabled {
+  background: #ddd;
+  border-color: #888;
+  box-shadow: none;
+}
+input[type=radio]:disabled::after {
+  background-color: #888;
+}
 
-input[type=radio]:focus + label,
-input[type=checkbox]:focus + label {
-  outline: 1px dotted var(--border);
+input[type=radio]:focus-visible + label,
+input[type=checkbox]:focus-visible + label {
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
   outline-offset: 0;
 }
 
@@ -498,10 +506,10 @@ input[type=checkbox]:focus {
   outline: none;
 }
 
-label > input[type=radio]:focus,
-label > input[type=checkbox]:focus {
-  outline: 1px dotted var(--border);
-  outline-offset: 1px;
+label > input[type=radio]:focus-visible,
+label > input[type=checkbox]:focus-visible {
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
 }
 
 input[type=range] {
@@ -511,7 +519,8 @@ input[type=range] {
   padding: 2px;
 }
 input[type=range]:focus-visible {
-  outline: 1px dotted #131627;
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
 }
 input[type=range]::-moz-range-track {
   height: 3px;
@@ -831,6 +840,9 @@ progress::-moz-progress-bar {
 }
 .tabs > menu > button:focus {
   outline: none;
+}
+.tabs > menu > button:focus-visible {
+  text-shadow: 0 0 2px var(--primary-3);
 }
 
 .tabs > menu > button::before {

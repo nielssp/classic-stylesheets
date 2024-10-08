@@ -15,6 +15,7 @@
     border-radius: 2px;
     margin-bottom: 1px;
     margin-right: 1px;
+    box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
 
     &::after, &:active::after, &:hover::after {
       content: '';
@@ -38,12 +39,22 @@
       padding: 0;
     }
 
-    &:hover {
-      filter: brightness(1.1);
+    &:not(:disabled, .disabled):hover, &.hover {
+      background: radial-gradient(circle at 0 0, #FDFFFF, #B9DAFB 75%);
+      box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #ABBEE9, inset -1px -1px #8DA8E1;
+
+      &::after {
+        border: 0;
+      }
     }
 
-    &:active {
-      filter: brightness(0.8);
+    &:not(:disabled, .disabled):active {
+      background: radial-gradient(circle at 0 0, #6E8EF1, #D2DEEB 75%);
+      box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #98A1DD, inset -1px -1px #B1C6F3;
+
+      &:after {
+        display: block;
+      }
     }
   }
 
@@ -61,11 +72,11 @@
       justify-content: center;
 
       &:hover {
-        filter: brightness(1.05) contrast(1.05);
+        box-shadow: 1px 1px #7DA0D4, inset 1px -1px #B4C8F6, inset 0 1px #ACCEFF, inset 0 2px #E0EDFF;
       }
 
       &:active {
-        filter: brightness(0.8) contrast(1.5);
+        box-shadow: 1px 1px #7DA0D4, inset 1px -1px #B4C8F6, inset 0 1px #839BD4, inset 0 2px #9FB4EC;
       }
     }
   }
@@ -76,7 +87,6 @@
 
   & > button {
     height: 15px;
-    box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
   }
 
   & > button:first-child::after {
@@ -104,6 +114,14 @@
       top: 0;
       bottom: 0;
 
+      &:hover {
+        background: linear-gradient(to bottom, #DAE9FF, #CCE1FF);
+      }
+
+      &:active {
+        background: linear-gradient(to bottom, #A8BEF6, #92B2F6);
+      }
+
       &::after {
         display: block;
         content: '';
@@ -122,7 +140,6 @@
 
   & > button {
     width: 15px;
-    box-shadow: 1px 0 #A0B5D3, 0 1px #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
   }
 
   & > button:first-child::after {
@@ -149,6 +166,14 @@
       background: linear-gradient(to right, #C8D6FB, #B9CBF3); 
       left: 0;
       right: 0;
+
+      &:hover {
+        background: linear-gradient(to right, #DAE9FF, #CCE1FF);
+      }
+
+      &:active {
+        background: linear-gradient(to right, #A8BEF6, #92B2F6);
+      }
 
       &::after {
         display: block;

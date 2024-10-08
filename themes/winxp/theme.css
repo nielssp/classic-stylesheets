@@ -108,6 +108,7 @@ hr {
   border-radius: 2px;
   margin-bottom: 1px;
   margin-right: 1px;
+  box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
 }
 .horizontal-scrollbar > button::after, .horizontal-scrollbar > button:active::after, .horizontal-scrollbar > button:hover::after,
 .vertical-scrollbar > button::after,
@@ -133,13 +134,25 @@ hr {
 .vertical-scrollbar > button:not(:disabled):active {
   padding: 0;
 }
-.horizontal-scrollbar > button:hover,
-.vertical-scrollbar > button:hover {
-  filter: brightness(1.1);
+.horizontal-scrollbar > button:not(:disabled, .disabled):hover, .horizontal-scrollbar > button.hover,
+.vertical-scrollbar > button:not(:disabled, .disabled):hover,
+.vertical-scrollbar > button.hover {
+  background: radial-gradient(circle at 0 0, #FDFFFF, #B9DAFB 75%);
+  box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #ABBEE9, inset -1px -1px #8DA8E1;
 }
-.horizontal-scrollbar > button:active,
-.vertical-scrollbar > button:active {
-  filter: brightness(0.8);
+.horizontal-scrollbar > button:not(:disabled, .disabled):hover::after, .horizontal-scrollbar > button.hover::after,
+.vertical-scrollbar > button:not(:disabled, .disabled):hover::after,
+.vertical-scrollbar > button.hover::after {
+  border: 0;
+}
+.horizontal-scrollbar > button:not(:disabled, .disabled):active,
+.vertical-scrollbar > button:not(:disabled, .disabled):active {
+  background: radial-gradient(circle at 0 0, #6E8EF1, #D2DEEB 75%);
+  box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #98A1DD, inset -1px -1px #B1C6F3;
+}
+.horizontal-scrollbar > button:not(:disabled, .disabled):active:after,
+.vertical-scrollbar > button:not(:disabled, .disabled):active:after {
+  display: block;
 }
 .horizontal-scrollbar > .scrollbar-track,
 .vertical-scrollbar > .scrollbar-track {
@@ -158,11 +171,11 @@ hr {
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover,
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
-  filter: brightness(1.05) contrast(1.05);
+  box-shadow: 1px 1px #7DA0D4, inset 1px -1px #B4C8F6, inset 0 1px #ACCEFF, inset 0 2px #E0EDFF;
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active,
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
-  filter: brightness(0.8) contrast(1.5);
+  box-shadow: 1px 1px #7DA0D4, inset 1px -1px #B4C8F6, inset 0 1px #839BD4, inset 0 2px #9FB4EC;
 }
 
 .horizontal-scrollbar {
@@ -170,7 +183,6 @@ hr {
 }
 .horizontal-scrollbar > button {
   height: 15px;
-  box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
 }
 .horizontal-scrollbar > button:first-child::after {
   -webkit-mask-image: url(arrow-left.svg);
@@ -195,6 +207,12 @@ hr {
   top: 0;
   bottom: 0;
 }
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #DAE9FF, #CCE1FF);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+  background: linear-gradient(to bottom, #A8BEF6, #92B2F6);
+}
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
   display: block;
   content: "";
@@ -210,7 +228,6 @@ hr {
 }
 .vertical-scrollbar > button {
   width: 15px;
-  box-shadow: 1px 0 #A0B5D3, 0 1px #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
 }
 .vertical-scrollbar > button:first-child::after {
   -webkit-mask-image: url(arrow-up.svg);
@@ -234,6 +251,12 @@ hr {
   background: linear-gradient(to right, #C8D6FB, #B9CBF3);
   left: 0;
   right: 0;
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+  background: linear-gradient(to right, #DAE9FF, #CCE1FF);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+  background: linear-gradient(to right, #A8BEF6, #92B2F6);
 }
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
   display: block;
@@ -324,7 +347,7 @@ button, input[type=button], input[type=submit], input[type=reset], .button {
   color: #000;
   border: 1px solid #003C74;
   border-radius: 4px;
-  padding: 2px 16px;
+  padding: 2px 16px 3px;
   box-shadow: -1px -1px 0 #E2DED4, 1px 1px 0 #FBFAF8, inset -1px -2px 1px #D6D0C5;
   text-align: center;
   line-height: 1;
@@ -341,6 +364,7 @@ button::after, input[type=button]::after, input[type=submit]::after, input[type=
   left: 0;
   right: 0;
   bottom: 0;
+  border-radius: 3px;
 }
 button:disabled, button.disabled, input[type=button]:disabled, input[type=button].disabled, input[type=submit]:disabled, input[type=submit].disabled, input[type=reset]:disabled, input[type=reset].disabled, .button:disabled, .button.disabled {
   background: #F5F4EA;
@@ -381,8 +405,8 @@ select {
   font-size: inherit;
   outline: none;
 }
-input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]) ::selection, textarea ::selection, .input ::selection,
-select ::selection {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection,
+select::selection {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
 }
@@ -813,6 +837,7 @@ progress:indeterminate::-webkit-progress-value {
   outline: none;
   margin: auto;
   background: white;
+  border-radius: 0;
 }
 
 .title-bar-buttons button[data-close]::after {

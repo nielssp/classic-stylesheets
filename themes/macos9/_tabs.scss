@@ -21,6 +21,10 @@
   &:focus {
     outline: none;
   }
+
+  &:focus-visible {
+    text-shadow: 0 0 2px var(--primary-3);
+  }
 }
 
 .tabs > menu > button::before {

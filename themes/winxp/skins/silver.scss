@@ -1,0 +1,129 @@
+@use '../../../util/util';
+
+:root {
+  --desktop-bg: #585768;
+
+  --window-bg: #E0DFE3;
+
+  --selection-bg: #B2B4BF;
+  --selection-fg: #000;
+  --selection-inverse: #4D4B40
+}
+
+fieldset {
+  border-color: #BFB8BF;
+}
+
+#{util.$buttons} {
+  background: linear-gradient(to bottom, #FDFDFD, #F3F3F4 40%, #C6C5D7);
+  box-shadow: -1px -1px #D8D5D5, 1px 1px #F3F3F4, inset 1px 0 #fff, inset -1px 0 #fff;
+
+  &:disabled, &.disabled {
+    background: #F1F1ED;
+    border-color: #C4C3BF;
+  }
+
+  &:focus, &.focus {
+    &::after {
+      border-top: 1px solid #CEE7FF;
+      border-right: 1px solid #A1BEEC;
+      border-bottom: 1px solid #6982EE;
+      border-left: 1px solid #A5C1ED;
+      box-shadow: inset 0 -1px #89ADE4, inset 0 1px #BCD4F6, inset 1px 0 #fff, inset -1px 0 #fff;
+    }
+  }
+
+  &:not(:disabled, .disabled):hover, &.hover {
+    background: linear-gradient(to bottom, #FDFDFD, #F3F3F4 40%, #D6D7E7);
+
+    &::after {
+      border-top: 1px solid #FFF0CF;
+      border-right: 2px solid #FCCA69;
+      border-bottom: 1px solid #E59700;
+      border-left: 2px solid #FCCA69;
+      box-shadow: inset 0 -1px #F8B330, inset 0 1px #FDD889;
+    }
+  }
+
+  &:focus-visible::after {
+    outline-color: #5C0B15;
+  }
+
+  &:not(:disabled, .disabled):active, &.active {
+    background: linear-gradient(to bottom, #ACABBD, #EEEFF6 60%, #FFFFFF 65%, #FFFFFF);
+    box-shadow: -1px -1px #D8D5D5, 1px 1px #F3F3F4, inset 1px 1px #fff, inset -1px 0 #fff;
+  }
+}
+
+.dropdown {
+  & > select {
+    &:hover + .dropdown-button {
+      background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+      border-color: #5B6665;
+    }
+
+    &:active + .dropdown-button {
+      background: linear-gradient(to bottom, #BFC2DB, #FFFFFF 30%, #FFFFFF);
+      border-color: #434848;
+      box-shadow: -2px 0 #fff, inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #A0B5CD;
+    }
+  }
+
+  & > .dropdown-button {
+    background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+    border-color: #9495A2;
+    box-shadow: -2px 0 #fff, inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+
+    &::after {
+      background: #3F3D3D;
+    }
+  }
+}
+
+progress::-webkit-progress-value {
+  background: repeating-linear-gradient(90deg, transparent, transparent 6px, #fff 6px, #fff 8px), linear-gradient(to bottom, #95B38E, #A4D498 10%, #A4D498 40%, #76A66A 40%, #98C88C);
+}
+
+progress::-moz-progress-bar {
+  background: repeating-linear-gradient(90deg, transparent, transparent 6px, #fff 6px, #fff 8px), linear-gradient(to bottom, #95B38E, #A4D498 10%, #A4D498 40%, #76A66A 40%, #98C88C);
+}
+
+.title-bar {
+  background: linear-gradient(to bottom, #D7D7E3, #EDF0F3, #FDFFFC);
+  color: #A2A1A1;
+  border-color: #BABAC5;
+}
+
+.window,
+.dialog,
+.menu {
+  border-color: #C9C9D7;
+  background: #E0DFE3;
+  box-shadow: inset 1px 0 #FDFFFC, inset 2px 0 #E6E9E4, inset 0 -1px #FBFCFD, inset 0 -2px #EAEDF5, inset -1px 0 #FBFCFD, -2px 0 #E6E9E4;
+
+  &.active, &:focus-within, &.menu {
+    border-color: #66667E;
+    background: #E0DFE3;
+    box-shadow: inset 1px -1px #FBFCFD, inset 2px -2px #E6E9E4, inset -1px 0 #FBFCFD, -2px 0 #E6E9E4;
+  }
+}
+
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.title-bar.active,
+.menu .title-bar {
+  background: linear-gradient(to bottom, #A8A7BF, #B7B8C9, #D0D2DC, #FFFFFF);
+  color: #000;
+  border-color: #66667E;
+}
+
+.window.active > .title-bar .title-bar-text,
+.window:focus-within > .title-bar .title-bar-text,
+.dialog.active > .title-bar .title-bar-text,
+.dialog:focus-within > .title-bar .title-bar-text,
+.title-bar.active .title-bar-text {
+  text-shadow: none;
+}
+
