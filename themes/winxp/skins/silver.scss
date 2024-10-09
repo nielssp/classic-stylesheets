@@ -73,6 +73,134 @@ fieldset {
   }
 }
 
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  background: #E5E6EE;
+
+  & > button,
+  & > .scrollbar-track > .scrollbar-thumb {
+    background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+    border-color: #9495A2;
+    border-top-color: #B4B4BD;
+    border-bottom-color: #9D9EAB;
+    box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+
+    &::after, &:active::after, &:hover::after {
+      border: 0;
+      box-shadow: none;
+    }
+
+    &:not(:disabled, .disabled):hover, &.hover {
+      background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+      border-color: #5B6665;
+      box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+    }
+
+    &:not(:disabled, .disabled):active {
+      background: linear-gradient(to bottom, #BFC2DB, #FFFFFF 30%, #FFFFFF);
+      border-color: #434848;
+      box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #A0B5CD;
+    }
+  }
+
+  & > button::after {
+    background: #3F3D3D;
+  }
+}
+
+.horizontal-scrollbar > .scrollbar-track {
+  background: linear-gradient(to bottom, #ECEEF3, #FBFBFE);
+
+  & > .scrollbar-thumb {
+    &::after {
+      background: repeating-linear-gradient(to right, #FFFFFF, #FFFFFF 1px, #8E95A2 1px, #8E95A2 2px);
+    }
+
+    &:not(:disabled, .disabled):active {
+      background: linear-gradient(to top, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+    }
+  }
+}
+
+.vertical-scrollbar > .scrollbar-track {
+  background: linear-gradient(to right, #ECEEF3, #FBFBFE);
+
+  & > .scrollbar-thumb {
+    background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+
+    &::after {
+      background: repeating-linear-gradient(to bottom, #FFFFFF, #FFFFFF 1px, #8E95A2 1px, #8E95A2 2px);
+    }
+
+    &:not(:disabled, .disabled):hover, &.hover {
+      background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+    }
+
+    &:not(:disabled, .disabled):active {
+      background: linear-gradient(to left, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+    }
+  }
+}
+
+::-webkit-scrollbar:horizontal {
+  background: linear-gradient(to bottom, #ECEEF3, #FBFBFE);
+}
+
+::-webkit-scrollbar:vertical {
+  background: linear-gradient(to right, #ECEEF3, #FBFBFE);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1px solid #9495A2;
+  border-top-color: #B4B4BD;
+  border-bottom-color: #9D9EAB;
+  box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+  background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+
+  &:hover {
+    background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+    border-color: #5B6665;
+    box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+  }
+
+  &:active {
+    background: linear-gradient(to top, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+    border-color: #434848;
+    box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #A0B5CD;
+  }
+
+  &:vertical {
+    background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+
+    &:hover {
+      background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+    }
+
+    &:active {
+      background: linear-gradient(to left, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+    }
+  }
+}
+
+::-webkit-scrollbar-button {
+
+  &:vertical:decrement {
+    background-image: url(silver-scroll-up.svg);
+  }
+
+  &:vertical:increment {
+    background-image: url(silver-scroll-down.svg);
+  }
+
+  &:horizontal:decrement {
+    background-image: url(silver-scroll-left.svg);
+  }
+
+  &:horizontal:increment {
+    background-image: url(silver-scroll-right.svg);
+  }
+}
+
 .dropdown {
   & > select {
     &:hover + .dropdown-button {
@@ -90,6 +218,8 @@ fieldset {
   & > .dropdown-button {
     background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
     border-color: #9495A2;
+    border-top-color: #B4B4BD;
+    border-bottom-color: #9D9EAB;
     box-shadow: -2px 0 #fff, inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
 
     &::after {

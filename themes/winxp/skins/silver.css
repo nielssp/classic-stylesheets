@@ -61,6 +61,124 @@ button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:
   box-shadow: -1px -1px #D8D5D5, 1px 1px #F3F3F4, inset 1px 1px #fff, inset -1px 0 #fff;
 }
 
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  background: #E5E6EE;
+}
+.horizontal-scrollbar > button, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
+.vertical-scrollbar > button,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+  border-color: #9495A2;
+  border-top-color: #B4B4BD;
+  border-bottom-color: #9D9EAB;
+  box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+}
+.horizontal-scrollbar > button::after, .horizontal-scrollbar > button:active::after, .horizontal-scrollbar > button:hover::after, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover::after,
+.vertical-scrollbar > button::after,
+.vertical-scrollbar > button:active::after,
+.vertical-scrollbar > button:hover::after,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover::after {
+  border: 0;
+  box-shadow: none;
+}
+.horizontal-scrollbar > button:not(:disabled, .disabled):hover, .horizontal-scrollbar > button.hover, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb.hover,
+.vertical-scrollbar > button:not(:disabled, .disabled):hover,
+.vertical-scrollbar > button.hover,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb.hover {
+  background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+  border-color: #5B6665;
+  box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+}
+.horizontal-scrollbar > button:not(:disabled, .disabled):active, .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active,
+.vertical-scrollbar > button:not(:disabled, .disabled):active,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
+  background: linear-gradient(to bottom, #BFC2DB, #FFFFFF 30%, #FFFFFF);
+  border-color: #434848;
+  box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #A0B5CD;
+}
+.horizontal-scrollbar > button::after,
+.vertical-scrollbar > button::after {
+  background: #3F3D3D;
+}
+
+.horizontal-scrollbar > .scrollbar-track {
+  background: linear-gradient(to bottom, #ECEEF3, #FBFBFE);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+  background: repeating-linear-gradient(to right, #FFFFFF, #FFFFFF 1px, #8E95A2 1px, #8E95A2 2px);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
+  background: linear-gradient(to top, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+}
+
+.vertical-scrollbar > .scrollbar-track {
+  background: linear-gradient(to right, #ECEEF3, #FBFBFE);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+  background: repeating-linear-gradient(to bottom, #FFFFFF, #FFFFFF 1px, #8E95A2 1px, #8E95A2 2px);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):hover, .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb.hover {
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:not(:disabled, .disabled):active {
+  background: linear-gradient(to left, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+}
+
+::-webkit-scrollbar:horizontal {
+  background: linear-gradient(to bottom, #ECEEF3, #FBFBFE);
+}
+
+::-webkit-scrollbar:vertical {
+  background: linear-gradient(to right, #ECEEF3, #FBFBFE);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 1px solid #9495A2;
+  border-top-color: #B4B4BD;
+  border-bottom-color: #9D9EAB;
+  box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+  background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+  border-color: #5B6665;
+  box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
+}
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(to top, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+  border-color: #434848;
+  box-shadow: inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #A0B5CD;
+}
+::-webkit-scrollbar-thumb:vertical {
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: linear-gradient(to left, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(silver-scroll-up.svg);
+}
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(silver-scroll-down.svg);
+}
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(silver-scroll-left.svg);
+}
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(silver-scroll-right.svg);
+}
+
 .dropdown > select:hover + .dropdown-button {
   background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
   border-color: #5B6665;
@@ -73,6 +191,8 @@ button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:
 .dropdown > .dropdown-button {
   background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CBCCDA 70%, #CBCCDA);
   border-color: #9495A2;
+  border-top-color: #B4B4BD;
+  border-bottom-color: #9D9EAB;
   box-shadow: -2px 0 #fff, inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #D9DAE4;
 }
 .dropdown > .dropdown-button::after {

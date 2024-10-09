@@ -193,7 +193,7 @@
 }
 
 ::-webkit-scrollbar-corner {
-  background: #ECE9D8;
+  background: var(--window-bg);
 }
 
 ::-webkit-scrollbar-thumb {
