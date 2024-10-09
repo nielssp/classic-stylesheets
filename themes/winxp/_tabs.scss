@@ -1,66 +1,68 @@
-.tabs > menu {
-  display: flex;
-  flex-direction: row;
-  margin: 0 2px;
-  gap: 1px;
-}
+.tabs {
+  & > menu {
+    display: flex;
+    flex-direction: row;
+    margin: 0 2px;
+    gap: 1px;
 
-.tabs > menu > button {
-  border-bottom: 0;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  border-color: #91A7B4;
-  background: linear-gradient(to bottom right, #fff, #EFEEE8);
-  box-shadow: inset -1px -1px 0 #ECEBE6;
-  min-width: 0;
-  padding: 4px 10px 4px 10px;
-}
 
-.tabs > menu > button:hover::after {
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-}
+    & > button {
+      border-bottom: 0;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      border-color: #91A7B4;
+      background: linear-gradient(to bottom right, #fff, #EFEEE8);
+      box-shadow: inset -1px -1px 0 #ECEBE6;
+      min-width: 0;
+      padding: 4px 10px 4px 10px;
 
-.tabs > menu > button:hover {
-  border-top: 1px solid #E68B2C;
-  box-shadow: inset 0 2px 0 #FFC73C;
-}
+      &:hover {
+        border-top: 1px solid #E68B2C;
+        box-shadow: inset 0 2px 0 #FFC73C;
 
-.tabs > menu > button:focus,
-.tabs > menu > button:active {
-  outline: none;
-}
+        &::after {
+          border-left: none;
+          border-right: none;
+          border-bottom: none;
+        }
+      }
 
-.tabs > menu > button::after {
-  display: none;
-}
+      &:focus,
+      &:active {
+        outline: none;
+      }
 
-.tabs > menu > button:focus-visible {
-  outline: 1px dotted #000;
-  outline-offset: -3px;
-}
+      &::after {
+        display: none;
+      }
 
-.tabs > menu > button[aria-selected="true"] {
-  background: #FCFCFE;
-  border-right: 1px solid #919B9C;
-  border-top: 1px solid #E68B2C;
-  border-left: 1px solid #919B9C;
-  box-shadow: inset 0 2px 0 #FFC73C;
-  margin-right: -2px;
-  margin-left: -2px;
-  margin-top: -2px;
-  margin-bottom: -1px;
-  padding: 2px 12px 6px 12px;
-  z-index: 1;
-}
+      &:focus-visible {
+        outline: 1px dotted #000;
+        outline-offset: -3px;
+      }
 
-.tabs > [role="tabpanel"] {
-  background: linear-gradient(180deg, #FCFCFE 0%, #F4F3EE 100%);
-  border: 1px solid #919B9C;
-  box-shadow: inset -1px -1px 0 #FCFCFE, 1px 1px 0 #D0CEBF, 2px 2px 0 #E3E0D0;
-}
+      &[aria-selected="true"] {
+        background: #FCFCFE;
+        border-right: 1px solid #919B9C;
+        border-top: 1px solid #E68B2C;
+        border-left: 1px solid #919B9C;
+        box-shadow: inset 0 2px 0 #FFC73C;
+        margin-right: -2px;
+        margin-left: -2px;
+        margin-top: -2px;
+        margin-bottom: -1px;
+        padding: 2px 12px 6px 12px;
+        z-index: 1;
+      }
+    }
+  }
 
+  & > [role="tabpanel"] {
+    background: linear-gradient(180deg, #FCFCFE 0%, #F4F3EE 100%);
+    border: 1px solid #919B9C;
+    box-shadow: inset -1px -1px 0 #FCFCFE, 1px 1px 0 #D0CEBF, 2px 2px 0 #E3E0D0;
+  }
+}
 

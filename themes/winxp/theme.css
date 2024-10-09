@@ -615,6 +615,7 @@ input[type=range]::-moz-range-thumb {
   width: 9px;
   height: 20px;
   box-shadow: inset 0 2px #48CB46, inset 0 -2px #48CB46;
+  border-radius: 2px;
 }
 input[type=range]::-moz-range-thumb:hover {
   box-shadow: inset 0 2px #F9B435, inset 0 -2px #F9B435;
@@ -644,6 +645,7 @@ input[type=range]::-webkit-slider-thumb {
   width: 9px;
   height: 20px;
   box-shadow: inset 0 2px #48CB46, inset 0 -2px #48CB46;
+  border-radius: 2px;
 }
 input[type=range]::-webkit-slider-thumb:hover {
   box-shadow: inset 0 2px #F9B435, inset 0 -2px #F9B435;
@@ -991,7 +993,6 @@ progress:indeterminate::-webkit-progress-value {
   margin: 0 2px;
   gap: 1px;
 }
-
 .tabs > menu > button {
   border-bottom: 0;
   border-top-left-radius: 3px;
@@ -1004,32 +1005,25 @@ progress:indeterminate::-webkit-progress-value {
   min-width: 0;
   padding: 4px 10px 4px 10px;
 }
-
+.tabs > menu > button:hover {
+  border-top: 1px solid #E68B2C;
+  box-shadow: inset 0 2px 0 #FFC73C;
+}
 .tabs > menu > button:hover::after {
   border-left: none;
   border-right: none;
   border-bottom: none;
 }
-
-.tabs > menu > button:hover {
-  border-top: 1px solid #E68B2C;
-  box-shadow: inset 0 2px 0 #FFC73C;
-}
-
-.tabs > menu > button:focus,
-.tabs > menu > button:active {
+.tabs > menu > button:focus, .tabs > menu > button:active {
   outline: none;
 }
-
 .tabs > menu > button::after {
   display: none;
 }
-
 .tabs > menu > button:focus-visible {
   outline: 1px dotted #000;
   outline-offset: -3px;
 }
-
 .tabs > menu > button[aria-selected=true] {
   background: #FCFCFE;
   border-right: 1px solid #919B9C;
@@ -1043,7 +1037,6 @@ progress:indeterminate::-webkit-progress-value {
   padding: 2px 12px 6px 12px;
   z-index: 1;
 }
-
 .tabs > [role=tabpanel] {
   background: linear-gradient(180deg, #FCFCFE 0%, #F4F3EE 100%);
   border: 1px solid #919B9C;

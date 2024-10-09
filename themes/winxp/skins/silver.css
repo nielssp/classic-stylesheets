@@ -6,6 +6,20 @@
   --selection-inverse: #4D4B40 ;
 }
 
+.top-panel, .bottom-panel {
+  background: linear-gradient(to bottom, #5B5B67, #5B5B67 1px, #7D7E99 2px, #DADCE8 2px, #DADCE8 3px, #FFFFFF 4px, #B3B6C5 4px, #9A99B1 6px, #9A99B1 8px, #DBDBDC 80%, #ECEBEC);
+  box-shadow: inset 0 -1px #BFC4D4, inset 0 -2px #E4EFE3;
+  color: #000;
+  border-color: #83829D;
+}
+
+.left-panel, .right-panel {
+  background: linear-gradient(to right, #5B5B67, #5B5B67 1px, #7D7E99 2px, #DADCE8 2px, #DADCE8 3px, #FFFFFF 4px, #B3B6C5 4px, #9A99B1 6px, #9A99B1 8px, #DBDBDC 80%, #ECEBEC);
+  box-shadow: inset -1px 0 #BFC4D4, inset -2px 0 #E4EFE3;
+  color: #000;
+  border-color: #83829D;
+}
+
 fieldset {
   border-color: #BFB8BF;
 }
@@ -61,6 +75,13 @@ button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:
   background: #3F3D3D;
 }
 
+input[type=range]::-moz-range-thumb {
+  background: linear-gradient(to right, #FFFFFF, #D4D3E1, #C6C6D2);
+}
+input[type=range]::-webkit-slider-thumb {
+  background: linear-gradient(to right, #FFFFFF, #D4D3E1, #C6C6D2);
+}
+
 progress::-webkit-progress-value {
   background: repeating-linear-gradient(90deg, transparent, transparent 6px, #fff 6px, #fff 8px), linear-gradient(to bottom, #95B38E, #A4D498 10%, #A4D498 40%, #76A66A 40%, #98C88C);
 }
@@ -69,8 +90,17 @@ progress::-moz-progress-bar {
   background: repeating-linear-gradient(90deg, transparent, transparent 6px, #fff 6px, #fff 8px), linear-gradient(to bottom, #95B38E, #A4D498 10%, #A4D498 40%, #76A66A 40%, #98C88C);
 }
 
+.tabs > menu > button {
+  background: linear-gradient(to bottom, #FDFDFD, #F3F3F4 40%, #C6C5D7);
+}
+.tabs > menu > button:hover::after {
+  border-top: 2px solid #FFC83C;
+  box-shadow: none;
+}
+
 .title-bar {
-  background: linear-gradient(to bottom, #D7D7E3, #EDF0F3, #FDFFFC);
+  background: linear-gradient(to bottom, #ECEEF5, #ECEEF5 2px, #E4E5ED 3px, #D7D7E3 4px, #F4F3F5 90%, #FFFFFF);
+  box-shadow: inset 0 1px #ECEEF5, inset 0 2px #FDFDFD, inset 1px 0 #EAEDF5, inset -1px 0 #EAEDF5, inset 0 -1px #CCCBD9, inset 0 -2px #EAEDF5;
   color: #A2A1A1;
   border-color: #BABAC5;
 }
@@ -80,7 +110,7 @@ progress::-moz-progress-bar {
 .menu {
   border-color: #C9C9D7;
   background: #E0DFE3;
-  box-shadow: inset 1px 0 #FDFFFC, inset 2px 0 #E6E9E4, inset 0 -1px #FBFCFD, inset 0 -2px #EAEDF5, inset -1px 0 #FBFCFD, -2px 0 #E6E9E4;
+  box-shadow: inset 1px 0 #FDFFFC, inset 0 -1px #FBFCFD, inset -1px 0 #FBFCFD, inset 2px 0 #E6E9E4, inset 0 -2px #EAEDF5, inset -2px 0 #E6E9E4, inset 3px 0 #C9C9D7, inset -3px 0 #C9C9D7, inset 0 -3px #C9C9D7;
 }
 .window.active, .window:focus-within, .window.menu,
 .dialog.active,
@@ -91,7 +121,7 @@ progress::-moz-progress-bar {
 .menu.menu {
   border-color: #66667E;
   background: #E0DFE3;
-  box-shadow: inset 1px -1px #FBFCFD, inset 2px -2px #E6E9E4, inset -1px 0 #FBFCFD, -2px 0 #E6E9E4;
+  box-shadow: inset 1px -1px #FBFCFD, inset -1px 0 #FBFCFD, inset 2px -2px #A8A9BB, inset -2px 0 #A8A9BB, inset 3px -3px #66667E, inset -3px 0 #66667E;
 }
 
 .window.active > .title-bar,
@@ -100,7 +130,8 @@ progress::-moz-progress-bar {
 .dialog:focus-within > .title-bar,
 .title-bar.active,
 .menu .title-bar {
-  background: linear-gradient(to bottom, #A8A7BF, #B7B8C9, #D0D2DC, #FFFFFF);
+  background: linear-gradient(to bottom, #D7D8E2, #D7D8E2 2px, #BCBCCF 3px, #A8A7BF 4px, #A8A7BF 6px, #F7F7F9 90%, #FFFFFF);
+  box-shadow: inset 0 1px #A8A7BF, inset 0 2px #fff, inset 1px 0 #D0D2DB, inset -1px 0 #D0D2DB, inset 0 -1px #777792, inset 0 -2px #BCBDCD, inset 0 -3px #E4E3E3;
   color: #000;
   border-color: #66667E;
 }
@@ -111,4 +142,14 @@ progress::-moz-progress-bar {
 .dialog:focus-within > .title-bar .title-bar-text,
 .title-bar.active .title-bar-text {
   text-shadow: none;
+}
+
+.detailed th {
+  background: #F9FAFD;
+  border-bottom-color: #BDBECE;
+  box-shadow: inset 0 -1px #D1D2DE, inset 0 -2px #E6E7EF;
+}
+.detailed th::after {
+  border-left-color: #B5B6C8;
+  border-right-color: #FEFEFE;
 }
