@@ -592,19 +592,19 @@ progress::-moz-progress-bar {
 }
 
 .title-bar-buttons button[data-close] {
-  background-image: url(close.png);
+  background-image: url(close.svg);
 }
 
 .title-bar-buttons button[data-minimize] {
-  background-image: url(minimize.png);
+  background-image: url(minimize.svg);
 }
 
 .title-bar-buttons button[data-maximize] {
-  background-image: url(maximize.png);
+  background-image: url(maximize.svg);
 }
 
 .maximized .title-bar-buttons button[data-maximize] {
-  background-image: url(restore.png);
+  background-image: url(restore.svg);
 }
 
 .window.active > .title-bar,
@@ -778,7 +778,7 @@ progress::-moz-progress-bar {
 }
 
 [role=menu] > li[aria-haspopup=true] {
-  background-image: url(arrow-right.png);
+  background-image: url(arrow-right.svg);
   background-repeat: no-repeat;
   background-position: right 8px center;
 }
