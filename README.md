@@ -2,7 +2,18 @@
 
 5 themes and a combined 205 skins from Common Desktop Environment, Windows 3.x, Windows 9x/Me/2000, Windows XP, and Mac OS 9.
 
-[See it in action](https://nielssp.github.io/classic-stylesheets)
+Demo:
+
+* [Windows 3.1 / Windows 3.11](https://nielssp.github.io/classic-stylesheets/?theme=win3x&skin=3.1)
+* [Windows 95](https://nielssp.github.io/classic-stylesheets/?theme=win9x&skin=95)
+* [Windows 98](https://nielssp.github.io/classic-stylesheets/?theme=win9x&skin=98)
+* [Windows 2000](https://nielssp.github.io/classic-stylesheets/?theme=win9x&skin=2000)
+* [CDE (default)](https://nielssp.github.io/classic-stylesheets/?theme=cde&skin=default)
+* [CDE (Solaris default)](https://nielssp.github.io/classic-stylesheets/?theme=cde&skin=crimson-4)
+* [Windows XP Default blue (aka Luna)](https://nielssp.github.io/classic-stylesheets/?theme=winxp&skin=default)
+* [Windows XP Olive green](https://nielssp.github.io/classic-stylesheets/?theme=winxp&skin=olive-green)
+* [Windows XP Silver](https://nielssp.github.io/classic-stylesheets/?theme=winxp&skin=silver)
+* [Mac OS 9](https://nielssp.github.io/classic-stylesheets/?theme=macos9&skin=default)
 
 ![](screenshots/classic-stylesheets-2.png)
 
