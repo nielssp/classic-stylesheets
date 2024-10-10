@@ -81,13 +81,11 @@ legend {
   text-align: left;
   padding: 0 4px;
   color: #0046D5;
-  background-color: var(--button-bg);
   display: block;
 }
 
 hr {
-  border-top: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
+  border-bottom: 1px solid #D0D0BF;
 }
 
 .horizontal-scrollbar,
