@@ -773,9 +773,8 @@ progress:not([value])::-webkit-progress-value {
 [role=menubar] li:focus {
   outline: none;
 }
-[role=menu] li:hover, [role=menu] li:focus-within,
-[role=menubar] li:hover,
-[role=menubar] li:focus-within {
+[role=menu] li:hover,
+[role=menubar] li:hover {
   background: var(--selection-bg);
   color: var(--selection-fg);
 }
@@ -820,6 +819,10 @@ progress:not([value])::-webkit-progress-value {
   padding: 2px 7px 0 9px;
 }
 
+[role=menu]:not(:hover) li:focus-within {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
 [role=menu] li {
   border: 1px solid transparent;
   padding: 1px 3px 1px 19px;

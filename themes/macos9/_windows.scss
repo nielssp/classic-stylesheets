@@ -1,3 +1,29 @@
+.title-bar {
+  background: #ddd;
+  color: #777;
+  display: flex;
+  gap: 5px;
+
+
+  .title-bar-text {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: default;
+
+    &::before,
+    &::after {
+      display: block;
+      content: '';
+      flex-grow: 1;
+      height: 12px;
+    }
+  }
+}
+
 .window,
 .dialog {
   padding: 2px 4px 4px;
@@ -15,51 +41,19 @@
   box-shadow: 1px 1px 0 #000000, inset 1px 0 0 #fff, inset 0 1px 0 #fff, inset -1px 0 0 #999, inset 0 -1px 0 #999;
 }
 
-.title-bar {
-  background: #ddd;
-  color: #777;
-  display: flex;
-  gap: 5px;
-}
-
 .window.active > .title-bar,
 .window:focus-within > .title-bar,
 .dialog.active > .title-bar,
 .dialog:focus-within > .title-bar,
+.menu > .title-bar,
 .title-bar.active {
   background: var(--window-frame-bg);
   color: #000;
-}
 
-.title-bar-text {
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
-  gap: 4px;
-  font-weight: bold;
-  font-size: 12px;
-  cursor: default
-}
-
-.title-bar-text::before,
-.title-bar-text::after {
-  display: block;
-  content: '';
-  flex-grow: 1;
-  height: 12px;
-}
-
-.window.active > .title-bar > .title-bar-text::before,
-.window.active > .title-bar > .title-bar-text::after,
-.window:focus-within > .title-bar > .title-bar-text::before,
-.window:focus-within > .title-bar > .title-bar-text::after,
-.dialog.active > .title-bar > .title-bar-text::before,
-.dialog.active > .title-bar > .title-bar-text::after,
-.dialog:focus-within > .title-bar > .title-bar-text::before,
-.dialog:focus-within > .title-bar > .title-bar-text::after,
-.title-bar.active > .title-bar-text::before,
-.title-bar.active > .title-bar-text::after {
-  background: repeating-linear-gradient(0deg, #fff, #fff 1px, #777 1px, #777 2px);
+  & > .title-bar-text::before,
+  & > .title-bar-text::after {
+    background: repeating-linear-gradient(0deg, #fff, #fff 1px, #777 1px, #777 2px);
+  }
 }
 
 .title-bar-buttons {
@@ -70,6 +64,8 @@
 
 .window.active > .title-bar > .title-bar-buttons,
 .window:focus-within > .title-bar > .title-bar-buttons,
+.dialog.active > .title-bar > .title-bar-buttons,
+.dialog:focus-within > .title-bar > .title-bar-buttons,
 .title-bar.active > .title-bar-buttons {
   visibility: visible;
 }

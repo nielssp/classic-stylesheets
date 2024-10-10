@@ -116,6 +116,7 @@
 .window:focus-within > .title-bar,
 .dialog.active > .title-bar,
 .dialog:focus-within > .title-bar,
+.menu > .title-bar,
 .title-bar.active {
   background: var(--title-bar-active-bg);
   color: var(--title-bar-active-fg);

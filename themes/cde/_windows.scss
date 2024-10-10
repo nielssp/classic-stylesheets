@@ -13,8 +13,7 @@
 .window:focus-within,
 .dialog.active,
 .dialog:focus-within,
-.menu.active,
-.menu:focus-within {
+.menu {
   background: var(--title-bar-active-bg);
   border-color: var(--title-bar-active-light);
   border-bottom-color: var(--title-bar-active-dark);
@@ -87,8 +86,7 @@
 .window:focus-within > .title-bar,
 .dialog.active > .title-bar,
 .dialog:focus-within > .title-bar,
-.menu.active > .title-bar,
-.menu:focus-within > .title-bar,
+.menu > .title-bar,
 .title-bar.active {
   background: var(--title-bar-active-bg);
   color: var(--title-bar-active-fg);

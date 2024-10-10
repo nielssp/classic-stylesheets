@@ -1,10 +1,10 @@
 # Classic stylesheets for web applications.
 
-3 themes and a combined 177 skins from Common Desktop Environment, Windows 3.x, and Windows 9x/Me/2000.
+5 themes and a combined 205 skins from Common Desktop Environment, Windows 3.x, Windows 9x/Me/2000, Windows XP, and Mac OS 9.
 
 [See it in action](https://nielssp.github.io/classic-stylesheets)
 
-![](screenshots/classic-stylesheets.png)
+![](screenshots/classic-stylesheets-2.png)
 
 ## Modules
 

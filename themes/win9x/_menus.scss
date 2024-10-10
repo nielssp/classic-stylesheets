@@ -13,8 +13,7 @@
       outline: none;
     }
 
-    &:hover,
-    &:focus-within {
+    &:hover {
       background: var(--selection-bg);
       color: var(--selection-fg);
     }
@@ -65,6 +64,11 @@
 }
 
 [role=menu] {
+  &:not(:hover) li:focus-within {
+    background: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
   li {
     border: 1px solid transparent;
     padding: 1px 3px 1px 19px;

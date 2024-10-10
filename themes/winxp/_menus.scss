@@ -108,26 +108,23 @@
 
 [role=menu],
 [role=menubar] {
+  &:not(:hover) li:focus-within {
+    background: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
   li {
     &:focus {
       outline: none;
     }
 
-    &:hover,
-    &:focus-within {
+    &:hover {
       background: var(--selection-bg);
       color: var(--selection-fg);
     }
 
-
     &[aria-disabled=true] {
-      color: var(--dark);
-      text-shadow: 1px 1px 0 var(--lightest);
-      border-color: transparent;
-
-      &:hover, &:focus {
-        text-shadow: none;
-      }
+      color: #ACA899;
     }
   }
 }

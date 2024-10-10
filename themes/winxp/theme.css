@@ -1013,26 +1013,23 @@ progress:not([value])::-webkit-progress-value {
   border: none;
 }
 
+[role=menu]:not(:hover) li:focus-within,
+[role=menubar]:not(:hover) li:focus-within {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
 [role=menu] li:focus,
 [role=menubar] li:focus {
   outline: none;
 }
-[role=menu] li:hover, [role=menu] li:focus-within,
-[role=menubar] li:hover,
-[role=menubar] li:focus-within {
+[role=menu] li:hover,
+[role=menubar] li:hover {
   background: var(--selection-bg);
   color: var(--selection-fg);
 }
 [role=menu] li[aria-disabled=true],
 [role=menubar] li[aria-disabled=true] {
-  color: var(--dark);
-  text-shadow: 1px 1px 0 var(--lightest);
-  border-color: transparent;
-}
-[role=menu] li[aria-disabled=true]:hover, [role=menu] li[aria-disabled=true]:focus,
-[role=menubar] li[aria-disabled=true]:hover,
-[role=menubar] li[aria-disabled=true]:focus {
-  text-shadow: none;
+  color: #ACA899;
 }
 
 .tabs > menu {
