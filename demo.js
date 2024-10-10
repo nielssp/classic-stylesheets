@@ -68,6 +68,7 @@ const themeLink = document.getElementById('theme-link');
 const skinLink = document.getElementById('skin-link');
 const themeSelect = document.getElementById('theme-select');
 const skinSelect = document.getElementById('skin-select');
+const usePreferredFont = document.getElementById('use-preferred-font');
 
 let defaultTheme = 'cde';
 let defaultSkin = 'crimson-4';
@@ -99,7 +100,7 @@ function setTheme(theme) {
 }
 
 function clearSkin() {
-  skinLink.href = 'themes/empty-skin.css';
+  skinLink.href = 'empty-skin.css';
 }
 
 function setSkin(skin) {
@@ -119,6 +120,9 @@ function pushState() {
   if (activeSkin) {
     url += '&skin=' + activeSkin;
   }
+  if (!usePreferredFont.checked) {
+    url += '&font=system';
+  }
   history.pushState({theme: activeTheme, skin: activeSkin}, document.title, url);
 }
 
@@ -128,6 +132,12 @@ if (params.has('theme')) {
   if (params.has('skin')) {
     defaultSkin = params.get('skin');
   }
+}
+if (params.has('font') && params.get('font') === 'system') {
+  document.body.classList.remove('use-preferred-font');
+  usePreferredFont.checked = false;
+} else {
+  usePreferredFont.checked = true;
 }
 setTheme(defaultTheme);
 setSkin(defaultSkin);
@@ -144,6 +154,15 @@ skinSelect.addEventListener('change', () => {
     setSkin(skinSelect.value);
     pushState();
   }
+});
+
+usePreferredFont.addEventListener('change', () => {
+  if (usePreferredFont.checked) {
+    document.body.classList.add('use-preferred-font');
+  } else {
+    document.body.classList.remove('use-preferred-font');
+  }
+  pushState();
 });
 
 window.addEventListener('popstate', e => {

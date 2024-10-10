@@ -18,12 +18,11 @@ body.use-preferred-font {
 }
 
 #preferred-font {
-  display: flex;
 }
 
 #preferred-font::after {
-  content: var(--preferred-font);
-  display: block;
+  content: '(' var(--preferred-font) ')';
+  display: inline;
 }
 
 main {
