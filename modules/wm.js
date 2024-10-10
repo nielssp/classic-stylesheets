@@ -167,9 +167,9 @@ class Window {
 
   setActive(active) {
     if (active) {
-      this.root.classList.remove('inactive');
+      this.root.classList.add('active');
     } else {
-      this.root.classList.add('inactive');
+      this.root.classList.remove('active');
     }
   }
 

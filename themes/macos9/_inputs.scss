@@ -88,6 +88,7 @@ input[type=checkbox] {
   box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #888;
   width: 12px;
   height: 12px;
+  border-radius: 0;
 
 
   &:not(:disabled):active {
@@ -168,9 +169,20 @@ input[type=radio] {
 
 input[type=radio]:focus-visible + label,
 input[type=checkbox]:focus-visible + label {
-  outline: 2px solid var(--primary-3);
   border-radius: 1px;
   outline-offset: 0;
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc(var(--spacing) - 1px);
+    right: 0;
+    bottom: 0;
+    outline: 2px solid var(--primary-3);
+    border-radius: 1px;
+  }
 }
 
 input[type=radio]:focus,

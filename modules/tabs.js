@@ -46,7 +46,9 @@ export default class Tabs {
     window.addEventListener('DOMContentLoaded', () => {
       const tabContainers = document.getElementsByClassName('tabs');
       for (const tabContainer of tabContainers) {
-        new Tabs(tabContainer);
+        if (!Tabs.instances.has(tabContainer)) {
+          new Tabs(tabContainer);
+        }
       }
     });
   }

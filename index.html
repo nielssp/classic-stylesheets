@@ -9,7 +9,7 @@
     <link id="skin-link" rel="stylesheet" type="text/css" href="themes/cde/skins/crimson-4.css"/>
     <link rel="stylesheet" type="text/css" href="demo.css"/>
   </head>
-  <body class="flex-column">
+  <body class="flex-column use-preferred-font">
     <div id="toolbar" class="top-panel flex-row gap align-center padding">
       <div>Theme</div>
       <div class="dropdown">
@@ -129,19 +129,24 @@
               <h2>Checkboxes</h2>
               <div>
                 <div class="example">
-                  <input type="checkbox" id="checkbox1"/>
-                  <label for="checkbox1">Checkbox</label>
-                </div>
-                <div class="example">
-                  <label><input type="checkbox"/> Checkbox inside label</label>
-                </div>
-                <div class="example">
-                  <input type="checkbox" id="checkbox2" disabled/>
-                  <label for="checkbox2">Disabled checkbox</label>
-                </div>
-                <div class="example">
-                  <input type="checkbox" id="checkbox3" disabled checked/>
-                  <label for="checkbox3">Disabled checked checkbox</label>
+                  <div class="flex-column gap">
+                    <div class="checkbox-row">
+                      <input type="checkbox" id="checkbox1" checked/>
+                      <label for="checkbox1">Checkbox 1</label>
+                    </div>
+                    <div class="checkbox-row">
+                      <input type="checkbox" id="checkbox2"/>
+                      <label for="checkbox2">Checkbox 2</label>
+                    </div>
+                    <div class="checkbox-row">
+                      <input type="checkbox" id="checkbox3" disabled/>
+                      <label for="checkbox3">Disabled checkbox</label>
+                    </div>
+                    <div class="checkbox-row">
+                      <input type="checkbox" id="checkbox4" disabled checked/>
+                      <label for="checkbox4">Disabled checked checkbox</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -150,30 +155,31 @@
               <div>
                 <div class="example">
                   <div class="flex-column gap">
-                    <div class="flex-row gap align-center">
-                      <input type="radio" id="radio1" name="radio1"/>
+                    <div class="radio-row">
+                      <input type="radio" id="radio1" name="radio1" checked/>
                       <label for="radio1">Radio button 1</label>
                     </div>
-                    <div class="flex-row gap align-center">
+                    <div class="radio-row">
                       <input type="radio" id="radio2" name="radio1"/>
                       <label for="radio2">Radio button 2</label>
                     </div>
-                    <div class="flex-row gap align-center">
+                    <div class="radio-row">
                       <input type="radio" id="radio3" name="radio1"/>
                       <label for="radio3">Radio button 3</label>
                     </div>
                   </div>
                 </div>
                 <div class="example">
-                  <label><input type="radio"/> Radio button inside label</label>
-                </div>
-                <div class="example">
-                  <input type="radio" id="radio4" disabled/>
-                  <label for="radio4">Disabled radio button</label>
-                </div>
-                <div class="example">
-                  <input type="radio" id="radio5" disabled checked/>
-                  <label for="radio5">Disabled selected radio button</label>
+                  <div class="flex-column gap">
+                    <div class="radio-row">
+                      <input type="radio" id="radio4" disabled/>
+                      <label for="radio4">Disabled radio button</label>
+                    </div>
+                    <div class="radio-row">
+                      <input type="radio" id="radio5" disabled checked/>
+                      <label for="radio5">Disabled selected radio button</label>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -200,15 +206,15 @@
               <h2>Flex layouts</h2>
               <div>
                 <div class="example">
-                  <div class="flex-row gap">
-                    <div>Some text</div>
-                    <input type="text" value="An input"/>
+                  <div class="flex-row gap align-center">
+                    <label for="flex-input-1">Some text</label>
+                    <input id="flex-input-1" type="text" value="An input"/>
                   </div>
                 </div>
                 <div class="example">
                   <div class="flex-column gap">
-                    <div>Some text</div>
-                    <input type="text" value="An input"/>
+                    <label for="flex-input-2">Some text</label>
+                    <input id="flex-input-2" type="text" value="An input"/>
                   </div>
                 </div>
               </div>
@@ -217,11 +223,11 @@
               <h2>Grid layouts</h2>
               <div>
                 <div class="example">
-                  <form class="grid gap" style="grid-template-columns: max-content auto;" onsubmit="return false">
-                    <div>Some text</div>
-                    <input type="text" value="An input"/>
-                    <div>Some other text</div>
-                    <input type="text" value="Another input"/>
+                  <form class="grid gap align-center" style="grid-template-columns: max-content auto;" onsubmit="return false">
+                    <label for="grid-input-1">Some text</label>
+                    <input id="grid-input-1" type="text" value="An input"/>
+                    <label for="grid-input-2">Some other text</label>
+                    <input id="grid-input-2" type="password" value="Another input"/>
                     <div class="flex-row gap justify-end" style="grid-column-end: span 2;">
                       <button type="submit">Save</button>
                       <button>Cancel</button>
@@ -245,7 +251,10 @@
                 </div>
                 <div class="example">
                   <div class="raised flex-row">
-                    <div class="lowered padding">
+                    <div class="lowered padding grow">
+                      Panel
+                    </div>
+                    <div class="lowered padding grow">
                       Panel
                     </div>
                     <div class="lowered padding grow">

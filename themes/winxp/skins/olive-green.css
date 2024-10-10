@@ -8,7 +8,6 @@
 .top-panel, .bottom-panel {
   background: linear-gradient(to bottom, #EAF5C9, #C2CD95 3px, #A8B680, #ADBD85 50%, #C2CD95, #BBC98F);
   box-shadow: inset 0 -1px #A7B680;
-  color: #000;
   border-top: 1px solid #8BA169;
   border-bottom: 1px solid #8BA169;
 }
@@ -16,7 +15,6 @@
 .left-panel, .right-panel {
   background: linear-gradient(to right, #EAF5C9, #C2CD95 3px, #A8B680, #ADBD85 50%, #C2CD95, #BBC98F);
   box-shadow: inset -1px 0 #A7B680;
-  color: #000;
   border-left: 1px solid #8BA169;
   border-right: 1px solid #8BA169;
 }
@@ -166,12 +164,12 @@ select {
   border-color: #A4B97F;
 }
 
-.dropdown > select:hover + .dropdown-button {
+.dropdown > select:not(:disabled):hover + .dropdown-button {
   background: linear-gradient(to bottom, #C9D5AA, #C3D096);
   border-color: #9DAB77;
   box-shadow: -2px 0 #fff, inset 0 1px #DAE8B9, inset 1px 0 #DAE8B9, inset -1px 0 #DAE8B9;
 }
-.dropdown > select:active + .dropdown-button {
+.dropdown > select:not(:disabled):active + .dropdown-button {
   background-color: #99AC7C;
   background-image: linear-gradient(to right, #879770, transparent 3px), linear-gradient(to bottom, #879770, transparent 3px), linear-gradient(to left, #879770, transparent 3px);
   border-color: #768361;

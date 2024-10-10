@@ -416,6 +416,7 @@ input[type=checkbox] {
   box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
   width: 13px;
   height: 13px;
+  border-radius: 0;
 }
 input[type=checkbox]:active, input[type=checkbox]:disabled, input[type=checkbox].active, input[type=checkbox].disabled {
   background: var(--window-bg);
@@ -440,13 +441,6 @@ input[type=checkbox]:disabled, input[type=checkbox].disabled {
 input[type=checkbox]:disabled + label, input[type=checkbox].disabled + label {
   color: var(--dark);
   text-shadow: 1px 1px 0 var(--lightest);
-}
-input[type=checkbox]:focus, input[type=checkbox].focus {
-  outline: none;
-}
-input[type=checkbox]:focus + label, input[type=checkbox].focus + label {
-  outline: 1px dotted var(--darkest);
-  outline-offset: 0;
 }
 
 input[type=radio] {
@@ -483,12 +477,29 @@ input[type=radio]:disabled + label, input[type=radio].disabled + label {
   color: var(--dark);
   text-shadow: 1px 1px 0 var(--lightest);
 }
-input[type=radio]:focus, input[type=radio].focus {
+
+input[type=checkbox]:focus, input[type=checkbox].focus,
+input[type=radio]:focus,
+input[type=radio].focus {
   outline: none;
 }
-input[type=radio]:focus + label, input[type=radio].focus + label {
-  outline: 1px dotted var(--darkest);
-  outline-offset: 0;
+input[type=checkbox]:focus + label, input[type=checkbox].focus + label,
+input[type=radio]:focus + label,
+input[type=radio].focus + label {
+  position: relative;
+}
+input[type=checkbox]:focus + label::after, input[type=checkbox].focus + label::after,
+input[type=radio]:focus + label::after,
+input[type=radio].focus + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(var(--spacing) - 1px);
+  right: 0;
+  bottom: 0;
+  border: 1px dotted var(--darkest);
+  border-radius: 1px;
 }
 
 label > input[type=radio]:focus, label > input[type=radio].focus,
@@ -721,6 +732,22 @@ progress:not([value])::-webkit-progress-value {
   box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
   padding: 2px;
 }
+[role=menu] li:focus,
+[role=menubar] li:focus {
+  outline: none;
+}
+[role=menu] li:hover, [role=menu] li:focus-within,
+[role=menubar] li:hover,
+[role=menubar] li:focus-within {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
+[role=menu] li[aria-disabled=true],
+[role=menubar] li[aria-disabled=true] {
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+  border-color: transparent;
+}
 
 [role=menubar],
 .menu > [role=menu] {
@@ -729,31 +756,10 @@ progress:not([value])::-webkit-progress-value {
   padding: 0;
 }
 
-[role=menu] li {
-  border: 1px solid transparent;
-  padding: 1px 3px;
-}
-
 [role=menubar] > li {
   border: 1px solid transparent;
   padding: 1px 8px;
 }
-
-[role=menu] li[data-shortcut]::after {
-  float: right;
-  content: attr(data-shortcut);
-  display: block;
-  margin-left: 4px;
-}
-
-[role=menu] li > ul {
-  left: 100%;
-  margin: 0;
-  top: -4px;
-  margin-left: -1px;
-  min-width: 200px;
-}
-
 [role=menubar] > li > ul {
   left: 0;
   top: 100%;
@@ -761,18 +767,6 @@ progress:not([value])::-webkit-progress-value {
   margin-top: 1px;
   min-width: 200px;
 }
-
-[role=menu] li:focus,
-[role=menubar] li:focus {
-  outline: none;
-}
-
-[role=menu] li:hover,
-[role=menu] li:focus-within {
-  background: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
 [role=menubar] > li:hover {
   background: var(--window-bg);
   color: var(--window-fg);
@@ -780,7 +774,6 @@ progress:not([value])::-webkit-progress-value {
   border-right-color: var(--dark);
   border-bottom-color: var(--dark);
 }
-
 [role=menubar] > li:focus-within {
   background: var(--window-bg);
   color: var(--window-fg);
@@ -790,29 +783,65 @@ progress:not([value])::-webkit-progress-value {
   padding: 2px 7px 0 9px;
 }
 
-[role=menu] li[aria-disabled=true],
-[role=menubar] li[aria-disabled=true] {
-  color: var(--dark);
-  text-shadow: 1px 1px 0 var(--lightest);
-  border-color: transparent;
+[role=menu] li {
+  border: 1px solid transparent;
+  padding: 1px 3px 1px 19px;
 }
-
-[role=menu] li[aria-disabled=true]:hover,
-[role=menu] li[aria-disabled=true]:focus {
+[role=menu] li[data-shortcut]::after {
+  float: right;
+  content: attr(data-shortcut);
+  display: block;
+  margin-left: 4px;
+}
+[role=menu] li > ul {
+  left: 100%;
+  margin: 0;
+  top: -4px;
+  margin-left: -1px;
+  min-width: 200px;
+}
+[role=menu] li[aria-disabled=true]:hover, [role=menu] li[aria-disabled=true]:focus {
   text-shadow: none;
 }
-
 [role=menu] li[role=separator] {
   border-top: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   height: 0;
   padding: 0;
 }
-
-[role=menu] > li[aria-haspopup=true] {
+[role=menu] li[role=checkbox][aria-checked=true]::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  margin-top: -3.5px;
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  -webkit-mask-image: url(checkmark.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 7px 7px;
+  mask-image: url(checkmark.svg);
+  mask-repeat: no-repeat;
+  mask-size: 7px 7px;
+}
+[role=menu] li[role=radio][aria-checked=true]::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  margin-top: -3px;
+  display: block;
+  background: currentColor;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+[role=menu] li[aria-haspopup=true] {
   position: relative;
 }
-[role=menu] > li[aria-haspopup=true]:after {
+[role=menu] li[aria-haspopup=true]:after {
   content: "";
   display: block;
   position: absolute;

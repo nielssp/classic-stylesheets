@@ -111,6 +111,7 @@ input[type=checkbox] {
   box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
   width: 13px;
   height: 13px;
+  border-radius: 0;
 
   &:active, &:disabled, &.active, &.disabled {
     background: var(--window-bg);
@@ -140,15 +141,6 @@ input[type=checkbox] {
   &:disabled + label, &.disabled + label {
     color: var(--dark);
     text-shadow: 1px 1px 0 var(--lightest);
-  }
-
-  &:focus, &.focus {
-    outline: none;
-
-    & + label {
-      outline: 1px dotted var(--darkest);
-      outline-offset: 0;
-    }
   }
 }
 
@@ -189,13 +181,26 @@ input[type=radio] {
     color: var(--dark);
     text-shadow: 1px 1px 0 var(--lightest);
   }
+}
 
+input[type=checkbox],
+input[type=radio] {
   &:focus, &.focus {
     outline: none;
 
     & + label {
-      outline: 1px dotted var(--darkest);
-      outline-offset: 0;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(var(--spacing) - 1px);
+        right: 0;
+        bottom: 0;
+        border: 1px dotted var(--darkest);
+        border-radius: 1px;
+      }
     }
   }
 }

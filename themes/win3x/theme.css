@@ -284,6 +284,7 @@ button, input[type=button], input[type=submit], input[type=reset], .button {
   outline: none;
   cursor: default;
   user-select: none;
+  text-align: center;
 }
 button:focus, button.focus, input[type=button]:focus, input[type=button].focus, input[type=submit]:focus, input[type=submit].focus, input[type=reset]:focus, input[type=reset].focus, .button:focus, .button.focus {
   box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
@@ -294,9 +295,10 @@ button:focus::after, button.focus::after, input[type=button]:focus::after, input
   position: absolute;
   top: 3px;
   bottom: 3px;
-  left: 30px;
-  right: 30px;
+  left: 6px;
+  right: 6px;
   border: 1px dotted var(--button-dark);
+  border-radius: 1px;
 }
 button:disabled::after, button.disabled::after, input[type=button]:disabled::after, input[type=button].disabled::after, input[type=submit]:disabled::after, input[type=submit].disabled::after, input[type=reset]:disabled::after, input[type=reset].disabled::after, .button:disabled::after, .button.disabled::after {
   content: "";
@@ -420,7 +422,20 @@ input[type=checkbox]:checked {
 
 input[type=checkbox]:disabled + label,
 input[type=radio]:disabled + label {
-  color: var(--disabled);
+  position: relative;
+}
+input[type=checkbox]:disabled + label::after,
+input[type=radio]:disabled + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(45deg, var(--window-bg) 25%, transparent 25%), linear-gradient(-45deg, var(--window-bg) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--window-bg) 75%), linear-gradient(-45deg, transparent 75%, var(--window-bg) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
 }
 
 input[type=radio] {
@@ -450,8 +465,19 @@ input[type=checkbox]:focus {
 }
 input[type=radio]:focus + label,
 input[type=checkbox]:focus + label {
-  outline: 1px dotted var(--border);
-  outline-offset: 0;
+  position: relative;
+}
+input[type=radio]:focus + label::after,
+input[type=checkbox]:focus + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(var(--spacing) - 1px);
+  right: 0;
+  bottom: 0;
+  border: 1px dotted var(--border);
+  border-radius: 1px;
 }
 
 label > input[type=radio]:focus,
@@ -689,72 +715,48 @@ progress:not([value])::-webkit-progress-value {
   background-color: var(--menu-bg);
   border: 1px solid var(--border);
 }
-
-[role=menubar] {
-  color: var(--menu-fg);
-  background-color: var(--menu-bg);
-}
-
-.menu > [role=menu] {
-  border-top: 0;
-}
-
 [role=menu] li {
-  padding: 1px 3px;
+  padding: 1px 3px 1px 16px;
 }
-
 [role=menu] li[data-shortcut]::after {
   float: right;
   content: attr(data-shortcut);
   display: block;
   margin-left: 4px;
 }
-
 [role=menu] li > ul {
   left: 100%;
   margin: 0;
   top: -1px;
   min-width: 200px;
 }
-
-[role=menubar] > li > ul {
-  left: 0;
-  top: 100%;
-  min-width: 200px;
-}
-
-[role=menu] li:focus,
-[role=menubar] li:focus {
-  outline: none;
-}
-
-[role=menubar] > li {
-  padding: 1px 8px;
-}
-
-[role=menu] li:focus-within,
-[role=menubar] li:focus-within {
-  background: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
-[role=menu] li[aria-disabled],
-[role=menubar] li[aria-disabled] {
-  color: var(--disabled);
-  border-color: transparent;
-}
-
 [role=menu] li[role=separator] {
   border-top: 1px solid var(--border);
   height: 0;
   padding: 0;
   margin: 2px 0;
 }
-
-[role=menu] > li[aria-haspopup=true] {
+[role=menu] li[role=checkbox][aria-checked=true]::before, [role=menu] li[role=radio][aria-checked=true]::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  margin-top: -5px;
+  display: block;
+  width: 8px;
+  height: 10px;
+  background: currentColor;
+  -webkit-mask-image: url(menu-checkmark.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 8px 10px;
+  mask-image: url(menu-checkmark.svg);
+  mask-repeat: no-repeat;
+  mask-size: 8px 10px;
+}
+[role=menu] li[aria-haspopup=true] {
   position: relative;
 }
-[role=menu] > li[aria-haspopup=true]:after {
+[role=menu] li[aria-haspopup=true]:after {
   content: "";
   display: block;
   position: absolute;
@@ -771,6 +773,38 @@ progress:not([value])::-webkit-progress-value {
   mask-size: 4px 7px;
   mask-repeat: no-repeat;
   mask-position: center center;
+}
+
+[role=menubar] {
+  color: var(--menu-fg);
+  background-color: var(--menu-bg);
+}
+[role=menubar] > li {
+  padding: 1px 8px;
+}
+[role=menubar] > li > ul {
+  left: 0;
+  top: 100%;
+  min-width: 200px;
+}
+
+.menu > [role=menu] {
+  border-top: 0;
+}
+
+[role=menu] li:focus,
+[role=menubar] li:focus {
+  outline: none;
+}
+[role=menu] li:focus-within,
+[role=menubar] li:focus-within {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
+  color: var(--disabled);
+  border-color: transparent;
 }
 
 .tabs > menu {
@@ -802,7 +836,7 @@ progress:not([value])::-webkit-progress-value {
   margin-right: -2px;
   margin-left: -2px;
   margin-top: -2px;
-  margin-bottom: -2px;
+  margin-bottom: -1px;
   padding: 0px 12px 4px 12px;
   background-color: var(--window-bg);
   color: var(--window-fg);

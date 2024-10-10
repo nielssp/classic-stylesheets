@@ -100,7 +100,6 @@ input[type=checkbox] {
   height: 13px;
   border-radius: 0;
 
-
   &:checked {
     background-image: url(checkmark.svg);
     background-repeat: no-repeat;
@@ -110,7 +109,20 @@ input[type=checkbox] {
 
 input[type=checkbox]:disabled + label,
 input[type=radio]:disabled + label {
-  color: var(--disabled);
+  position: relative;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(45deg, var(--window-bg) 25%, transparent 25%), linear-gradient(-45deg, var(--window-bg) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--window-bg) 75%), linear-gradient(-45deg, transparent 75%, var(--window-bg) 75%);
+    background-size: 2px 2px;
+    background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  }
 }
 
 input[type=radio] {
@@ -140,8 +152,18 @@ input[type=checkbox]:focus {
   outline: none;
 
   & + label {
-    outline: 1px dotted var(--border);
-    outline-offset: 0;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: calc(var(--spacing) - 1px);
+      right: 0;
+      bottom: 0;
+      border: 1px dotted var(--border);
+      border-radius: 1px;
+    }
   }
 }
 

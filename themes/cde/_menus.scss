@@ -5,6 +5,33 @@
   border: 1px solid var(--button-light);
   border-right-color: var(--button-dark);
   border-bottom-color: var(--button-dark);
+
+  li {
+    border: 1px solid transparent;
+    padding: 1px 3px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-within {
+      border: 1px solid var(--button-dark);
+      border-right-color: var(--button-light);
+      border-bottom-color: var(--button-light);
+      background-color: var(--button-active-bg);
+
+      & > ul {
+        display: block;
+      }
+    }
+
+    &[aria-disabled] {
+      color: var(--button-dark);
+      text-shadow: 1px 1px 0 var(--button-light);
+      border-color: transparent;
+      background-color: var(--button-bg);
+    }
+  }
 }
 
 .menu > [role=menu] {
@@ -16,81 +43,115 @@
   padding: 1px;
 }
 
-[role=menu] li,
-[role=menubar] li {
-  border: 1px solid transparent;
-  padding: 1px 3px;
+[role=menu] li {
+  padding: 1px 3px 1px 19px;
+
+  &[data-shortcut]::after {
+    float: right;
+    content: attr(data-shortcut);
+    display: block;
+    margin-left: 4px;
+  }
+
+  & > ul {
+    left: 100%;
+    margin: 0;
+    top: -1px;
+    margin-left: 2px;
+    min-width: 200px;
+  }
+
+  &[role=separator] {
+    border-top: 1px solid var(--button-dark);
+    border-bottom: 1px solid var(--button-light);
+    height: 0;
+    padding: 0;
+  }
+
+  &[role=checkbox] {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      margin-top: -4px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      box-shadow: inset 1px 1px var(--button-dark), inset -1px -1px var(--button-light);
+    }
+
+    &[aria-checked=true]::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      margin-top: -4px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: currentColor;
+      -webkit-mask-image: url(checkmark.svg);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 8px 8px;
+      mask-image: url(checkmark.svg);
+      mask-repeat: no-repeat;
+      mask-size: 8px 8px;
+    }
+  }
+
+  &[role=radio] {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      margin-top: -4px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      box-shadow: inset 1px 1px var(--button-dark), inset -1px -1px var(--button-light);
+      border-radius: 50%;
+    }
+
+    &[aria-checked=true]::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -3px;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: currentColor;
+      border-radius: 50%;
+    }
+  }
+
+  &[aria-haspopup=true] {
+    background-image: url(arrow-right.svg);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
 }
 
-[role=menu] li[data-shortcut]::after {
-  float: right;
-  content: attr(data-shortcut);
-  display: block;
-  margin-left: 4px;
-}
+[role=menubar] > li {
+  & > ul {
+    left: 0;
+    top: 100%;
+    margin-left: -1px;
+    margin-top: 1px;
+    min-width: 200px;
+  }
 
-[role=menu] li > ul {
-  left: 100%;
-  margin: 0;
-  top: -1px;
-  margin-left: 2px;
-  min-width: 200px;
-}
+  &.help-menu {
+    margin-left: auto;
+  }
 
-[role=menubar] > li > ul {
-  left: 0;
-  top: 100%;
-  margin-left: -1px;
-  margin-top: 1px;
-  min-width: 200px;
-}
-
-[role=menu] li:focus,
-[role=menubar] li:focus {
-  outline: none;
-}
-
-[role=menu] li:focus-within,
-[role=menubar] li:focus-within {
-  border: 1px solid var(--button-dark);
-  border-right-color: var(--button-light);
-  border-bottom-color: var(--button-light);
-  background-color: var(--button-active-bg);
-}
-
-[role=menu] li:focus-within > ul,
-[role=menubar] li:focus-within > ul {
-  display: block;
-}
-
-[role=menu] li[aria-disabled],
-[role=menubar] li[aria-disabled] {
-  color: var(--button-dark);
-  text-shadow: 1px 1px 0 var(--button-light);
-  border-color: transparent;
-  background-color: var(--button-bg);
-}
-
-[role=menu] li[role=separator] {
-  border-top: 1px solid var(--button-dark);
-  border-bottom: 1px solid var(--button-light);
-  height: 0;
-  padding: 0;
-}
-
-[role=menu] > li[aria-haspopup=true] {
-  background-image: url(arrow-right.svg);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-}
-
-[role=menubar] > li.help-menu {
-  margin-left: auto;
-}
-
-[role=menubar] > li.help-menu > ul {
-  right: 0;
-  left: auto;
+  &.help-menu > ul {
+    right: 0;
+    left: auto;
+  }
 }
 
 .dialog, [role=menu], [role=menubar] {

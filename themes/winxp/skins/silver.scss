@@ -32,6 +32,10 @@ fieldset {
   border-color: #BFB8BF;
 }
 
+hr {
+  border-top-color: #9D9DA1;
+}
+
 #{util.$buttons} {
   background: linear-gradient(to bottom, #FDFDFD, #F3F3F4 40%, #C6C5D7);
   box-shadow: -1px -1px #D8D5D5, 1px 1px #F3F3F4, inset 1px 0 #fff, inset -1px 0 #fff;
@@ -202,12 +206,12 @@ fieldset {
 
 .dropdown {
   & > select {
-    &:hover + .dropdown-button {
+    &:not(:disabled):hover + .dropdown-button {
       background: linear-gradient(to bottom, #FFFFFF, #FFFFFF 30%, #CFD1E3 70%, #CFD1E3);
       border-color: #5B6665;
     }
 
-    &:active + .dropdown-button {
+    &:not(:disabled):active + .dropdown-button {
       background: linear-gradient(to bottom, #BFC2DB, #FFFFFF 30%, #FFFFFF);
       border-color: #434848;
       box-shadow: -2px 0 #fff, inset 1px 0 #fff, inset -1px 0 #fff, inset 0 -1px #A0B5CD;
@@ -264,7 +268,7 @@ progress::-moz-progress-bar {
 
 .title-bar {
   background: linear-gradient(to bottom, #ECEEF5, #ECEEF5 2px, #E4E5ED 3px, #D7D7E3 4px, #F4F3F5 90%, #FFFFFF);
-  box-shadow: inset 0 1px #ECEEF5, inset 0 2px #FDFDFD, inset 1px 0 #EAEDF5, inset -1px 0 #EAEDF5, inset 0 -1px #CCCBD9, inset 0 -2px #EAEDF5;
+  box-shadow: inset 0 1px #ECEEF5, inset 0 2px #FDFDFD, inset 2px 0 #EAEDF5, inset -2px 0 #EAEDF5, inset 0 -1px #CCCBD9, inset 0 -2px #EAEDF5;
   color: #A2A1A1;
   border-color: #BABAC5;
 }
@@ -290,7 +294,7 @@ progress::-moz-progress-bar {
 .title-bar.active,
 .menu .title-bar {
   background: linear-gradient(to bottom, #D7D8E2, #D7D8E2 2px, #BCBCCF 3px, #A8A7BF 4px, #A8A7BF 6px, #F7F7F9 90%, #FFFFFF);
-  box-shadow: inset 0 1px #A8A7BF, inset 0 2px #fff, inset 1px 0 #D0D2DB, inset -1px 0 #D0D2DB, inset 0 -1px #777792, inset 0 -2px #BCBDCD, inset 0 -3px #E4E3E3;
+  box-shadow: inset 0 1px #A8A7BF, inset 0 2px #fff, inset 2px 0 #D0D2DB, inset -2px 0 #D0D2DB, inset 0 -1px #777792, inset 0 -2px #BCBDCD, inset 0 -3px #E4E3E3;
   color: #000;
   border-color: #66667E;
 }

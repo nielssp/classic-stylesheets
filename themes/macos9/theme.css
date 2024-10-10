@@ -339,9 +339,8 @@ select:not([size], [multiple]).active, select[size="1"]:not(:disabled, .disabled
   color: #fff;
   box-shadow: inset 1px 1px 1px #333, inset -1px -1px 1px #999;
 }
-button:focus-visible, button.focus, input[type=button]:focus-visible, input[type=button].focus, input[type=submit]:focus-visible, input[type=submit].focus, input[type=reset]:focus-visible, input[type=reset].focus, .button:focus-visible, .button.focus,
-select:not([size], [multiple]):focus-visible,
-select:not([size], [multiple]).focus, select[size="1"]:focus-visible, select[size="1"].focus {
+button:focus-visible, input[type=button]:focus-visible, input[type=submit]:focus-visible, input[type=reset]:focus-visible, .button:focus-visible,
+select:not([size], [multiple]):focus-visible, select[size="1"]:focus-visible {
   outline: 2px solid var(--primary-3);
   border-radius: 1px;
 }
@@ -426,6 +425,7 @@ input[type=checkbox] {
   box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #888;
   width: 12px;
   height: 12px;
+  border-radius: 0;
 }
 input[type=checkbox]:not(:disabled):active {
   background: #777;
@@ -496,9 +496,21 @@ input[type=radio]:disabled::after {
 
 input[type=radio]:focus-visible + label,
 input[type=checkbox]:focus-visible + label {
-  outline: 2px solid var(--primary-3);
   border-radius: 1px;
   outline-offset: 0;
+  position: relative;
+}
+input[type=radio]:focus-visible + label::after,
+input[type=checkbox]:focus-visible + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(var(--spacing) - 1px);
+  right: 0;
+  bottom: 0;
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
 }
 
 input[type=radio]:focus,
@@ -645,6 +657,7 @@ progress::-moz-progress-bar {
   gap: 4px;
   font-weight: bold;
   font-size: 12px;
+  cursor: default;
 }
 
 .title-bar-text::before,

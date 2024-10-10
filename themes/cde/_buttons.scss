@@ -9,6 +9,7 @@
   padding: 2px 4px;
   cursor: default;
   user-select: none;
+  text-align: center;
 
   &:focus, &.focus {
     outline: 1px solid var(--focus);

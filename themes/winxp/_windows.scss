@@ -47,7 +47,10 @@
   border-top: 1px solid #688DE0;
   border-left: 1px solid #5B68CD;
   border-right: 1px solid #00138C;
-  font-family: 'Trebuchet MS', system-ui;
+}
+
+.use-preferred-font .title-bar {
+  font-family: 'Trebuchet MS', sans-serif;
 }
 
 .window.active > .title-bar,
@@ -79,7 +82,6 @@
   padding: 7px 6px 4px;
   flex-grow: 1;
   cursor: default;
-  font-size: 14px;
 }
 
 .window.active > .title-bar .title-bar-text,

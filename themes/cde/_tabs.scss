@@ -11,6 +11,7 @@
 
 .tabs > menu > button:focus,
 .tabs > menu > button:active {
+  border-bottom: 0;
 }
 
 .tabs > menu > button[aria-selected="true"] {

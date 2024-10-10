@@ -100,7 +100,8 @@ pre {
 }
 
 .flex-row.align-center,
-.flex-column.align-center {
+.flex-column.align-center,
+.grid.align-center {
   align-items: center;
 }
 
@@ -148,6 +149,15 @@ pre {
 
 .grid.gap-horizontal {
   grid-column-gap: var(--spacing);
+}
+
+.checkbox-row, .radio-row {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-row label, .radio-row label {
+  padding-left: var(--spacing);
 }
 
 .window {
