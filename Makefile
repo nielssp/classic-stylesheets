@@ -21,13 +21,13 @@ clean:
 .PHONY: package
 package: $(foreach I,$(THEMES),dist/classic-stylesheets-$I-$(VERSION).tar.gz) dist/classic-stylesheets-$(VERSION).tar.gz
 
-dist/classic-stylesheets-$(VERSION).tar.gz: $(foreach I,$(THEMES),build/$I) build/layout.css build/layout.min.css
+dist/classic-stylesheets-$(VERSION).tar.gz: $(foreach I,$(THEMES),build/$I) build/layout.css build/layout.min.css build/LICENSE
 	mkdir -p dist
-	tar czf $@ -C build $(THEMES) layout.css layout.min.css
+	tar czf $@ -C build $(THEMES) layout.css layout.min.css LICENSE
 
-dist/classic-stylesheets-%-$(VERSION).tar.gz: build/%
+dist/classic-stylesheets-%-$(VERSION).tar.gz: build/% build/LICENSE
 	mkdir -p dist
-	tar czf $@ -C build $(notdir $<)
+	tar czf $@ -C build $(notdir $<) LICENSE
 
 build/%: $(wildcard themes/%/*) $(wildcard themes/%/skins/*) build/layout.min.css
 	mkdir -p $@/skins
@@ -38,6 +38,10 @@ build/%: $(wildcard themes/%/*) $(wildcard themes/%/skins/*) build/layout.min.cs
 	-cp themes/$(notdir $@)/skins/*.svg $@/skins
 	sass --no-source-map -s compressed $@/theme.css $@/theme.min.css
 	cat layout.css $@/theme.css | sass --no-source-map --stdin -s compressed > $@/combined.min.css
+
+build/LICENSE: LICENSE
+	mkdir -p build
+	cp $< $@
 
 build/layout.css: layout.css
 	mkdir -p build
