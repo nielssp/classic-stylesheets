@@ -373,6 +373,25 @@ select[multiple].focus, select[size]:not([size="1"]):focus, select[size]:not([si
   border-radius: 1px;
 }
 
+select[multiple], select[size]:not([size="1"]) {
+  padding: 0;
+}
+select[multiple] > option, select[size]:not([size="1"]) > option {
+  padding: 2px 6px;
+}
+select[multiple] > option:checked, select[size]:not([size="1"]) > option:checked {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+select[multiple]:focus, select[size]:not([size="1"]):focus {
+  box-shadow: none;
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > option:checked {
+  outline: none;
+}
+
 .dropdown {
   display: inline-grid;
   grid-template-areas: "s";

@@ -1,7 +1,6 @@
 @use '../../util/util';
 
-#{util.$textInputs},
-#{util.$multiSelects} {
+#{util.$textInputs} {
   background-color: var(--input-bg);
   color: var(--input-fg);
   border: 1px solid var(--input-dark);
@@ -24,15 +23,32 @@
   }
 }
 
-
-select > option {
-  padding: 2px 6px;
-}
-
-select:not([size="1"]) {
+#{util.$multiSelects} {
   padding: 0;
-}
+  background: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 2px solid var(--button-light);
+  border-top: 2px solid var(--button-dark);
+  border-left: 2px solid var(--button-dark);
 
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    & > option:checked {
+      outline: 2px solid var(--focus);
+      outline-offset: -2px;
+    }
+  }
+}
 
 select:not([size]),
 select[size="1"],

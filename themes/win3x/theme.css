@@ -278,7 +278,7 @@ button, input[type=button], input[type=submit], input[type=reset], .button {
   border: 1px solid var(--border);
   border-radius: 2.5px;
   min-width: 70px;
-  padding: 2px 4px;
+  padding: 2px 8px;
   position: relative;
   box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
   outline: none;
@@ -314,7 +314,7 @@ button:disabled::after, button.disabled::after, input[type=button]:disabled::aft
 }
 button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active {
   box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset 2px 2px 0 var(--button-dark);
-  padding: 3px 3px 1px 5px;
+  padding: 3px 7px 1px 9px;
 }
 button:not(:disabled, .disabled):active::after, button.active::after, input[type=button]:not(:disabled, .disabled):active::after, input[type=button].active::after, input[type=submit]:not(:disabled, .disabled):active::after, input[type=submit].active::after, input[type=reset]:not(:disabled, .disabled):active::after, input[type=reset].active::after, .button:not(:disabled, .disabled):active::after, .button.active::after {
   top: 4px;
@@ -346,6 +346,21 @@ select.disabled {
 
 select > option {
   padding: 2px 6px;
+}
+select > option:checked {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+select[multiple], select[size]:not([size="1"]) {
+  padding: 0;
+}
+select[multiple] > option:checked, select[size]:not([size="1"]) > option:checked {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > option:checked {
+  outline: 1px dotted var(--selection-inverse);
 }
 
 select:not([size]):not(:active):focus,

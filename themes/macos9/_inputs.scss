@@ -29,6 +29,28 @@
   }
 }
 
+#{util.$multiSelects} {
+  padding: 0;
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: var(--selection-bg);
+      color: var(--selection-fg);
+    }
+  }
+
+  &:focus {
+    box-shadow: none;
+    outline: 2px solid var(--primary-3);
+    border-radius: 1px;
+
+    & > option:checked {
+      outline: none;
+    }
+  }
+}
+
 .dropdown {
   display: inline-grid;
   grid-template-areas: 's';

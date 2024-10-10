@@ -425,6 +425,22 @@ select > option {
   padding: 2px 6px;
 }
 
+select[multiple], select[size]:not([size="1"]) {
+  padding: 1px;
+}
+select[multiple] > option, select[size]:not([size="1"]) > option {
+  padding: 2px 6px;
+}
+select[multiple] > option:checked, select[size]:not([size="1"]) > option:checked {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
+}
+select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > option:checked {
+  outline: 1px dotted var(--selection-inverse);
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
 select:not([size], [multiple]):disabled, select[size="1"]:disabled {
   border-color: #C9C7BA;
 }

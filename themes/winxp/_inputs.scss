@@ -29,6 +29,25 @@ select > option {
   padding: 2px 6px;
 }
 
+#{util.$multiSelects} {
+  padding: 1px;
+
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+  }
+
+  &:focus > option:checked {
+    outline: 1px dotted var(--selection-inverse);
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+}
+
 #{util.$singleSelects} {
   &:disabled {
     border-color: #C9C7BA;

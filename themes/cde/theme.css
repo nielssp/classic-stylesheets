@@ -293,8 +293,7 @@ button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:
   border-left: 1px solid var(--button-dark);
 }
 
-input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
-select[multiple], select[size]:not([size="1"]) {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input {
   background-color: var(--input-bg);
   color: var(--input-fg);
   border: 1px solid var(--input-dark);
@@ -305,24 +304,36 @@ select[multiple], select[size]:not([size="1"]) {
   font-size: inherit;
   outline: none;
 }
-input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection,
-select[multiple]::selection, select[size]:not([size="1"])::selection {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection {
   background-color: var(--input-fg);
   color: var(--input-bg);
 }
-input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled,
-select[multiple]:disabled,
-select[multiple].disabled, select[size]:not([size="1"]):disabled, select[size]:not([size="1"]).disabled {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled {
   color: var(--input-dark);
   text-shadow: 1px 1px 0 var(--input-light);
 }
 
-select > option {
+select[multiple], select[size]:not([size="1"]) {
+  padding: 0;
+  background: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 2px solid var(--button-light);
+  border-top: 2px solid var(--button-dark);
+  border-left: 2px solid var(--button-dark);
+}
+select[multiple] > option, select[size]:not([size="1"]) > option {
   padding: 2px 6px;
 }
-
-select:not([size="1"]) {
-  padding: 0;
+select[multiple] > option:checked, select[size]:not([size="1"]) > option:checked {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+select[multiple]:focus, select[size]:not([size="1"]):focus {
+  outline: none;
+}
+select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > option:checked {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
 }
 
 select:not([size]),

@@ -30,6 +30,25 @@ select,
   }
 }
 
+#{util.$multiSelects} {
+  padding: 1px;
+
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+  }
+
+  &:focus > option:checked {
+    outline: 1px dotted var(--selection-inverse);
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+}
+
 #{util.$singleSelects}:not(:active):focus {
   background-color: var(--selection-bg);
   color: var(--selection-fg);

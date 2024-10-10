@@ -6,7 +6,7 @@
   border: 1px solid var(--border);
   border-radius: 2.5px;
   min-width: 70px;
-  padding: 2px 4px;
+  padding: 2px 8px;
   position: relative;
   box-shadow: inset -1px -1px 0 var(--button-dark), inset 1px 1px 0 var(--button-light), 
     inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light);
@@ -50,7 +50,7 @@
 
   &:not(:disabled, .disabled):active, &.active {
     box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset 2px 2px 0 var(--button-dark);
-    padding: 3px 3px 1px 5px;
+    padding: 3px 7px 1px 9px;
 
     &::after {
       top: 4px;
