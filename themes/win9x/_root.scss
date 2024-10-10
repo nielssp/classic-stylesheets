@@ -1,0 +1,60 @@
+:root {
+  --preferred-font: 'Microsoft Sans Serif';
+
+  --desktop-bg: #008080;
+
+  --window-bg: #C0C0C0;
+  --window-fg: #000000;
+
+  --lightest: #FFFFFF;
+  --lighter: #E0E0E0;
+  --light: #DFDFDF;
+  --medium: var(--window-bg);
+  --dark: #808080;
+  --darker: #404040;
+  --darkest: #000000;
+
+  --button-bg: var(--window-bg);
+  --button-fg: var(--window-fg);
+  --input-bg: #FFFFFF;
+  --input-fg: #000000;
+
+  --title-bar-bg: var(--dark);
+  --title-bar-fg: var(--medium);
+
+  --title-bar-active-bg: #000080;
+  --title-bar-active-fg: #FFFFFF;
+
+  --selection-bg: #000080;
+  --selection-fg: #FFFFFF;
+  --selection-inverse: #FFFF7F;
+}
+
+body {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button::-moz-focus-inner {
+  border: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+a:focus {
+  outline: 1px dotted var(--darkest);
+}
+
+code {
+  font-family: monospace;
+}
+
+

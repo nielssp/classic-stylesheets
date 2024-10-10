@@ -1,0 +1,36 @@
+@use '../../util/util';
+
+#{util.$buttons} {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  box-shadow: inset -1px -1px 0 var(--dark);
+  padding: 3px 10px 6px 10px;
+  min-width: 75px;
+  text-align: center;
+  line-height: 1;
+  cursor: default;
+  user-select: none;
+
+  &:focus, &.focus {
+    border: 1px solid var(--darkest);
+    outline: 1px dotted var(--darkest);
+    box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
+    inset -2px -2px 0 var(--dark);
+    outline-offset: -4px;
+  }
+
+  &:disabled, &.disabled {
+    color: var(--dark);
+    text-shadow: 1px 1px 0 var(--lightest);
+  }
+
+  &:not(:disabled, .disabled):active, &.active {
+    border: 1px solid var(--darkest);
+    box-shadow: inset 1px 1px 0 var(--dark), inset -1px -1px 0 var(--dark);
+    padding: 4px 9px 5px 11px;
+  }
+}
+

@@ -1,13 +1,16 @@
-class Tabbed {
-  constructor(root) {
-    this.root = root;
+export default class Tabs {
+  static instances = new WeakMap();
 
-    this.tabList = this.root.querySelector('[role="tablist"]');
-    this.panels = this.root.querySelectorAll('[role="tabpanel"]');
+  constructor(root) {
+    Tabs.instances.set(root, this);
+
+    this.root = root;
+    this.tabList = root.querySelector('[role="tablist"]');
+    this.panels = root.querySelectorAll('[role="tabpanel"]');
     this.selectedTab = null;
 
     for (let tab of this.tabList.children) {
-      tab.addEventListener('click', () => this.change(tab));
+      tab.addEventListener('mousedown', () => this.change(tab));
       if (!tab.getAttribute('aria-selected')) {
         tab.setAttribute('tabindex', -1);
       } else {
@@ -38,11 +41,17 @@ class Tabbed {
     this.panels.forEach(p => p.setAttribute('hidden', true));
     tabPage.removeAttribute('hidden');
   }
+
+  static initDomElements() {
+    window.addEventListener('DOMContentLoaded', () => {
+      const tabContainers = document.getElementsByClassName('tabs');
+      for (const tabContainer of tabContainers) {
+        if (!Tabs.instances.has(tabContainer)) {
+          new Tabs(tabContainer);
+        }
+      }
+    });
+  }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const tabContainers = document.getElementsByClassName('tabs');
-  for (let tabContainer of tabContainers) {
-    new Tabbed(tabContainer);
-  }
-});
+Tabs.initDomElements();

@@ -1,0 +1,45 @@
+:root {
+  --preferred-font: 'Tahoma';
+
+  --desktop-bg: #004E98;
+
+  --window-bg: #ECE9D8;
+  --window-fg: #000000;
+
+  --button-bg: linear-gradient(180deg, #ffffff 0%, #F0F0EA 100%);
+  --button-fg: var(--window-fg);
+  --input-bg: #FFFFFF;
+  --input-fg: #000000;
+
+  --selection-bg: #316AC5;
+  --selection-fg: #FFFFFF;
+  --selection-inverse: #CE953A;
+}
+
+body {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button::-moz-focus-inner {
+  border: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a:focus {
+  outline: 1px dotted #000;
+}
+
+code {
+  font-family: monospace;
+}
+
+

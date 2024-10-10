@@ -1,4 +1,12 @@
 body {
+  font-family: system-ui;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+body.use-preferred-font {
+  font-family: var(--preferred-font), system-ui;
 }
 
 #toolbar {
@@ -7,6 +15,14 @@ body {
   top: 0;
   z-index: 100;
   overflow-y: auto;
+}
+
+#preferred-font {
+}
+
+#preferred-font::after {
+  content: '(' var(--preferred-font) ')';
+  display: inline;
 }
 
 main {

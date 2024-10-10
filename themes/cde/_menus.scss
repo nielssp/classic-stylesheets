@@ -1,0 +1,170 @@
+[role=menu],
+[role=menubar] {
+  color: var(--button-fg);
+  background-color: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
+
+  li {
+    border: 1px solid transparent;
+    padding: 1px 3px;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus-within {
+      border: 1px solid var(--button-dark);
+      border-right-color: var(--button-light);
+      border-bottom-color: var(--button-light);
+      background-color: var(--button-active-bg);
+
+      & > ul {
+        display: block;
+      }
+    }
+
+    &[aria-disabled] {
+      color: var(--button-dark);
+      text-shadow: 1px 1px 0 var(--button-light);
+      border-color: transparent;
+      background-color: var(--button-bg);
+    }
+  }
+}
+
+.menu > [role=menu] {
+  border-top: 0;
+  border-left-color: var(--title-bar-active-dark);
+  border-right-color: var(--title-bar-active-light);
+  border-bottom-color: var(--title-bar-active-light);
+  box-shadow: inset 1px 1px 0 var(--button-light), inset -1px -1px 0 var(--button-dark);
+  padding: 1px;
+}
+
+[role=menu] li {
+  padding: 1px 3px 1px 19px;
+
+  &[data-shortcut]::after {
+    float: right;
+    content: attr(data-shortcut);
+    display: block;
+    margin-left: 4px;
+  }
+
+  & > ul {
+    left: 100%;
+    margin: 0;
+    top: -1px;
+    margin-left: 2px;
+    min-width: 200px;
+  }
+
+  &[role=separator] {
+    border-top: 1px solid var(--button-dark);
+    border-bottom: 1px solid var(--button-light);
+    height: 0;
+    padding: 0;
+  }
+
+  &[role=checkbox] {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      margin-top: -4px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      box-shadow: inset 1px 1px var(--button-dark), inset -1px -1px var(--button-light);
+    }
+
+    &[aria-checked=true]::after {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      margin-top: -4px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      background: currentColor;
+      -webkit-mask-image: url(checkmark.svg);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 8px 8px;
+      mask-image: url(checkmark.svg);
+      mask-repeat: no-repeat;
+      mask-size: 8px 8px;
+    }
+  }
+
+  &[role=radio] {
+    &::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      margin-top: -4px;
+      display: block;
+      width: 8px;
+      height: 8px;
+      box-shadow: inset 1px 1px var(--button-dark), inset -1px -1px var(--button-light);
+      border-radius: 50%;
+    }
+
+    &[aria-checked=true]::after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 50%;
+      margin-top: -3px;
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: currentColor;
+      border-radius: 50%;
+    }
+  }
+
+  &[aria-haspopup=true] {
+    background-image: url(arrow-right.svg);
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+  }
+}
+
+[role=menubar] > li {
+  & > ul {
+    left: 0;
+    top: 100%;
+    margin-left: -1px;
+    margin-top: 1px;
+    min-width: 200px;
+  }
+
+  &.help-menu {
+    margin-left: auto;
+  }
+
+  &.help-menu > ul {
+    right: 0;
+    left: auto;
+  }
+}
+
+.dialog, [role=menu], [role=menubar] {
+  --button-bg: var(--dialog-button-bg);
+  --button-fg: var(--dialog-button-fg);
+  --button-active-bg: var(--dialog-button-active-bg);
+  --button-active-fg: var(--dialog-button-active-fg);
+  --button-dark: var(--dialog-button-dark);
+  --button-light: var(--dialog-button-light);
+  --input-bg: var(--dialog-input-bg);
+  --input-fg: var(--dialog-input-fg);
+  --input-dark: var(--dialog-input-dark);
+  --input-light: var(--dialog-input-light);
+}
+
+

@@ -50,6 +50,17 @@ const skins = {
     'patchwork', 'plasma-power-saver', 'rugby', 'the-blues', 'tweed',
     'valentine', 'wingtips',
   ],
+  winxp: [
+    'default', 'olive-green', 'silver',
+  ],
+  macos9: [
+    'default', 'bubbles', 'convergence', 'golden-poppy', 'gray-space',
+    'lollipop', 'lollipop-2', 'lollipop-3', 'lollipop-4', 'lollipop-5',
+    'mono-blue', 'rio-azul', 'roswell', 'sunny', 'blueberry-oxygen',
+    'blueberry-union', 'grape-gravity', 'grape-mission', 'lime-horizon',
+    'lime-sharp', 'quantum-foam', 'strawberry-baby', 'strawberry-parabola',
+    'tangerine-fusion', 'tangerine-melt',
+  ],
 };
 
 
@@ -57,6 +68,7 @@ const themeLink = document.getElementById('theme-link');
 const skinLink = document.getElementById('skin-link');
 const themeSelect = document.getElementById('theme-select');
 const skinSelect = document.getElementById('skin-select');
+const usePreferredFont = document.getElementById('use-preferred-font');
 
 let defaultTheme = 'cde';
 let defaultSkin = 'crimson-4';
@@ -88,7 +100,7 @@ function setTheme(theme) {
 }
 
 function clearSkin() {
-  skinLink.href = 'themes/empty-skin.css';
+  skinLink.href = 'empty-skin.css';
 }
 
 function setSkin(skin) {
@@ -108,6 +120,9 @@ function pushState() {
   if (activeSkin) {
     url += '&skin=' + activeSkin;
   }
+  if (!usePreferredFont.checked) {
+    url += '&font=system';
+  }
   history.pushState({theme: activeTheme, skin: activeSkin}, document.title, url);
 }
 
@@ -117,6 +132,12 @@ if (params.has('theme')) {
   if (params.has('skin')) {
     defaultSkin = params.get('skin');
   }
+}
+if (params.has('font') && params.get('font') === 'system') {
+  document.body.classList.remove('use-preferred-font');
+  usePreferredFont.checked = false;
+} else {
+  usePreferredFont.checked = true;
 }
 setTheme(defaultTheme);
 setSkin(defaultSkin);
@@ -133,6 +154,15 @@ skinSelect.addEventListener('change', () => {
     setSkin(skinSelect.value);
     pushState();
   }
+});
+
+usePreferredFont.addEventListener('change', () => {
+  if (usePreferredFont.checked) {
+    document.body.classList.add('use-preferred-font');
+  } else {
+    document.body.classList.remove('use-preferred-font');
+  }
+  pushState();
 });
 
 window.addEventListener('popstate', e => {
@@ -155,8 +185,10 @@ for (let example of examples) {
   const summary = document.createElement('summary');
   const pre = document.createElement('pre');
   const code = document.createElement('code');
+  pre.className = 'input readonly';
   pre.appendChild(code);
   summary.textContent = 'Show Code';
+  summary.className = 'button';
   details.appendChild(summary);
   details.appendChild(pre);
   let source = example.innerHTML;

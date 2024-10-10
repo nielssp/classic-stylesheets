@@ -1,0 +1,12 @@
+:root {
+  --desktop-bg: #848484;
+
+  --primary-1: #222;
+  --primary-2: #555;
+  --primary-3: #777;
+  --primary-4: #aaa;
+  --primary-5: #ccc;
+  --primary-6: #eee;
+
+  --selection-bg: #ccc;
+}

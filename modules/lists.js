@@ -1,4 +1,4 @@
-class List {
+export default class List {
   constructor(root) {
     this.root = root;
 
@@ -11,7 +11,7 @@ class List {
 
     for (let i = 0; i < this.options.length; i++) {
       const option = this.options[i];
-      option.addEventListener('click', e => {
+      option.addEventListener('mousedown', e => {
         e.stopPropagation();
         e.preventDefault();
         this.select(i, e.shiftKey, e.ctrlKey, true);
@@ -95,7 +95,7 @@ class List {
     if (this.selectedOption < 0 && this.options.length) {
       this.options[0].setAttribute('tabindex', 0);
     }
-    this.root.addEventListener('click', () => {
+    this.root.addEventListener('mousedown', () => {
       if (this.multiselect) {
         for (let option of this.options) {
           option.setAttribute('aria-selected', false);
@@ -149,11 +149,15 @@ class List {
     option.setAttribute('tabindex', 0);
     option.focus();
   }
+
+  static initDomElements() {
+    window.addEventListener('DOMContentLoaded', () => {
+      const lists = document.getElementsByClassName('list');
+      for (let list of lists) {
+        new List(list);
+      }
+    });
+  }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
-  const lists = document.getElementsByClassName('list');
-  for (let list of lists) {
-    new List(list);
-  }
-});
+List.initDomElements();

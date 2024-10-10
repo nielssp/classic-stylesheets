@@ -1,0 +1,71 @@
+@mixin progress-value {
+  border: 1px solid var(--button-bg);
+  background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
+}
+
+@mixin progress-value-indeterminate {
+  width: 32px;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress,
+.progress-bar {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  height: 13px;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+
+  &:not([aria-valuenow])::after,
+  & > .progress-bar-value {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    @include progress-value;
+  }
+
+  &:not([aria-valuenow])::after {
+    @include progress-value-indeterminate;
+  }
+}
+
+progress::-webkit-progress-bar {
+  background: var(--button-bg);
+}
+
+progress::-webkit-progress-value {
+  @include progress-value;
+}
+
+progress::-moz-progress-bar {
+  @include progress-value;
+}
+
+progress:indeterminate::-moz-progress-bar {
+  @include progress-value-indeterminate;
+}
+
+progress:not([value])::-webkit-progress-value {
+  @include progress-value-indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -30px;
+  }
+
+  to {
+    margin-left: 100%;
+  }
+}

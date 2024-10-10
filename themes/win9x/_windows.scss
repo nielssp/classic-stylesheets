@@ -1,0 +1,107 @@
+.window,
+.dialog,
+.menu {
+  background: var(--window-bg);
+  border: 1px solid var(--light);
+  border-bottom: 1px solid var(--darkest);
+  border-right: 1px solid var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
+  position: relative;
+  padding: 3px;
+}
+
+.window.maximized,
+.dialog.maximized {
+  border: none;
+  padding: 0;
+}
+
+.title-bar {
+  background: var(--title-bar-bg);
+  color: var(--title-bar-fg);
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+}
+
+.title-bar-text {
+  text-align: left;
+  font-weight: bold;
+  padding: 1px 4px;
+  flex-grow: 1;
+  cursor: default
+}
+
+.title-bar-buttons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  align-items: center;
+}
+
+.title-bar-buttons button {
+  flex-shrink: 0;
+  width: 20px;
+  height: 18px;
+  min-width: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-position: 3px 3px;
+}
+
+.title-bar-buttons button:active {
+  outline: none;
+  background-position: 4px 4px;
+  box-shadow: inset -1px -1px 0 var(--light), inset 1px 1px 0 var(--dark);
+  border: 1px solid var(--lightest);
+  border-top: 1px solid var(--darkest);
+  border-left: 1px solid var(--darkest);
+  padding: 0;
+}
+
+.title-bar-buttons button:not(:active):focus {
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  box-shadow: inset -1px -1px 0 var(--dark);
+}
+
+.title-bar-buttons button[data-close] {
+  background-image: url(close.svg);
+  margin-left: 2px;
+}
+
+.title-bar-buttons button[data-minimize] {
+  background-image: url(minimize.svg);
+}
+
+.title-bar-buttons button[data-maximize] {
+  background-image: url(maximize.svg);
+}
+
+.maximized .title-bar-buttons button[data-maximize] {
+  background-image: url(restore.svg);
+}
+
+.window-body,
+.dialog-body {
+  background: var(--window-bg);
+  color: var(--window-fg);
+  margin-top: 4px;
+}
+
+.window.active > .title-bar,
+.dialog.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog:focus-within > .title-bar,
+.title-bar.active {
+  background: var(--title-bar-active-bg);
+  color: var(--title-bar-active-fg);
+}
+
+.window-body > [role=menubar],
+.dialog-body > [role=menubar] {
+  margin-top: -3px;
+  margin-bottom: 1px;
+}

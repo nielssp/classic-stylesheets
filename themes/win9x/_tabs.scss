@@ -1,0 +1,43 @@
+.tabs {
+  & > menu {
+    display: flex;
+    flex-direction: row;
+    margin: 0 2px;
+
+    & > button {
+      border-bottom: 0;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--dark);
+      min-width: 0;
+      padding: 2px 10px 2px 10px;
+
+      &:focus,
+      &:active {
+        border-bottom: 0;
+        border-right: 1px solid var(--darkest);
+        border-top: 1px solid var(--lightest);
+        border-left: 1px solid var(--lightest);
+        box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--dark);
+        padding: 2px 10px 2px 10px;
+      }
+
+      &[aria-selected="true"] {
+        margin-right: -2px;
+        margin-left: -2px;
+        margin-top: -2px;
+        margin-bottom: -2px;
+        padding: 0px 12px 4px 12px;
+        z-index: 1;
+      }
+    }
+  }
+
+  & > [role="tabpanel"] {
+    border-top: 1px solid var(--lightest);
+    border-left: 1px solid var(--lightest);
+    border-bottom: 1px solid var(--darkest);
+    border-right: 1px solid var(--darkest);
+    box-shadow: inset 1px 1px 0 var(--light), inset -1px -1px 0 var(--dark);
+  }
+}

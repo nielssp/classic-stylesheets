@@ -4,3 +4,8 @@
   --title-bar-bg: linear-gradient(to right, #808080, #B5B5B5);
   --title-bar-active-bg: linear-gradient(to right, #000080, #1084D0);
 }
+
+.menu > .title-bar {
+  background: linear-gradient(to bottom, #000080 -10px, #0000ff 40px, #000080 90px, #000080);
+  color: #ffffff;
+}

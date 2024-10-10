@@ -1,0 +1,1104 @@
+:root {
+  --preferred-font: "Charcoal";
+  --desktop-bg: #9999CC;
+  --window-bg: #DDDDDD;
+  --window-fg: #000000;
+  --window-frame-bg: #CCCCCC;
+  --primary-0: #000;
+  --primary-1: #005;
+  --primary-2: #339;
+  --primary-3: #66c;
+  --primary-4: #99f;
+  --primary-5: #ccf;
+  --primary-6: #eee;
+  --selection-bg: var(--primary-5);
+  --selection-fg: #000;
+}
+
+body {
+  background-color: #000;
+  color: var(--window-fg);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a:focus {
+  outline: 1px dotted var(--darkest);
+}
+
+code {
+  font-family: monospace;
+}
+
+.desktop {
+  background: var(--desktop-bg);
+}
+
+.top-panel, .right-panel, .buttom-panel, .left-panel {
+  background: var(--window-bg);
+}
+
+.top-panel {
+  border-bottom: 1px solid #000000;
+  box-shadow: inset 1px 0 0 #fff, inset 0 1px 0 #fff, inset -1px 0 0 #999, inset 0 -1px 0 #999;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.lowered {
+  border: 1px solid #888;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+}
+
+.raised {
+  border: 1px solid #fff;
+  border-right-color: #888;
+  border-bottom-color: #888;
+}
+
+fieldset {
+  border: 1px solid #888;
+  box-shadow: inset 1px 1px 0 #fff, 1px 1px 0 #fff;
+  position: relative;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px 0.65em;
+  background-color: #ddd;
+  display: block;
+}
+
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: grid;
+}
+.horizontal-scrollbar > button,
+.vertical-scrollbar > button {
+  display: flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  min-width: 0;
+  padding: 0;
+  background: #ddd;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #bbb;
+  border-radius: 0;
+}
+.horizontal-scrollbar > button::after,
+.vertical-scrollbar > button::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+}
+.horizontal-scrollbar > button:not(:disabled):active,
+.vertical-scrollbar > button:not(:disabled):active {
+  padding: 0;
+  background: #777;
+  box-shadow: inset 1px 1px #555, inset -1px -1px #999;
+  box-shadow: none;
+  outline: none;
+}
+.horizontal-scrollbar > .scrollbar-track,
+.vertical-scrollbar > .scrollbar-track {
+  flex-grow: 1;
+  background: #aaa;
+  position: relative;
+  box-shadow: inset 1px 1px #777, inset 2px 2px #888, inset -1px -1px #ccc, inset -2px -2px #bbb;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  position: absolute;
+  background: var(--primary-4);
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 1px 1px #777, 2px 2px #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+  background: var(--primary-3);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 1px 1px #777, 2px 2px #888;
+}
+
+.horizontal-scrollbar {
+  grid-template-columns: 1fr 16px 16px;
+}
+.horizontal-scrollbar > button:first-child {
+  border-left: 0;
+  border-right: 0;
+  grid-column: 2;
+}
+.horizontal-scrollbar > button:first-child::after {
+  border-right: 4px solid #000;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  margin: 3px 0 0 5px;
+}
+.horizontal-scrollbar > button:last-child {
+  grid-column: 3;
+}
+.horizontal-scrollbar > button:last-child::after {
+  border-left: 4px solid #000;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  margin: 3px 0 0 5px;
+}
+.horizontal-scrollbar > .scrollbar-track {
+  grid-column: 1;
+  grid-row: 1;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  top: 0;
+  bottom: 0;
+  border-left: 1px solid #000;
+  border-right: 1px solid #000;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+  display: block;
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after {
+  background: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+}
+
+.vertical-scrollbar {
+  grid-template-rows: 1fr 16px 16px;
+  width: 16px;
+}
+.vertical-scrollbar > button:first-child {
+  border-top: 0;
+  border-bottom: 0;
+  grid-row: 2;
+}
+.vertical-scrollbar > button:first-child::after {
+  border-bottom: 4px solid #000;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  margin: 5px 0 0 3px;
+}
+.vertical-scrollbar > button:last-child {
+  grid-row: 3;
+}
+.vertical-scrollbar > button:last-child::after {
+  border-top: 4px solid #000;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  margin: 5px 0 0 3px;
+}
+.vertical-scrollbar > .scrollbar-track {
+  grid-row: 1;
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  left: 0;
+  right: 0;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+  display: block;
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: repeating-linear-gradient(0, var(--primary-3), var(--primary-3) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after {
+  background: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
+}
+
+::-webkit-scrollbar {
+  background: #aaa;
+  box-shadow: inset 1px 1px #777, inset 2px 2px #888, inset -1px -1px #ccc, inset -2px -2px #bbb;
+  border: 1px solid #000;
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: #aaa;
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background: #ddd;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #bbb;
+  border: 1px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-4);
+  background-repeat: no-repeat;
+  background-size: 8px 8px;
+  background-position: center center;
+}
+::-webkit-scrollbar-thumb:vertical {
+  background-image: repeating-linear-gradient(0, var(--primary-2), var(--primary-2) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 0 1px #777, 0 2px #888;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 1px 0 #777, 2px 0 #888;
+}
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--primary-3);
+}
+::-webkit-scrollbar-thumb:active:vertical {
+  background-image: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 0 1px #777, 0 2px #888;
+}
+::-webkit-scrollbar-thumb:active:horizontal {
+  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 1px 0 #777, 2px 0 #888;
+}
+
+::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+::-webkit-scrollbar-button:active {
+  background: #777;
+  box-shadow: inset 1px 1px #555, inset -1px -1px #999;
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-button:horizontal:end:decrement,
+::-webkit-scrollbar-button:horizontal:end:increment,
+::-webkit-scrollbar-button:vertical:end:decrement,
+::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+}
+
+::-webkit-scrollbar-button:active {
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(arrow-up.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(arrow-down.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(arrow-left.svg);
+  background-position: 4px 3px;
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(arrow-right.svg);
+  background-position: 4px 3px;
+  background-repeat: no-repeat;
+}
+
+button, input[type=button], input[type=submit], input[type=reset], .button,
+select:not([size], [multiple]), select[size="1"] {
+  background-color: #DDDDDD;
+  color: #000000;
+  border: 1px solid #000;
+  border-radius: 3px;
+  box-shadow: inset 1px 1px 0 #DDDDDD, inset 2px 2px 0 #fff, inset -1px -1px 1px #555;
+  padding: 2px 10px;
+  min-width: 58px;
+  text-align: center;
+  font-weight: bold;
+  cursor: default;
+  user-select: none;
+}
+button:disabled, button.disabled, input[type=button]:disabled, input[type=button].disabled, input[type=submit]:disabled, input[type=submit].disabled, input[type=reset]:disabled, input[type=reset].disabled, .button:disabled, .button.disabled,
+select:not([size], [multiple]):disabled,
+select:not([size], [multiple]).disabled, select[size="1"]:disabled, select[size="1"].disabled {
+  color: #777;
+  border-color: #888;
+  box-shadow: none;
+}
+button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active,
+select:not([size], [multiple]):not(:disabled, .disabled):active,
+select:not([size], [multiple]).active, select[size="1"]:not(:disabled, .disabled):active, select[size="1"].active {
+  background-color: #666666;
+  color: #fff;
+  box-shadow: inset 1px 1px 1px #333, inset -1px -1px 1px #999;
+}
+button:focus-visible, input[type=button]:focus-visible, input[type=submit]:focus-visible, input[type=reset]:focus-visible, .button:focus-visible,
+select:not([size], [multiple]):focus-visible, select[size="1"]:focus-visible {
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
+select[multiple], select[size]:not([size="1"]) {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  box-shadow: -1px -1px #888;
+  margin: 2px;
+  padding: 2px;
+}
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection,
+select[multiple]::selection, select[size]:not([size="1"])::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled,
+select[multiple]:disabled,
+select[multiple].disabled, select[size]:not([size="1"]):disabled, select[size]:not([size="1"]).disabled {
+  color: #808080;
+  border-color: #555;
+  box-shadow: 0 0 0 1px #ddd;
+}
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):focus, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).focus, textarea:focus, textarea.focus, .input:focus, .input.focus,
+select[multiple]:focus,
+select[multiple].focus, select[size]:not([size="1"]):focus, select[size]:not([size="1"]).focus {
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+
+select[multiple], select[size]:not([size="1"]) {
+  padding: 0;
+}
+select[multiple] > option, select[size]:not([size="1"]) > option {
+  padding: 2px 6px;
+}
+select[multiple] > option:checked, select[size]:not([size="1"]) > option:checked {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+select[multiple]:focus, select[size]:not([size="1"]):focus {
+  box-shadow: none;
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > option:checked {
+  outline: none;
+}
+
+.dropdown {
+  display: inline-grid;
+  grid-template-areas: "s";
+}
+.dropdown > select {
+  appearance: none;
+  grid-area: s;
+  padding-right: 27px;
+  text-align: left;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #aaa;
+}
+.dropdown > select:disabled + .dropdown-button {
+  color: #888;
+  box-shadow: -1px 0 #aaa;
+}
+.dropdown > select:not(:disabled):active + .dropdown-button {
+  color: #fff;
+  box-shadow: inset 1px 1px #444, inset 2px 2px #555, inset -1px -1px #888, inset -2px -2px #777, -1px 0 #222;
+}
+.dropdown > .dropdown-button {
+  justify-self: end;
+  grid-area: s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #000000;
+  width: 20px;
+  pointer-events: none;
+  box-shadow: inset 1px 1px #ddd, inset 2px 2px #fff, inset -1px -1px #777, inset -2px -2px #aaa, -1px 0 #aaa;
+  margin: 1px;
+}
+.dropdown > .dropdown-button::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 10px;
+  -webkit-mask-image: url(dropdown.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url(dropdown.svg);
+  mask-repeat: no-repeat;
+  background: currentColor;
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #ddd;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #888;
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+}
+input[type=checkbox]:not(:disabled):active {
+  background: #777;
+  box-shadow: inset 1px 1px 0 #555, inset -1px -1px 0 #999;
+}
+input[type=checkbox]:checked::after {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 5px;
+  border-bottom: 1.5px solid #000;
+  border-left: 1.5px solid #000;
+  margin-left: 1.5px;
+  transform: rotate(-45deg);
+  box-shadow: -1px 1px 0 rgba(0, 0, 0, 0.3);
+}
+input[type=checkbox]:disabled {
+  border-color: #888;
+  box-shadow: none;
+}
+input[type=checkbox]:disabled::after {
+  box-shadow: none;
+  border-color: #888;
+}
+
+input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+  color: #777;
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: linear-gradient(to bottom right, #fff, #888);
+  box-shadow: inset 1px 1px 0 #ddd, inset -1px -1px 0 #888;
+  border: 1px solid #000;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+input[type=radio]:checked {
+  background: linear-gradient(to bottom right, #555, #fff);
+  box-shadow: inset 1px 1px 0 #555;
+}
+input[type=radio]:checked::after {
+  content: "";
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #000;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+input[type=radio]:not(:disabled):active {
+  background: linear-gradient(to bottom right, #444, #bbb);
+  box-shadow: inset 1px 1px 0 #444;
+}
+input[type=radio]:disabled {
+  background: #ddd;
+  border-color: #888;
+  box-shadow: none;
+}
+input[type=radio]:disabled::after {
+  background-color: #888;
+}
+
+input[type=radio]:focus-visible + label,
+input[type=checkbox]:focus-visible + label {
+  border-radius: 1px;
+  outline-offset: 0;
+  position: relative;
+}
+input[type=radio]:focus-visible + label::after,
+input[type=checkbox]:focus-visible + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(var(--spacing) - 1px);
+  right: 0;
+  bottom: 0;
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+}
+
+label > input[type=radio]:focus-visible,
+label > input[type=checkbox]:focus-visible {
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  padding: 2px;
+}
+input[type=range]:focus-visible {
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+input[type=range]::-moz-range-track {
+  height: 3px;
+  background: #AAA;
+  border: 1px solid #222;
+  border-radius: 2px;
+  box-shadow: -1px -1px #AAA, 1px 1px #FFF;
+  margin: 0 5px;
+}
+input[type=range]::-moz-range-thumb {
+  border-radius: 0;
+  background-color: var(--primary-4);
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-size: 6px 5px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #000;
+  width: 13px;
+  height: 11px;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3);
+}
+input[type=range]::-moz-range-thumb:active {
+  background-color: var(--primary-3);
+  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 3px;
+  background: #AAA;
+  border: 1px solid #222;
+  border-radius: 2px;
+  box-shadow: -1px -1px #AAA, 1px 1px #FFF;
+  margin: 0 5px;
+  margin: 10px 5px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -5px;
+  border-radius: 0;
+  background-color: var(--primary-4);
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-size: 6px 5px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 1px solid #000;
+  width: 13px;
+  height: 11px;
+  border-radius: 2px;
+  box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3);
+}
+input[type=range]::-webkit-slider-thumb:active {
+  background-color: var(--primary-3);
+  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
+}
+
+progress,
+.progress-bar {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: #BBBBBB;
+  border: 1px solid #000;
+  box-shadow: 1px 1px #fff, -1px -1px #AAAAAA, inset 1px 1px #888888, inset -1px -1px #DDDDDD;
+  height: 12px;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar:not([aria-valuenow])::after, .progress-bar > .progress-bar-value {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
+  border-right: 1px solid #000;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px 0 var(--primary-1), inset -2px 0 var(--primary-2), 1px 0 #555555, 2px 0 #888888;
+}
+.progress-bar:not([aria-valuenow])::after {
+  width: 50%;
+  border-left: 1px solid #000;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress::-webkit-progress-bar {
+  background: #BBBBBB;
+  box-shadow: inset 1px 1px #888888, inset -1px -1px #DDDDDD;
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
+  border-right: 1px solid #000;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px 0 var(--primary-1), inset -2px 0 var(--primary-2), 1px 0 #555555, 2px 0 #888888;
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
+  border-right: 1px solid #000;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px 0 var(--primary-1), inset -2px 0 var(--primary-2), 1px 0 #555555, 2px 0 #888888;
+}
+
+progress:indeterminate::-moz-progress-bar {
+  width: 50%;
+  border-left: 1px solid #000;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress:not([value])::-webkit-progress-value {
+  width: 50%;
+  border-left: 1px solid #000;
+  animation: 1s infinite linear indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -50%;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
+.title-bar {
+  background: #ddd;
+  color: #777;
+  display: flex;
+  gap: 5px;
+}
+.title-bar .title-bar-text {
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: default;
+}
+.title-bar .title-bar-text::before, .title-bar .title-bar-text::after {
+  display: block;
+  content: "";
+  flex-grow: 1;
+  height: 12px;
+}
+
+.window,
+.dialog {
+  padding: 2px 4px 4px;
+  border: 1px solid #555;
+  background: #ddd;
+}
+
+.window.active,
+.window:focus-within,
+.dialog.active,
+.dialog:focus-within,
+.menu {
+  background: var(--window-frame-bg);
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0 #000000, inset 1px 0 0 #fff, inset 0 1px 0 #fff, inset -1px 0 0 #999, inset 0 -1px 0 #999;
+}
+
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.menu > .title-bar,
+.title-bar.active {
+  background: var(--window-frame-bg);
+  color: #000;
+}
+.window.active > .title-bar > .title-bar-text::before, .window.active > .title-bar > .title-bar-text::after,
+.window:focus-within > .title-bar > .title-bar-text::before,
+.window:focus-within > .title-bar > .title-bar-text::after,
+.dialog.active > .title-bar > .title-bar-text::before,
+.dialog.active > .title-bar > .title-bar-text::after,
+.dialog:focus-within > .title-bar > .title-bar-text::before,
+.dialog:focus-within > .title-bar > .title-bar-text::after,
+.menu > .title-bar > .title-bar-text::before,
+.menu > .title-bar > .title-bar-text::after,
+.title-bar.active > .title-bar-text::before,
+.title-bar.active > .title-bar-text::after {
+  background: repeating-linear-gradient(0deg, #fff, #fff 1px, #777 1px, #777 2px);
+}
+
+.title-bar-buttons {
+  display: flex;
+  gap: 5px;
+  visibility: hidden;
+}
+
+.window.active > .title-bar > .title-bar-buttons,
+.window:focus-within > .title-bar > .title-bar-buttons,
+.dialog.active > .title-bar > .title-bar-buttons,
+.dialog:focus-within > .title-bar > .title-bar-buttons,
+.title-bar.active > .title-bar-buttons {
+  visibility: visible;
+}
+
+.title-bar-buttons:first-child {
+  margin-left: -1px;
+}
+
+.title-bar-buttons:last-child {
+  margin-right: -1px;
+}
+
+.title-bar-buttons button {
+  width: 11px;
+  height: 11px;
+  min-width: 0;
+  border-radius: 0;
+  border: 1px solid #222;
+  margin: 1px;
+  padding: 0;
+  background: linear-gradient(to bottom right, #999, #fff);
+  box-shadow: -1px -1px 0 #888, 1px 1px 0 #fff, inset 1px 1px 0 #ccc, inset -1px -1px 0 #888;
+}
+
+.title-bar-buttons button:active {
+  background: linear-gradient(to bottom right, #444, #bbb);
+  box-shadow: -1px -1px 0 #888, 1px 1px 0 #fff, inset -1px -1px 0 #999;
+}
+
+.window-body {
+  color: #555;
+  border: 1px solid #555;
+  background: #eee;
+}
+
+.window.active > .window-body,
+.window:focus-within > .window-body {
+  color: #000;
+  background: var(--window-bg);
+  border: 1px solid #000;
+  box-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #999, 0 -1px 0 #999;
+}
+
+[role=menubar] {
+  color: #000;
+  background-color: #ddd;
+}
+[role=menubar] > li > ul {
+  left: 0;
+  top: 100%;
+  min-width: 200px;
+}
+
+[role=menu] {
+  color: #000;
+  background-color: #ddd;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #888, 1px 1px #000;
+}
+[role=menu] li {
+  padding: 1px 3px 1px 21px;
+}
+[role=menu] li[data-shortcut]::after {
+  float: right;
+  content: attr(data-shortcut);
+  display: block;
+  margin-left: 4px;
+}
+[role=menu] li > ul {
+  left: 100%;
+  margin: 0;
+  top: -1px;
+  min-width: 200px;
+}
+[role=menu] li[role=separator] {
+  border-top: 1px solid #888;
+  border-bottom: 1px solid #fff;
+  height: 0;
+  padding: 0;
+  margin: 2px 0;
+}
+[role=menu] li[role=checkbox][aria-checked=true]::before, [role=menu] li[role=radio][aria-checked=true]::before {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  margin-top: -4px;
+  display: block;
+  width: 9px;
+  height: 8px;
+  background: currentColor;
+  -webkit-mask-image: url(checkmark.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 7px 7px;
+  mask-image: url(checkmark.svg);
+  mask-repeat: no-repeat;
+  mask-size: 9px 8px;
+}
+[role=menu] li[aria-haspopup=true]::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  background: currentColor;
+  -webkit-mask-image: url(menu-right.svg);
+  -webkit-mask-size: 6px 11px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-image: url(menu-right.svg);
+  mask-size: 6px 11px;
+  mask-repeat: no-repeat;
+  mask-position: center center;
+}
+
+.menu > [role=menu] {
+  border: 0;
+  border-top: 1px solid #555;
+}
+
+[role=menu] li:focus,
+[role=menubar] li:focus {
+  outline: none;
+}
+
+[role=menubar] > li {
+  padding: 1px 8px;
+}
+
+[role=menu] li:focus-within,
+[role=menubar] li:focus-within {
+  background: var(--primary-2);
+  box-shadow: inset 1px 0 var(--primary-3), inset -1px 0 #008;
+  color: #fff;
+}
+
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
+  color: #777;
+}
+
+.tabs > menu {
+  display: flex;
+  gap: 28px;
+  overflow: hidden;
+  padding: 0 14px 0 24px;
+}
+
+.tabs > menu > button {
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  display: flex;
+  padding: 0;
+  min-width: 0;
+  height: 23px;
+  position: relative;
+  background: #CCCCCC;
+  height: 23px;
+  box-shadow: inset 0 1px #000, inset 0 2px #ccc, inset 0 3px #ddd;
+}
+.tabs > menu > button:focus {
+  outline: none;
+}
+.tabs > menu > button:focus-visible {
+  text-shadow: 0 0 2px var(--primary-3);
+}
+
+.tabs > menu > button::before {
+  display: block;
+  content: "";
+  background: url(tab.svg);
+  background-position: top left;
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 23px;
+  margin-left: -14px;
+}
+
+.tabs > menu > button::after {
+  display: block;
+  content: "";
+  background: url(tab.svg);
+  background-position: top right;
+  background-repeat: no-repeat;
+  width: 14px;
+  height: 23px;
+  margin-right: -14px;
+}
+
+.tabs > menu > button:not([aria-selected=true]):active {
+  background: #666;
+  box-shadow: inset 0 1px #000, inset 0 2px #444, inset 0 3px #555;
+}
+
+.tabs > menu > button:not([aria-selected=true]):active::before,
+.tabs > menu > button:not([aria-selected=true]):active::after {
+  background-image: url(tab-active.svg);
+}
+
+.tabs > menu > button[aria-selected=true] {
+  color: #000;
+  background: #eee;
+  box-shadow: inset 0 1px #000, inset 0 2px #ccc, inset 0 3px #fff;
+  z-index: 2;
+  height: 25px;
+}
+.tabs > menu > button[aria-selected=true]::before, .tabs > menu > button[aria-selected=true]::after {
+  background-image: url(tab-selected.svg);
+  height: 25px;
+}
+
+.tabs > [role=tabpanel] {
+  position: relative;
+  z-index: 1;
+  margin-top: -4px;
+  background: #eee;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px 0 #ccc, inset 2px 2px 0 #fff, inset -1px -1px 0 #999, inset -2px -2px 0 #bbb;
+  /*box-shadow: inset 1px 0 0 #ccc, inset 2px 0 0 #fff, inset -1px -1px 0 #999, inset -2px -2px 0 #bbb;*/
+}
+
+.list {
+  background: #fff;
+  color: #000;
+  border: 1px solid #000;
+  box-shadow: -1px -1px #888, 1px 1px #fff;
+  overflow: auto;
+  cursor: default;
+}
+.list > [role=option] {
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+}
+.list > [role=option][aria-selected=true] {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+.list > [role=option]:focus {
+  outline: none;
+}
+.list:focus-within {
+  box-shadow: none;
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 128px);
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.icon-grid > .icon {
+  flex: 0 0 128px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 4px;
+}
+.icon-grid > .icon > .icon-label {
+  margin-top: 5px;
+  text-align: center;
+  padding: 1px 1px;
+}
+.icon-grid > .icon:focus {
+  outline: none;
+}
+.icon-grid > .icon:focus > .icon-label {
+  outline: 1px dotted #000;
+  outline-offset: -1px;
+}
+.icon-grid > .icon[aria-selected=true] > .icon-label {
+  background-color: #000;
+  color: #fff;
+}
+.icon-grid > .icon[aria-selected=true]:focus > .icon-label {
+  outline: 1px dotted #fff;
+}
+.icon-grid:focus-within > .icon[aria-selected=true] > .icon-label {
+  background-color: #000;
+  color: #fff;
+}
+
+.detailed {
+  width: 100%;
+  border-spacing: 0;
+}
+.detailed th {
+  text-align: left;
+  font-weight: normal;
+  background-color: #ccc;
+  color: #000;
+  border: 1px solid #333;
+  border-top-color: #666;
+  border-left-color: #666;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #888;
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+}
+.detailed tr {
+  outline: none;
+  background: #eee;
+}
+.detailed tr:focus {
+  outline: none;
+}
+.detailed tr[aria-selected=true] {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+.detailed .icon[aria-selected=true] .icon-label {
+  background-color: #000;
+  color: #fff;
+}
+.detailed td {
+  padding: 2px 6px 2px 6px;
+  white-space: nowrap;
+  border-bottom: 1px solid #fff;
+}
+.detailed td.icon {
+  display: flex;
+}
+.detailed .icon {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  outline: none;
+}
+.detailed .icon > img {
+  width: 16px;
+  height: 16px;
+  margin-right: 1px;
+  margin-left: -4px;
+}
+.detailed .icon > .icon-label {
+  text-align: center;
+  padding: 1px 3px;
+}
+.detailed .icon:focus .icon-label {
+  outline: none;
+}
+.detailed .icon[aria-selected=true] > .icon-label {
+  background-color: #000;
+  color: #fff;
+}
+.detailed thead {
+  position: sticky;
+  top: 0;
+}

@@ -2,452 +2,592 @@
 <html>
   <head>
     <meta charset="UTF-8"/>
-    <title>Classic stylesheets</title>
+    <title>Classic stylesheets 2.0</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="layout.css"/>
     <link id="theme-link" rel="stylesheet" type="text/css" href="themes/cde/theme.css"/>
     <link id="skin-link" rel="stylesheet" type="text/css" href="themes/cde/skins/crimson-4.css"/>
     <link rel="stylesheet" type="text/css" href="demo.css"/>
   </head>
-  <body class="desktop">
-    <div id="toolbar" class="top-panel stack-row spacing align-center padding">
+  <body class="flex-column use-preferred-font">
+    <div id="toolbar" class="top-panel flex-row gap align-center padding">
       <div>Theme</div>
-      <select id="theme-select" size=1>
-        <option value="win9x">Windows 9x</option>
-        <option value="win3x">Windows 3.x</option>
-        <option value="cde">CDE</option>
-      </select>
-      <div>Skin</div>
-      <select id="skin-select" size=1>
-      </select>
-    </div>
-    <main class="margin window">
-      <div class="title-bar">
-        <div class="title-bar-text">
-          Classic stylesheets
-        </div>
+      <div class="dropdown">
+        <select id="theme-select" size=1>
+          <option value="win9x">Windows 9x</option>
+          <option value="win3x">Windows 3.x</option>
+          <option value="winxp">Windows XP</option>
+          <option value="cde">CDE</option>
+          <option value="macos9">Mac OS 9</option>
+        </select>
+        <div class="dropdown-button"></div>
       </div>
-      <div class="window-body">
-        <div class="padding">
-          <h1>Classic stylesheets for web applications</h1>
-          <p><a href="https://github.com/nielssp/classic-stylesheets">Source on GitHub</a></p>
-          <section>
-            <h2>Buttons</h2>
-            <div>
-              <div class="example">
-                <button>OK</button>
-              </div>
-              <div class="example">
-                <button disabled>Disabled</button>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Inputs</h2>
-            <div>
-              <div class="example">
-                <input type="text" value="This is a text input"/>
-              </div>
-              <div class="example">
-                <input type="text" value="This input is read-only" readonly/>
-              </div>
-              <div class="example">
-                <input type="text" value="This input is disabled" disabled/>
-              </div>
-              <div class="example">
-                <textarea>This is a textarea</textarea>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Selects</h2>
-            <div>
-              <div class="example">
-                <select size=1>
-                  <option>Foo</option>
-                  <option>Bar</option>
-                  <option>Baz</option>
-                </select>
-              </div>
-              <div class="example">
-                <select size=1 disabled>
-                  <option>Foo</option>
-                  <option>Bar</option>
-                  <option>Baz</option>
-                </select>
-              </div>
-              <div class="example">
-                <select size=4>
-                  <option>Foo</option>
-                  <option>Bar</option>
-                  <option>Baz</option>
-                </select>
-              </div>
-              <div class="example">
-                <select size=4 disabled>
-                  <option>Foo</option>
-                  <option>Bar</option>
-                  <option>Baz</option>
-                </select>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Checkboxes</h2>
-            <div>
-              <div class="example">
-                <input type="checkbox" id="checkbox1"/>
-                <label for="checkbox1">Checkbox</label>
-              </div>
-              <div class="example">
-                <label><input type="checkbox"/> Checkbox inside label</label>
-              </div>
-              <div class="example">
-                <input type="checkbox" id="checkbox2" disabled/>
-                <label for="checkbox2">Disabled checkbox</label>
-              </div>
-              <div class="example">
-                <input type="checkbox" id="checkbox3" disabled checked/>
-                <label for="checkbox3">Disabled checked checkbox</label>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Radio buttons</h2>
-            <div>
-              <div class="example">
-                <div class="stack-column spacing">
-                  <div class="stack-row spacing align-center">
-                    <input type="radio" id="radio1" name="radio1"/>
-                    <label for="radio1">Radio button 1</label>
-                  </div>
-                  <div class="stack-row spacing align-center">
-                    <input type="radio" id="radio2" name="radio1"/>
-                    <label for="radio2">Radio button 2</label>
-                  </div>
-                  <div class="stack-row spacing align-center">
-                    <input type="radio" id="radio3" name="radio1"/>
-                    <label for="radio3">Radio button 3</label>
+      <div>Skin</div>
+      <div class="dropdown">
+        <select id="skin-select" size=1>
+        </select>
+        <div class="dropdown-button"></div>
+      </div>
+      <div class="checkbox-row">
+        <input id="use-preferred-font" type="checkbox" checked>
+        <label for="use-preferred-font">
+          Use theme font if available
+          <span id="preferred-font">
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="desktop grow">
+      <main class="margin window active">
+        <div class="title-bar">
+          <div class="title-bar-text">
+            Classic stylesheets 2.0
+          </div>
+        </div>
+        <div class="window-body">
+          <div class="padding">
+            <h1>Classic stylesheets for web applications 2.0</h1>
+            <p><a href="https://github.com/nielssp/classic-stylesheets">Source on GitHub</a></p>
+            <section>
+              <h2>Buttons</h2>
+              <div>
+                <div class="example">
+                  <button>OK</button>
+                </div>
+                <div class="example">
+                  <button disabled>Disabled</button>
+                </div>
+                <div class="example">
+                  <div class="flex-row gap">
+                    <div class="button">Default</div>
+                    <div class="button disabled">Disabled</div>
+                    <div class="button focus">Focus</div>
+                    <div class="button active">Active</div>
                   </div>
                 </div>
               </div>
-              <div class="example">
-                <label><input type="radio"/> Radio button inside label</label>
-              </div>
-              <div class="example">
-                <input type="radio" id="radio4" disabled/>
-                <label for="radio4">Disabled radio button</label>
-              </div>
-              <div class="example">
-                <input type="radio" id="radio5" disabled checked/>
-                <label for="radio5">Disabled selected radio button</label>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Progress bars</h2>
-            <div>
-              <div class="example">
-                <progress value="40" max="100">40 %</progress>
-              </div>
-              <div class="example">
-                <progress>Indeterminate</progress>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Stack layouts</h2>
-            <div>
-              <div class="example">
-                <div class="stack-row spacing">
-                  <div>Some text</div>
-                  <input type="text" value="An input"/>
+            </section>
+            <section>
+              <h2>Inputs</h2>
+              <div>
+                <div class="example">
+                  <input type="text" value="This is a text input"/>
                 </div>
-              </div>
-              <div class="example">
-                <div class="stack-column spacing">
-                  <div>Some text</div>
-                  <input type="text" value="An input"/>
+                <div class="example">
+                  <input type="text" value="This input is read-only" readonly/>
                 </div>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Grid layouts</h2>
-            <div>
-              <div class="example">
-                <form class="grid spacing" style="grid-template-columns: max-content auto;" onsubmit="return false">
-                  <div>Some text</div>
-                  <input type="text" value="An input"/>
-                  <div>Some other text</div>
-                  <input type="text" value="Another input"/>
-                  <div class="stack-row spacing justify-end" style="grid-column-end: span 2;">
-                    <button type="submit">Save</button>
-                    <button>Cancel</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Panels</h2>
-            <div>
-              <div class="example">
-                <div class="raised padding">
-                  Raised
+                <div class="example">
+                  <input type="text" value="This input is disabled" disabled/>
                 </div>
-              </div>
-              <div class="example">
-                <div class="lowered padding">
-                  Lowered
+                <div class="example">
+                  <textarea>This is a textarea</textarea>
                 </div>
-              </div>
-              <div class="example">
-                <div class="raised stack-row">
-                  <div class="lowered padding">
-                    Panel
-                  </div>
-                  <div class="lowered padding grow">
-                    Panel
+                <div class="example">
+                  <div class="flex-row gap">
+                    <div class="input">Default</div>
+                    <div class="input disabled">Disabled</div>
+                    <div class="input readonly">Readonly</div>
+                    <div class="input focus">Focus</div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section>
-            <h2>Field sets</h2>
-            <div>
-              <div class="example">
-                <fieldset class="padding">
-                  Field set
-                </fieldset>
+            </section>
+            <section>
+              <h2>Selects</h2>
+              <div>
+                <div class="example">
+                  <div class="dropdown">
+                    <select size=1>
+                      <option>Foo</option>
+                      <option>Bar</option>
+                      <option>Baz</option>
+                    </select>
+                    <div class="dropdown-button"></div>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="dropdown">
+                    <select size=1 disabled>
+                      <option>Foo</option>
+                      <option>Bar</option>
+                      <option>Baz</option>
+                    </select>
+                    <div class="dropdown-button"></div>
+                  </div>
+                </div>
+                <div class="example">
+                  <select size=4>
+                    <option>Foo</option>
+                    <option>Bar</option>
+                    <option>Baz</option>
+                  </select>
+                </div>
+                <div class="example">
+                  <select size=4 disabled>
+                    <option>Foo</option>
+                    <option>Bar</option>
+                    <option>Baz</option>
+                  </select>
+                </div>
               </div>
-              <div class="example">
-                <fieldset class="padding">
-                  <legend>Legend</legend>
-                  <form class="stack-row spacing align-center" onsubmit="return false">
-                    <label for="fieldset-input">Save</label>
-                    <input type="text" id="fieldset-input" />
-                    <button type="submit">Save</button>
+            </section>
+            <section>
+              <h2>Checkboxes</h2>
+              <div>
+                <div class="example">
+                  <div class="flex-column gap">
+                    <div class="checkbox-row">
+                      <input type="checkbox" id="checkbox1" checked/>
+                      <label for="checkbox1">Checkbox 1</label>
+                    </div>
+                    <div class="checkbox-row">
+                      <input type="checkbox" id="checkbox2"/>
+                      <label for="checkbox2">Checkbox 2</label>
+                    </div>
+                    <div class="checkbox-row">
+                      <input type="checkbox" id="checkbox3" disabled/>
+                      <label for="checkbox3">Disabled checkbox</label>
+                    </div>
+                    <div class="checkbox-row">
+                      <input type="checkbox" id="checkbox4" disabled checked/>
+                      <label for="checkbox4">Disabled checked checkbox</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Radio buttons</h2>
+              <div>
+                <div class="example">
+                  <div class="flex-column gap">
+                    <div class="radio-row">
+                      <input type="radio" id="radio1" name="radio1" checked/>
+                      <label for="radio1">Radio button 1</label>
+                    </div>
+                    <div class="radio-row">
+                      <input type="radio" id="radio2" name="radio1"/>
+                      <label for="radio2">Radio button 2</label>
+                    </div>
+                    <div class="radio-row">
+                      <input type="radio" id="radio3" name="radio1"/>
+                      <label for="radio3">Radio button 3</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="flex-column gap">
+                    <div class="radio-row">
+                      <input type="radio" id="radio4" disabled/>
+                      <label for="radio4">Disabled radio button</label>
+                    </div>
+                    <div class="radio-row">
+                      <input type="radio" id="radio5" disabled checked/>
+                      <label for="radio5">Disabled selected radio button</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Sliders</h2>
+              <div>
+                <div class="example">
+                  <input type="range"/>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Progress bars</h2>
+              <div>
+                <div class="example">
+                  <div class="flex-row gap">
+                    <progress value="40" max="100" style="width: 140px;">40 %</progress>
+                    <progress style="width: 140px;">Indeterminate</progress>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="flex-row gap">
+                    <div class="progress-bar" style="width: 140px;" aria-valuemin=0 aria-valuemax=100 aria-valuenow=40>
+                      <div class="progress-bar-value" style="width: 40%;"></div>
+                    </div>
+                    <div class="progress-bar" style="width: 140px;"></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Flex layouts</h2>
+              <div>
+                <div class="example">
+                  <div class="flex-row gap align-center">
+                    <label for="flex-input-1">Some text</label>
+                    <input id="flex-input-1" type="text" value="An input"/>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="flex-column gap">
+                    <label for="flex-input-2">Some text</label>
+                    <input id="flex-input-2" type="text" value="An input"/>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Grid layouts</h2>
+              <div>
+                <div class="example">
+                  <form class="grid gap align-center" style="grid-template-columns: max-content auto;" onsubmit="return false">
+                    <label for="grid-input-1">Some text</label>
+                    <input id="grid-input-1" type="text" value="An input"/>
+                    <label for="grid-input-2">Some other text</label>
+                    <input id="grid-input-2" type="password" value="Another input"/>
+                    <div class="flex-row gap justify-end" style="grid-column-end: span 2;">
+                      <button type="submit">Save</button>
+                      <button>Cancel</button>
+                    </div>
                   </form>
-                </fieldset>
+                </div>
               </div>
-            </div>
-          </section>
-          <section>
-            <h2>Tabs</h2>
-            <div>
-              <div class="example">
-                <div class="tabs">
-                  <menu role="tablist">
-                    <button role="tab" aria-selected="true" aria-controls="tab1">First tab</button>
-                    <button role="tab" aria-controls="tab2">Second tab</button>
-                    <button role="tab" aria-controls="tab3">Third tab</button>
-                  </menu>
-                  <div role="tabpanel" id="tab1" class="padding">
-                    First tab panel
+            </section>
+            <section>
+              <h2>Panels</h2>
+              <div>
+                <div class="example">
+                  <div class="raised padding">
+                    Raised
                   </div>
-                  <div role="tabpanel" id="tab2" hidden class="padding">
-                    Second tab panel
+                </div>
+                <div class="example">
+                  <div class="lowered padding">
+                    Lowered
                   </div>
-                  <div role="tabpanel" id="tab3" hidden class="padding">
-                    Third tab panel
+                </div>
+                <div class="example">
+                  <div class="raised flex-row">
+                    <div class="lowered padding grow">
+                      Panel
+                    </div>
+                    <div class="lowered padding grow">
+                      Panel
+                    </div>
+                    <div class="lowered padding grow">
+                      Panel
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section>
-            <h2>Lists</h2>
-            <div>
-              <div class="example">
-                <div class="list" role="listbox">
-                  <div role="option">Green</div>
-                  <div role="option">Orange</div>
-                  <div role="option">Yellow</div>
-                  <div role="option">Blue</div>
-                  <div role="option">Violet</div>
+            </section>
+            <section>
+              <h2>Field sets</h2>
+              <div>
+                <div class="example">
+                  <fieldset class="padding">
+                    Field set
+                  </fieldset>
+                </div>
+                <div class="example">
+                  <fieldset class="padding">
+                    <legend>Legend</legend>
+                    <form class="flex-row gap align-center" onsubmit="return false">
+                      <label for="fieldset-input">Save</label>
+                      <input type="text" id="fieldset-input" />
+                      <button type="submit">Save</button>
+                    </form>
+                  </fieldset>
                 </div>
               </div>
-            </div>
-          </section>
-          <section>
-            <h2>Detailed lists</h2>
-            <div>
-              <div class="example">
-                <div class="list" role="listbox">
-                  <table class="detailed">
-                    <tbody>
-                      <tr role="option">
-                        <td class="icon">
-                          <img src="icons/folder16.png" />
-                          <div class="icon-label">My Documents</div>
-                        </td>
-                        <td></td>
-                        <td>File Folder</td>
-                        <td>2020-07-14 20:28</td>
-                      </tr>
-                      <tr role="option">
-                        <td class="icon">
-                          <img src="icons/folder16.png" />
-                          <div class="icon-label">Program Files</div>
-                        </td>
-                        <td></td>
-                        <td>File Folder</td>
-                        <td>2020-07-14 20:28</td>
-                      </tr>
-                      <tr role="option">
-                        <td class="icon">
-                          <img src="icons/file16.png" />
-                          <div class="icon-label">autoexec.bat</div>
-                        </td>
-                        <td>0KB</td>
-                        <td>MS-DOS Batch File</td>
-                        <td>2020-07-14 20:28</td>
-                      </tr>
-                      <tr role="option">
-                        <td class="icon">
-                          <img src="icons/file16.png" />
-                          <div class="icon-label">Command.com</div>
-                        </td>
-                        <td>92KB</td>
-                        <td>MS-DOS Application</td>
-                        <td>1999-04-23 22:22</td>
-                      </tr>
-                    </tbody>
-                  </table>
+            </section>
+            <section>
+              <h2>Tabs</h2>
+              <div>
+                <div class="example">
+                  <div class="tabs">
+                    <menu role="tablist">
+                      <button role="tab" aria-selected="true" aria-controls="tab1">First tab</button>
+                      <button role="tab" aria-controls="tab2">Second tab</button>
+                      <button role="tab" aria-controls="tab3">Third tab</button>
+                    </menu>
+                    <div role="tabpanel" id="tab1" class="padding">
+                      First tab panel
+                    </div>
+                    <div role="tabpanel" id="tab2" hidden class="padding">
+                      Second tab panel
+                    </div>
+                    <div role="tabpanel" id="tab3" hidden class="padding">
+                      Third tab panel
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="example">
-                <div class="list" role="listbox" aria-multiselectable="true">
-                  <table class="detailed">
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Size</th>
-                        <th>Type</th>
-                        <th>Modified</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>
-                          <div class="icon" role="option">
+            </section>
+            <section>
+              <h2>Scrollbars</h2>
+              <div>
+                <div class="example">
+                  <div class="horizontal-scrollbar">
+                    <button>
+                    </button>
+                    <div class="scrollbar-track">
+                      <div class="scrollbar-thumb" style="left: 30%; width: 30%;">
+                      </div>
+                    </div>
+                    <button>
+                    </button>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="vertical-scrollbar" style="height: 100px">
+                    <button>
+                    </button>
+                    <div class="scrollbar-track">
+                      <div class="scrollbar-thumb" style="top: 30%; height: 30%;">
+                      </div>
+                    </div>
+                    <button>
+                    </button>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="lowered" style="overflow: scroll; width: 150px; height: 100px;">
+                    <div style="width: 400px; height: 400px;">
+                      Webkit scrollbars
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Lists</h2>
+              <div>
+                <div class="example">
+                  <div class="list" role="listbox">
+                    <div role="option">Green</div>
+                    <div role="option">Orange</div>
+                    <div role="option">Yellow</div>
+                    <div role="option">Blue</div>
+                    <div role="option">Violet</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <section>
+              <h2>Detailed lists</h2>
+              <div>
+                <div class="example">
+                  <div class="list" role="listbox">
+                    <table class="detailed">
+                      <tbody>
+                        <tr role="option">
+                          <td class="icon">
                             <img src="icons/folder16.png" />
                             <div class="icon-label">My Documents</div>
-                          </div>
-                        </td>
-                        <td></td>
-                        <td>File Folder</td>
-                        <td>2020-07-14 20:28</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="icon" role="option">
+                          </td>
+                          <td></td>
+                          <td>File Folder</td>
+                          <td>2020-07-14 20:28</td>
+                        </tr>
+                        <tr role="option">
+                          <td class="icon">
                             <img src="icons/folder16.png" />
                             <div class="icon-label">Program Files</div>
-                          </div>
-                        </td>
-                        <td></td>
-                        <td>File Folder</td>
-                        <td>2020-07-14 20:28</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="icon" role="option">
+                          </td>
+                          <td></td>
+                          <td>File Folder</td>
+                          <td>2020-07-14 20:28</td>
+                        </tr>
+                        <tr role="option">
+                          <td class="icon">
                             <img src="icons/file16.png" />
                             <div class="icon-label">autoexec.bat</div>
-                          </div>
-                        </td>
-                        <td>0KB</td>
-                        <td>MS-DOS Batch File</td>
-                        <td>2020-07-14 20:28</td>
-                      </tr>
-                      <tr>
-                        <td>
-                          <div class="icon" role="option">
+                          </td>
+                          <td>0KB</td>
+                          <td>MS-DOS Batch File</td>
+                          <td>2020-07-14 20:28</td>
+                        </tr>
+                        <tr role="option">
+                          <td class="icon">
                             <img src="icons/file16.png" />
                             <div class="icon-label">Command.com</div>
-                          </div>
-                        </td>
-                        <td>92KB</td>
-                        <td>MS-DOS Application</td>
-                        <td>1999-04-23 22:22</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                          </td>
+                          <td>92KB</td>
+                          <td>MS-DOS Application</td>
+                          <td>1999-04-23 22:22</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="list" role="listbox" aria-multiselectable="true">
+                    <table class="detailed">
+                      <thead>
+                        <tr>
+                          <th>Name</th>
+                          <th>Size</th>
+                          <th>Type</th>
+                          <th>Modified</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <div class="icon" role="option">
+                              <img src="icons/folder16.png" />
+                              <div class="icon-label">My Documents</div>
+                            </div>
+                          </td>
+                          <td></td>
+                          <td>File Folder</td>
+                          <td>2020-07-14 20:28</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="icon" role="option">
+                              <img src="icons/folder16.png" />
+                              <div class="icon-label">Program Files</div>
+                            </div>
+                          </td>
+                          <td></td>
+                          <td>File Folder</td>
+                          <td>2020-07-14 20:28</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="icon" role="option">
+                              <img src="icons/file16.png" />
+                              <div class="icon-label">autoexec.bat</div>
+                            </div>
+                          </td>
+                          <td>0KB</td>
+                          <td>MS-DOS Batch File</td>
+                          <td>2020-07-14 20:28</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            <div class="icon" role="option">
+                              <img src="icons/file16.png" />
+                              <div class="icon-label">Command.com</div>
+                            </div>
+                          </td>
+                          <td>92KB</td>
+                          <td>MS-DOS Application</td>
+                          <td>1999-04-23 22:22</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section>
-            <h2>Icon grids</h2>
-            <div>
-              <div class="example">
-                <div class="list" style="max-height: 200px;" role="listbox" aria-multiselectable="true">
-                  <div class="icon-grid">
-                    <div class="icon" role="option">
-                      <img src="icons/network.png" />
-                      <div class="icon-label">Network Neighborhood</div>
-                    </div>
-                    <div class="icon" role="option">
-                      <img src="icons/home.png" />
-                      <div class="icon-label">My Documents</div>
-                    </div>
-                    <div class="icon" role="option">
-                      <img src="icons/text.png" />
-                      <div class="icon-label">New Text Document.txt</div>
-                    </div>
-                    <div class="icon" role="option">
-                      <img src="icons/text.png" />
-                      <div class="icon-label">New Text Document (2).txt</div>
-                    </div>
-                    <div class="icon" role="option">
-                      <img src="icons/text.png" />
-                      <div class="icon-label">New Text Document (3).txt</div>
-                    </div>
-                    <div class="icon" role="option">
-                      <img src="icons/image.png" />
-                      <div class="icon-label">New Bitmap Image.bmp</div>
-                    </div>
-                    <div class="icon" role="option">
-                      <img src="icons/image.png" />
-                      <div class="icon-label">New Bitmap Image (2).bmp</div>
-                    </div>
-                    <div class="icon" role="option">
-                      <img src="icons/image.png" />
-                      <div class="icon-label">New Bitmap Image (3).bmp</div>
-                    </div>
-                    <div class="icon" role="option">
-                      <img src="icons/trash-full.png" />
-                      <div class="icon-label">Recycle Bin</div>
+            </section>
+            <section>
+              <h2>Icon grids</h2>
+              <div>
+                <div class="example">
+                  <div class="list" style="max-height: 200px;" role="listbox" aria-multiselectable="true">
+                    <div class="icon-grid">
+                      <div class="icon" role="option">
+                        <img src="icons/network.png" />
+                        <div class="icon-label">Network Neighborhood</div>
+                      </div>
+                      <div class="icon" role="option">
+                        <img src="icons/home.png" />
+                        <div class="icon-label">My Documents</div>
+                      </div>
+                      <div class="icon" role="option">
+                        <img src="icons/text.png" />
+                        <div class="icon-label">New Text Document.txt</div>
+                      </div>
+                      <div class="icon" role="option">
+                        <img src="icons/text.png" />
+                        <div class="icon-label">New Text Document (2).txt</div>
+                      </div>
+                      <div class="icon" role="option">
+                        <img src="icons/text.png" />
+                        <div class="icon-label">New Text Document (3).txt</div>
+                      </div>
+                      <div class="icon" role="option">
+                        <img src="icons/image.png" />
+                        <div class="icon-label">New Bitmap Image.bmp</div>
+                      </div>
+                      <div class="icon" role="option">
+                        <img src="icons/image.png" />
+                        <div class="icon-label">New Bitmap Image (2).bmp</div>
+                      </div>
+                      <div class="icon" role="option">
+                        <img src="icons/image.png" />
+                        <div class="icon-label">New Bitmap Image (3).bmp</div>
+                      </div>
+                      <div class="icon" role="option">
+                        <img src="icons/trash-full.png" />
+                        <div class="icon-label">Recycle Bin</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
-          <section>
-            <h2>Menus</h2>
-            <div>
-              <div class="example">
-                <div class="menu" style="width: 200px;">
-                  <div class="title-bar">
-                    <div class="title-bar-text">
-                      Main Menu
+            </section>
+            <section>
+              <h2>Menus</h2>
+              <div>
+                <div class="example">
+                  <div class="menu" style="width: 200px;">
+                    <div class="title-bar">
+                      <div class="title-bar-text">
+                        Main Menu
+                      </div>
                     </div>
+                    <ul role="menu">
+                      <li tabindex=0 data-shortcut="Ctrl+S"><u>S</u>ave</li>
+                      <li tabindex=0>Save <u>A</u>s&hellip;</li>
+                      <li tabindex=0 aria-haspopup="true">
+                        <u>E</u>dit
+                        <ul role="menu">
+                          <li tabindex=0 data-shortcut="Ctrl+Z" aria-disabled="true"><u>U</u>ndo</li>
+                          <li role="separator"></li>
+                          <li tabindex=0 data-shortcut="Ctrl+X">Cu<u>t</u></li>
+                          <li tabindex=0 data-shortcut="Ctrl+C"><u>C</u>opy</li>
+                          <li tabindex=0 data-shortcut="Ctrl+V" aria-disabled="true"><u>P</u>aste</li>
+                          <li role="separator"></li>
+                          <li tabindex=0 aria-haspopup="true">
+                            <u>A</u>nother Submenu
+                            <ul role="menu">
+                              <li tabindex=0><u>F</u>oo</li>
+                              <li tabindex=0><u>B</u>az</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </li>
+                      <li role="separator"></li>
+                      <li tabindex=0>A<u>b</u>out</li>
+                      <li tabindex=0><u>Q</u>uit</li>
+                    </ul>
                   </div>
-                  <ul role="menu">
-                    <li tabindex=0 data-shortcut="Ctrl+S">Save</li>
-                    <li tabindex=0>Save As&hellip;</li>
+                </div>
+                <div class="example">
+                  <ul role="menu" style="width: 200px;">
+                    <li tabindex=0>Open</li>
+                    <li tabindex=0>Edit</li>
+                    <li tabindex=0>Print</li>
+                    <li role="separator"></li>
                     <li tabindex=0 aria-haspopup="true">
-                      <u>E</u>dit
+                      Send To
                       <ul role="menu">
-                        <li tabindex=0 data-shortcut="Ctrl+Z" disabled>Undo</li>
-                        <li role="separator"></li>
-                        <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
-                        <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
-                        <li tabindex=0 data-shortcut="Ctrl+V" disabled>Paste</li>
+                        <li tabindex=0>Compressed Folder</li>
+                        <li tabindex=0>Desktop</li>
+                      </ul>
+                    </li>
+                    <li role="separator"></li>
+                    <li tabindex=0>Properties</li>
+                  </ul>
+                </div>
+                <div class="example">
+                  <ul role="menubar">
+                    <li tabindex=0 aria-haspopup="true">
+                      <u>F</u>ile
+                      <ul role="menu">
+                        <li tabindex=0>Save</li>
+                        <li tabindex=0>Save As&hellip;</li>
                         <li role="separator"></li>
                         <li tabindex=0 aria-haspopup="true">
                           Another Submenu
@@ -456,227 +596,200 @@
                             <li tabindex=0>Baz</li>
                           </ul>
                         </li>
+                        <li role="separator"></li>
+                        <li tabindex=0>Quit</li>
                       </ul>
                     </li>
-                    <li role="separator"></li>
-                    <li tabindex=0>About</li>
-                    <li tabindex=0>Quit</li>
+                    <li tabindex=0 aria-haspopup="true">
+                      <u>E</u>dit
+                      <ul role="menu">
+                        <li tabindex=0 data-shortcut="Ctrl+Z">Undo</li>
+                        <li role="separator"></li>
+                        <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
+                        <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
+                        <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
+                      </ul>
+                    </li>
+                    <li tabindex=0 aria-haspopup="true">
+                      <u>V</u>iew
+                      <ul role="menu">
+                        <li tabindex=0 role="checkbox" aria-checked="true">Status <u>B</u>ar</li>
+                        <li role="separator"></li>
+                        <li tabindex=0 role="radio" aria-checked="false">Ico<u>n</u>s</li>
+                        <li tabindex=0 role="radio" aria-checked="true"><u>L</u>ist</li>
+                        <li tabindex=0 role="radio" aria-checked="false"><u>D</u>etails</li>
+                        <li role="separator"></li>
+                        <li tabindex=0><u>R</u>efresh</li>
+                      </ul>
+                    </li>
+                    <li tabindex=0 class="help-menu" aria-haspopup="true">
+                      Help
+                      <ul role="menu">
+                        <li tabindex=0>Overview</li>
+                        <li role="separator"></li>
+                        <li tabindex=0>About</li>
+                      </ul>
+                    </li>
                   </ul>
                 </div>
               </div>
-              <div class="example">
-                <ul role="menu" style="width: 200px;">
-                  <li tabindex=0>Open</li>
-                  <li tabindex=0>Edit</li>
-                  <li tabindex=0>Print</li>
-                  <li role="separator"></li>
-                  <li tabindex=0 aria-haspopup="true">
-                    Send To
-                    <ul role="menu">
-                      <li tabindex=0>Compressed Folder</li>
-                      <li tabindex=0>Desktop</li>
-                    </ul>
-                  </li>
-                  <li role="separator"></li>
-                  <li tabindex=0>Properties</li>
-                </ul>
-              </div>
-              <div class="example">
-                <ul role="menubar">
-                  <li tabindex=0 aria-haspopup="true">
-                    <u>F</u>ile
-                    <ul role="menu">
-                      <li tabindex=0>Save</li>
-                      <li tabindex=0>Save As&hellip;</li>
-                      <li role="separator"></li>
-                      <li tabindex=0 aria-haspopup="true">
-                        Another Submenu
-                        <ul role="menu">
-                          <li tabindex=0>Foo</li>
-                          <li tabindex=0>Baz</li>
-                        </ul>
-                      </li>
-                      <li role="separator"></li>
-                      <li tabindex=0>Quit</li>
-                    </ul>
-                  </li>
-                  <li tabindex=0 aria-haspopup="true">
-                    <u>E</u>dit
-                    <ul role="menu">
-                      <li tabindex=0 data-shortcut="Ctrl+Z">Undo</li>
-                      <li role="separator"></li>
-                      <li tabindex=0 data-shortcut="Ctrl+X">Cut</li>
-                      <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
-                      <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
-                    </ul>
-                  </li>
-                  <li tabindex=0 class="help-menu" aria-haspopup="true">
-                    Help
-                    <ul role="menu">
-                      <li tabindex=0>Overview</li>
-                      <li role="separator"></li>
-                      <li tabindex=0>About</li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Windows</h2>
-            <div>
-              <div class="example">
-                <div class="title-bar">
-                  <div class="title-bar-text">
-                    Title Bar
-                  </div>
-                </div>
-              </div>
-              <div class="example">
-                <div class="title-bar">
-                  <div class="title-bar-buttons">
-                    <button data-minimize></button>
-                  </div>
-                  <div class="title-bar-text">
-                    Title Bar
-                  </div>
-                  <div class="title-bar-buttons">
-                    <button data-close></button>
-                  </div>
-                </div>
-              </div>
-              <div class="example">
-                <div class="title-bar inactive">
-                  <div class="title-bar-text">
-                    Inactive Title Bar
-                  </div>
-                  <div class="title-bar-buttons">
-                    <button data-close></button>
-                  </div>
-                </div>
-              </div>
-              <div class="example">
-                <div class="window" style="max-width: 400px;">
-                  <div class="title-bar">
+            </section>
+            <section>
+              <h2>Windows</h2>
+              <div>
+                <div class="example">
+                  <div class="title-bar active">
                     <div class="title-bar-text">
-                      Window Title
+                      Title Bar
                     </div>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="title-bar active">
                     <div class="title-bar-buttons">
                       <button data-minimize></button>
-                      <button data-maximize></button>
-                      <button data-close></button>
                     </div>
-                  </div>
-                  <div class="window-body">
-                    <ul role="menubar">
-                      <li tabindex=0 aria-haspopup="true">
-                        <u>F</u>ile
-                        <ul role="menu">
-                          <li tabindex=0>Save</li>
-                          <li tabindex=0>Save As&hellip;</li>
-                          <li role="separator"></li>
-                          <li tabindex=0 aria-haspopup="true">
-                            Another Submenu
-                            <ul role="menu">
-                              <li tabindex=0>Foo</li>
-                              <li tabindex=0>Baz</li>
-                            </ul>
-                          </li>
-                          <li role="separator"></li>
-                          <li tabindex=0>Quit</li>
-                        </ul>
-                      </li>
-                      <li tabindex=0 aria-haspopup="true">
-                        <u>E</u>dit
-                        <ul role="menu">
-                          <li data-shortcut="Ctrl+Z" aria-disabled>Undo</li>
-                          <li role="separator"></li>
-                          <li data-shortcut="Ctrl+X" aria-disabled>Cut</li>
-                          <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
-                          <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
-                        </ul>
-                      </li>
-                      <li tabindex=0 class="help-menu" aria-haspopup="true">
-                        Help
-                        <ul role="menu">
-                          <li tabindex=0>Overview</li>
-                          <li role="separator"></li>
-                          <li tabindex=0>About</li>
-                        </ul>
-                      </li>
-                    </ul>
-                    <div class="padding">
-                      Window body
-                      <hr class="margin-vertical"/>
-                      Window body
-                    </div>
-                    <div class="padding">
-                      Footer
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="example">
-                <div class="window inactive" style="max-width: 400px;">
-                  <div class="title-bar">
                     <div class="title-bar-text">
-                      Inactive Window Title
+                      Title Bar
                     </div>
                     <div class="title-bar-buttons">
                       <button data-close></button>
                     </div>
                   </div>
-                  <div class="window-body">
-                    <div class="padding">
-                      Inactive window body
-                    </div>
-                  </div>
                 </div>
-              </div>
-            </div>
-          </section>
-          <section>
-            <h2>Dialogs</h2>
-            <div>
-              <div class="example">
-                <div class="dialog" style="max-width: 400px;">
+                <div class="example">
                   <div class="title-bar">
                     <div class="title-bar-text">
-                      Dialog Title
+                      Inactive Title Bar
+                    </div>
+                    <div class="title-bar-buttons">
+                      <button data-close></button>
                     </div>
                   </div>
-                  <div class="dialog-body">
-                    <div class="padding">Do you want to delete everything?</div>
-                    <div class="stack-row spacing padding justify-end">
-                      <button>Yes</button>
-                      <button>No</button>
+                </div>
+                <div class="example">
+                  <div class="window active" style="max-width: 400px;">
+                    <div class="title-bar">
+                      <div class="title-bar-text">
+                        Window Title
+                      </div>
+                      <div class="title-bar-buttons">
+                        <button data-minimize></button>
+                        <button data-maximize></button>
+                        <button data-close></button>
+                      </div>
+                    </div>
+                    <div class="window-body">
+                      <ul role="menubar">
+                        <li tabindex=0 aria-haspopup="true">
+                          <u>F</u>ile
+                          <ul role="menu">
+                            <li tabindex=0>Save</li>
+                            <li tabindex=0>Save As&hellip;</li>
+                            <li role="separator"></li>
+                            <li tabindex=0 aria-haspopup="true">
+                              Another Submenu
+                              <ul role="menu">
+                                <li tabindex=0>Foo</li>
+                                <li tabindex=0>Baz</li>
+                              </ul>
+                            </li>
+                            <li role="separator"></li>
+                            <li tabindex=0>Quit</li>
+                          </ul>
+                        </li>
+                        <li tabindex=0 aria-haspopup="true">
+                          <u>E</u>dit
+                          <ul role="menu">
+                            <li data-shortcut="Ctrl+Z" aria-disabled="true">Undo</li>
+                            <li role="separator"></li>
+                            <li data-shortcut="Ctrl+X" aria-disabled="true">Cut</li>
+                            <li tabindex=0 data-shortcut="Ctrl+C">Copy</li>
+                            <li tabindex=0 data-shortcut="Ctrl+V">Paste</li>
+                          </ul>
+                        </li>
+                        <li tabindex=0 class="help-menu" aria-haspopup="true">
+                          Help
+                          <ul role="menu">
+                            <li tabindex=0>Overview</li>
+                            <li role="separator"></li>
+                            <li tabindex=0>About</li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <div class="padding">
+                        Window body
+                        <hr class="margin-vertical"/>
+                        Window body
+                      </div>
+                      <div class="padding">
+                        Footer
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="example">
+                  <div class="window" style="max-width: 400px;" tabindex=0>
+                    <div class="title-bar">
+                      <div class="title-bar-text">
+                        Inactive Window Title
+                      </div>
+                      <div class="title-bar-buttons">
+                        <button data-close></button>
+                      </div>
+                    </div>
+                    <div class="window-body">
+                      <div class="padding">
+                        Inactive window body
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="example">
-                <div class="dialog inactive" style="max-width: 400px;">
-                  <div class="title-bar">
-                    <div class="title-bar-text">
-                      Inactive Dialog Title
+            </section>
+            <section>
+              <h2>Dialogs</h2>
+              <div>
+                <div class="example">
+                  <div class="dialog active" style="max-width: 400px;">
+                    <div class="title-bar">
+                      <div class="title-bar-text">
+                        Dialog Title
+                      </div>
+                    </div>
+                    <div class="dialog-body">
+                      <div class="padding">Do you want to delete everything?</div>
+                      <div class="flex-row gap padding justify-end">
+                        <button>Yes</button>
+                        <button>No</button>
+                      </div>
                     </div>
                   </div>
-                  <div class="dialog-body">
-                    <div class="padding">Do you want to delete everything?</div>
-                    <div class="stack-row spacing padding justify-end">
-                      <button>Yes</button>
-                      <button>No</button>
+                </div>
+                <div class="example">
+                  <div class="dialog" style="max-width: 400px;" tabindex=0>
+                    <div class="title-bar">
+                      <div class="title-bar-text">
+                        Inactive Dialog Title
+                      </div>
+                    </div>
+                    <div class="dialog-body">
+                      <div class="padding">Do you want to delete everything?</div>
+                      <div class="flex-row gap padding justify-end">
+                        <button>Yes</button>
+                        <button>No</button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
     <script type="text/javascript" src="demo.js"></script>
-    <script type="text/javascript" src="modules/tabs.js"></script>
-    <script type="text/javascript" src="modules/lists.js"></script>
+    <script type="module" src="modules/tabs.js"></script>
+    <script type="module" src="modules/lists.js"></script>
   </body>
 </html>

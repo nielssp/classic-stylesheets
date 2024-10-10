@@ -1,0 +1,62 @@
+.desktop {
+  background: var(--desktop-bg);
+}
+
+.raised {
+  background: linear-gradient(180deg, #FCFCFE 0%, #F4F3EE 100%);
+  border: 1px solid #919B9C;
+  box-shadow: inset -1px -1px 0 #FCFCFE, 1px 1px 0 #D0CEBF, 2px 2px 0 #E3E0D0;
+}
+
+.lowered {
+}
+
+.top-panel {
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #003DDC, transparent 5px),
+    linear-gradient(270deg, rgba(0, 14, 125, 0.5), transparent 5px),
+    linear-gradient(180deg, #3D95FF 0%, #3D95FF 5%, #0054E3 10%, #0372FF 84%, #026AFE 90%, #0144D0 97%, #0144D0 100%);
+  border-bottom: 1px solid #1941A5;
+}
+
+.right-panel {
+  color: #FFFFFF;
+  background: linear-gradient(0, #003DDC, transparent 5px),
+    linear-gradient(180deg, rgba(0, 14, 125, 0.5), transparent 5px),
+    linear-gradient(90deg, #3D95FF 0%, #3D95FF 5%, #0054E3 10%, #0372FF 84%, #026AFE 90%, #0144D0 97%, #0144D0 100%);
+  border-left: 1px solid #2867E1;
+}
+
+.bottom-panel {
+  color: #FFFFFF;
+  background: linear-gradient(90deg, #003DDC, transparent 5px),
+    linear-gradient(270deg, rgba(0, 14, 125, 0.5), transparent 5px),
+    linear-gradient(180deg, #3D95FF 0%, #3D95FF 5%, #0054E3 10%, #0372FF 84%, #026AFE 90%, #0144D0 97%, #0144D0 100%);
+  border-top: 1px solid #3168D5;
+}
+
+.left-panel {
+  color: #FFFFFF;
+  background: linear-gradient(0, #003DDC, transparent 5px),
+    linear-gradient(180deg, rgba(0, 14, 125, 0.5), transparent 5px),
+    linear-gradient(90deg, #3D95FF 0%, #3D95FF 5%, #0054E3 10%, #0372FF 84%, #026AFE 90%, #0144D0 97%, #0144D0 100%);
+  border-right: 1px solid #1941A5;
+}
+
+fieldset {
+  border: 1px solid #D0D0BF;
+  border-radius: 3px;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px;
+  color: #0046D5;
+  display: block;
+}
+
+hr {
+  border-top: 1px solid #ACA899;
+  border-bottom: 1px solid #FFFFFF;
+}
+

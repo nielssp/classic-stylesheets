@@ -1,0 +1,175 @@
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+
+  & > button {
+    display: flex;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    min-width: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      margin: 3px 0 0 3px;
+      background-repeat: no-repeat;
+    }
+
+    &:focus {
+      outline: none;
+      border: 1px solid var(--darkest);
+      border-top: 1px solid var(--light);
+      border-left: 1px solid var(--light);
+      box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+    }
+
+    &:not(:disabled):active {
+      padding: 0;
+      border: 1px solid var(--dark);
+      box-shadow: none;
+      outline: none;
+
+      &::after {
+        margin: 4px 0 0 4px;
+      }
+    }
+  }
+
+  & > .scrollbar-track {
+    flex-grow: 1;
+    background-color: var(--window-bg);
+    background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+    background-size: 2px 2px;
+    background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+    position: relative;
+
+    & > .scrollbar-thumb {
+      position: absolute;
+      background: var(--button-bg);
+      border: 1px solid var(--darkest);
+      border-top: 1px solid var(--light);
+      border-left: 1px solid var(--light);
+      box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+    }
+  }
+}
+
+.horizontal-scrollbar {
+  & > button:first-child::after {
+    background-image: url(arrow-left.svg);
+    background-position: 1px 0;
+  }
+
+  & > button:last-child::after {
+    background-image: url(arrow-right.svg);
+    background-position: 2px 0;
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 16px;
+
+  & > button:first-child::after {
+    background-image: url(arrow-up.svg);
+    background-position: 0 2px;
+  }
+
+  & > button:last-child::after {
+    background-image: url(arrow-down.svg);
+    background-position: 0 2px;
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    left: 0;
+    right: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: var(--window-bg);
+  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--window-bg);
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--light);
+  border-left: 1px solid var(--light);
+  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+}
+
+::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+}
+
+::-webkit-scrollbar-button:active {
+  border: 1px solid var(--dark);
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(arrow-up.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+
+  &:active {
+    background-position: 4px 6px;
+  }
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(arrow-down.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+
+  &:active {
+    background-position: 4px 6px;
+  }
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(arrow-left.svg);
+  background-position: 4px 3px;
+  background-repeat: no-repeat;
+
+  &:active {
+    background-position: 5px 4px;
+  }
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(arrow-right.svg);
+  background-position: 5px 3px;
+  background-repeat: no-repeat;
+
+  &:active {
+    background-position: 6px 4px;
+  }
+}

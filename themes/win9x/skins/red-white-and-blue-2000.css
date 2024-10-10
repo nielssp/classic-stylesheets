@@ -1,6 +1,8 @@
 @import 'red-white-and-blue.css';
 
 :root {
+  --preferred-font: 'Tahoma';
+
   --title-bar-bg: linear-gradient(to right, #808080, #BABEC9);
   --title-bar-active-bg: linear-gradient(to right, #800000, #0010A8);
 }

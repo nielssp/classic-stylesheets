@@ -1,0 +1,304 @@
+@use '../../util/util';
+
+#{util.$textInputs},
+select {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid #7F9DB9;
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+
+  &::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  &[readonly], &.readonly {
+    background: var(--window-bg);
+  }
+
+  &:disabled, &.disabled {
+    background: var(--window-bg);
+    color: #ACA899;
+  }
+}
+
+select > option {
+  padding: 2px 6px;
+}
+
+#{util.$multiSelects} {
+  padding: 1px;
+
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+  }
+
+  &:focus > option:checked {
+    outline: 1px dotted var(--selection-inverse);
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+}
+
+#{util.$singleSelects} {
+  &:disabled {
+    border-color: #C9C7BA;
+  }
+}
+
+.dropdown {
+  display: inline-grid;
+  padding: 0;
+  grid-template-areas: 's';
+
+  & > select {
+    appearance: none;
+    grid-area: s;
+    padding-right: 21px;
+
+    &:focus {
+      background: var(--selection-bg);
+      color: var(--selection-fg);
+      box-shadow: inset 0 0 0 2px #fff;
+    }
+
+    &:not(:disabled):hover {
+      & + .dropdown-button {
+        background-image: radial-gradient(circle at top left, #FFFFFF, #B9DAFB);
+        border-color: #8AA6E3;
+      }
+    }
+
+    &:not(:disabled):active {
+      background: var(--input-bg);
+      color: var(--input-fg);
+
+      & + .dropdown-button {
+        background-image: radial-gradient(circle at top left, #6E8EF1, #D2DEEB);
+        border-color: #7C89DB;
+        border-right-color: #B3C8F5;
+        border-bottom-color: #B3C8F5;
+      }
+    }
+
+    &:disabled {
+      box-shadow: inset 0 0 0 2px #F5F4EA;
+
+      & + .dropdown-button {
+        background-image: radial-gradient(circle at top left, #F7F7F4, #E6E6DD);
+        border-color: #E7E7DE;
+        box-shadow: 0 0 0 1px #fff, -3px 0 #F5F4EA;
+
+        &::after {
+          background: #C9C9C2; 
+        }
+      }
+    }
+  }
+
+  & > .dropdown-button {
+    justify-self: end;
+    grid-area: s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px;
+    background-color: var(--button-bg);
+    color: var(--button-fg);
+    background-image: radial-gradient(circle at top left, #E1EAFE, #AEC8F7);
+    border: 1px solid #ADC3F6;
+    border-radius: 2px;
+    width: 15px;
+    pointer-events: none;
+    box-shadow: -2px 0 #fff;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 9px;
+      height: 6px;
+      -webkit-mask-image: url(arrow-down.svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-image: url(arrow-down.svg);
+      mask-repeat: no-repeat;
+      background: #4D6185;
+    }
+  }
+}
+
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 0;
+
+  &:checked::after {
+    content: '';
+    display: block;
+    width: 7px;
+    height: 7px;
+    margin: 2px 0 0 2px;
+    background: #21A121;
+    -webkit-mask-image: url(checkmark.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 7px 7px;
+    mask-image: url(checkmark.svg);
+    mask-repeat: no-repeat;
+    mask-size: 7px 7px;
+  }
+
+  &:not(:disabled):active {
+    &:checked::after {
+      background: #1D8C1B;
+    }
+  }
+
+  &:disabled:checked::after {
+    background: #CAC8BB;
+  }
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+
+  &:checked::after {
+    content: '';
+    display: block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 0 0, #55D551 0, #139210 75%);
+    margin-top: 3px;
+    margin-left: 3px;
+  }
+
+  &:disabled:checked::after {
+    background: #CAC8BB;
+  }
+}
+
+input[type=checkbox],
+input[type=radio] {
+  background: radial-gradient(circle at 0 0, #DCDCD7 0, #FFFFFF 75%);
+  border: 1px solid #1C5180;
+
+  &:not(:disabled):hover {
+    box-shadow: inset 1px 1px 1px #FFF0CF, inset 0 0 0 2px #F8B636;
+  }
+
+  &:not(:disabled):active {
+    background: radial-gradient(circle at 0 0, #B0B0A7 0, #F1EFDF 75%);
+    box-shadow: none;
+  }
+
+  &:disabled {
+    background: #FFF;
+    border-color: #CAC8BB;
+  }
+
+  &:disabled + label {
+    color: #A1A192;
+  }
+
+  &:focus {
+    outline: none;
+
+    &:focus-visible + label {
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(var(--spacing) - 1px);
+        right: 0;
+        bottom: 0;
+        border: 1px dotted #000;
+        border-radius: 1px;
+      }
+    }
+  }
+}
+
+label > input[type=radio]:focus-visible,
+label > input[type=checkbox]:focus-visible {
+  outline: 1px dotted #000;
+  outline-offset: 1px;
+}
+
+@mixin range-track {
+  height: 2px;
+  background: #F0EDE0;
+  border: 1px solid #FFFFFF;
+  border-top: 1px solid #9D9C99;
+  border-left: 1px solid #9D9C99;
+  border-radius: 2px;
+  box-shadow: inset 0 1px #F2F1E9;
+  margin: 0 5px;
+}
+
+@mixin range-thumb {
+  border-radius: 0;
+  background: #F3F3EF;
+  border: 1px solid #778892;
+  border-top: 1px solid #B5C4CD;
+  border-left: 1px solid #B5C4CD;
+  width: 9px;
+  height: 20px;
+  box-shadow: inset 0 2px #48CB46, inset 0 -2px #48CB46;
+  border-radius: 2px;
+
+  &:hover {
+    box-shadow: inset 0 2px #F9B435, inset 0 -2px #F9B435;
+  }
+
+  &:active {
+    box-shadow: inset 0 2px #229512, inset 0 -2px #229512;
+  }
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; 
+  padding: 2px;
+
+  &:focus {
+    outline: 1px dotted #131627;
+  }
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+    margin: 10px 5px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -10px;
+    @include range-thumb;
+  }
+}

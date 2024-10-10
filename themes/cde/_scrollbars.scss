@@ -1,0 +1,177 @@
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+  background: var(--button-active-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+
+  & > button {
+    display: flex;
+    flex-shrink: 0;
+    width: 11px;
+    height: 11px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    background-color: var(--button-bg);
+
+    &:focus {
+      outline: none;
+    }
+
+    &:not(:disabled):active {
+      padding: 0;
+      background-color: var(--button-bg);
+      background-position: -11px 0;
+      border: 0;
+      box-shadow: none;
+      outline: none;
+
+      &::after {
+        margin: 4px 0 0 4px;
+      }
+    }
+  }
+
+  & > .scrollbar-track {
+    flex-grow: 1;
+    position: relative;
+
+    & > .scrollbar-thumb {
+      position: absolute;
+      background: var(--button-bg);
+      border: 1px solid var(--button-light);
+      border-right-color: var(--button-dark);
+      border-bottom-color: var(--button-dark);
+    }
+  }
+}
+
+.horizontal-scrollbar {
+  & > button:first-child {
+    background-image: url(scroll-left.svg);
+  }
+
+  & > button:last-child {
+    background-image: url(scroll-right.svg);
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    top: 0;
+    bottom: 0;
+  }
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 13px;
+
+  & > button:not(:disabled):active {
+    background-position: 0 -11px;
+  }
+
+  & > button:first-child {
+    background-image: url(scroll-up.svg);
+  }
+
+  & > button:last-child {
+    background-image: url(scroll-down.svg);
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    left: 0;
+    right: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  background: var(--button-active-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+  width: 13px;
+  height: 13px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--button-bg);
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 1px 1px var(--button-light), inset -1px -1px var(--button-dark);
+
+  &:vertical {
+    border-left: 1px solid var(--button-dark);
+    border-right: 1px solid var(--button-light);
+  }
+
+  &:horizontal {
+    border-top: 1px solid var(--button-dark);
+    border-bottom: 1px solid var(--button-light);
+  }
+}
+
+::-webkit-scrollbar-button {
+  width: 13px;
+  height: 13px;
+  display: none;
+  border: 1px solid transparent;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+}
+
+::-webkit-scrollbar-button:vertical {
+  height: 12px;
+}
+
+::-webkit-scrollbar-button:vertical:active {
+  background-position: 0 -11px;
+}
+
+::-webkit-scrollbar-button:horizontal {
+  width: 12px;
+}
+
+::-webkit-scrollbar-button:horizontal:active {
+  background-position: -11px 0;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(scroll-up.svg);
+  border-top-color: var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom: 0;
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(scroll-down.svg);
+  border-top: 0;
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(scroll-left.svg);
+  border-top-color: var(--button-dark);
+  border-right: 0;
+  border-bottom-color: var(--button-light);
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(scroll-right.svg);
+  border-top-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-left: 0;
+}

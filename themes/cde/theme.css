@@ -1,8 +1,7 @@
 :root {
+  --preferred-font: sans-serif;
   --focus: #B24D7A;
-
   --desktop-bg: #63639C;
-
   --button-bg: #AEB2C3;
   --button-fg: #000000;
   --button-active-bg: #9397A5;
@@ -13,7 +12,6 @@
   --input-fg: #000;
   --input-dark: #99948B;
   --input-light: #CCC5BA;
-
   --dialog-button-bg: var(--button-bg);
   --dialog-button-fg: var(--button-fg);
   --dialog-button-active-bg: var(--button-active-bg);
@@ -24,15 +22,12 @@
   --dialog-input-fg: var(--input-fg);
   --dialog-input-dark: var(--input-dark);
   --dialog-input-light: var(--input-light);
-
   --select-active-bg: #000000;
   --select-active-fg: #FFFFFF;
-
   --title-bar-bg: var(--button-bg);
   --title-bar-fg: var(--button-fg);
   --title-bar-dark: var(--button-dark);
   --title-bar-light: var(--button-light);
-
   --title-bar-active-bg: #B24D7A;
   --title-bar-active-fg: #FFFFFF;
   --title-bar-active-dark: #58263C;
@@ -47,6 +42,15 @@ body {
 
 button::-moz-focus-inner {
   border: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+code {
+  font-family: monospace;
 }
 
 .desktop {
@@ -74,41 +78,214 @@ button::-moz-focus-inner {
   border-right-color: var(--button-dark);
 }
 
-button, input, textarea, select {
-  font-family: inherit;
-  font-size: inherit;
+fieldset {
+  border: 1px solid var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-right-color: var(--button-light);
+  box-shadow: inset 1px 1px 0 var(--button-light), inset -1px -1px 0 var(--button-dark);
+  position: relative;
 }
 
-details > summary:focus,
-button:focus,
-select:focus,
-input[type=text]:focus,
-textarea:focus,
-a:focus {
-  outline: 1px solid var(--focus);
-  outline-offset: 0;
+legend {
+  text-align: left;
+  padding: 0 4px;
+  background-color: var(--button-bg);
+  display: block;
 }
 
-details > summary,
-button,
-button:disabled:active {
+hr {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+}
+
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+  background: var(--button-active-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+}
+.horizontal-scrollbar > button,
+.vertical-scrollbar > button {
+  display: flex;
+  flex-shrink: 0;
+  width: 11px;
+  height: 11px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  background-color: var(--button-bg);
+}
+.horizontal-scrollbar > button:focus,
+.vertical-scrollbar > button:focus {
+  outline: none;
+}
+.horizontal-scrollbar > button:not(:disabled):active,
+.vertical-scrollbar > button:not(:disabled):active {
+  padding: 0;
+  background-color: var(--button-bg);
+  background-position: -11px 0;
+  border: 0;
+  box-shadow: none;
+  outline: none;
+}
+.horizontal-scrollbar > button:not(:disabled):active::after,
+.vertical-scrollbar > button:not(:disabled):active::after {
+  margin: 4px 0 0 4px;
+}
+.horizontal-scrollbar > .scrollbar-track,
+.vertical-scrollbar > .scrollbar-track {
+  flex-grow: 1;
+  position: relative;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  position: absolute;
+  background: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
+}
+
+.horizontal-scrollbar > button:first-child {
+  background-image: url(scroll-left.svg);
+}
+.horizontal-scrollbar > button:last-child {
+  background-image: url(scroll-right.svg);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  top: 0;
+  bottom: 0;
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 13px;
+}
+.vertical-scrollbar > button:not(:disabled):active {
+  background-position: 0 -11px;
+}
+.vertical-scrollbar > button:first-child {
+  background-image: url(scroll-up.svg);
+}
+.vertical-scrollbar > button:last-child {
+  background-image: url(scroll-down.svg);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  left: 0;
+  right: 0;
+}
+
+::-webkit-scrollbar {
+  background: var(--button-active-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+  width: 13px;
+  height: 13px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--button-bg);
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  box-shadow: inset 1px 1px var(--button-light), inset -1px -1px var(--button-dark);
+}
+::-webkit-scrollbar-thumb:vertical {
+  border-left: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-light);
+}
+::-webkit-scrollbar-thumb:horizontal {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+}
+
+::-webkit-scrollbar-button {
+  width: 13px;
+  height: 13px;
+  display: none;
+  border: 1px solid transparent;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+}
+
+::-webkit-scrollbar-button:vertical {
+  height: 12px;
+}
+
+::-webkit-scrollbar-button:vertical:active {
+  background-position: 0 -11px;
+}
+
+::-webkit-scrollbar-button:horizontal {
+  width: 12px;
+}
+
+::-webkit-scrollbar-button:horizontal:active {
+  background-position: -11px 0;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(scroll-up.svg);
+  border-top-color: var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom: 0;
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(scroll-down.svg);
+  border-top: 0;
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(scroll-left.svg);
+  border-top-color: var(--button-dark);
+  border-right: 0;
+  border-bottom-color: var(--button-light);
+  border-left-color: var(--button-dark);
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(scroll-right.svg);
+  border-top-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-left: 0;
+}
+
+button, input[type=button], input[type=submit], input[type=reset], .button {
   background-color: var(--button-bg);
   color: var(--button-fg);
   border: 1px solid var(--button-light);
   border-bottom: 1px solid var(--button-dark);
   border-right: 1px solid var(--button-dark);
   padding: 2px 4px;
+  cursor: default;
+  user-select: none;
+  text-align: center;
 }
-
-button:disabled,
-button:disabled:active,
-select:not([size]):disabled {
+button:focus, button.focus, input[type=button]:focus, input[type=button].focus, input[type=submit]:focus, input[type=submit].focus, input[type=reset]:focus, input[type=reset].focus, .button:focus, .button.focus {
+  outline: 1px solid var(--focus);
+  outline-offset: 0;
+}
+button:disabled, button.disabled, input[type=button]:disabled, input[type=button].disabled, input[type=submit]:disabled, input[type=submit].disabled, input[type=reset]:disabled, input[type=reset].disabled, .button:disabled, .button.disabled {
   color: var(--button-dark);
   text-shadow: 1px 1px 0 var(--button-light);
 }
-
-details > summary:active,
-button:active {
+button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active {
   background-color: var(--button-active-bg);
   color: var(--button-active-fg);
   border: 1px solid var(--button-light);
@@ -116,14 +293,7 @@ button:active {
   border-left: 1px solid var(--button-dark);
 }
 
-select > option {
-  padding: 2px 6px;
-}
-
-input[type=text],
-pre,
-textarea,
-select:not([size="1"]) {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input {
   background-color: var(--input-bg);
   color: var(--input-fg);
   border: 1px solid var(--input-dark);
@@ -132,23 +302,38 @@ select:not([size="1"]) {
   padding: 2px 6px;
   font-family: inherit;
   font-size: inherit;
+  outline: none;
 }
-
-input::selection,
-textarea::selection {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection {
   background-color: var(--input-fg);
   color: var(--input-bg);
 }
-
-select:not([size="1"]) {
-  padding: 0;
-}
-
-input[type=text]:disabled,
-textarea:disabled,
-select:not([size="1"]):disabled {
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled {
   color: var(--input-dark);
   text-shadow: 1px 1px 0 var(--input-light);
+}
+
+select[multiple], select[size]:not([size="1"]) {
+  padding: 0;
+  background: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 2px solid var(--button-light);
+  border-top: 2px solid var(--button-dark);
+  border-left: 2px solid var(--button-dark);
+}
+select[multiple] > option, select[size]:not([size="1"]) > option {
+  padding: 2px 6px;
+}
+select[multiple] > option:checked, select[size]:not([size="1"]) > option:checked {
+  background-color: #FFFFFF;
+  color: #000000;
+}
+select[multiple]:focus, select[size]:not([size="1"]):focus {
+  outline: none;
+}
+select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > option:checked {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
 }
 
 select:not([size]),
@@ -159,7 +344,7 @@ select[size="1"]:disabled:active {
   -webkit-appearance: none;
   appearance: none;
   background-color: var(--button-bg);
-  background-image: url(select.png);
+  background-image: url(select.svg);
   background-repeat: no-repeat;
   background-position: right 8px center;
   color: var(--button-fg);
@@ -167,6 +352,12 @@ select[size="1"]:disabled:active {
   border-bottom: 1px solid var(--button-dark);
   border-right: 1px solid var(--button-dark);
   padding: 2px 25px 2px 4px;
+}
+select:not([size]):focus,
+select[size="1"]:focus,
+select:not([size]):disabled:active:focus,
+select[size="1"]:disabled:active:focus {
+  outline: 1px solid var(--focus);
 }
 
 select:not([size]):disabled,
@@ -199,12 +390,13 @@ input[type=checkbox]:disabled:active {
   border-right: 1px solid var(--button-dark);
   width: 12px;
   height: 12px;
+  border-radius: 0;
 }
 
 input[type=checkbox]:checked,
 input[type=checkbox]:active,
 input[type=checkbox]:checked:disabled:active {
-  background: var(--button-active-bg) url(checkmark.gif);
+  background: var(--button-active-bg) url(checkmark.svg);
   color: var(--button-active-fg);
   border: 1px solid var(--button-light);
   border-top: 1px solid var(--button-dark);
@@ -245,7 +437,7 @@ input[type=radio]:checked:disabled:active {
 
 input[type=radio]:checked::after,
 input[type=radio]:active::after {
-  content: '';
+  content: "";
   display: block;
   width: 10px;
   height: 10px;
@@ -261,8 +453,18 @@ input[type=radio]:disabled:not(:checked):active::after {
 
 input[type=radio]:focus + label,
 input[type=checkbox]:focus + label {
-  outline: 1px solid var(--focus);
-  outline-offset: 1px;
+  position: relative;
+}
+input[type=radio]:focus + label::after,
+input[type=checkbox]:focus + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(var(--spacing) - 1px);
+  right: 0;
+  bottom: 0;
+  border: 1px solid var(--focus);
 }
 
 input[type=radio]:focus,
@@ -276,11 +478,59 @@ label > input[type=checkbox]:focus {
   outline-offset: 1px;
 }
 
-code {
-  font-family: monospace;
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  height: 17px;
+}
+input[type=range]:focus {
+  outline: 2px solid var(--focus);
+}
+input[type=range]::-moz-range-track {
+  height: 15px;
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+}
+input[type=range]::-moz-range-thumb {
+  border-radius: 0;
+  height: 13px;
+  width: 28px;
+  background: var(--button-bg);
+  background-image: linear-gradient(to right, var(--button-dark), var(--button-dark) 50%, var(--button-light) 50%, var(--button-light));
+  background-size: 2px 13px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 15px;
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border-radius: 0;
+  height: 13px;
+  width: 28px;
+  background: var(--button-bg);
+  background-image: linear-gradient(to right, var(--button-dark), var(--button-dark) 50%, var(--button-light) 50%, var(--button-light));
+  background-size: 2px 13px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
 }
 
-progress {
+progress,
+.progress-bar {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -288,66 +538,97 @@ progress {
   border: 1px solid var(--button-dark);
   border-bottom: 1px solid var(--button-light);
   border-right: 1px solid var(--button-light);
+  height: 16px;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar:not([aria-valuenow])::after, .progress-bar > .progress-bar-value {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--button-active-bg);
+}
+.progress-bar:not([aria-valuenow])::after {
+  width: 50%;
+  animation: 1s infinite linear indeterminate;
 }
 
 progress::-webkit-progress-bar {
   background: var(--button-bg);
 }
 
-progress::-webkit-progress-value,
+progress::-webkit-progress-value {
+  background: var(--button-active-bg);
+}
+
 progress::-moz-progress-bar {
   background: var(--button-active-bg);
 }
 
-fieldset {
-  border: 1px solid var(--button-dark);
-  border-bottom-color: var(--button-light);
-  border-right-color: var(--button-light);
-  box-shadow: inset 1px 1px 0 var(--button-light), inset -1px -1px 0 var(--button-dark);
-  position: relative;
+progress:indeterminate::-moz-progress-bar {
+  width: 50%;
+  animation: 1s infinite linear indeterminate;
 }
 
-legend {
-  text-align: left;
-  padding: 0 4px;
-  background-color: var(--button-bg);
-  display: block;
+progress:not([value])::-webkit-progress-value {
+  width: 50%;
+  animation: 1s infinite linear indeterminate;
 }
 
-hr {
-  border-top: 1px solid var(--button-dark);
-  border-bottom: 1px solid var(--button-light);
+@keyframes indeterminate {
+  from {
+    margin-left: -50%;
+  }
+  to {
+    margin-left: 100%;
+  }
 }
-
 .window,
 .dialog,
 .menu {
-  background: var(--title-bar-active-bg);
-  border: 2px solid var(--title-bar-active-light);
-  border-bottom: 2px solid var(--title-bar-active-dark);
-  border-right: 2px solid var(--title-bar-active-dark);
+  background: var(--title-bar-bg);
+  border: 2px solid var(--title-bar-light);
+  border-bottom: 2px solid var(--title-bar-dark);
+  border-right: 2px solid var(--title-bar-dark);
   position: relative;
   padding: 2px;
 }
 
-.title-bar {
+.window.active,
+.window:focus-within,
+.dialog.active,
+.dialog:focus-within,
+.menu {
   background: var(--title-bar-active-bg);
-  color: var(--title-bar-active-fg);
-  border-top: 1px solid var(--title-bar-active-dark);
-  border-left: 1px solid var(--title-bar-active-dark);
-  border-right: 1px solid var(--title-bar-active-light);
+  border-color: var(--title-bar-active-light);
+  border-bottom-color: var(--title-bar-active-dark);
+  border-right-color: var(--title-bar-active-dark);
+}
+
+.title-bar {
+  background: var(--title-bar-bg);
+  color: var(--title-bar-fg);
+  border-top: 1px solid var(--title-bar-dark);
+  border-left: 1px solid var(--title-bar-dark);
+  border-right: 1px solid var(--title-bar-light);
   display: flex;
   flex-direction: row;
 }
 
 .title-bar-text {
   text-align: center;
-  border: 1px solid var(--title-bar-active-light);
-  border-bottom: 1px solid var(--title-bar-active-dark);
-  border-right: 1px solid var(--title-bar-active-dark);
+  border: 1px solid var(--title-bar-light);
+  border-bottom: 1px solid var(--title-bar-dark);
+  border-right: 1px solid var(--title-bar-dark);
   padding: 2px var(--padding);
   flex-grow: 1;
-  cursor: default
+  cursor: default;
 }
 
 .title-bar-buttons {
@@ -359,9 +640,9 @@ hr {
 .title-bar-buttons button {
   flex-shrink: 0;
   background-color: transparent;
-  border: 1px solid var(--title-bar-active-light);
-  border-bottom: 1px solid var(--title-bar-active-dark);
-  border-right: 1px solid var(--title-bar-active-dark);
+  border: 1px solid var(--title-bar-light);
+  border-bottom: 1px solid var(--title-bar-dark);
+  border-right: 1px solid var(--title-bar-dark);
   width: 26px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -370,88 +651,101 @@ hr {
 .title-bar-buttons button:active,
 .title-bar-text:active {
   background-color: transparent;
-  border-color: var(--title-bar-active-dark);
-  border-bottom-color: var(--title-bar-active-light);
-  border-right-color: var(--title-bar-active-light);
+  border-color: var(--title-bar-dark);
+  border-bottom-color: var(--title-bar-light);
+  border-right-color: var(--title-bar-light);
   outline: none;
 }
 
 .title-bar-buttons button[data-close] {
-  background-image: url(close.png);
+  background-image: url(close.svg);
 }
 
 .title-bar-buttons button[data-minimize] {
-  background-image: url(minimize.png);
+  background-image: url(minimize.svg);
 }
 
 .title-bar-buttons button[data-maximize] {
-  background-image: url(maximize.png);
+  background-image: url(maximize.svg);
 }
 
 .maximized .title-bar-buttons button[data-maximize] {
-  background-image: url(restore.png);
+  background-image: url(restore.svg);
+}
+
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.menu > .title-bar,
+.title-bar.active {
+  background: var(--title-bar-active-bg);
+  color: var(--title-bar-active-fg);
+  border-top-color: var(--title-bar-active-dark);
+  border-left-color: var(--title-bar-active-dark);
+  border-right-color: var(--title-bar-active-light);
+}
+
+.window.active > .title-bar .title-bar-text,
+.window.active > .title-bar .title-bar-buttons button,
+.window:focus-within > .title-bar .title-bar-text,
+.window:focus-within > .title-bar .title-bar-buttons button,
+.dialog.active > .title-bar .title-bar-text,
+.dialog.active > .title-bar .title-bar-buttons button,
+.dialog:focus-within > .title-bar .title-bar-text,
+.dialog:focus-within > .title-bar .title-bar-buttons button,
+.menu.active > .title-bar .title-bar-text,
+.menu.active > .title-bar .title-bar-buttons button,
+.menu:focus-within > .title-bar .title-bar-text,
+.menu:focus-within > .title-bar .title-bar-buttons button,
+.title-bar.active .title-bar-text,
+.title-bar.active .title-bar-buttons button {
+  border-color: var(--title-bar-active-light);
+  border-bottom-color: var(--title-bar-active-dark);
+  border-right-color: var(--title-bar-active-dark);
+}
+
+.window.active > .title-bar .title-bar-buttons button:active,
+.window:focus-within > .title-bar .title-bar-buttons button:active,
+.window.active > .title-bar .title-bar-text:active,
+.window:focus-within > .title-bar .title-bar-text:active,
+.dialog.active > .title-bar .title-bar-buttons button:active,
+.dialog:focus-within > .title-bar .title-bar-buttons button:active,
+.dialog.active > .title-bar .title-bar-text:active,
+.dialog:focus-within > .title-bar .title-bar-text:active,
+.menu.active > .title-bar .title-bar-buttons button:active,
+.menu:focus-within > .title-bar .title-bar-buttons button:active,
+.menu.active > .title-bar .title-bar-text:active,
+.menu:focus-within > .title-bar .title-bar-text:active,
+.title-bar.active .title-bar-buttons button:active,
+.title-bar.active .title-bar-text:active {
+  border-color: var(--title-bar-active-dark);
+  border-bottom-color: var(--title-bar-active-light);
+  border-right-color: var(--title-bar-active-light);
 }
 
 .window-body,
 .dialog-body {
   background: var(--button-bg);
   color: var(--button-fg);
-  border-left: 1px solid var(--title-bar-active-dark);
-  border-bottom: 1px solid var(--title-bar-active-light);
-  border-right: 1px solid var(--title-bar-active-light);
+  border-left: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+  border-right: 1px solid var(--button-light);
+}
+
+.window.active > .window-body,
+.window:focus-within > .window-body,
+.dialog.active > .dialog-body,
+.dialog:focus-within > .dialog-body {
+  background: var(--button-bg);
+  border-left-color: var(--title-bar-active-dark);
+  border-bottom-color: var(--title-bar-active-light);
+  border-right-color: var(--title-bar-active-light);
 }
 
 .window-body:first-child,
 .dialog-body:first-child {
   border-top: 1px solid var(--title-bar-active-dark);
-}
-
-.window.inactive,
-.dialog.inactive {
-  background: var(--title-bar-bg);
-  border-color: var(--title-bar-light);
-  border-bottom-color: var(--title-bar-dark);
-  border-right-color: var(--title-bar-dark);
-}
-
-.window.inactive > .title-bar,
-.dialog.inactive > .title-bar,
-.title-bar.inactive {
-  background: var(--title-bar-bg);
-  color: var(--title-bar-fg);
-  border-top-color: var(--title-bar-dark);
-  border-left-color: var(--title-bar-dark);
-  border-right-color: var(--title-bar-light);
-}
-
-.window.inactive > .title-bar .title-bar-text,
-.window.inactive > .title-bar .title-bar-buttons button,
-.dialog.inactive > .title-bar .title-bar-text,
-.dialog.inactive > .title-bar .title-bar-buttons button,
-.title-bar.inactive .title-bar-text,
-.title-bar.inactive .title-bar-buttons button {
-  border-color: var(--title-bar-light);
-  border-bottom-color: var(--title-bar-dark);
-  border-right-color: var(--title-bar-dark);
-}
-
-.window.inactive > .title-bar .title-bar-buttons button:active,
-.dialog.inactive > .title-bar .title-bar-buttons button:active,
-.title-bar.inactive .title-bar-buttons button:active,
-.window.inactive > .title-bar .title-bar-text:active,
-.dialog.inactive > .title-bar .title-bar-text:active,
-.title-bar.inactive .title-bar-text:active {
-  border-color: var(--title-bar-dark);
-  border-bottom-color: var(--title-bar-light);
-  border-right-color: var(--title-bar-light);
-}
-
-.window.inactive > .window-body,
-.dialog.inactive > .dialog-body {
-  background: var(--button-bg);
-  border-left-color: var(--button-dark);
-  border-bottom-color: var(--button-light);
-  border-right-color: var(--button-light);
 }
 
 .window-body > [role=menubar],
@@ -476,6 +770,33 @@ hr {
   border-right-color: var(--button-dark);
   border-bottom-color: var(--button-dark);
 }
+[role=menu] li,
+[role=menubar] li {
+  border: 1px solid transparent;
+  padding: 1px 3px;
+}
+[role=menu] li:focus,
+[role=menubar] li:focus {
+  outline: none;
+}
+[role=menu] li:focus-within,
+[role=menubar] li:focus-within {
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+  background-color: var(--button-active-bg);
+}
+[role=menu] li:focus-within > ul,
+[role=menubar] li:focus-within > ul {
+  display: block;
+}
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+  border-color: transparent;
+  background-color: var(--button-bg);
+}
 
 .menu > [role=menu] {
   border-top: 0;
@@ -486,25 +807,84 @@ hr {
   padding: 1px;
 }
 
-[role=menu] li,
-[role=menubar] li {
-  border: 1px solid transparent;
-  padding: 1px 3px;
+[role=menu] li {
+  padding: 1px 3px 1px 19px;
 }
-
 [role=menu] li[data-shortcut]::after {
   float: right;
   content: attr(data-shortcut);
   display: block;
   margin-left: 4px;
 }
-
 [role=menu] li > ul {
   left: 100%;
   margin: 0;
   top: -1px;
   margin-left: 2px;
   min-width: 200px;
+}
+[role=menu] li[role=separator] {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+  height: 0;
+  padding: 0;
+}
+[role=menu] li[role=checkbox]::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  margin-top: -4px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  box-shadow: inset 1px 1px var(--button-dark), inset -1px -1px var(--button-light);
+}
+[role=menu] li[role=checkbox][aria-checked=true]::after {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  margin-top: -4px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: currentColor;
+  -webkit-mask-image: url(checkmark.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 8px 8px;
+  mask-image: url(checkmark.svg);
+  mask-repeat: no-repeat;
+  mask-size: 8px 8px;
+}
+[role=menu] li[role=radio]::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  margin-top: -4px;
+  display: block;
+  width: 8px;
+  height: 8px;
+  box-shadow: inset 1px 1px var(--button-dark), inset -1px -1px var(--button-light);
+  border-radius: 50%;
+}
+[role=menu] li[role=radio][aria-checked=true]::after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 50%;
+  margin-top: -3px;
+  display: block;
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+  border-radius: 50%;
+}
+[role=menu] li[aria-haspopup=true] {
+  background-image: url(arrow-right.svg);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
 }
 
 [role=menubar] > li > ul {
@@ -514,50 +894,9 @@ hr {
   margin-top: 1px;
   min-width: 200px;
 }
-
-[role=menu] li:focus,
-[role=menubar] li:focus {
-  outline: none;
-}
-
-[role=menu] li:focus-within,
-[role=menubar] li:focus-within {
-  border: 1px solid var(--button-dark);
-  border-right-color: var(--button-light);
-  border-bottom-color: var(--button-light);
-  background-color: var(--button-active-bg);
-}
-
-[role=menu] li:focus-within > ul,
-[role=menubar] li:focus-within > ul {
-  display: block;
-}
-
-[role=menu] li[aria-disabled],
-[role=menubar] li[aria-disabled] {
-  color: var(--button-dark);
-  text-shadow: 1px 1px 0 var(--button-light);
-  border-color: transparent;
-  background-color: var(--button-bg);
-}
-
-[role=menu] li[role=separator] {
-  border-top: 1px solid var(--button-dark);
-  border-bottom: 1px solid var(--button-light);
-  height: 0;
-  padding: 0;
-}
-
-[role=menu] > li[aria-haspopup=true] {
-  background-image: url(arrow-right.png);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-}
-
 [role=menubar] > li.help-menu {
   margin-left: auto;
 }
-
 [role=menubar] > li.help-menu > ul {
   right: 0;
   left: auto;
@@ -589,16 +928,17 @@ hr {
 
 .tabs > menu > button:focus,
 .tabs > menu > button:active {
+  border-bottom: 0;
 }
 
-.tabs > menu > button[aria-selected="true"] {
+.tabs > menu > button[aria-selected=true] {
   margin-bottom: -1px;
   padding-bottom: 3px;
   box-shadow: none;
   z-index: 1;
 }
 
-.tabs > [role="tabpanel"] {
+.tabs > [role=tabpanel] {
   background: var(--button-bg);
   border: 1px solid var(--button-light);
   border-bottom-color: var(--button-dark);
@@ -615,17 +955,17 @@ hr {
   cursor: default;
 }
 
-.list > [role="option"] {
+.list > [role=option] {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
 
-.list > [role="option"][aria-selected="true"] {
+.list > [role=option][aria-selected=true] {
   background-color: #FFFFFF;
   color: #000000;
 }
 
-.list > [role="option"]:focus {
+.list > [role=option]:focus {
   outline: 2px solid var(--focus);
   outline-offset: -2px;
 }
@@ -673,12 +1013,12 @@ hr {
   border-color: var(--focus);
 }
 
-.icon-grid > .icon[aria-selected="true"] > img {
+.icon-grid > .icon[aria-selected=true] > img {
   background-color: #ffffff;
   color: #000000;
 }
 
-.icon-grid > .icon[aria-selected="true"] > .icon-label {
+.icon-grid > .icon[aria-selected=true] > .icon-label {
   background-color: #ffffff;
   color: #000000;
 }
@@ -709,7 +1049,7 @@ hr {
   outline-offset: -2px;
 }
 
-.detailed tr[aria-selected="true"] {
+.detailed tr[aria-selected=true] {
   background-color: #ffffff;
   color: #000000;
 }
@@ -719,7 +1059,7 @@ hr {
   outline: 2px solid var(--focus);
 }
 
-.detailed .icon[aria-selected="true"] {
+.detailed .icon[aria-selected=true] {
   background-color: #ffffff;
   color: #000000;
 }

@@ -1,0 +1,291 @@
+@use '../../util/util';
+
+#{util.$textInputs},
+select,
+.dropdown {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+
+  &::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  &[readonly], &.readonly {
+    background: var(--window-bg);
+  }
+
+  &:disabled, &.disabled {
+    background: var(--window-bg);
+    color: var(--dark);
+    text-shadow: 1px 1px 0 var(--lightest);
+  }
+}
+
+#{util.$multiSelects} {
+  padding: 1px;
+
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+  }
+
+  &:focus > option:checked {
+    outline: 1px dotted var(--selection-inverse);
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+}
+
+#{util.$singleSelects}:not(:active):focus {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light),
+    inset 2px 2px 0 var(--input-bg), inset -2px -2px 0 var(--input-bg);
+}
+
+.dropdown {
+  display: inline-grid;
+  padding: 0;
+  grid-template-areas: 's';
+
+  & > select {
+    appearance: none;
+    grid-area: s;
+    padding-right: 21px;
+
+    &:not(:disabled):active {
+      background: var(--input-bg);
+      color: var(--input-fg);
+
+      & + .dropdown-button {
+        border: 1px solid var(--dark);
+        box-shadow: none;
+        margin: 2px 0 0 1px;
+      }
+    }
+
+    &:disabled {
+      & + .dropdown-button {
+        box-shadow: inset -1px -1px var(--dark), inset 1px 1px var(--lightest);
+        &::after {
+          background: var(--dark);
+          filter: drop-shadow(1px 1px var(--lightest));
+        }
+      }
+    }
+  }
+
+  & > .dropdown-button {
+    justify-self: end;
+    grid-area: s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1px;
+    background-color: var(--button-bg);
+    color: var(--button-fg);
+    border: 1px solid var(--darkest);
+    border-top: 1px solid var(--light);
+    border-left: 1px solid var(--light);
+    box-shadow: inset -1px -1px var(--dark), inset 1px 1px var(--lightest), -1px 0 var(--input-bg);
+    width: 16px;
+    pointer-events: none;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 4px;
+      -webkit-mask-image: url(arrow-down.svg);
+      -webkit-mask-repeat: no-repeat;
+      mask-image: url(arrow-down.svg);
+      mask-repeat: no-repeat;
+      background: #000;
+    }
+  }
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--input-bg);
+  color: var(--darkest);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  width: 13px;
+  height: 13px;
+  border-radius: 0;
+
+  &:active, &:disabled, &.active, &.disabled {
+    background: var(--window-bg);
+  }
+
+  &:checked, &.checked {
+    &::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      margin: 2px 0 0 2px;
+      background: currentColor;
+      -webkit-mask-image: url(checkmark.svg);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 7px 7px;
+      mask-image: url(checkmark.svg);
+      mask-repeat: no-repeat;
+      mask-size: 7px 7px;
+    }
+  }
+
+  &:disabled, &.disabled {
+    color: var(--dark);
+  }
+
+  &:disabled + label, &.disabled + label {
+    color: var(--dark);
+    text-shadow: 1px 1px 0 var(--lightest);
+  }
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--input-bg);
+  color: var(--darkest);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+
+  &:active, &:disabled, &.active, &.disabled {
+    background: var(--window-bg);
+  }
+
+  &:checked::after, &.checked::after {
+    content: '';
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: currentColor;
+    margin-top: 3px;
+    margin-left: 3px;
+  }
+
+  &:disabled, &.disabled {
+    color: var(--dark);
+  }
+
+  &:disabled + label, &.disabled + label {
+    color: var(--dark);
+    text-shadow: 1px 1px 0 var(--lightest);
+  }
+}
+
+input[type=checkbox],
+input[type=radio] {
+  &:focus, &.focus {
+    outline: none;
+
+    & + label {
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: calc(var(--spacing) - 1px);
+        right: 0;
+        bottom: 0;
+        border: 1px dotted var(--darkest);
+        border-radius: 1px;
+      }
+    }
+  }
+}
+
+label > input[type=radio],
+label > input[type=checkbox] {
+  &:focus, &.focus {
+    outline: 1px dotted var(--darkest);
+    outline-offset: 1px;
+  }
+}
+
+@mixin range-track {
+  height: 2px;
+  background: var(--light);
+  border: 1px solid var(--lightest);
+  border-top: 1px solid var(--dark);
+  border-left: 1px solid var(--dark);
+  box-shadow: inset 1px 1px 0 var(--darkest);
+  margin: 0 5px;
+}
+
+@mixin range-thumb {
+  border-radius: 0;
+  background: var(--button-bg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  width: 11px;
+  height: 21px;
+  box-shadow: inset -1px -1px 0 var(--dark);
+
+  &:active {
+    background-color: var(--window-bg);
+    background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+    background-size: 2px 2px;
+    background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  }
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; 
+  padding: 2px;
+
+  &:focus {
+    outline: 1px dotted var(--darkest);
+  }
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+    margin: 10px 5px;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    margin-top: -11px;
+    @include range-thumb;
+  }
+}

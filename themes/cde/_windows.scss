@@ -1,0 +1,174 @@
+.window,
+.dialog,
+.menu {
+  background: var(--title-bar-bg);
+  border: 2px solid var(--title-bar-light);
+  border-bottom: 2px solid var(--title-bar-dark);
+  border-right: 2px solid var(--title-bar-dark);
+  position: relative;
+  padding: 2px;
+}
+
+.window.active,
+.window:focus-within,
+.dialog.active,
+.dialog:focus-within,
+.menu {
+  background: var(--title-bar-active-bg);
+  border-color: var(--title-bar-active-light);
+  border-bottom-color: var(--title-bar-active-dark);
+  border-right-color: var(--title-bar-active-dark);
+}
+
+.title-bar {
+  background: var(--title-bar-bg);
+  color: var(--title-bar-fg);
+  border-top: 1px solid var(--title-bar-dark);
+  border-left: 1px solid var(--title-bar-dark);
+  border-right: 1px solid var(--title-bar-light);
+  display: flex;
+  flex-direction: row;
+}
+
+.title-bar-text {
+  text-align: center;
+  border: 1px solid var(--title-bar-light);
+  border-bottom: 1px solid var(--title-bar-dark);
+  border-right: 1px solid var(--title-bar-dark);
+  padding: 2px var(--padding);
+  flex-grow: 1;
+  cursor: default
+}
+
+.title-bar-buttons {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.title-bar-buttons button {
+  flex-shrink: 0;
+  background-color: transparent;
+  border: 1px solid var(--title-bar-light);
+  border-bottom: 1px solid var(--title-bar-dark);
+  border-right: 1px solid var(--title-bar-dark);
+  width: 26px;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.title-bar-buttons button:active,
+.title-bar-text:active {
+  background-color: transparent;
+  border-color: var(--title-bar-dark);
+  border-bottom-color: var(--title-bar-light);
+  border-right-color: var(--title-bar-light);
+  outline: none;
+}
+
+.title-bar-buttons button[data-close] {
+  background-image: url(close.svg);
+}
+
+.title-bar-buttons button[data-minimize] {
+  background-image: url(minimize.svg);
+}
+
+.title-bar-buttons button[data-maximize] {
+  background-image: url(maximize.svg);
+}
+
+.maximized .title-bar-buttons button[data-maximize] {
+  background-image: url(restore.svg);
+}
+
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.menu > .title-bar,
+.title-bar.active {
+  background: var(--title-bar-active-bg);
+  color: var(--title-bar-active-fg);
+  border-top-color: var(--title-bar-active-dark);
+  border-left-color: var(--title-bar-active-dark);
+  border-right-color: var(--title-bar-active-light);
+}
+
+.window.active > .title-bar .title-bar-text,
+.window.active > .title-bar .title-bar-buttons button,
+.window:focus-within > .title-bar .title-bar-text,
+.window:focus-within > .title-bar .title-bar-buttons button,
+.dialog.active > .title-bar .title-bar-text,
+.dialog.active > .title-bar .title-bar-buttons button,
+.dialog:focus-within > .title-bar .title-bar-text,
+.dialog:focus-within > .title-bar .title-bar-buttons button,
+.menu.active > .title-bar .title-bar-text,
+.menu.active > .title-bar .title-bar-buttons button,
+.menu:focus-within > .title-bar .title-bar-text,
+.menu:focus-within > .title-bar .title-bar-buttons button,
+.title-bar.active .title-bar-text,
+.title-bar.active .title-bar-buttons button {
+  border-color: var(--title-bar-active-light);
+  border-bottom-color: var(--title-bar-active-dark);
+  border-right-color: var(--title-bar-active-dark);
+}
+
+.window.active > .title-bar .title-bar-buttons button:active,
+.window:focus-within > .title-bar .title-bar-buttons button:active,
+.window.active > .title-bar .title-bar-text:active,
+.window:focus-within > .title-bar .title-bar-text:active,
+.dialog.active > .title-bar .title-bar-buttons button:active,
+.dialog:focus-within > .title-bar .title-bar-buttons button:active,
+.dialog.active > .title-bar .title-bar-text:active,
+.dialog:focus-within > .title-bar .title-bar-text:active,
+.menu.active > .title-bar .title-bar-buttons button:active,
+.menu:focus-within > .title-bar .title-bar-buttons button:active,
+.menu.active > .title-bar .title-bar-text:active,
+.menu:focus-within > .title-bar .title-bar-text:active,
+.title-bar.active .title-bar-buttons button:active,
+.title-bar.active .title-bar-text:active {
+  border-color: var(--title-bar-active-dark);
+  border-bottom-color: var(--title-bar-active-light);
+  border-right-color: var(--title-bar-active-light);
+}
+
+.window-body,
+.dialog-body {
+  background: var(--button-bg);
+  color: var(--button-fg);
+  border-left: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+  border-right: 1px solid var(--button-light);
+}
+
+.window.active > .window-body,
+.window:focus-within > .window-body,
+.dialog.active > .dialog-body,
+.dialog:focus-within > .dialog-body {
+  background: var(--button-bg);
+  border-left-color: var(--title-bar-active-dark);
+  border-bottom-color: var(--title-bar-active-light);
+  border-right-color: var(--title-bar-active-light);
+}
+
+.window-body:first-child,
+.dialog-body:first-child {
+  border-top: 1px solid var(--title-bar-active-dark);
+}
+
+.window-body > [role=menubar],
+.dialog-body > [role=menubar] {
+  padding-left: calc(var(--margin) - 4px);
+  padding-right: calc(var(--margin) - 4px);
+}
+
+.window-body > :not([role=menubar]),
+.dialog-body > :not([role=menubar]) {
+  background: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-bottom-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+}
+
+

@@ -1,0 +1,112 @@
+[role=menubar] {
+  color: #000;
+  background-color: #ddd;
+
+  & > li > ul {
+    left: 0;
+    top: 100%;
+    min-width: 200px;
+  }
+}
+
+[role=menu] {
+  color: #000;
+  background-color: #ddd;
+  border: 1px solid #000;
+  box-shadow: inset 1px 1px #fff, inset -1px -1px #888, 1px 1px #000;
+
+  li {
+    padding: 1px 3px 1px 21px;
+
+    &[data-shortcut]::after {
+      float: right;
+      content: attr(data-shortcut);
+      display: block;
+      margin-left: 4px;
+    }
+
+    & > ul {
+      left: 100%;
+      margin: 0;
+      top: -1px;
+      min-width: 200px;
+    }
+
+
+    &[role=separator] {
+      border-top: 1px solid #888;
+      border-bottom: 1px solid #fff;
+      height: 0;
+      padding: 0;
+      margin: 2px 0;
+    }
+
+    &[role=checkbox],
+    &[role=radio] {
+      &[aria-checked=true]::before {
+        content: '';
+        position: absolute;
+        left: 3px;
+        top: 50%;
+        margin-top: -4px;
+        display: block;
+        width: 9px;
+        height: 8px;
+        background: currentColor;
+        -webkit-mask-image: url(checkmark.svg);
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-size: 7px 7px;
+        mask-image: url(checkmark.svg);
+        mask-repeat: no-repeat;
+        mask-size: 9px 8px;
+      }
+    }
+
+    &[aria-haspopup=true] {
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 8px;
+        top: 0;
+        bottom: 0;
+        width: 6px;
+        background: currentColor;
+        -webkit-mask-image: url(menu-right.svg);
+        -webkit-mask-size: 6px 11px;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center center;
+        mask-image: url(menu-right.svg);
+        mask-size: 6px 11px;
+        mask-repeat: no-repeat;
+        mask-position: center center;
+      }
+    }
+  }
+}
+
+.menu > [role=menu] {
+  border: 0;
+  border-top: 1px solid #555;
+}
+
+[role=menu] li:focus,
+[role=menubar] li:focus {
+  outline: none;
+}
+
+[role=menubar] > li {
+  padding: 1px 8px;
+}
+
+[role=menu] li:focus-within,
+[role=menubar] li:focus-within {
+  background: var(--primary-2);
+  box-shadow: inset 1px 0 var(--primary-3), inset -1px 0 #008;
+  color: #fff;
+}
+
+[role=menu] li[aria-disabled],
+[role=menubar] li[aria-disabled] {
+  color: #777;
+}

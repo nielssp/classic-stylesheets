@@ -1,0 +1,175 @@
+.list {
+  background: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--light);
+  padding: 1px;
+  overflow: auto;
+  cursor: default;
+
+  & > [role="option"] {
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
+
+    &[aria-selected="true"] {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+
+    &:focus {
+      outline: 1px dotted var(--darkest);
+      outline-offset: -1px;
+    }
+
+    &[aria-selected="true"]:focus {
+      outline: 1px dotted var(--selection-inverse);
+    }
+  }
+
+  &:focus-within > [role="option"][aria-selected="true"] {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+}
+
+.icon-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 128px);
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & > .icon {
+    flex: 0 0 128px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px;
+
+
+    & > .icon-label {
+      margin-top: 5px;
+      text-align: center;
+      padding: 1px 1px;
+    }
+
+    &:focus {
+      outline: none;
+      & > .icon-label {
+        outline: 1px dotted var(--darkest);
+        outline-offset: -1px;
+      }
+    }
+
+    &[aria-selected="true"] {
+      & > .icon-label {
+        background-color: var(--window-bg);
+        color: var(--window-fg);
+      }
+      &:focus > .icon-label {
+        outline: 1px dotted var(--selection-inverse);
+      }
+    }
+  }
+
+  &:focus-within > .icon[aria-selected="true"] > .icon-label {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+}
+
+.detailed {
+  width: 100%;
+  border-spacing: 0;
+
+
+  th {
+    text-align: left;
+    font-weight: normal;
+    background-color: var(--button-bg);
+    color: var(--button-fg);
+    border: 1px solid var(--darkest);
+    border-top: 1px solid var(--lightest);
+    border-left: 1px solid var(--lightest);
+    box-shadow: inset -1px -1px 0 var(--dark);
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
+  }
+
+  tr {
+    outline: none;
+
+    &:focus {
+      outline: 1px dotted var(--darkest);
+      outline-offset: -1px;
+    }
+
+    &[aria-selected="true"] {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+
+      &:focus {
+        outline: 1px dotted var(--selection-inverse);
+      }
+    }
+  }
+
+  &:focus-within tr[aria-selected="true"] {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  &:focus-within .icon[aria-selected="true"] .icon-label {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  td {
+    padding: 2px 6px 2px 6px;
+    white-space: nowrap;
+
+    &.icon {
+      display: flex;
+    }
+  }
+
+  .icon {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    outline: none;
+
+    & > img {
+      width: 16px;
+      height: 16px;
+      margin-right: 1px;
+      margin-left: -4px;
+    }
+
+    & > .icon-label {
+      text-align: center;
+      padding: 1px 3px;
+    }
+
+    &:focus .icon-label {
+      outline: 1px dotted var(--darkest);
+      outline-offset: -1px;
+    }
+
+    &[aria-selected="true"] > .icon-label {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+
+    &[aria-selected="true"]:focus > .icon-label {
+      outline: 1px dotted var(--selection-inverse);
+    }
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+  }
+}
+

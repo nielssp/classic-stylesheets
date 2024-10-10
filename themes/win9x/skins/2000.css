@@ -1,4 +1,6 @@
 :root {
+  --preferred-font: 'Tahoma';
+
   --desktop-bg: #3A6EA5;
 
   --window-bg: #D4D0C8;
@@ -6,7 +8,7 @@
 
   --lightest: #FFFFFF;
   --lighter: #E0E0E0;
-  --light: #DFDFDF;
+  --light: var(--window-bg);
   --medium: #C0C0C0;
   --dark: #808080;
   --darker: #404040;
@@ -21,8 +23,12 @@
   --title-bar-active-bg: linear-gradient(to right, #000080, #A6CAF0);
   --title-bar-active-fg: #FFFFFF;
 
-  --selection-bg: #000080;
+  --selection-bg: #0A246A;
   --selection-fg: #FFFFFF;
-  --selection-inverse: #FFFF7F;
+  --selection-inverse: #F5DB95;
 }
 
+.menu > .title-bar {
+  background: linear-gradient(to bottom, #0000ff, #000000 225px, #000000);
+  color: #ffffff;
+}

@@ -1,0 +1,111 @@
+.title-bar {
+  background: #ddd;
+  color: #777;
+  display: flex;
+  gap: 5px;
+
+
+  .title-bar-text {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: 4px;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: default;
+
+    &::before,
+    &::after {
+      display: block;
+      content: '';
+      flex-grow: 1;
+      height: 12px;
+    }
+  }
+}
+
+.window,
+.dialog {
+  padding: 2px 4px 4px;
+  border: 1px solid #555;
+  background: #ddd;
+}
+
+.window.active,
+.window:focus-within,
+.dialog.active,
+.dialog:focus-within,
+.menu {
+  background: var(--window-frame-bg);
+  border: 1px solid #000000;
+  box-shadow: 1px 1px 0 #000000, inset 1px 0 0 #fff, inset 0 1px 0 #fff, inset -1px 0 0 #999, inset 0 -1px 0 #999;
+}
+
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.menu > .title-bar,
+.title-bar.active {
+  background: var(--window-frame-bg);
+  color: #000;
+
+  & > .title-bar-text::before,
+  & > .title-bar-text::after {
+    background: repeating-linear-gradient(0deg, #fff, #fff 1px, #777 1px, #777 2px);
+  }
+}
+
+.title-bar-buttons {
+  display: flex;
+  gap: 5px;
+  visibility: hidden;
+}
+
+.window.active > .title-bar > .title-bar-buttons,
+.window:focus-within > .title-bar > .title-bar-buttons,
+.dialog.active > .title-bar > .title-bar-buttons,
+.dialog:focus-within > .title-bar > .title-bar-buttons,
+.title-bar.active > .title-bar-buttons {
+  visibility: visible;
+}
+
+.title-bar-buttons:first-child {
+  margin-left: -1px;
+}
+
+.title-bar-buttons:last-child {
+  margin-right: -1px;
+}
+
+.title-bar-buttons button {
+  width: 11px;
+  height: 11px;
+  min-width: 0;
+  border-radius: 0;
+  border: 1px solid #222;
+  margin: 1px;
+  padding: 0;
+  background: linear-gradient(to bottom right, #999, #fff);
+  box-shadow: -1px -1px 0 #888, 1px 1px 0 #fff, inset 1px 1px 0 #ccc, inset -1px -1px 0 #888;
+}
+
+.title-bar-buttons button:active {
+  background: linear-gradient(to bottom right, #444, #bbb);
+  box-shadow: -1px -1px 0 #888, 1px 1px 0 #fff, inset -1px -1px 0 #999;
+}
+
+.window-body {
+  color: #555;
+  border: 1px solid #555;
+  background: #eee;
+}
+
+.window.active > .window-body,
+.window:focus-within > .window-body {
+  color: #000;
+  background: var(--window-bg);
+  border: 1px solid #000;
+  box-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #999, 0 -1px 0 #999;
+}
+

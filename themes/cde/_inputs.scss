@@ -1,0 +1,242 @@
+@use '../../util/util';
+
+#{util.$textInputs} {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--input-dark);
+  border-bottom: 1px solid var(--input-light);
+  border-right: 1px solid var(--input-light);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+
+
+  &::selection {
+    background-color: var(--input-fg);
+    color: var(--input-bg);
+  }
+
+  &:disabled, &.disabled {
+    color: var(--input-dark);
+    text-shadow: 1px 1px 0 var(--input-light);
+  }
+}
+
+#{util.$multiSelects} {
+  padding: 0;
+  background: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 2px solid var(--button-light);
+  border-top: 2px solid var(--button-dark);
+  border-left: 2px solid var(--button-dark);
+
+  & > option {
+    padding: 2px 6px;
+
+    &:checked {
+      background-color: #FFFFFF;
+      color: #000000;
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    & > option:checked {
+      outline: 2px solid var(--focus);
+      outline-offset: -2px;
+    }
+  }
+}
+
+select:not([size]),
+select[size="1"],
+select:not([size]):disabled:active,
+select[size="1"]:disabled:active {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: var(--button-bg);
+  background-image: url(select.svg);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  padding: 2px 25px 2px 4px;
+
+  &:focus {
+    outline: 1px solid var(--focus);
+  }
+}
+
+select:not([size]):disabled,
+select[size="1"]:disabled,
+select:not([size]):disabled:active,
+select[size="1"]:disabled:active {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+}
+
+select:not([size]):active,
+select[size="1"]:active {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=checkbox],
+input[type=checkbox]:checked:active,
+input[type=checkbox]:disabled:active {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  width: 12px;
+  height: 12px;
+  border-radius: 0;
+}
+
+input[type=checkbox]:checked,
+input[type=checkbox]:active,
+input[type=checkbox]:checked:disabled:active {
+  background: var(--button-active-bg) url(checkmark.svg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=checkbox]:disabled + label,
+input[type=radio]:disabled + label {
+  color: var(--button-dark);
+  text-shadow: 1px 1px 0 var(--button-light);
+}
+
+input[type=radio],
+input[type=radio]:checked:active,
+input[type=radio]:disabled:active {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+input[type=radio]:checked,
+input[type=radio]:active,
+input[type=radio]:checked:disabled:active {
+  background-color: var(--button-active-bg);
+  color: var(--button-active-fg);
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+input[type=radio]:checked::after,
+input[type=radio]:active::after {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--focus);
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+input[type=radio]:disabled:not(:checked):active::after {
+  display: none;
+}
+
+input[type=radio]:focus + label,
+input[type=checkbox]:focus + label {
+  position: relative;
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: calc(var(--spacing) - 1px);
+    right: 0;
+    bottom: 0;
+    border: 1px solid var(--focus);
+  }
+}
+
+input[type=radio]:focus,
+input[type=checkbox]:focus {
+  outline: none;
+}
+
+label > input[type=radio]:focus,
+label > input[type=checkbox]:focus {
+  outline: 1px solid var(--focus);
+  outline-offset: 1px;
+}
+
+
+@mixin range-track {
+  height: 15px;
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-right-color: var(--button-light);
+  border-bottom-color: var(--button-light);
+}
+
+@mixin range-thumb {
+  border-radius: 0;
+  height: 13px;
+  width: 28px;
+  background: var(--button-bg);
+  background-image: linear-gradient(to right, var(--button-dark), var(--button-dark) 50%, var(--button-light) 50%, var(--button-light));
+  background-size: 2px 13px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  border: 1px solid var(--button-light);
+  border-right-color: var(--button-dark);
+  border-bottom-color: var(--button-dark);
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent; 
+  height: 17px;
+
+  &:focus {
+    outline: 2px solid var(--focus);
+  }
+
+  &::-moz-range-track {
+    @include range-track;
+  }
+
+  &::-moz-range-thumb {
+    @include range-thumb;
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include range-track;
+  }
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    @include range-thumb;
+  }
+}
+

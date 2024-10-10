@@ -1,0 +1,165 @@
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+
+  & > button {
+    display: flex;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    min-width: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background: #C0C0C0;
+    border: 1px solid var(--border);
+    box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
+    border-radius: 0;
+
+    &::after, &:active::after {
+      content: '';
+      display: block;
+      width: 7px;
+      height: 7px;
+      margin: 3px 0 0 3px;
+      background-repeat: no-repeat;
+      position: initial;
+    }
+
+    &:focus {
+      outline: none;
+
+      &::after {
+        position: initial;
+        border: unset;
+      }
+    }
+
+    &:not(:disabled):active {
+      padding: 1px 0 0 1px;
+      box-shadow: inset 1px 1px var(--button-dark);
+      outline: none;
+    }
+  }
+
+  & > .scrollbar-track {
+    flex-grow: 1;
+    background: var(--scrollbar-bg);
+    position: relative;
+
+    & > .scrollbar-thumb {
+      position: absolute;
+      background: var(--button-bg);
+      border: 1px solid var(--border);
+      box-shadow: inset 1px 1px var(--button-light), inset -2px -2px var(--button-dark);
+    }
+  }
+}
+
+.horizontal-scrollbar {
+  & > button:first-child::after {
+    background-image: url(scroll-left.svg);
+  }
+
+  & > button:last-child::after {
+    background-image: url(scroll-right.svg);
+  }
+
+  & > .scrollbar-track {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    top: 0;
+    bottom: 0;
+    border-top: 0;
+    border-bottom: 0;
+  }
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 16px;
+
+  & > button:first-child::after {
+    background-image: url(scroll-up.svg);
+  }
+
+  & > button:last-child::after {
+    background-image: url(scroll-down.svg);
+  }
+
+  & > .scrollbar-track {
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+  }
+
+  & > .scrollbar-track > .scrollbar-thumb {
+    left: 0;
+    right: 0;
+    border-left: 0;
+    border-right: 0;
+  }
+}
+
+::-webkit-scrollbar {
+  background-color: var(--scrollbar-bg);
+  width: 17px;
+  height: 17px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--scrollbar-bg);
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--border);
+  box-shadow: inset 1px 1px 0 var(--button-light), inset -2px -2px var(--button-dark);
+}
+
+::-webkit-scrollbar-track-piece {
+  border: 1px solid var(--border);
+}
+
+::-webkit-scrollbar-button {
+  width: 17px;
+  height: 17px;
+  display: none;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+  background-position: 4px 4px;
+}
+
+::-webkit-scrollbar-button:active {
+  box-shadow: inset 1px 1px var(--button-dark);
+  background-position: 5px 5px;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(scroll-up.svg);
+  background-repeat: no-repeat;
+  border-bottom: 0;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(scroll-down.svg);
+  background-repeat: no-repeat;
+  border-top: 0;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(scroll-left.svg);
+  background-repeat: no-repeat;
+  border-right: 0;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(scroll-right.svg);
+  background-repeat: no-repeat;
+  border-left: 0;
+}

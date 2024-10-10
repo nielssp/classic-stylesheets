@@ -1,0 +1,66 @@
+:root {
+  --preferred-font: 'Microsoft Sans Serif';
+
+  --desktop-bg: #C0C0C0;
+
+  --workspace-bg: #FFFFFF;
+
+  --window-bg: #FFFFFF;
+  --window-fg: #000000;
+
+  --button-bg: #C0C0C0;
+  --button-fg: #000000;
+  --button-dark: #808080;
+  --button-light: #FFFFFF;
+  --input-bg: var(--window-bg);
+  --input-fg: var(--window-fg);
+
+  --border: #000000;
+  --disabled: #808080;
+
+  --window-frame: #C0C0C0;
+  --window-frame-active: var(--window-frame);
+
+  --menu-bg: #FFFFFF;
+  --menu-fg: #000000;
+
+  --title-bar-bg: #FFFFFF;
+  --title-bar-fg: #000000;
+
+  --title-bar-active-bg: #0000C0;
+  --title-bar-active-fg: #FFFFFF;
+
+  --selection-bg: #0000C0;
+  --selection-fg: #FFFFFF;
+  --selection-inverse: #FFFF3F;
+
+  --scrollbar-bg: #C0C0C0;
+}
+
+body {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
+  font-family: system-ui;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+button::-moz-focus-inner {
+  border: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a:focus {
+  outline: 1px dotted var(--border);
+}
+
+code {
+  font-family: monospace;
+}
+

@@ -1,0 +1,45 @@
+.desktop {
+  background: var(--desktop-bg);
+}
+
+.raised {
+  background: var(--button-bg);
+  border: 1px solid var(--button-light);
+  border-bottom-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+}
+
+.lowered {
+  background: var(--button-bg);
+  border: 1px solid var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-right-color: var(--button-light);
+}
+
+.top-panel, .right-panel, .buttom-panel, .left-panel {
+  background: var(--button-bg);
+  border: 2px solid var(--button-light);
+  border-bottom-color: var(--button-dark);
+  border-right-color: var(--button-dark);
+}
+
+fieldset {
+  border: 1px solid var(--button-dark);
+  border-bottom-color: var(--button-light);
+  border-right-color: var(--button-light);
+  box-shadow: inset 1px 1px 0 var(--button-light), inset -1px -1px 0 var(--button-dark);
+  position: relative;
+}
+
+legend {
+  text-align: left;
+  padding: 0 4px;
+  background-color: var(--button-bg);
+  display: block;
+}
+
+hr {
+  border-top: 1px solid var(--button-dark);
+  border-bottom: 1px solid var(--button-light);
+}
+

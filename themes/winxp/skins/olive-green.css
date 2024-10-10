@@ -1,0 +1,288 @@
+:root {
+  --desktop-bg: #9DACBD;
+  --window-bg: #ECE9D8;
+  --selection-bg: #93A070;
+  --selection-inverse: #6C5F8F;
+}
+
+.top-panel, .bottom-panel {
+  background: linear-gradient(to bottom, #EAF5C9, #C2CD95 3px, #A8B680, #ADBD85 50%, #C2CD95, #BBC98F);
+  box-shadow: inset 0 -1px #A7B680;
+  border-top: 1px solid #8BA169;
+  border-bottom: 1px solid #8BA169;
+}
+
+.left-panel, .right-panel {
+  background: linear-gradient(to right, #EAF5C9, #C2CD95 3px, #A8B680, #ADBD85 50%, #C2CD95, #BBC98F);
+  box-shadow: inset -1px 0 #A7B680;
+  border-left: 1px solid #8BA169;
+  border-right: 1px solid #8BA169;
+}
+
+legend {
+  color: #99540A;
+}
+
+button, input[type=button], input[type=submit], input[type=reset], .button {
+  border-color: #376206;
+  background: linear-gradient(to bottom, #FFFFF6, #F9F6E5, #F6F3E0);
+  box-shadow: -1px -1px #ECEADA, 1px 1px #FAFAF6, inset 0 -1px #E2D0B6, inset -1px -2px #EBE0C8, inset -2px -3px #F3EEDB;
+}
+button:disabled, button.disabled, input[type=button]:disabled, input[type=button].disabled, input[type=submit]:disabled, input[type=submit].disabled, input[type=reset]:disabled, input[type=reset].disabled, .button:disabled, .button.disabled {
+  background: #F6F2E9;
+  border-color: #CAC4B8;
+}
+button:focus::after, button.focus::after, input[type=button]:focus::after, input[type=button].focus::after, input[type=submit]:focus::after, input[type=submit].focus::after, input[type=reset]:focus::after, input[type=reset].focus::after, .button:focus::after, .button.focus::after {
+  border-top: 1px solid #C2D18F;
+  border-right: 2px solid #9DC664;
+  border-bottom: 1px solid #A8A766;
+  border-left: 2px solid #A0C767;
+  box-shadow: inset 0 -1px #90C154, inset 0 1px #B1CB80;
+}
+button:not(:disabled, .disabled):hover, button.hover, input[type=button]:not(:disabled, .disabled):hover, input[type=button].hover, input[type=submit]:not(:disabled, .disabled):hover, input[type=submit].hover, input[type=reset]:not(:disabled, .disabled):hover, input[type=reset].hover, .button:not(:disabled, .disabled):hover, .button.hover {
+  background: linear-gradient(to bottom, #FFFFF2, #F5F2E0);
+}
+button:not(:disabled, .disabled):hover::after, button.hover::after, input[type=button]:not(:disabled, .disabled):hover::after, input[type=button].hover::after, input[type=submit]:not(:disabled, .disabled):hover::after, input[type=submit].hover::after, input[type=reset]:not(:disabled, .disabled):hover::after, input[type=reset].hover::after, .button:not(:disabled, .disabled):hover::after, .button.hover::after {
+  border-top: 1px solid #FCC595;
+  border-right: 2px solid #EAB07D;
+  border-bottom: 1px solid #CF7225;
+  border-left: 2px solid #EAB07D;
+  box-shadow: inset 0 -1px #E3914F, inset 0 -2px #F2ECDB, inset 0 1px #EDBE96;
+}
+button:focus-visible::after, input[type=button]:focus-visible::after, input[type=submit]:focus-visible::after, input[type=reset]:focus-visible::after, .button:focus-visible::after {
+  outline-color: #5D2258;
+}
+button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active {
+  background: linear-gradient(to bottom, #EEE9D5, #ECE4CE);
+  box-shadow: -1px -1px #ECEADA, 1px 1px #FAFAF6, inset 0 1px #DECCB2, inset 1px 2px #E7D9C3, inset 2px 3px #EADEC8, inset 0 -1px #F8F4E4, inset 0 -2px #F2ECD8;
+}
+
+.horizontal-scrollbar > button,
+.vertical-scrollbar > button {
+  border-color: #FAFAFA;
+  background: linear-gradient(to bottom, #A2B38D, #95A775);
+  box-shadow: 0 1px #83AB5A, 1px 0 #9BB181, inset 0 1px #CBD7BA, inset 1px 0 #B6C7A2, inset -1px 0 #B6C7A2, inset 0 2px #B6C4A1;
+}
+.horizontal-scrollbar > button::after, .horizontal-scrollbar > button:active::after, .horizontal-scrollbar > button:hover::after,
+.vertical-scrollbar > button::after,
+.vertical-scrollbar > button:active::after,
+.vertical-scrollbar > button:hover::after {
+  background: #FFFFFF;
+  border: 0;
+  box-shadow: none;
+}
+.horizontal-scrollbar > button:not(:disabled, .disabled):hover, .horizontal-scrollbar > button.hover,
+.vertical-scrollbar > button:not(:disabled, .disabled):hover,
+.vertical-scrollbar > button.hover {
+  background: linear-gradient(to bottom, #C9D5AA, #C3D096);
+  box-shadow: 0 1px #83AB5A, 1px 0 #9BB181, inset 0 1px #DAE8B9, inset 1px 0 #DAE8B9, inset -1px 0 #DAE8B9;
+}
+.horizontal-scrollbar > button:not(:disabled, .disabled):active,
+.vertical-scrollbar > button:not(:disabled, .disabled):active {
+  background-color: #99AC7C;
+  background-image: linear-gradient(to right, #879770, transparent 3px), linear-gradient(to bottom, #879770, transparent 3px), linear-gradient(to left, #879770, transparent 3px);
+  box-shadow: 0 1px #83AB5A, 1px 0 #9BB181, inset 0 -1px #FFFFFF, inset 0 -1px 0 1px #768361, inset 0 1px #768361;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  box-shadow: 0 1px #8B9377, 1px 0 #829061, inset 1px 1px #8C9D73, inset -1px -1px #8C9D73, inset 2px 0 #ADBB9A;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+  box-shadow: 0 1px #8B9377, 1px 0 #829061, inset 1px 1px #BCC797, inset -1px -1px #BCC797, inset 2px 0 #D2DBB5;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+  box-shadow: 0 1px #8B9377, 1px 0 #829061, inset -1px -1px #90A476, inset 1px 1px #7B8B65, inset 2px 2px #879571, inset 3px 3px #92A478;
+}
+
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  background: linear-gradient(to bottom, #A4B48B, #95A775);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #C8D5AA, #C3D096);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+  background: linear-gradient(to bottom, #9BAD82, #94A972);
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+  background: repeating-linear-gradient(to right, #D0DFAC, #D0DFAC 1px, #8C9D73 1px, #8C9D73 2px);
+}
+
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  background: linear-gradient(to right, #A4B48B, #95A775);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:hover {
+  background: linear-gradient(to right, #C8D5AA, #C3D096);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active {
+  background: linear-gradient(to right, #9BAD82, #94A972);
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb::after {
+  background: repeating-linear-gradient(to bottom, #D0DFAC, #D0DFAC 1px, #8C9D73 1px, #8C9D73 2px);
+}
+
+::-webkit-scrollbar-thumb {
+  border-right-color: #829061;
+  border-bottom-color: #8B9377;
+  box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #8D9D73, inset 3px 0 #ADBB9A;
+  background: linear-gradient(to bottom, #A4B48B, #95A775);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #C8D5AA, #C3D096);
+  box-shadow: inset 0 0 0 1px #fff, inset 2px 2px #BCC797, inset -2px -2px #BCC797, inset 3px 0 #D2DBB5;
+}
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(to bottom, #9BAD82, #94A972);
+  box-shadow: inset 0 0 0 1px #fff, inset -2px -2px #90A476, inset 2px 2px #7B8B65, inset 3px 3px #879571, inset 4px 4px #92A478;
+}
+::-webkit-scrollbar-thumb:vertical {
+  background: linear-gradient(to right, #A4B48B, #95A775);
+}
+::-webkit-scrollbar-thumb:vertical:hover {
+  background: linear-gradient(to right, #C8D5AA, #C3D096);
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: linear-gradient(to right, #9BAD82, #94A972);
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(olive-green-scroll-up.svg);
+}
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(olive-green-scroll-down.svg);
+}
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(olive-green-scroll-left.svg);
+}
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(olive-green-scroll-right.svg);
+}
+
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
+select {
+  border-color: #A4B97F;
+}
+
+.dropdown > select:not(:disabled):hover + .dropdown-button {
+  background: linear-gradient(to bottom, #C9D5AA, #C3D096);
+  border-color: #9DAB77;
+  box-shadow: -2px 0 #fff, inset 0 1px #DAE8B9, inset 1px 0 #DAE8B9, inset -1px 0 #DAE8B9;
+}
+.dropdown > select:not(:disabled):active + .dropdown-button {
+  background-color: #99AC7C;
+  background-image: linear-gradient(to right, #879770, transparent 3px), linear-gradient(to bottom, #879770, transparent 3px), linear-gradient(to left, #879770, transparent 3px);
+  border-color: #768361;
+  box-shadow: -2px 0 #fff;
+}
+.dropdown > .dropdown-button {
+  background: linear-gradient(to bottom, #A2B38D, #96A871);
+  border-color: #8E997D;
+  box-shadow: -2px 0 #fff, inset 0 1px #CBD7BA, inset 1px 0 #B6C7A2, inset -1px 0 #B6C7A2, inset 0 2px #B6C4A1;
+}
+.dropdown > .dropdown-button::after {
+  background: #FFFFFF;
+}
+
+.progress-bar:not([aria-valuenow])::after,
+.progress-bar > .progress-bar-value {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6666666667), transparent 50%, rgba(255, 255, 255, 0.6666666667) 100%), repeating-linear-gradient(90deg, #E48245, #E48245 6px, transparent 6px, transparent 8px);
+}
+
+progress::-webkit-progress-value {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6666666667), transparent 50%, rgba(255, 255, 255, 0.6666666667) 100%), repeating-linear-gradient(90deg, #E48245, #E48245 6px, transparent 6px, transparent 8px);
+}
+
+progress::-moz-progress-bar {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6666666667), transparent 50%, rgba(255, 255, 255, 0.6666666667) 100%), repeating-linear-gradient(90deg, #E48245, #E48245 6px, transparent 6px, transparent 8px);
+}
+
+.list {
+  border-color: #A4B97F;
+}
+
+.tabs > menu > button {
+  background: linear-gradient(to bottom, #FFFFF6, #F5F2E0);
+  border-color: #A6A1A6;
+}
+.tabs > menu > button:hover {
+  background: linear-gradient(to bottom, #FFFFF6, #F5F2E0);
+  border-top-color: #CF7225;
+  box-shadow: inset 0 2px 0 #E39658;
+}
+.tabs > menu > button:hover::after {
+  border: 0;
+  box-shadow: none;
+}
+.tabs > menu > button[aria-selected=true] {
+  border-top-color: #CF7225;
+  box-shadow: inset 0 2px 0 #E39658;
+}
+
+.title-bar {
+  background: linear-gradient(to bottom, #D4D7BB, #E0E1C3);
+  box-shadow: inset 0 1px #F1F1DA, inset 0 2px #EDEBD3, inset 1px 0 #CBD1B7, inset 2px 0 #D4D9BC, inset -1px 0 #BFC5AE, inset -2px 0 #D3D9BC, inset 0 -1px #CBCEB6, inset 0 -2px #D3D6BA;
+  border-color: #D7DBBD;
+  border-right-color: #B2B6A5;
+  border-left-color: #CAD1B7;
+  color: #FFFFFF;
+}
+
+.window,
+.dialog,
+.menu {
+  border-color: #B6BDAB;
+  border-left-color: #C8D0B7;
+  background: #D6D8BE;
+  box-shadow: inset -1px -1px #C0C5B1, inset 1px 0 #D0D6BD, inset -2px -2px #D8DCC2, inset 2px 0 #E0E2C8;
+}
+.window.active, .window:focus-within, .window.menu,
+.dialog.active,
+.dialog:focus-within,
+.dialog.menu,
+.menu.active,
+.menu:focus-within,
+.menu.menu {
+  border-color: #5E764F;
+  border-left-color: #758D5E;
+  background: #A4B27F;
+  box-shadow: inset -1px -1px #899B6D, inset 1px 0 #8BA169, inset -2px -2px #BDC891, inset 2px 0 #ABBD85;
+}
+
+.window.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog.active > .title-bar,
+.dialog:focus-within > .title-bar,
+.title-bar.active,
+.menu .title-bar {
+  background: linear-gradient(to bottom, #C2CD95, #AAB883 6px, #ADBD85 50%, #C2CD95 80%, #C2CD95 90%, #BBC98F);
+  box-shadow: inset 0 1px #EAF5C9, inset 0 2px #E0E7B8, inset -1px 0 #899B6D, inset -2px 0 #A8BD85, inset 1px 0 #8BA169, inset 2px 0 #AABA83, inset 0 -1px #96A867, inset 0 -2px #A3B27F;
+  border-color: #8BA169;
+  border-left-color: #8BA169;
+  border-right-color: #5E764F;
+}
+
+.window.active > .title-bar .title-bar-text,
+.window:focus-within > .title-bar .title-bar-text,
+.dialog.active > .title-bar .title-bar-text,
+.dialog:focus-within > .title-bar .title-bar-text,
+.title-bar.active .title-bar-text {
+  text-shadow: 1px 1px 0 #41400A;
+}
+
+.title-bar-buttons button, .title-bar-buttons button:active, .title-bar-buttons button:hover {
+  background: linear-gradient(135deg, #C7C7B4 0%, transparent 20%), linear-gradient(90deg, #AAB68F 0%, transparent 40%), linear-gradient(180deg, #AAB68F 0%, transparent 30%), linear-gradient(to bottom right, #8F9E6A, #7C8D4F);
+  box-shadow: inset 1px 1px #96A577, inset -1px -1px #768753;
+}
+.title-bar-buttons button[data-close] {
+  background: linear-gradient(135deg, #E8B4A1 0%, transparent 20%), linear-gradient(90deg, #DB876C 0%, transparent 40%), linear-gradient(180deg, #DB876C 0%, transparent 30%), linear-gradient(to bottom right, #D57354, #CB4B16);
+  box-shadow: inset 1px 1px #D36947, inset -1px -1px #9F3F1E, inset -2px -2px #C45024;
+}
+
+.title-bar-buttons button[data-close]::after,
+.title-bar-buttons button[data-minimize]::after,
+.title-bar-buttons button[data-maximize]::after,
+.maximized .title-bar-buttons button[data-maximize]::after {
+  border: 0;
+  box-shadow: none;
+}

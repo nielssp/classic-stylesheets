@@ -1,0 +1,109 @@
+[role=menu] {
+  color: var(--menu-fg);
+  background-color: var(--menu-bg);
+  border: 1px solid var(--border);
+
+  li {
+    padding: 1px 3px 1px 16px;
+
+    &[data-shortcut]::after {
+      float: right;
+      content: attr(data-shortcut);
+      display: block;
+      margin-left: 4px;
+    }
+
+    & > ul {
+      left: 100%;
+      margin: 0;
+      top: -1px;
+      min-width: 200px;
+    }
+
+    &[role=separator] {
+      border-top: 1px solid var(--border);
+      height: 0;
+      padding: 0;
+      margin: 2px 0;
+    }
+
+    &[role=checkbox][aria-checked=true]::before,
+    &[role=radio][aria-checked=true]::before {
+      content: '';
+      position: absolute;
+      left: 4px;
+      top: 50%;
+      margin-top: -5px;
+      display: block;
+      width: 8px;
+      height: 10px;
+      background: currentColor;
+      -webkit-mask-image: url(menu-checkmark.svg);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 8px 10px;
+      mask-image: url(menu-checkmark.svg);
+      mask-repeat: no-repeat;
+      mask-size: 8px 10px;
+    }
+
+    &[aria-haspopup=true] {
+      position: relative;
+
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: 8px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: currentColor;
+        -webkit-mask-image: url(arrow-right.svg);
+        -webkit-mask-size: 4px 7px;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-position: center center;
+        mask-image: url(arrow-right.svg);
+        mask-size: 4px 7px;
+        mask-repeat: no-repeat;
+        mask-position: center center;
+      }
+    }
+  }
+}
+
+[role=menubar] {
+  color: var(--menu-fg);
+  background-color: var(--menu-bg);
+
+  & > li {
+    padding: 1px 8px;
+
+    & > ul {
+      left: 0;
+      top: 100%;
+      min-width: 200px;
+    }
+  }
+}
+
+.menu > [role=menu] {
+  border-top: 0;
+}
+
+[role=menu] li,
+[role=menubar] li {
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-within {
+    background: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  &[aria-disabled] {
+    color: var(--disabled);
+    border-color: transparent;
+  }
+}
+

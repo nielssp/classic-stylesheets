@@ -1,9 +1,8 @@
 :root {
+  --preferred-font: "Microsoft Sans Serif";
   --desktop-bg: #008080;
-
   --window-bg: #C0C0C0;
   --window-fg: #000000;
-
   --lightest: #FFFFFF;
   --lighter: #E0E0E0;
   --light: #DFDFDF;
@@ -11,18 +10,14 @@
   --dark: #808080;
   --darker: #404040;
   --darkest: #000000;
-
   --button-bg: var(--window-bg);
   --button-fg: var(--window-fg);
   --input-bg: #FFFFFF;
   --input-fg: #000000;
-
   --title-bar-bg: var(--dark);
   --title-bar-fg: var(--medium);
-
   --title-bar-active-bg: #000080;
   --title-bar-active-fg: #FFFFFF;
-
   --selection-bg: #000080;
   --selection-fg: #FFFFFF;
   --selection-inverse: #FFFF7F;
@@ -31,11 +26,28 @@
 body {
   background-color: var(--window-bg);
   color: var(--window-fg);
-  font-family: system-ui;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 button::-moz-focus-inner {
   border: none;
+}
+
+button, input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 0;
+}
+
+a:focus {
+  outline: 1px dotted var(--darkest);
+}
+
+code {
+  font-family: monospace;
 }
 
 .desktop {
@@ -80,198 +92,6 @@ button::-moz-focus-inner {
   box-shadow: inset -1px 0 0 var(--dark);
 }
 
-button, input, textarea, select {
-  font-family: inherit;
-  font-size: inherit;
-}
-
-a:focus {
-  outline: 1px dotted var(--darkest);
-}
-
-details > summary:focus,
-button:focus {
-  border: 1px solid var(--darkest);
-  outline: 1px dotted var(--darkest);
-  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
-    inset -2px -2px 0 var(--dark);
-  outline-offset: -4px;
-}
-
-details > summary,
-button,
-button:disabled:active {
-  background-color: var(--button-bg);
-  color: var(--button-fg);
-  border: 1px solid var(--darkest);
-  border-top: 1px solid var(--lightest);
-  border-left: 1px solid var(--lightest);
-  box-shadow: inset -1px -1px 0 var(--dark);
-  padding: 2px 10px 2px 10px;
-  min-width: 75px;
-  text-align: center;
-  line-height: 1;
-}
-
-button:disabled,
-button:disabled:active,
-select:not([size]):disabled {
-  color: var(--dark);
-  text-shadow: 1px 1px 0 var(--lightest);
-}
-
-details > summary:active,
-button:active {
-  border: 1px solid var(--darkest);
-  box-shadow: inset 1px 1px 0 var(--dark), inset -1px -1px 0 var(--dark);
-  padding: 3px 9px 1px 11px;
-}
-
-select > option {
-  padding: 2px 6px;
-}
-
-input[type="text"],
-pre,
-textarea,
-select {
-  background-color: var(--input-bg);
-  color: var(--input-fg);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--light);
-  padding: 2px 6px;
-  font-family: inherit;
-  font-size: inherit;
-  outline: none;
-}
-
-input::selection,
-textarea::selection {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
-select:not([size]):not(:active):focus,
-select[size="1"]:not(:active):focus {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-  box-shadow: inset 1px 1px 0 var(--darker), inset -1px -1px 0 var(--light),
-    inset 2px 2px 0 var(--input-bg), inset -2px -2px 0 var(--input-bg);
-}
-
-input[type=text][readonly],
-textarea[readonly] {
-  background: var(--window-bg);
-}
-
-input[type=text]:disabled,
-textarea:disabled,
-select:disabled > option,
-select:disabled {
-  background: var(--window-bg);
-  color: var(--dark);
-  text-shadow: 1px 1px 0 var(--lightest);
-}
-
-input[type=checkbox] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: var(--input-bg);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
-  width: 13px;
-  height: 13px;
-}
-
-input[type=checkbox]:active,
-input[type=checkbox]:disabled,
-input[type=radio]:active,
-input[type=radio]:disabled {
-  background: var(--window-bg);
-}
-
-input[type=checkbox]:checked {
-  background-image: url(checkmark.gif);
-  background-repeat: no-repeat;
-  background-position: 2px 2px;
-}
-
-input[type=checkbox]:disabled + label,
-input[type=radio]:disabled + label {
-  color: var(--dark);
-  text-shadow: 1px 1px 0 var(--lightest);
-}
-
-input[type=radio] {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: var(--input-bg);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
-  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-
-input[type=radio]:checked::after {
-  content: '';
-  display: block;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background-color: var(--darkest);
-  margin-top: 3px;
-  margin-left: 3px;
-}
-
-input[type=radio]:focus + label,
-input[type=checkbox]:focus + label {
-  outline: 1px dotted var(--darkest);
-  outline-offset: 0;
-}
-
-input[type=radio]:focus,
-input[type=checkbox]:focus {
-  outline: none;
-}
-
-label > input[type=radio]:focus,
-label > input[type=checkbox]:focus {
-  outline: 1px dotted var(--darkest);
-  outline-offset: 1px;
-}
-
-code {
-  font-family: monospace;
-}
-
-progress {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: var(--button-bg);
-  border: 1px solid var(--dark);
-  border-bottom: 1px solid var(--lightest);
-  border-right: 1px solid var(--lightest);
-}
-
-progress::-webkit-progress-bar {
-  background: var(--button-bg);
-}
-
-progress::-webkit-progress-value,
-progress::-moz-progress-bar {
-  background: var(--selection-bg);
-}
-
 fieldset {
   border: 1px solid var(--dark);
   border-bottom-color: var(--lightest);
@@ -292,6 +112,545 @@ hr {
   border-bottom: 1px solid var(--lightest);
 }
 
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+}
+.horizontal-scrollbar > button,
+.vertical-scrollbar > button {
+  display: flex;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  min-width: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+}
+.horizontal-scrollbar > button::after,
+.vertical-scrollbar > button::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 3px 0 0 3px;
+  background-repeat: no-repeat;
+}
+.horizontal-scrollbar > button:focus,
+.vertical-scrollbar > button:focus {
+  outline: none;
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--light);
+  border-left: 1px solid var(--light);
+  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+}
+.horizontal-scrollbar > button:not(:disabled):active,
+.vertical-scrollbar > button:not(:disabled):active {
+  padding: 0;
+  border: 1px solid var(--dark);
+  box-shadow: none;
+  outline: none;
+}
+.horizontal-scrollbar > button:not(:disabled):active::after,
+.vertical-scrollbar > button:not(:disabled):active::after {
+  margin: 4px 0 0 4px;
+}
+.horizontal-scrollbar > .scrollbar-track,
+.vertical-scrollbar > .scrollbar-track {
+  flex-grow: 1;
+  background-color: var(--window-bg);
+  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  position: relative;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb,
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  position: absolute;
+  background: var(--button-bg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--light);
+  border-left: 1px solid var(--light);
+  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+}
+
+.horizontal-scrollbar > button:first-child::after {
+  background-image: url(arrow-left.svg);
+  background-position: 1px 0;
+}
+.horizontal-scrollbar > button:last-child::after {
+  background-image: url(arrow-right.svg);
+  background-position: 2px 0;
+}
+.horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  top: 0;
+  bottom: 0;
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 16px;
+}
+.vertical-scrollbar > button:first-child::after {
+  background-image: url(arrow-up.svg);
+  background-position: 0 2px;
+}
+.vertical-scrollbar > button:last-child::after {
+  background-image: url(arrow-down.svg);
+  background-position: 0 2px;
+}
+.vertical-scrollbar > .scrollbar-track > .scrollbar-thumb {
+  left: 0;
+  right: 0;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--window-bg);
+  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--window-bg);
+}
+
+::-webkit-scrollbar-button,
+::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--light);
+  border-left: 1px solid var(--light);
+  box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--lightest);
+}
+
+::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+}
+
+::-webkit-scrollbar-button:active {
+  border: 1px solid var(--dark);
+  box-shadow: none;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(arrow-up.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+}
+::-webkit-scrollbar-button:vertical:decrement:active {
+  background-position: 4px 6px;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(arrow-down.svg);
+  background-position: 3px 5px;
+  background-repeat: no-repeat;
+}
+::-webkit-scrollbar-button:vertical:increment:active {
+  background-position: 4px 6px;
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(arrow-left.svg);
+  background-position: 4px 3px;
+  background-repeat: no-repeat;
+}
+::-webkit-scrollbar-button:horizontal:decrement:active {
+  background-position: 5px 4px;
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(arrow-right.svg);
+  background-position: 5px 3px;
+  background-repeat: no-repeat;
+}
+::-webkit-scrollbar-button:horizontal:increment:active {
+  background-position: 6px 4px;
+}
+
+button, input[type=button], input[type=submit], input[type=reset], .button {
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  box-shadow: inset -1px -1px 0 var(--dark);
+  padding: 3px 10px 6px 10px;
+  min-width: 75px;
+  text-align: center;
+  line-height: 1;
+  cursor: default;
+  user-select: none;
+}
+button:focus, button.focus, input[type=button]:focus, input[type=button].focus, input[type=submit]:focus, input[type=submit].focus, input[type=reset]:focus, input[type=reset].focus, .button:focus, .button.focus {
+  border: 1px solid var(--darkest);
+  outline: 1px dotted var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest), inset -2px -2px 0 var(--dark);
+  outline-offset: -4px;
+}
+button:disabled, button.disabled, input[type=button]:disabled, input[type=button].disabled, input[type=submit]:disabled, input[type=submit].disabled, input[type=reset]:disabled, input[type=reset].disabled, .button:disabled, .button.disabled {
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+}
+button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:disabled, .disabled):active, input[type=button].active, input[type=submit]:not(:disabled, .disabled):active, input[type=submit].active, input[type=reset]:not(:disabled, .disabled):active, input[type=reset].active, .button:not(:disabled, .disabled):active, .button.active {
+  border: 1px solid var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--dark), inset -1px -1px 0 var(--dark);
+  padding: 4px 9px 5px 11px;
+}
+
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
+select,
+.dropdown {
+  background-color: var(--input-bg);
+  color: var(--input-fg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  padding: 2px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+}
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])::selection, textarea::selection, .input::selection,
+select::selection,
+.dropdown::selection {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range])[readonly], input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).readonly, textarea[readonly], textarea.readonly, .input[readonly], .input.readonly,
+select[readonly],
+select.readonly,
+.dropdown[readonly],
+.dropdown.readonly {
+  background: var(--window-bg);
+}
+input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]):disabled, input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]).disabled, textarea:disabled, textarea.disabled, .input:disabled, .input.disabled,
+select:disabled,
+select.disabled,
+.dropdown:disabled,
+.dropdown.disabled {
+  background: var(--window-bg);
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+}
+
+select[multiple], select[size]:not([size="1"]) {
+  padding: 1px;
+}
+select[multiple] > option, select[size]:not([size="1"]) > option {
+  padding: 2px 6px;
+}
+select[multiple] > option:checked, select[size]:not([size="1"]) > option:checked {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
+}
+select[multiple]:focus > option:checked, select[size]:not([size="1"]):focus > option:checked {
+  outline: 1px dotted var(--selection-inverse);
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+
+select:not([size], [multiple]), select[size="1"]:not(:active):focus {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light), inset 2px 2px 0 var(--input-bg), inset -2px -2px 0 var(--input-bg);
+}
+
+.dropdown {
+  display: inline-grid;
+  padding: 0;
+  grid-template-areas: "s";
+}
+.dropdown > select {
+  appearance: none;
+  grid-area: s;
+  padding-right: 21px;
+}
+.dropdown > select:not(:disabled):active {
+  background: var(--input-bg);
+  color: var(--input-fg);
+}
+.dropdown > select:not(:disabled):active + .dropdown-button {
+  border: 1px solid var(--dark);
+  box-shadow: none;
+  margin: 2px 0 0 1px;
+}
+.dropdown > select:disabled + .dropdown-button {
+  box-shadow: inset -1px -1px var(--dark), inset 1px 1px var(--lightest);
+}
+.dropdown > select:disabled + .dropdown-button::after {
+  background: var(--dark);
+  filter: drop-shadow(1px 1px var(--lightest));
+}
+.dropdown > .dropdown-button {
+  justify-self: end;
+  grid-area: s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1px;
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--light);
+  border-left: 1px solid var(--light);
+  box-shadow: inset -1px -1px var(--dark), inset 1px 1px var(--lightest), -1px 0 var(--input-bg);
+  width: 16px;
+  pointer-events: none;
+}
+.dropdown > .dropdown-button::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 4px;
+  -webkit-mask-image: url(arrow-down.svg);
+  -webkit-mask-repeat: no-repeat;
+  mask-image: url(arrow-down.svg);
+  mask-repeat: no-repeat;
+  background: #000;
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--input-bg);
+  color: var(--darkest);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  width: 13px;
+  height: 13px;
+  border-radius: 0;
+}
+input[type=checkbox]:active, input[type=checkbox]:disabled, input[type=checkbox].active, input[type=checkbox].disabled {
+  background: var(--window-bg);
+}
+input[type=checkbox]:checked::after, input[type=checkbox].checked::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: 2px 0 0 2px;
+  background: currentColor;
+  -webkit-mask-image: url(checkmark.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 7px 7px;
+  mask-image: url(checkmark.svg);
+  mask-repeat: no-repeat;
+  mask-size: 7px 7px;
+}
+input[type=checkbox]:disabled, input[type=checkbox].disabled {
+  color: var(--dark);
+}
+input[type=checkbox]:disabled + label, input[type=checkbox].disabled + label {
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+}
+
+input[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--input-bg);
+  color: var(--darkest);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  box-shadow: inset 1px 1px 0 var(--darkest), inset -1px -1px 0 var(--light);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+input[type=radio]:active, input[type=radio]:disabled, input[type=radio].active, input[type=radio].disabled {
+  background: var(--window-bg);
+}
+input[type=radio]:checked::after, input[type=radio].checked::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: currentColor;
+  margin-top: 3px;
+  margin-left: 3px;
+}
+input[type=radio]:disabled, input[type=radio].disabled {
+  color: var(--dark);
+}
+input[type=radio]:disabled + label, input[type=radio].disabled + label {
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+}
+
+input[type=checkbox]:focus, input[type=checkbox].focus,
+input[type=radio]:focus,
+input[type=radio].focus {
+  outline: none;
+}
+input[type=checkbox]:focus + label, input[type=checkbox].focus + label,
+input[type=radio]:focus + label,
+input[type=radio].focus + label {
+  position: relative;
+}
+input[type=checkbox]:focus + label::after, input[type=checkbox].focus + label::after,
+input[type=radio]:focus + label::after,
+input[type=radio].focus + label::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: calc(var(--spacing) - 1px);
+  right: 0;
+  bottom: 0;
+  border: 1px dotted var(--darkest);
+  border-radius: 1px;
+}
+
+label > input[type=radio]:focus, label > input[type=radio].focus,
+label > input[type=checkbox]:focus,
+label > input[type=checkbox].focus {
+  outline: 1px dotted var(--darkest);
+  outline-offset: 1px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+  padding: 2px;
+}
+input[type=range]:focus {
+  outline: 1px dotted var(--darkest);
+}
+input[type=range]::-moz-range-track {
+  height: 2px;
+  background: var(--light);
+  border: 1px solid var(--lightest);
+  border-top: 1px solid var(--dark);
+  border-left: 1px solid var(--dark);
+  box-shadow: inset 1px 1px 0 var(--darkest);
+  margin: 0 5px;
+}
+input[type=range]::-moz-range-thumb {
+  border-radius: 0;
+  background: var(--button-bg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  width: 11px;
+  height: 21px;
+  box-shadow: inset -1px -1px 0 var(--dark);
+}
+input[type=range]::-moz-range-thumb:active {
+  background-color: var(--window-bg);
+  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--light);
+  border: 1px solid var(--lightest);
+  border-top: 1px solid var(--dark);
+  border-left: 1px solid var(--dark);
+  box-shadow: inset 1px 1px 0 var(--darkest);
+  margin: 0 5px;
+  margin: 10px 5px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  margin-top: -11px;
+  border-radius: 0;
+  background: var(--button-bg);
+  border: 1px solid var(--darkest);
+  border-top: 1px solid var(--lightest);
+  border-left: 1px solid var(--lightest);
+  width: 11px;
+  height: 21px;
+  box-shadow: inset -1px -1px 0 var(--dark);
+}
+input[type=range]::-webkit-slider-thumb:active {
+  background-color: var(--window-bg);
+  background-image: linear-gradient(45deg, var(--lightest) 25%, transparent 25%), linear-gradient(-45deg, var(--lightest) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--lightest) 75%), linear-gradient(-45deg, transparent 75%, var(--lightest) 75%);
+  background-size: 2px 2px;
+  background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
+}
+
+progress,
+.progress-bar {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: var(--button-bg);
+  border: 1px solid var(--dark);
+  border-bottom: 1px solid var(--lightest);
+  border-right: 1px solid var(--lightest);
+  height: 13px;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar:not([aria-valuenow])::after, .progress-bar > .progress-bar-value {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid var(--button-bg);
+  background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
+}
+.progress-bar:not([aria-valuenow])::after {
+  width: 32px;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress::-webkit-progress-bar {
+  background: var(--button-bg);
+}
+
+progress::-webkit-progress-value {
+  border: 1px solid var(--button-bg);
+  background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
+}
+
+progress::-moz-progress-bar {
+  border: 1px solid var(--button-bg);
+  background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
+}
+
+progress:indeterminate::-moz-progress-bar {
+  width: 32px;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress:not([value])::-webkit-progress-value {
+  width: 32px;
+  animation: 1s infinite linear indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -30px;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
 .window,
 .dialog,
 .menu {
@@ -311,8 +670,8 @@ hr {
 }
 
 .title-bar {
-  background: var(--title-bar-active-bg);
-  color: var(--title-bar-active-fg);
+  background: var(--title-bar-bg);
+  color: var(--title-bar-fg);
   display: flex;
   flex-direction: row;
   font-weight: bold;
@@ -323,7 +682,7 @@ hr {
   font-weight: bold;
   padding: 1px 4px;
   flex-grow: 1;
-  cursor: default
+  cursor: default;
 }
 
 .title-bar-buttons {
@@ -351,6 +710,7 @@ hr {
   border: 1px solid var(--lightest);
   border-top: 1px solid var(--darkest);
   border-left: 1px solid var(--darkest);
+  padding: 0;
 }
 
 .title-bar-buttons button:not(:active):focus {
@@ -361,20 +721,20 @@ hr {
 }
 
 .title-bar-buttons button[data-close] {
-  background-image: url(close2.gif);
+  background-image: url(close.svg);
   margin-left: 2px;
 }
 
 .title-bar-buttons button[data-minimize] {
-  background-image: url(minimize2.gif);
+  background-image: url(minimize.svg);
 }
 
 .title-bar-buttons button[data-maximize] {
-  background-image: url(maximize2.gif);
+  background-image: url(maximize.svg);
 }
 
 .maximized .title-bar-buttons button[data-maximize] {
-  background-image: url(restore2.gif);
+  background-image: url(restore.svg);
 }
 
 .window-body,
@@ -384,11 +744,13 @@ hr {
   margin-top: 4px;
 }
 
-.window.inactive > .title-bar,
-.dialog.inactive > .title-bar,
-.title-bar.inactive {
-  background: var(--title-bar-bg);
-  color: var(--title-bar-fg);
+.window.active > .title-bar,
+.dialog.active > .title-bar,
+.window:focus-within > .title-bar,
+.dialog:focus-within > .title-bar,
+.title-bar.active {
+  background: var(--title-bar-active-bg);
+  color: var(--title-bar-active-fg);
 }
 
 .window-body > [role=menubar],
@@ -407,6 +769,21 @@ hr {
   box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--dark);
   padding: 2px;
 }
+[role=menu] li:focus,
+[role=menubar] li:focus {
+  outline: none;
+}
+[role=menu] li:hover,
+[role=menubar] li:hover {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
+}
+[role=menu] li[aria-disabled=true],
+[role=menubar] li[aria-disabled=true] {
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--lightest);
+  border-color: transparent;
+}
 
 [role=menubar],
 .menu > [role=menu] {
@@ -415,31 +792,10 @@ hr {
   padding: 0;
 }
 
-[role=menu] li {
-  border: 1px solid transparent;
-  padding: 1px 3px;
-}
-
 [role=menubar] > li {
   border: 1px solid transparent;
   padding: 1px 8px;
 }
-
-[role=menu] li[data-shortcut]::after {
-  float: right;
-  content: attr(data-shortcut);
-  display: block;
-  margin-left: 4px;
-}
-
-[role=menu] li > ul {
-  left: 100%;
-  margin: 0;
-  top: -4px;
-  margin-left: -1px;
-  min-width: 200px;
-}
-
 [role=menubar] > li > ul {
   left: 0;
   top: 100%;
@@ -447,18 +803,6 @@ hr {
   margin-top: 1px;
   min-width: 200px;
 }
-
-[role=menu] li:focus,
-[role=menubar] li:focus {
-  outline: none;
-}
-
-[role=menu] li:hover,
-[role=menu] li:focus-within {
-  background: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
 [role=menubar] > li:hover {
   background: var(--window-bg);
   color: var(--window-fg);
@@ -466,7 +810,6 @@ hr {
   border-right-color: var(--dark);
   border-bottom-color: var(--dark);
 }
-
 [role=menubar] > li:focus-within {
   background: var(--window-bg);
   color: var(--window-fg);
@@ -476,36 +819,102 @@ hr {
   padding: 2px 7px 0 9px;
 }
 
-[role=menu] li[aria-disabled=true],
-[role=menubar] li[aria-disabled=true] {
-  color: var(--dark);
-  text-shadow: 1px 1px 0 var(--lightest);
-  border-color: transparent;
+[role=menu]:not(:hover) li:focus-within {
+  background: var(--selection-bg);
+  color: var(--selection-fg);
 }
-
-[role=menu] li[aria-disabled=true]:hover,
-[role=menu] li[aria-disabled=true]:focus {
+[role=menu] li {
+  border: 1px solid transparent;
+  padding: 1px 3px 1px 19px;
+}
+[role=menu] li[data-shortcut]::after {
+  float: right;
+  content: attr(data-shortcut);
+  display: block;
+  margin-left: 4px;
+}
+[role=menu] li > ul {
+  left: 100%;
+  margin: 0;
+  top: -4px;
+  margin-left: -1px;
+  min-width: 200px;
+}
+[role=menu] li[aria-disabled=true]:hover, [role=menu] li[aria-disabled=true]:focus {
   text-shadow: none;
 }
-
 [role=menu] li[role=separator] {
   border-top: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   height: 0;
   padding: 0;
 }
-
-[role=menu] > li[aria-haspopup=true] {
-  background-image: url(arrow-right.gif);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
+[role=menu] li[role=checkbox][aria-checked=true]::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  margin-top: -3.5px;
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: currentColor;
+  -webkit-mask-image: url(checkmark.svg);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 7px 7px;
+  mask-image: url(checkmark.svg);
+  mask-repeat: no-repeat;
+  mask-size: 7px 7px;
+}
+[role=menu] li[role=radio][aria-checked=true]::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 50%;
+  margin-top: -3px;
+  display: block;
+  background: currentColor;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+[role=menu] li[aria-haspopup=true] {
+  position: relative;
+}
+[role=menu] li[aria-haspopup=true]:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: currentColor;
+  -webkit-mask-image: url(arrow-right.svg);
+  -webkit-mask-size: 4px 7px;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center center;
+  mask-image: url(arrow-right.svg);
+  mask-size: 4px 7px;
+  mask-repeat: no-repeat;
+  mask-position: center center;
 }
 
-[role=menu] > li[aria-haspopup=true]:focus-within,
-[role=menu] > li[aria-haspopup=true]:hover {
-  background-image: url(arrow-right-active.gif);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
+.menu {
+  display: flex;
+}
+
+.menu > [role=menu] {
+  flex-grow: 1;
+}
+
+.menu > .title-bar {
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+}
+
+.menu > .title-bar > .title-bar-text {
+  padding: 4px 0;
 }
 
 .tabs > menu {
@@ -513,7 +922,6 @@ hr {
   flex-direction: row;
   margin: 0 2px;
 }
-
 .tabs > menu > button {
   border-bottom: 0;
   border-top-left-radius: 3px;
@@ -522,17 +930,15 @@ hr {
   min-width: 0;
   padding: 2px 10px 2px 10px;
 }
-
-.tabs > menu > button:focus,
-.tabs > menu > button:active {
+.tabs > menu > button:focus, .tabs > menu > button:active {
+  border-bottom: 0;
   border-right: 1px solid var(--darkest);
   border-top: 1px solid var(--lightest);
   border-left: 1px solid var(--lightest);
   box-shadow: inset 1px 1px 0 var(--light), inset -1px 0 0 var(--dark);
   padding: 2px 10px 2px 10px;
 }
-
-.tabs > menu > button[aria-selected="true"] {
+.tabs > menu > button[aria-selected=true] {
   margin-right: -2px;
   margin-left: -2px;
   margin-top: -2px;
@@ -540,8 +946,7 @@ hr {
   padding: 0px 12px 4px 12px;
   z-index: 1;
 }
-
-.tabs > [role="tabpanel"] {
+.tabs > [role=tabpanel] {
   border-top: 1px solid var(--lightest);
   border-left: 1px solid var(--lightest);
   border-bottom: 1px solid var(--darkest);
@@ -560,29 +965,24 @@ hr {
   overflow: auto;
   cursor: default;
 }
-
-.list > [role="option"] {
+.list > [role=option] {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
-
-.list:focus-within > [role="option"][aria-selected="true"] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
-.list > [role="option"][aria-selected="true"] {
+.list > [role=option][aria-selected=true] {
   background-color: var(--window-bg);
   color: var(--window-fg);
 }
-
-.list > [role="option"]:focus {
+.list > [role=option]:focus {
   outline: 1px dotted var(--darkest);
   outline-offset: -1px;
 }
-
-.list > [role="option"][aria-selected="true"]:focus {
+.list > [role=option][aria-selected=true]:focus {
   outline: 1px dotted var(--selection-inverse);
+}
+.list:focus-within > [role=option][aria-selected=true] {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 .icon-grid {
@@ -591,7 +991,6 @@ hr {
   flex-direction: row;
   flex-wrap: wrap;
 }
-
 .icon-grid > .icon {
   flex: 0 0 128px;
   display: flex;
@@ -599,41 +998,34 @@ hr {
   align-items: center;
   margin: 4px;
 }
-
 .icon-grid > .icon > .icon-label {
   margin-top: 5px;
   text-align: center;
   padding: 1px 1px;
 }
-
 .icon-grid > .icon:focus {
   outline: none;
 }
-
 .icon-grid > .icon:focus > .icon-label {
   outline: 1px dotted var(--darkest);
   outline-offset: -1px;
 }
-
-.icon-grid:focus-within > .icon[aria-selected="true"] > .icon-label {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
-.icon-grid > .icon[aria-selected="true"] > .icon-label {
+.icon-grid > .icon[aria-selected=true] > .icon-label {
   background-color: var(--window-bg);
   color: var(--window-fg);
 }
-
-.icon-grid > .icon[aria-selected="true"]:focus > .icon-label {
+.icon-grid > .icon[aria-selected=true]:focus > .icon-label {
   outline: 1px dotted var(--selection-inverse);
+}
+.icon-grid:focus-within > .icon[aria-selected=true] > .icon-label {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
 }
 
 .detailed {
   width: 100%;
   border-spacing: 0;
 }
-
 .detailed th {
   text-align: left;
   font-weight: normal;
@@ -646,77 +1038,62 @@ hr {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
-
 .detailed tr {
   outline: none;
 }
-
 .detailed tr:focus {
   outline: 1px dotted var(--darkest);
   outline-offset: -1px;
 }
-
-.detailed:focus-within tr[aria-selected="true"] {
-  background-color: var(--selection-bg);
-  color: var(--selection-fg);
-}
-
-.detailed tr[aria-selected="true"] {
+.detailed tr[aria-selected=true] {
   background-color: var(--window-bg);
   color: var(--window-fg);
 }
-
-.detailed tr[aria-selected="true"]:focus {
+.detailed tr[aria-selected=true]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
-
-.detailed .icon:focus .icon-label {
-  outline: 1px dotted var(--darkest);
-  outline-offset: -1px;
-}
-
-.detailed:focus-within .icon[aria-selected="true"] .icon-label {
+.detailed:focus-within tr[aria-selected=true] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
 }
-
-.detailed .icon[aria-selected="true"] .icon-label {
-  background-color: var(--window-bg);
-  color: var(--window-fg);
+.detailed:focus-within .icon[aria-selected=true] .icon-label {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
 }
-
-.detailed .icon[aria-selected="true"]:focus .icon-label {
-  outline: 1px dotted var(--selection-inverse);
-}
-
 .detailed td {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
-
+.detailed td.icon {
+  display: flex;
+}
 .detailed .icon {
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   outline: none;
 }
-
-.detailed td.icon {
-  display: flex;
-}
-
 .detailed .icon > img {
   width: 16px;
   height: 16px;
   margin-right: 1px;
   margin-left: -4px;
 }
-
 .detailed .icon > .icon-label {
   text-align: center;
   padding: 1px 3px;
 }
-
+.detailed .icon:focus .icon-label {
+  outline: 1px dotted var(--darkest);
+  outline-offset: -1px;
+}
+.detailed .icon[aria-selected=true] > .icon-label {
+  background-color: var(--window-bg);
+  color: var(--window-fg);
+}
+.detailed .icon[aria-selected=true]:focus > .icon-label {
+  outline: 1px dotted var(--selection-inverse);
+}
 .detailed thead {
   position: sticky;
   top: 0;

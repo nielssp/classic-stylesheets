@@ -1,0 +1,269 @@
+.horizontal-scrollbar,
+.vertical-scrollbar {
+  display: flex;
+  background: #EEEDE5;
+
+  & > button {
+    display: flex;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    min-width: 0;
+    padding: 0;
+    background: radial-gradient(circle at 0 0, #EEEDE5, #AEC8F7 75%);
+    border: 1px solid #fff;
+    border-radius: 2px;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #B7CAF5, inset -1px -1px #B3C8F5;
+
+    &::after, &:active::after, &:hover::after {
+      content: '';
+      display: block;
+      width: 9px;
+      height: 9px;
+      margin: 3px 0 0 3px;
+      background: #4D6185;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+      position: initial;
+      box-shadow: none;
+      border: 0;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:not(:disabled):active {
+      padding: 0;
+    }
+
+    &:not(:disabled, .disabled):hover, &.hover {
+      background: radial-gradient(circle at 0 0, #FDFFFF, #B9DAFB 75%);
+      box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #ABBEE9, inset -1px -1px #8DA8E1;
+
+      &::after {
+        border: 0;
+      }
+    }
+
+    &:not(:disabled, .disabled):active {
+      background: radial-gradient(circle at 0 0, #6E8EF1, #D2DEEB 75%);
+      box-shadow: 0 1px #A0B5D3, 1px 0 #7C9FD3, inset 1px 1px #98A1DD, inset -1px -1px #B1C6F3;
+
+      &:after {
+        display: block;
+      }
+    }
+  }
+
+  & > .scrollbar-track {
+    flex-grow: 1;
+    position: relative;
+
+    & > .scrollbar-thumb {
+      position: absolute;
+      border: 1px solid #fff;
+      border-radius: 2px;
+      box-shadow: 1px 1px #7DA0D4, inset 1px -1px #B4C8F6, inset 0 1px #BDCEF7, inset 0 2px #D1E0FD;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        box-shadow: 1px 1px #7DA0D4, inset 1px -1px #B4C8F6, inset 0 1px #ACCEFF, inset 0 2px #E0EDFF;
+      }
+
+      &:active {
+        box-shadow: 1px 1px #7DA0D4, inset 1px -1px #B4C8F6, inset 0 1px #839BD4, inset 0 2px #9FB4EC;
+      }
+    }
+  }
+}
+
+.horizontal-scrollbar {
+  padding: 1px 0;
+
+  & > button {
+    height: 15px;
+  }
+
+  & > button:first-child::after {
+    -webkit-mask-image: url(arrow-left.svg);
+    -webkit-mask-size: 6px 9px;
+    mask-image: url(arrow-left.svg);
+    mask-size: 6px 9px;
+    margin: 2px 0 0 3px;
+  }
+
+  & > button:last-child::after {
+    -webkit-mask-image: url(arrow-right.svg);
+    -webkit-mask-size: 6px 9px;
+    mask-image: url(arrow-right.svg);
+    mask-size: 6px 9px;
+    margin: 2px 0 0 5px;
+  }
+
+  & > .scrollbar-track {
+    background: linear-gradient(to bottom, #F3F1EC, #FEFEFB);
+
+    & > .scrollbar-thumb {
+      height: 15px;
+      background: linear-gradient(to bottom, #C8D6FB, #B9CBF3); 
+      top: 0;
+      bottom: 0;
+
+      &:hover {
+        background: linear-gradient(to bottom, #DAE9FF, #CCE1FF);
+      }
+
+      &:active {
+        background: linear-gradient(to bottom, #A8BEF6, #92B2F6);
+      }
+
+      &::after {
+        display: block;
+        content: '';
+        width: 8px;
+        height: 7px;
+        background: repeating-linear-gradient(to right, #EEF4FE, #EEF4FE 1px, #8CB0F8 1px, #8CB0F8 2px);
+      }
+    }
+  }
+}
+
+.vertical-scrollbar {
+  flex-direction: column;
+  width: 17px;
+  padding: 0 1px;
+
+  & > button {
+    width: 15px;
+  }
+
+  & > button:first-child::after {
+    -webkit-mask-image: url(arrow-up.svg);
+    -webkit-mask-size: 9px 6px;
+    mask-image: url(arrow-up.svg);
+    mask-size: 9px 6px;
+    margin: 4px 0 0 2px;
+  }
+
+  & > button:last-child::after {
+    -webkit-mask-image: url(arrow-down.svg);
+    -webkit-mask-size: 9px 6px;
+    mask-image: url(arrow-down.svg);
+    mask-size: 9px 6px;
+    margin: 5px 0 0 2px;
+  }
+
+  & > .scrollbar-track {
+    background: linear-gradient(to right, #F3F1EC, #FEFEFB);
+
+    & > .scrollbar-thumb {
+      width: 15px;
+      background: linear-gradient(to right, #C8D6FB, #B9CBF3); 
+      left: 0;
+      right: 0;
+
+      &:hover {
+        background: linear-gradient(to right, #DAE9FF, #CCE1FF);
+      }
+
+      &:active {
+        background: linear-gradient(to right, #A8BEF6, #92B2F6);
+      }
+
+      &::after {
+        display: block;
+        content: '';
+        width: 7px;
+        height: 8px;
+        background: repeating-linear-gradient(to bottom, #EEF4FE, #EEF4FE 1px, #8CB0F8 1px, #8CB0F8 2px);
+      }
+    }
+  }
+}
+
+::-webkit-scrollbar {
+  background: linear-gradient(to bottom, #F3F1EC, #FEFEFB);
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-corner {
+  background: var(--window-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 15px;
+  background: linear-gradient(to bottom, #C8D6FB, #B9CBF3);
+  border-right: 1px solid #7DA0D4;
+  border-bottom: 1px solid #7DA0D4;
+  border-radius: 2px;
+  box-shadow: inset 0 0 0 1px #fff, inset 2px -2px #B4C8F6, inset 0 2px #BDCEF7, inset 0 3px #D1E0FD;
+
+  &:hover {
+    background: linear-gradient(to bottom, #DAE9FF, #CCE1FF);
+    box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #ACCEFF, inset 0 3px #E0EDFF;
+  }
+
+  &:active {
+    background: linear-gradient(to bottom, #A8BEF6, #92B2F6);
+    box-shadow: inset 0 0 0 1px #fff, inset 0 0 0 2px #839BD4, inset 3px 3px #9FB4EC;
+  }
+}
+
+::-webkit-scrollbar-button {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+
+::-webkit-scrollbar-button:single-button {
+  display: block;
+  background-repeat: no-repeat;
+}
+
+::-webkit-scrollbar-button:vertical {
+  width: 16px;
+  height: 17px;
+
+  &:hover {
+    background-position: -16px 0;
+  }
+
+  &:active {
+    background-position: -32px 0;
+  }
+}
+
+::-webkit-scrollbar-button:horizontal {
+  width: 17px;
+  height: 16px;
+
+  &:hover {
+    background-position: -17px 0;
+  }
+
+  &:active {
+    background-position: -34px 0;
+  }
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  background-image: url(scroll-up.svg);
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  background-image: url(scroll-down.svg);
+}
+
+::-webkit-scrollbar-button:horizontal:decrement {
+  background-image: url(scroll-left.svg);
+}
+
+::-webkit-scrollbar-button:horizontal:increment {
+  background-image: url(scroll-right.svg);
+}
