@@ -665,7 +665,8 @@ input[type=range]::-webkit-slider-thumb:active {
   box-shadow: inset 0 2px #229512, inset 0 -2px #229512;
 }
 
-progress {
+progress,
+.progress-bar {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -675,6 +676,24 @@ progress {
   height: 13px;
   padding: 2px 3px;
   box-shadow: inset 1px 1px #BEBEBE, inset 2px 2px #EFEFEF, inset -1px -1px #EFEFEF;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar:not([aria-valuenow])::after, .progress-bar > .progress-bar-value {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  left: 3px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6666666667), transparent 50%, rgba(255, 255, 255, 0.6666666667) 100%), repeating-linear-gradient(90deg, #2ED331, #2ED331 6px, transparent 6px, transparent 8px);
+}
+.progress-bar:not([aria-valuenow])::after {
+  width: 30px;
+  animation: 1s infinite linear indeterminate;
 }
 
 progress::-webkit-progress-bar {
@@ -694,7 +713,7 @@ progress:indeterminate::-moz-progress-bar {
   animation: 1s infinite linear indeterminate;
 }
 
-progress:indeterminate::-webkit-progress-value {
+progress:not([value])::-webkit-progress-value {
   width: 30px;
   animation: 1s infinite linear indeterminate;
 }

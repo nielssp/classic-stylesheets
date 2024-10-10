@@ -184,6 +184,11 @@ select {
   background: #FFFFFF;
 }
 
+.progress-bar:not([aria-valuenow])::after,
+.progress-bar > .progress-bar-value {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6666666667), transparent 50%, rgba(255, 255, 255, 0.6666666667) 100%), repeating-linear-gradient(90deg, #E48245, #E48245 6px, transparent 6px, transparent 8px);
+}
+
 progress::-webkit-progress-value {
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.6666666667), transparent 50%, rgba(255, 255, 255, 0.6666666667) 100%), repeating-linear-gradient(90deg, #E48245, #E48245 6px, transparent 6px, transparent 8px);
 }

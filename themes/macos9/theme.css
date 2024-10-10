@@ -590,14 +590,36 @@ input[type=range]::-webkit-slider-thumb:active {
   box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
 }
 
-progress {
+progress,
+.progress-bar {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   background: #BBBBBB;
   border: 1px solid #000;
-  box-shadow: 1px 1px #fff, -1px -1px #AAAAAA;
+  box-shadow: 1px 1px #fff, -1px -1px #AAAAAA, inset 1px 1px #888888, inset -1px -1px #DDDDDD;
   height: 12px;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar:not([aria-valuenow])::after, .progress-bar > .progress-bar-value {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
+  border-right: 1px solid #000;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px 0 var(--primary-1), inset -2px 0 var(--primary-2), 1px 0 #555555, 2px 0 #888888;
+}
+.progress-bar:not([aria-valuenow])::after {
+  width: 50%;
+  border-left: 1px solid #000;
+  animation: 1s infinite linear indeterminate;
 }
 
 progress::-webkit-progress-bar {
@@ -608,15 +630,35 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
   background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
   border-right: 1px solid #000;
-  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px var(--primary-1), inset -2px var(--primary-2), 1px 0 #555555, 2px 0 #888888;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px 0 var(--primary-1), inset -2px 0 var(--primary-2), 1px 0 #555555, 2px 0 #888888;
 }
 
 progress::-moz-progress-bar {
   background: linear-gradient(to bottom, var(--primary-2), var(--primary-3), var(--primary-4), var(--primary-5), var(--primary-6), var(--primary-5), var(--primary-4), var(--primary-3), var(--primary-2), var(--primary-1));
   border-right: 1px solid #000;
-  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px var(--primary-1), inset -2px var(--primary-2), 1px 0 #555555, 2px 0 #888888;
+  box-shadow: inset 1px 0 var(--primary-3), inset 2px 0 rgba(255, 255, 255, 0.2), inset -1px 0 var(--primary-1), inset -2px 0 var(--primary-2), 1px 0 #555555, 2px 0 #888888;
 }
 
+progress:indeterminate::-moz-progress-bar {
+  width: 50%;
+  border-left: 1px solid #000;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress:not([value])::-webkit-progress-value {
+  width: 50%;
+  border-left: 1px solid #000;
+  animation: 1s infinite linear indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -50%;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
 .window,
 .dialog {
   padding: 2px 4px 4px;

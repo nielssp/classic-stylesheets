@@ -518,7 +518,8 @@ input[type=range]::-webkit-slider-thumb {
   border-bottom-color: var(--button-dark);
 }
 
-progress {
+progress,
+.progress-bar {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -526,6 +527,25 @@ progress {
   border: 1px solid var(--button-dark);
   border-bottom: 1px solid var(--button-light);
   border-right: 1px solid var(--button-light);
+  height: 16px;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar:not([aria-valuenow])::after, .progress-bar > .progress-bar-value {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  background: var(--button-active-bg);
+}
+.progress-bar:not([aria-valuenow])::after {
+  width: 50%;
+  animation: 1s infinite linear indeterminate;
 }
 
 progress::-webkit-progress-bar {
@@ -540,6 +560,24 @@ progress::-moz-progress-bar {
   background: var(--button-active-bg);
 }
 
+progress:indeterminate::-moz-progress-bar {
+  width: 50%;
+  animation: 1s infinite linear indeterminate;
+}
+
+progress:not([value])::-webkit-progress-value {
+  width: 50%;
+  animation: 1s infinite linear indeterminate;
+}
+
+@keyframes indeterminate {
+  from {
+    margin-left: -50%;
+  }
+  to {
+    margin-left: 100%;
+  }
+}
 .window,
 .dialog,
 .menu {

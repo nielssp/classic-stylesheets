@@ -572,7 +572,8 @@ input[type=range]::-webkit-slider-thumb:active {
   background-position: 0 0, 0 1px, 1px -1px, -1px 0px;
 }
 
-progress {
+progress,
+.progress-bar {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -580,6 +581,26 @@ progress {
   border: 1px solid var(--dark);
   border-bottom: 1px solid var(--lightest);
   border-right: 1px solid var(--lightest);
+  height: 13px;
+}
+
+.progress-bar {
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar:not([aria-valuenow])::after, .progress-bar > .progress-bar-value {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid var(--button-bg);
+  background: repeating-linear-gradient(90deg, var(--selection-bg), var(--selection-bg) 6px, transparent 6px, transparent 8px);
+}
+.progress-bar:not([aria-valuenow])::after {
+  width: 32px;
+  animation: 1s infinite linear indeterminate;
 }
 
 progress::-webkit-progress-bar {
@@ -597,12 +618,12 @@ progress::-moz-progress-bar {
 }
 
 progress:indeterminate::-moz-progress-bar {
-  width: 30px;
+  width: 32px;
   animation: 1s infinite linear indeterminate;
 }
 
 progress:not([value])::-webkit-progress-value {
-  width: 30px;
+  width: 32px;
   animation: 1s infinite linear indeterminate;
 }
 

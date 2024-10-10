@@ -195,10 +195,18 @@
               <h2>Progress bars</h2>
               <div>
                 <div class="example">
-                  <progress value="40" max="100">40 %</progress>
+                  <div class="flex-row gap">
+                    <progress value="40" max="100" style="width: 140px;">40 %</progress>
+                    <progress style="width: 140px;">Indeterminate</progress>
+                  </div>
                 </div>
                 <div class="example">
-                  <progress>Indeterminate</progress>
+                  <div class="flex-row gap">
+                    <div class="progress-bar" style="width: 140px;" aria-valuemin=0 aria-valuemax=100 aria-valuenow=40>
+                      <div class="progress-bar-value" style="width: 40%;"></div>
+                    </div>
+                    <div class="progress-bar" style="width: 140px;"></div>
+                  </div>
                 </div>
               </div>
             </section>

@@ -241,6 +241,11 @@ input[type=range] {
   }
 }
 
+.progress-bar:not([aria-valuenow])::after,
+.progress-bar > .progress-bar-value {
+  background: repeating-linear-gradient(90deg, transparent, transparent 6px, #fff 6px, #fff 8px), linear-gradient(to bottom, #95B38E, #A4D498 10%, #A4D498 40%, #76A66A 40%, #98C88C);
+}
+
 progress::-webkit-progress-value {
   background: repeating-linear-gradient(90deg, transparent, transparent 6px, #fff 6px, #fff 8px), linear-gradient(to bottom, #95B38E, #A4D498 10%, #A4D498 40%, #76A66A 40%, #98C88C);
 }
