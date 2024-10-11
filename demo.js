@@ -120,7 +120,7 @@ function pushState() {
   if (activeSkin) {
     url += '&skin=' + activeSkin;
   }
-  if (!usePreferredFont.checked) {
+  if (usePreferredFont && !usePreferredFont.checked) {
     url += '&font=system';
   }
   history.pushState({theme: activeTheme, skin: activeSkin}, document.title, url);
@@ -133,11 +133,13 @@ if (params.has('theme')) {
     defaultSkin = params.get('skin');
   }
 }
-if (params.has('font') && params.get('font') === 'system') {
-  document.body.classList.remove('use-preferred-font');
-  usePreferredFont.checked = false;
-} else {
-  usePreferredFont.checked = true;
+if (usePreferredFont) {
+  if (params.has('font') && params.get('font') === 'system') {
+    document.body.classList.remove('use-preferred-font');
+    usePreferredFont.checked = false;
+  } else {
+    usePreferredFont.checked = true;
+  }
 }
 setTheme(defaultTheme);
 setSkin(defaultSkin);
@@ -156,14 +158,16 @@ skinSelect.addEventListener('change', () => {
   }
 });
 
-usePreferredFont.addEventListener('change', () => {
-  if (usePreferredFont.checked) {
-    document.body.classList.add('use-preferred-font');
-  } else {
-    document.body.classList.remove('use-preferred-font');
-  }
-  pushState();
-});
+if (usePreferredFont) {
+  usePreferredFont.addEventListener('change', () => {
+    if (usePreferredFont.checked) {
+      document.body.classList.add('use-preferred-font');
+    } else {
+      document.body.classList.remove('use-preferred-font');
+    }
+    pushState();
+  });
+}
 
 window.addEventListener('popstate', e => {
   if (e.state && e.state.theme) {
