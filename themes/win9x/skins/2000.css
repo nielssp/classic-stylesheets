@@ -20,7 +20,7 @@
   --title-bar-bg: linear-gradient(to right, #808080, #C0C0C0);
   --title-bar-fg: var(--medium);
 
-  --title-bar-active-bg: linear-gradient(to right, #000080, #A6CAF0);
+  --title-bar-active-bg: linear-gradient(to right, #0A246A, #A6CAF0);
   --title-bar-active-fg: #FFFFFF;
 
   --selection-bg: #0A246A;
