@@ -796,7 +796,7 @@ progress:not([value])::-webkit-progress-value {
   border: 1px solid transparent;
   padding: 1px 8px;
 }
-[role=menubar] > li > ul {
+[role=menubar] > li > ul, [role=menubar] > li > .menu {
   left: 0;
   top: 100%;
   margin-left: -1px;
@@ -833,7 +833,7 @@ progress:not([value])::-webkit-progress-value {
   display: block;
   margin-left: 4px;
 }
-[role=menu] li > ul {
+[role=menu] li > ul, [role=menu] li > .menu {
   left: 100%;
   margin: 0;
   top: -4px;
@@ -900,7 +900,9 @@ progress:not([value])::-webkit-progress-value {
   mask-position: center center;
 }
 
-.menu {
+.menu,
+[role=menu] li:focus-within > .menu,
+[role=menubar] li:focus-within > .menu {
   display: flex;
 }
 

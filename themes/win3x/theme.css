@@ -760,7 +760,7 @@ progress:not([value])::-webkit-progress-value {
   display: block;
   margin-left: 4px;
 }
-[role=menu] li > ul {
+[role=menu] li > ul, [role=menu] li > .menu {
   left: 100%;
   margin: 0;
   top: -1px;
@@ -818,7 +818,7 @@ progress:not([value])::-webkit-progress-value {
 [role=menubar] > li {
   padding: 1px 8px;
 }
-[role=menubar] > li > ul {
+[role=menubar] > li > ul, [role=menubar] > li > .menu {
   left: 0;
   top: 100%;
   min-width: 200px;

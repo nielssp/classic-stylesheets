@@ -20,7 +20,8 @@
       border-bottom-color: var(--button-light);
       background-color: var(--button-active-bg);
 
-      & > ul {
+      & > ul,
+      & > .menu {
         display: block;
       }
     }
@@ -53,7 +54,8 @@
     margin-left: 4px;
   }
 
-  & > ul {
+  & > ul,
+  & > .menu {
     left: 100%;
     margin: 0;
     top: -1px;
@@ -136,7 +138,8 @@
 }
 
 [role=menubar] > li {
-  & > ul {
+  & > ul,
+  & > .menu {
     left: 0;
     top: 100%;
     margin-left: -1px;
@@ -148,7 +151,8 @@
     margin-left: auto;
   }
 
-  &.help-menu > ul {
+  &.help-menu > ul,
+  &.help-menu > .menu {
     right: 0;
     left: auto;
   }

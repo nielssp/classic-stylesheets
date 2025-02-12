@@ -37,7 +37,8 @@
   border: 1px solid transparent;
   padding: 1px 8px;
 
-  & > ul {
+  & > ul,
+  & > .menu {
     left: 0;
     top: 100%;
     margin-left: -1px;
@@ -80,7 +81,8 @@
       margin-left: 4px;
     }
 
-    & > ul {
+    & > ul,
+    & > .menu {
       left: 100%;
       margin: 0;
       top: -4px;
@@ -157,7 +159,9 @@
   }
 }
 
-.menu {
+.menu,
+[role=menu] li:focus-within > .menu,
+[role=menubar] li:focus-within > .menu {
   display: flex;
 }
 

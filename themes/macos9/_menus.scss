@@ -2,7 +2,8 @@
   color: #000;
   background-color: #ddd;
 
-  & > li > ul {
+  & > li > ul,
+  & > li > .menu {
     left: 0;
     top: 100%;
     min-width: 200px;
@@ -25,7 +26,8 @@
       margin-left: 4px;
     }
 
-    & > ul {
+    & > ul,
+    & > .menu {
       left: 100%;
       margin: 0;
       top: -1px;

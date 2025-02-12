@@ -199,14 +199,18 @@ pre {
 }
 
 [role=menu] li > ul,
-[role=menubar] li > ul {
+[role=menu] li > .menu,
+[role=menubar] li > ul,
+[role=menubar] li > .menu {
   position: absolute;
   z-index: 1;
   display: none;
 }
 
 [role=menu] li:focus-within > ul,
-[role=menubar] li:focus-within > ul {
+[role=menu] li:focus-within > .menu,
+[role=menubar] li:focus-within > ul,
+[role=menubar] li:focus-within > .menu {
   display: block;
 }
 

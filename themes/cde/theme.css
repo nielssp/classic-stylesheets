@@ -786,8 +786,9 @@ progress:not([value])::-webkit-progress-value {
   border-bottom-color: var(--button-light);
   background-color: var(--button-active-bg);
 }
-[role=menu] li:focus-within > ul,
-[role=menubar] li:focus-within > ul {
+[role=menu] li:focus-within > ul, [role=menu] li:focus-within > .menu,
+[role=menubar] li:focus-within > ul,
+[role=menubar] li:focus-within > .menu {
   display: block;
 }
 [role=menu] li[aria-disabled],
@@ -816,7 +817,7 @@ progress:not([value])::-webkit-progress-value {
   display: block;
   margin-left: 4px;
 }
-[role=menu] li > ul {
+[role=menu] li > ul, [role=menu] li > .menu {
   left: 100%;
   margin: 0;
   top: -1px;
@@ -887,7 +888,7 @@ progress:not([value])::-webkit-progress-value {
   background-position: right 8px center;
 }
 
-[role=menubar] > li > ul {
+[role=menubar] > li > ul, [role=menubar] > li > .menu {
   left: 0;
   top: 100%;
   margin-left: -1px;
@@ -897,7 +898,7 @@ progress:not([value])::-webkit-progress-value {
 [role=menubar] > li.help-menu {
   margin-left: auto;
 }
-[role=menubar] > li.help-menu > ul {
+[role=menubar] > li.help-menu > ul, [role=menubar] > li.help-menu > .menu {
   right: 0;
   left: auto;
 }
