@@ -201,6 +201,14 @@ progress::-moz-progress-bar {
   border-color: #A4B97F;
 }
 
+.list ul[role=tree] li > details > summary::before {
+  border-color: #8E997D;
+  background-image: url(../expand.svg), linear-gradient(to top, #C0B7A6, transparent 3px), linear-gradient(to top left, #CFC8BB, transparent 5px);
+}
+.list ul[role=tree] li > details[open] > summary::before {
+  background-image: url(../collapse.svg), linear-gradient(to top, #C0B7A6, transparent 3px), linear-gradient(to top left, #CFC8BB, transparent 5px);
+}
+
 .tabs > menu > button {
   background: linear-gradient(to bottom, #FFFFF6, #F5F2E0);
   border-color: #A6A1A6;

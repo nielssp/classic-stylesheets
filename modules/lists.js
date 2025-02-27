@@ -4,7 +4,7 @@ export default class List {
 
     this.multiselect = this.root.getAttribute('aria-multiselectable') === 'true';
     this.iconGrid = this.root.children.length > 0 && this.root.children[0].classList.contains('icon-grid');
-    this.options = this.root.querySelectorAll('[role="option"]');
+    this.options = this.root.querySelectorAll('[role="option"], [role="treeitem"]');
     this.selectedOption = -1;
     this.prefix = '';
     this.prefixTimeout = null;

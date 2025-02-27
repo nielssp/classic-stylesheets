@@ -150,3 +150,128 @@
   top: 0;
 }
 
+
+.list ul[role="tree"] {
+  li {
+    list-style-type: none;
+
+    & > details {
+      margin: 0;
+      display: block;
+
+      & > summary {
+        margin: 0;
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: '';
+          display: block;
+          border: 1px solid var(--button-light);
+          border-bottom: 1px solid var(--button-dark);
+          border-right: 1px solid var(--button-dark);
+          position: absolute;
+          width: 14px;
+          height: 14px;
+          background-color: var(--button-bg);
+          background-image: url(expand.svg);
+          background-repeat: no-repeat;
+          background-position: 2px 2px;
+          top: 5px;
+          left: 20px;
+        }
+      }
+
+      &[open] > summary::before {
+        background-image: url(collapse.svg);
+      }
+
+      & > ul {
+        margin-left: -12px;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 5px;
+        width: 15px;
+        border-bottom: 2px solid currentColor;
+      }
+    }
+  }
+
+  .icon {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    outline: none;
+
+    & > img {
+      width: 16px;
+      height: 16px;
+      margin-right: 1px;
+    }
+
+    & > .icon-label {
+      text-align: center;
+      padding: 1px 3px;
+    }
+  }
+
+  [role=treeitem] {
+    display: inline-flex;
+    outline: none;
+
+    &:not(.icon) {
+      padding: 1px;
+    }
+
+    &:focus {
+      outline: 2px solid var(--focus);
+      outline-offset: -2px;
+    }
+
+    &[aria-selected="true"] {
+      background-color: #ffffff;
+      color: #000000;
+    }
+  }
+
+  ul {
+    margin-left: 8px;
+    padding-left: 10px;
+
+    li {
+      position: relative;
+      margin-left: -15px;
+      padding-left: 40px;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 4px;
+        bottom: 0;
+        border-left: 2px solid currentColor;
+      }
+
+      &:last-child::before {
+        bottom: initial;
+        height: 13px;
+      }
+
+      &:last-child::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 12px;
+        left: 5px;
+        width: 15px;
+        border-bottom: 2px solid currentColor;
+      }
+    }
+  }
+}
