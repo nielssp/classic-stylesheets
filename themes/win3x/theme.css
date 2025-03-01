@@ -989,17 +989,17 @@ progress:not([value])::-webkit-progress-value {
   outline-offset: -1px;
 }
 
-.detailed .icon[aria-selected=true] .icon-label {
+.detailed .icon[aria-selected=true] {
   outline: 1px solid var(--selection-bg);
 }
 
-.detailed:focus-within .icon[aria-selected=true] .icon-label {
+.detailed:focus-within .icon[aria-selected=true] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
   outline: none;
 }
 
-.detailed .icon[aria-selected=true]:focus .icon-label {
+.detailed .icon[aria-selected=true]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
 
@@ -1023,7 +1023,6 @@ progress:not([value])::-webkit-progress-value {
   width: 16px;
   height: 16px;
   margin-right: 1px;
-  margin-left: -4px;
 }
 
 .detailed .icon > .icon-label {
@@ -1034,4 +1033,100 @@ progress:not([value])::-webkit-progress-value {
 .detailed thead {
   position: sticky;
   top: 0;
+}
+
+.list ul[role=tree] li {
+  list-style-type: none;
+  min-height: 24px;
+  padding-top: 4px;
+  position: relative;
+}
+.list ul[role=tree] li > details {
+  margin: 0;
+  display: block;
+}
+.list ul[role=tree] li > details > summary {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.list ul[role=tree] li > details > summary::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  -webkit-mask-image: url(expand.svg);
+  mask-image: url(expand.svg);
+  position: absolute;
+  left: 5px;
+  background: #000;
+}
+.list ul[role=tree] li > details > summary:not(.icon)::after {
+  background: currentColor;
+}
+.list ul[role=tree] li > details[open] > summary::after {
+  -webkit-mask-image: url(collapse.svg);
+  mask-image: url(collapse.svg);
+}
+.list ul[role=tree] .icon > img {
+  width: 16px;
+  height: 16px;
+  margin-right: 1px;
+}
+.list ul[role=tree] .icon > .icon-label {
+  text-align: center;
+  padding: 1px 3px;
+}
+.list ul[role=tree] [role=treeitem] {
+  display: inline-flex;
+  outline: none;
+  align-items: center;
+}
+.list ul[role=tree] [role=treeitem]:focus {
+  outline: 1px dotted var(--border);
+  outline-offset: -1px;
+}
+.list ul[role=tree] [role=treeitem][aria-selected=true] {
+  outline: 1px solid var(--selection-bg);
+}
+.list ul[role=tree] [role=treeitem][aria-selected=true]:focus {
+  outline: 1px dotted var(--selection-inverse);
+}
+.list ul[role=tree] [role=treeitem]:not(.icon) {
+  padding-left: 16px;
+}
+.list ul[role=tree]:focus-within [role=treeitem][aria-selected=true] {
+  background-color: var(--selection-bg);
+  color: var(--selection-fg);
+}
+.list ul[role=tree] ul {
+  margin-left: 8px;
+  padding-left: 10px;
+}
+.list ul[role=tree] ul li {
+  margin-left: -14px;
+  padding-left: 14px;
+}
+.list ul[role=tree] ul li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 4px;
+  bottom: 0;
+  border-left: 1px solid var(--border);
+}
+.list ul[role=tree] ul li:last-child::before {
+  bottom: initial;
+  height: 13px;
+}
+.list ul[role=tree] ul li::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 13px;
+  left: 4px;
+  width: 7px;
+  border-bottom: 1px solid var(--border);
 }

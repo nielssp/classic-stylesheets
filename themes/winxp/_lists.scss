@@ -24,7 +24,7 @@
 }
 
 .list > [role="option"]:focus {
-  outline: 1px dotted var(--darkest);
+  outline: 1px dotted #000;
   outline-offset: -1px;
 }
 
@@ -58,7 +58,7 @@
 }
 
 .icon-grid > .icon:focus > .icon-label {
-  outline: 1px dotted var(--darkest);
+  outline: 1px dotted #000;
   outline-offset: -1px;
 }
 
@@ -109,7 +109,7 @@
 }
 
 .detailed tr:focus {
-  outline: 1px dotted var(--darkest);
+  outline: 1px dotted #000;
   outline-offset: -1px;
 }
 
@@ -128,7 +128,7 @@
 }
 
 .detailed .icon:focus .icon-label {
-  outline: 1px dotted var(--darkest);
+  outline: 1px dotted #000;
   outline-offset: -1px;
 }
 
@@ -177,4 +177,129 @@
 .detailed thead {
   position: sticky;
   top: 0;
+}
+
+.list ul[role="tree"] {
+  li {
+    position: relative;
+    list-style-type: none;
+    min-height: 24px;
+    padding-top: 2px;
+
+    & > details {
+      margin: 0;
+      display: block;
+
+      & > summary {
+        margin: 0;
+        display: flex;
+        align-items: center;
+
+        &::before {
+          content: '';
+          display: block;
+          border: 1px solid #7898B5;
+          border-radius: 2px;
+          position: absolute;
+          width: 9px;
+          height: 9px;
+          background-color: #fff;
+          background-image: url(expand.svg), linear-gradient(to top, #C3BAAA, transparent 3px), linear-gradient(to top left, #CFC8BB, transparent 5px);
+          background-repeat: no-repeat;
+          top: 8px;
+          left: 0;
+        }
+      }
+      
+      &[open] > summary::before {
+        background-image: url(collapse.svg), linear-gradient(to top, #C3BAAA, transparent 3px), linear-gradient(to top left, #CFC8BB, transparent 5px);
+      }
+    }
+  }
+
+  & > li > details {
+    padding-left: 17px;
+    & > summary::before {
+      left: 4px;
+    }
+  }
+
+  .icon {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    outline: none;
+
+    & > img {
+      width: 16px;
+      height: 16px;
+      margin-right: 1px;
+    }
+
+    & > .icon-label {
+      text-align: center;
+      padding: 1px 3px;
+    }
+
+    &:hover > .icon-label {
+      color: #000080;
+      text-decoration: underline;
+    }
+
+    &:focus .icon-label {
+      outline: 1px dotted #000;
+      outline-offset: -1px;
+    }
+
+    &[aria-selected="true"] > .icon-label {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+
+    &[aria-selected="true"]:focus > .icon-label {
+      outline: 1px dotted var(--selection-inverse);
+    }
+  }
+
+  [role=treeitem]:not(.icon) {
+    display: inline-flex;
+    outline: none;
+
+    &:hover {
+      color: #000080;
+      text-decoration: underline;
+    }
+
+    &:focus {
+      outline: 1px dotted #000;
+      outline-offset: -1px;
+    }
+
+    &[aria-selected="true"] {
+      background-color: var(--window-bg);
+      color: var(--window-fg);
+    }
+
+    &[aria-selected="true"]:focus {
+      outline: 1px dotted var(--selection-inverse);
+    }
+  }
+
+  &:focus-within {
+    .icon[aria-selected="true"] .icon-label,
+    [role=treeitem][aria-selected="true"]:not(.icon) {
+      background-color: var(--selection-bg);
+      color: var(--selection-fg);
+    }
+  }
+
+  ul {
+    margin-left: 8px;
+    padding-left: 10px;
+
+    li {
+      margin-left: -15px;
+      padding-left: 16px;
+    }
+  }
 }

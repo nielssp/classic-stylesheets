@@ -31,15 +31,25 @@
  * of the other color schemes.
  */
 
-details > summary:not(:active):focus,
-button:not(:active):focus {
+button:not(:active, .active):focus,
+button:not(:active, .active).focus,
+input[type=button]:not(:active, .active):focus,
+input[type=button]:not(:active, .active).focus,
+input[type=submit]:not(:active, .active):focus,
+input[type=submit]:not(:active, .active).focus,
+input[type=reset]:not(:active, .active):focus,
+input[type=reset]:not(:active, .active).focus,
+.button:not(:active, .active):focus,
+.button:not(:active, .active).focus {
   box-shadow: inset -1px -1px 0 var(--darkest), inset 1px 1px 0 var(--lightest), 
     inset -2px -2px 0 var(--dark), inset 2px 2px 0 var(--light);
 }
 
-details > summary:not(:active),
-button:not(:active),
-button:disabled:active {
+button:not(:active, .active),
+input[type=button]:not(:active, .active),
+input[type=submit]:not(:active, .active),
+input[type=reset]:not(:active, .active),
+.button:not(:active, .active) {
   box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--light);
 }
 

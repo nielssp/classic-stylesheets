@@ -4,7 +4,8 @@ export default class List {
 
     this.multiselect = this.root.getAttribute('aria-multiselectable') === 'true';
     this.iconGrid = this.root.children.length > 0 && this.root.children[0].classList.contains('icon-grid');
-    this.options = this.root.querySelectorAll('[role="option"]');
+    this.treeView = this.root.children.length > 0 && this.root.children[0].role === 'tree';
+    this.options = this.root.querySelectorAll('[role="option"], [role="treeitem"]');
     this.selectedOption = -1;
     this.prefix = '';
     this.prefixTimeout = null;
@@ -27,6 +28,9 @@ export default class List {
           }
           this.prefix += e.key.toLowerCase();
           for (let j = 0; j < this.options.length; j++) {
+            if (this.treeView && this.options[j].matches('details:not([open]) ul *')) {
+              continue;
+            }
             if (this.options[j].textContent.trimLeft().toLowerCase().startsWith(this.prefix)) {
               this.select(j, false, false);
               break;
@@ -79,10 +83,24 @@ export default class List {
           }
         } else if (e.key === 'ArrowDown') {
           e.preventDefault();
-          this.select(i + 1, e.shiftKey, e.ctrlKey);
+          this.select(i + 1, e.shiftKey, e.ctrlKey, false, 1);
         } else if (e.key === 'ArrowUp') {
           e.preventDefault();
-          this.select(i - 1, e.shiftKey, e.ctrlKey);
+          this.select(i - 1, e.shiftKey, e.ctrlKey, false);
+        } else if (this.treeView) {
+          if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            const option = this.options[i];
+            if (option.tagName === 'SUMMARY') {
+              option.parentElement.open = true;
+            }
+          } else if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            const option = this.options[i];
+            if (option.tagName === 'SUMMARY') {
+              option.parentElement.open = false;
+            }
+          }
         }
       });
       if (option.getAttribute('aria-selected') !== 'true') {
@@ -109,11 +127,15 @@ export default class List {
     });
   }
 
-  select(index, shift, ctrl, click) {
+  select(index, shift, ctrl, click, direction = -1) {
     if (index < 0 || index >= this.options.length) {
       return;
     }
     const option = this.options[index];
+    if (this.treeView && option.matches('details:not([open]) ul *')) {
+      this.select(index + direction, shift, ctrl, click, direction);
+      return;
+    }
     for (let other of this.options) {
       if (!this.multiselect || !ctrl) {
         other.setAttribute('aria-selected', false);

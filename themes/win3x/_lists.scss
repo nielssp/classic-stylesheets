@@ -102,17 +102,17 @@
   outline-offset: -1px;
 }
 
-.detailed .icon[aria-selected="true"] .icon-label {
+.detailed .icon[aria-selected="true"] {
   outline: 1px solid var(--selection-bg);
 }
 
-.detailed:focus-within .icon[aria-selected="true"] .icon-label {
+.detailed:focus-within .icon[aria-selected="true"] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
   outline: none;
 }
 
-.detailed .icon[aria-selected="true"]:focus .icon-label {
+.detailed .icon[aria-selected="true"]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
 
@@ -136,7 +136,6 @@
   width: 16px;
   height: 16px;
   margin-right: 1px;
-  margin-left: -4px;
 }
 
 .detailed .icon > .icon-label {
@@ -149,3 +148,120 @@
   top: 0;
 }
 
+.list ul[role="tree"] {
+  li {
+    list-style-type: none;
+    min-height: 24px;
+    padding-top: 4px;
+    position: relative;
+
+    & > details {
+      margin: 0;
+      display: block;
+
+      & > summary {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 7px;
+          height: 7px;
+          -webkit-mask-image: url(expand.svg);
+          mask-image: url(expand.svg);
+          position: absolute;
+          left: 5px;
+          background: #000;
+        }
+
+        &:not(.icon)::after {
+          background: currentColor;
+        }
+      }
+
+      &[open] > summary::after {
+        -webkit-mask-image: url(collapse.svg);
+        mask-image: url(collapse.svg);
+      }
+    }
+  }
+
+  .icon {
+    & > img {
+      width: 16px;
+      height: 16px;
+      margin-right: 1px;
+    }
+
+    & > .icon-label {
+      text-align: center;
+      padding: 1px 3px;
+    }
+  }
+
+  [role=treeitem] {
+    display: inline-flex;
+    outline: none;
+    align-items: center;
+
+    &:focus {
+      outline: 1px dotted var(--border);
+      outline-offset: -1px;
+    }
+
+    &[aria-selected="true"] {
+      outline: 1px solid var(--selection-bg);
+    }
+
+    &[aria-selected="true"]:focus {
+      outline: 1px dotted var(--selection-inverse);
+    }
+  }
+
+  [role=treeitem]:not(.icon) {
+    padding-left: 16px;
+  }
+
+  &:focus-within [role=treeitem][aria-selected="true"] {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  ul {
+    margin-left: 8px;
+    padding-left: 10px;
+
+    li {
+      margin-left: -14px;
+      padding-left: 14px;
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 4px;
+        bottom: 0;
+        border-left: 1px solid var(--border);
+      }
+
+      &:last-child::before {
+        bottom: initial;
+        height: 13px;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 13px;
+        left: 4px;
+        width: 7px;
+        border-bottom: 1px solid var(--border);
+      }
+    }
+  }
+}

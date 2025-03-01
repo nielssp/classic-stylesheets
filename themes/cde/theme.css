@@ -1097,3 +1097,132 @@ progress:not([value])::-webkit-progress-value {
   position: sticky;
   top: 0;
 }
+
+.list ul[role=tree] {
+  margin: 1px 2px 3px;
+}
+.list ul[role=tree] li {
+  position: relative;
+  list-style-type: none;
+}
+.list ul[role=tree] li > details {
+  margin: 0;
+  display: block;
+}
+.list ul[role=tree] li > details > summary {
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+.list ul[role=tree] li > details > summary::before {
+  content: "";
+  display: block;
+  border: 1px solid var(--button-light);
+  border-bottom: 1px solid var(--button-dark);
+  border-right: 1px solid var(--button-dark);
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background-color: var(--button-bg);
+  background-image: url(expand.svg);
+  background-repeat: no-repeat;
+  background-position: 2px 2px;
+  top: 5px;
+  left: 20px;
+}
+.list ul[role=tree] li > details[open] > summary::before {
+  background-image: url(collapse.svg);
+}
+.list ul[role=tree] li > details > ul {
+  margin-left: -12px;
+}
+.list ul[role=tree] li > details > ul::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 21px;
+  left: 27px;
+  height: 4px;
+  border-left: 2px solid currentColor;
+}
+.list ul[role=tree] li > details::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  width: 15px;
+  border-bottom: 2px solid currentColor;
+}
+.list ul[role=tree] > li > details {
+  margin-left: 22px;
+}
+.list ul[role=tree] > li > details > summary::before {
+  left: 2px;
+}
+.list ul[role=tree] > li > details > ul::before {
+  left: 9px;
+}
+.list ul[role=tree] > li > details::after {
+  display: none;
+}
+.list ul[role=tree] .icon {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  outline: none;
+}
+.list ul[role=tree] .icon > img {
+  width: 16px;
+  height: 16px;
+  margin-right: 1px;
+}
+.list ul[role=tree] .icon > .icon-label {
+  text-align: center;
+  padding: 1px 3px;
+}
+.list ul[role=tree] [role=treeitem] {
+  display: inline-flex;
+  outline: none;
+}
+.list ul[role=tree] [role=treeitem]:not(.icon) {
+  padding: 1px;
+}
+.list ul[role=tree] [role=treeitem]:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: -2px;
+}
+.list ul[role=tree] [role=treeitem][aria-selected=true] {
+  background-color: #ffffff;
+  color: #000000;
+}
+.list ul[role=tree] ul {
+  margin-left: 8px;
+  padding-left: 10px;
+}
+.list ul[role=tree] ul li {
+  margin-left: -15px;
+  padding-left: 40px;
+}
+.list ul[role=tree] ul li::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 4px;
+  bottom: 0;
+  border-left: 2px solid currentColor;
+}
+.list ul[role=tree] ul li:last-child::before {
+  bottom: initial;
+  height: 13px;
+}
+.list ul[role=tree] ul li:last-child::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 5px;
+  width: 15px;
+  border-bottom: 2px solid currentColor;
+}

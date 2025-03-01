@@ -223,6 +223,18 @@ progress::-moz-progress-bar {
   background: repeating-linear-gradient(90deg, transparent, transparent 6px, #fff 6px, #fff 8px), linear-gradient(to bottom, #95B38E, #A4D498 10%, #A4D498 40%, #76A66A 40%, #98C88C);
 }
 
+.list ul[role=tree] li > details > summary::before {
+  border-color: #9495A2;
+  background-image: url(../expand.svg), linear-gradient(to top, #C5CFD9, transparent 3px), linear-gradient(to top left, #D3D9E2, transparent 5px);
+}
+.list ul[role=tree] li > details[open] > summary::before {
+  background-image: url(../collapse.svg), linear-gradient(to top, #C5CFD9, transparent 3px), linear-gradient(to top left, #D3D9E2, transparent 5px);
+}
+
+.list ul[role=tree] li .icon:hover > .icon-label {
+  color: #648BCB;
+}
+
 .tabs > menu > button {
   background: linear-gradient(to bottom, #FDFDFD, #F3F3F4 40%, #C6C5D7);
 }
