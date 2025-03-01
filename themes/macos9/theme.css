@@ -1104,6 +1104,7 @@ progress:not([value])::-webkit-progress-value {
 
 .list ul[role=tree] {
   position: relative;
+  margin-bottom: 1px;
 }
 .list ul[role=tree] > li {
   padding-left: 20px;
