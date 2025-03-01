@@ -1038,7 +1038,7 @@ progress:not([value])::-webkit-progress-value {
 .list ul[role=tree] li {
   list-style-type: none;
   min-height: 24px;
-  padding-top: 2px;
+  padding-top: 4px;
   position: relative;
 }
 .list ul[role=tree] li > details {
@@ -1125,8 +1125,8 @@ progress:not([value])::-webkit-progress-value {
   content: "";
   display: block;
   position: absolute;
-  top: 12px;
-  left: 5px;
-  width: 6px;
+  top: 13px;
+  left: 4px;
+  width: 7px;
   border-bottom: 1px solid var(--border);
 }
