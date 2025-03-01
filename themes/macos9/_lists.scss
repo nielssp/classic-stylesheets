@@ -49,19 +49,16 @@
 
     &:focus {
       outline: none;
-      & > .icon-label {
-        outline: 1px dotted #000;
-        outline-offset: -1px;
-      }
     }
 
     &[aria-selected="true"] {
+      & > img {
+        filter: brightness(0.5);
+      }
+
       & > .icon-label {
         background-color: #000;
         color: #fff;
-      }
-      &:focus > .icon-label {
-        outline: 1px dotted #fff;
       }
     }
   }
@@ -141,9 +138,15 @@
       outline: none;
     }
 
-    &[aria-selected="true"] > .icon-label {
-      background-color: #000;
-      color: #fff;
+    &[aria-selected="true"]{
+      & > img {
+        filter: brightness(0.5);
+      }
+
+      & > .icon-label {
+        background-color: #000;
+        color: #fff;
+      }
     }
   }
 
@@ -155,8 +158,15 @@
 
 
 .list ul[role="tree"] {
+  position: relative;
+
+  & > li {
+    padding-left: 20px;
+  }
+
   li {
     list-style-type: none;
+    background: #eee;
 
     & > details {
       margin: 0;
@@ -166,8 +176,40 @@
         margin: 0;
         display: flex;
         align-items: center;
+
+        &::before {
+          content: '';
+          display: block;
+          background-color: var(--primary-4);
+          background-image: url(expandcollapse.svg);
+          -webkit-mask-image: url(expandcollapse-mask.svg);
+          mask-image: url(expandcollapse-mask.svg);
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          left: 4px;
+        }
+
+        &:active::before {
+          background-color: var(--primary-2);
+        }
+      }
+
+      &[open] > summary::before {
+        background-position: -12px;
+        -webkit-mask-position: -12px;
+        mask-position: -12px;
       }
     }
+  }
+
+  li::after, li ul::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #fff;
   }
 
   .icon {
@@ -191,9 +233,15 @@
       outline: none;
     }
 
-    &[aria-selected="true"] > .icon-label {
-      background-color: #000;
-      color: #fff;
+    &[aria-selected="true"] {
+      & > img {
+        filter: brightness(0.5);
+      }
+
+      & > .icon-label {
+        background-color: #000;
+        color: #fff;
+      }
     }
   }
 
@@ -212,7 +260,6 @@
     padding-left: 10px;
 
     li {
-      position: relative;
       margin-left: -15px;
       padding-left: 16px;
     }

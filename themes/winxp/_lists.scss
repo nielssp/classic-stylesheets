@@ -181,6 +181,7 @@
 
 .list ul[role="tree"] {
   li {
+    position: relative;
     list-style-type: none;
     min-height: 24px;
     padding-top: 2px;
@@ -213,6 +214,13 @@
       &[open] > summary::before {
         background-image: url(collapse.svg), linear-gradient(to top, #C3BAAA, transparent 3px), linear-gradient(to top left, #CFC8BB, transparent 5px);
       }
+    }
+  }
+
+  & > li > details {
+    padding-left: 17px;
+    & > summary::before {
+      left: 4px;
     }
   }
 
@@ -290,7 +298,6 @@
     padding-left: 10px;
 
     li {
-      position: relative;
       margin-left: -15px;
       padding-left: 16px;
     }

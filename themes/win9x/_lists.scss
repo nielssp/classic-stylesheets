@@ -67,6 +67,7 @@
         background-color: var(--window-bg);
         color: var(--window-fg);
       }
+
       &:focus > .icon-label {
         outline: 1px dotted var(--selection-inverse);
       }
@@ -175,6 +176,7 @@
 
 .list ul[role="tree"] {
   li {
+    position: relative;
     list-style-type: none;
     min-height: 24px;
     padding-top: 2px;
@@ -206,6 +208,13 @@
       &[open] > summary::before {
         background-image: url(collapse.svg);
       }
+    }
+  }
+
+  & > li > details {
+    padding-left: 17px;
+    & > summary::before {
+      left: 4px;
     }
   }
 
@@ -274,7 +283,6 @@
     padding-left: 10px;
 
     li {
-      position: relative;
       margin-left: -15px;
       padding-left: 16px;
 

@@ -1270,6 +1270,7 @@ progress:not([value])::-webkit-progress-value {
 }
 
 .list ul[role=tree] li {
+  position: relative;
   list-style-type: none;
   min-height: 24px;
   padding-top: 2px;
@@ -1299,6 +1300,12 @@ progress:not([value])::-webkit-progress-value {
 }
 .list ul[role=tree] li > details[open] > summary::before {
   background-image: url(collapse.svg), linear-gradient(to top, #C3BAAA, transparent 3px), linear-gradient(to top left, #CFC8BB, transparent 5px);
+}
+.list ul[role=tree] > li > details {
+  padding-left: 17px;
+}
+.list ul[role=tree] > li > details > summary::before {
+  left: 4px;
 }
 .list ul[role=tree] .icon {
   display: inline-flex;
@@ -1359,7 +1366,6 @@ progress:not([value])::-webkit-progress-value {
   padding-left: 10px;
 }
 .list ul[role=tree] ul li {
-  position: relative;
   margin-left: -15px;
   padding-left: 16px;
 }

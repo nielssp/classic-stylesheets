@@ -989,17 +989,17 @@ progress:not([value])::-webkit-progress-value {
   outline-offset: -1px;
 }
 
-.detailed .icon[aria-selected=true] .icon-label {
+.detailed .icon[aria-selected=true] {
   outline: 1px solid var(--selection-bg);
 }
 
-.detailed:focus-within .icon[aria-selected=true] .icon-label {
+.detailed:focus-within .icon[aria-selected=true] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
   outline: none;
 }
 
-.detailed .icon[aria-selected=true]:focus .icon-label {
+.detailed .icon[aria-selected=true]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
 
@@ -1023,7 +1023,6 @@ progress:not([value])::-webkit-progress-value {
   width: 16px;
   height: 16px;
   margin-right: 1px;
-  margin-left: -4px;
 }
 
 .detailed .icon > .icon-label {
@@ -1040,6 +1039,7 @@ progress:not([value])::-webkit-progress-value {
   list-style-type: none;
   min-height: 24px;
   padding-top: 2px;
+  position: relative;
 }
 .list ul[role=tree] li > details {
   margin: 0;
@@ -1049,6 +1049,25 @@ progress:not([value])::-webkit-progress-value {
   margin: 0;
   display: flex;
   align-items: center;
+  position: relative;
+}
+.list ul[role=tree] li > details > summary::after {
+  content: "";
+  display: block;
+  width: 7px;
+  height: 7px;
+  -webkit-mask-image: url(expand.svg);
+  mask-image: url(expand.svg);
+  position: absolute;
+  left: 5px;
+  background: #000;
+}
+.list ul[role=tree] li > details > summary:not(.icon)::after {
+  background: currentColor;
+}
+.list ul[role=tree] li > details[open] > summary::after {
+  -webkit-mask-image: url(collapse.svg);
+  mask-image: url(collapse.svg);
 }
 .list ul[role=tree] .icon > img {
   width: 16px;
@@ -1074,6 +1093,9 @@ progress:not([value])::-webkit-progress-value {
 .list ul[role=tree] [role=treeitem][aria-selected=true]:focus {
   outline: 1px dotted var(--selection-inverse);
 }
+.list ul[role=tree] [role=treeitem]:not(.icon) {
+  padding-left: 16px;
+}
 .list ul[role=tree]:focus-within [role=treeitem][aria-selected=true] {
   background-color: var(--selection-bg);
   color: var(--selection-fg);
@@ -1083,8 +1105,7 @@ progress:not([value])::-webkit-progress-value {
   padding-left: 10px;
 }
 .list ul[role=tree] ul li {
-  position: relative;
-  margin-left: -15px;
+  margin-left: -14px;
   padding-left: 14px;
 }
 .list ul[role=tree] ul li::before {

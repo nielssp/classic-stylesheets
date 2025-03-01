@@ -152,7 +152,9 @@
 
 
 .list ul[role="tree"] {
+  margin: 1px 2px 3px;
   li {
+    position: relative;
     list-style-type: none;
 
     & > details {
@@ -188,6 +190,16 @@
 
       & > ul {
         margin-left: -12px;
+
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 21px;
+          left: 27px;
+          height: 4px;
+          border-left: 2px solid currentColor;
+        }
       }
 
       &::after {
@@ -199,6 +211,22 @@
         width: 15px;
         border-bottom: 2px solid currentColor;
       }
+    }
+  }
+
+  & > li > details {
+    margin-left: 22px;
+    
+    & > summary::before {
+      left: 2px;
+    }
+
+    & > ul::before {
+      left: 9px;
+    }
+
+    &::after {
+      display: none;
     }
   }
 
@@ -244,7 +272,6 @@
     padding-left: 10px;
 
     li {
-      position: relative;
       margin-left: -15px;
       padding-left: 40px;
 
