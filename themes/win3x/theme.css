@@ -961,9 +961,16 @@ progress:not([value])::-webkit-progress-value {
 
 .detailed th {
   text-align: left;
-  font-weight: bold;
+  font-weight: normal;
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  background: var(--button-bg);
+  color: var(--button-fg);
+}
+.detailed th:last-child {
+  border-right: 0;
 }
 
 .detailed tr {
