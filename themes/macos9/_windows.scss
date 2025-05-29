@@ -2,13 +2,12 @@
   background: #ddd;
   color: #777;
   display: flex;
-  gap: 5px;
-
+  gap: 4px;
 
   .title-bar-text {
     display: flex;
     flex-grow: 1;
-    align-items: center;
+    align-items: flex-start;
     gap: 4px;
     font-weight: bold;
     font-size: 12px;
@@ -20,6 +19,8 @@
       content: '';
       flex-grow: 1;
       height: 12px;
+      margin-top: 1px;
+      margin-bottom: 4px;
     }
   }
 }
@@ -52,13 +53,21 @@
 
   & > .title-bar-text::before,
   & > .title-bar-text::after {
-    background: repeating-linear-gradient(0deg, #fff, #fff 1px, #777 1px, #777 2px);
+    background-image: linear-gradient(0deg, #fff, #fff 1px, transparent 1px, transparent 1px), linear-gradient(0deg, transparent, transparent 1px, #777 1px, #777 1px);
+    background-repeat: repeat-y;
+    background-position-x: -1px, 1px;
+    background-position-y: -1px, -1px;
+    background-size: 100% 2px, 100% 2px;
   }
+}
+
+.menu > .title-bar {
+  padding: 2px 4px 0;
 }
 
 .title-bar-buttons {
   display: flex;
-  gap: 5px;
+  gap: 3px;
   visibility: hidden;
 }
 
@@ -84,10 +93,10 @@
   min-width: 0;
   border-radius: 0;
   border: 1px solid #222;
-  margin: 1px;
+  margin: 2px 1px 5px;
   padding: 0;
   background: linear-gradient(to bottom right, #999, #fff);
-  box-shadow: -1px -1px 0 #888, 1px 1px 0 #fff, inset 1px 1px 0 #ccc, inset -1px -1px 0 #888;
+  box-shadow: -1px -1px 0 #888, -1px 0 0 #888, 0 -1px #888, 1px 1px 0 #fff, 1px 0 0 #fff, 0 1px 0 #fff, inset 1px 1px 0 #ccc, inset -1px -1px 0 #888;
 }
 
 .title-bar-buttons button:active {
@@ -106,6 +115,6 @@
   color: #000;
   background: var(--window-bg);
   border: 1px solid #000;
-  box-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #999, 0 -1px 0 #999;
+  box-shadow: 1px 1px 0 #fff, 1px 0 0 #fff, 0 1px 0 #fff, -1px -1px 0 #999, -1px 0 0 #999, 0 -1px 0 #999;
 }
 
