@@ -62,3 +62,24 @@
     }
   }
 }
+
+@mixin primary-button {
+  &::after {
+    display: block;
+    border: 2px solid #6F98CFB2;
+  }
+}
+
+form:focus-within:not(:has(button:focus)) {
+  #{util.$buttons} {
+    &:default {
+      @include primary-button;
+    }
+  }
+}
+
+#{util.$buttons} {
+  &.primary {
+    @include primary-button;
+  }
+}

@@ -293,6 +293,49 @@ button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:
   border-left: 1px solid var(--button-dark);
 }
 
+form:focus-within:not(:has(button:focus)) button:default, form:focus-within:not(:has(button:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus)) .button:default {
+  position: relative;
+}
+form:focus-within:not(:has(button:focus)) button:default::before, form:focus-within:not(:has(button:focus)) input[type=button]:default::before, form:focus-within:not(:has(button:focus)) input[type=submit]:default::before, form:focus-within:not(:has(button:focus)) input[type=reset]:default::before, form:focus-within:not(:has(button:focus)) .button:default::before {
+  display: block;
+  content: " ";
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+form button:focus, form button.focus, form input[type=button]:focus, form input[type=button].focus, form input[type=submit]:focus, form input[type=submit].focus, form input[type=reset]:focus, form input[type=reset].focus, form .button:focus, form .button.focus {
+  outline-offset: 5px;
+  position: relative;
+}
+form button:focus::before, form button.focus::before, form input[type=button]:focus::before, form input[type=button].focus::before, form input[type=submit]:focus::before, form input[type=submit].focus::before, form input[type=reset]:focus::before, form input[type=reset].focus::before, form .button:focus::before, form .button.focus::before {
+  display: block;
+  content: " ";
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+
+button.primary, input[type=button].primary, input[type=submit].primary, input[type=reset].primary, .button.primary {
+  position: relative;
+}
+button.primary::before, input[type=button].primary::before, input[type=submit].primary::before, input[type=reset].primary::before, .button.primary::before {
+  display: block;
+  content: " ";
+  position: absolute;
+  inset: -4px;
+  border: 1px solid var(--button-light);
+  border-top: 1px solid var(--button-dark);
+  border-left: 1px solid var(--button-dark);
+}
+button.primary:focus, button.primary.focus, input[type=button].primary:focus, input[type=button].primary.focus, input[type=submit].primary:focus, input[type=submit].primary.focus, input[type=reset].primary:focus, input[type=reset].primary.focus, .button.primary:focus, .button.primary.focus {
+  outline-offset: 5px;
+}
+
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input {
   background-color: var(--input-bg);
   color: var(--input-fg);

@@ -10,18 +10,24 @@
     <link rel="stylesheet" type="text/css" href="demo.css"/>
   </head>
   <body class="flex-column" style="height: 100%;">
-    <div class="top-panel flex-row spacing align-center padding">
+    <div id="toolbar" class="top-panel flex-row gap align-center padding">
       <div>Theme</div>
-      <select id="theme-select" size=1>
-        <option value="win9x">Windows 9x</option>
-        <option value="win3x">Windows 3.x</option>
-        <option value="winxp">Windows XP</option>
-        <option value="cde">CDE</option>
-        <option value="macos9">Mac OS 9</option>
-      </select>
+      <div class="dropdown">
+        <select id="theme-select" size=1>
+          <option value="win9x">Windows 9x</option>
+          <option value="win3x">Windows 3.x</option>
+          <option value="winxp">Windows XP</option>
+          <option value="cde">CDE</option>
+          <option value="macos9">Mac OS 9</option>
+        </select>
+        <div class="dropdown-button"></div>
+      </div>
       <div>Skin</div>
-      <select id="skin-select" size=1>
-      </select>
+      <div class="dropdown">
+        <select id="skin-select" size=1>
+        </select>
+        <div class="dropdown-button"></div>
+      </div>
     </div>
     <main class="desktop padding grow" style="max-width: 100%; position: relative; overflow: hidden;">
       <div class="window" style="width: 800px; height: 600px;">

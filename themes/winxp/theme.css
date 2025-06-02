@@ -394,6 +394,16 @@ button:not(:disabled, .disabled):active::after, button.active::after, input[type
   display: none;
 }
 
+form:focus-within:not(:has(button:focus)) button:default::after, form:focus-within:not(:has(button:focus)) input[type=button]:default::after, form:focus-within:not(:has(button:focus)) input[type=submit]:default::after, form:focus-within:not(:has(button:focus)) input[type=reset]:default::after, form:focus-within:not(:has(button:focus)) .button:default::after {
+  display: block;
+  border: 2px solid rgba(111, 152, 207, 0.6980392157);
+}
+
+button.primary::after, input[type=button].primary::after, input[type=submit].primary::after, input[type=reset].primary::after, .button.primary::after {
+  display: block;
+  border: 2px solid rgba(111, 152, 207, 0.6980392157);
+}
+
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
 select {
   background-color: var(--input-bg);

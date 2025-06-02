@@ -61,6 +61,7 @@
                   <div class="flex-row gap">
                     <div class="button">Default</div>
                     <div class="button disabled">Disabled</div>
+                    <div class="button primary">Primary</div>
                     <div class="button focus">Focus</div>
                     <div class="button active">Active</div>
                   </div>
@@ -237,7 +238,7 @@
               <h2>Grid layouts</h2>
               <div>
                 <div class="example">
-                  <form class="grid gap align-center" style="grid-template-columns: max-content auto;" onsubmit="return false">
+                  <form class="grid gap align-center" style="grid-template-columns: max-content auto;" onsubmit="console.log(event); return false">
                     <label for="grid-input-1">Some text</label>
                     <input id="grid-input-1" type="text" value="An input"/>
                     <label for="grid-input-2">Some other text</label>

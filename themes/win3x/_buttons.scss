@@ -60,3 +60,23 @@
     }
   }
 }
+
+@mixin primary-button {
+  box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border),
+    inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), 
+    inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
+}
+
+form:focus-within:not(:has(button:focus)) {
+  #{util.$buttons} {
+    &:default {
+      @include primary-button;
+    }
+  }
+}
+
+#{util.$buttons} {
+  &.primary {
+    @include primary-button;
+  }
+}

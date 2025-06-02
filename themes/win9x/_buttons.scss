@@ -18,7 +18,7 @@
     border: 1px solid var(--darkest);
     outline: 1px dotted var(--darkest);
     box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
-    inset -2px -2px 0 var(--dark);
+      inset -2px -2px 0 var(--dark);
     outline-offset: -4px;
   }
 
@@ -34,3 +34,22 @@
   }
 }
 
+@mixin primary-button {
+  border: 1px solid var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest),
+    inset -2px -2px 0 var(--dark);
+}
+
+form:focus-within:not(:has(button:focus)) {
+  #{util.$buttons} {
+    &:default {
+      @include primary-button;
+    }
+  }
+}
+
+#{util.$buttons} {
+  &.primary {
+    @include primary-button;
+  }
+}

@@ -345,6 +345,42 @@ select:not([size], [multiple]):focus-visible, select[size="1"]:focus-visible {
   border-radius: 1px;
 }
 
+form:focus-within:not(:has(button:focus)) button:default, form:focus-within:not(:has(button:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus)) .button:default {
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 1px 1px 0 #DDDDDD, inset 2px 2px 0 #fff, inset -1px -1px 1px #555, -1px -1px 2px rgba(0, 0, 0, 0.3411764706), 2px 2px 2px rgba(255, 255, 255, 0.5411764706);
+}
+form:focus-within:not(:has(button:focus)) button:default::before, form:focus-within:not(:has(button:focus)) input[type=button]:default::before, form:focus-within:not(:has(button:focus)) input[type=submit]:default::before, form:focus-within:not(:has(button:focus)) input[type=reset]:default::before, form:focus-within:not(:has(button:focus)) .button:default::before {
+  content: " ";
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  left: -4px;
+  top: -4px;
+  position: absolute;
+  border-radius: 6px;
+  box-sizing: border-box;
+  z-index: -1;
+  box-shadow: 0px 0px 0px 1px black, inset 0px 0px 2px white, inset -2px -2px 3px #545454;
+}
+
+button.primary, input[type=button].primary, input[type=submit].primary, input[type=reset].primary, .button.primary {
+  position: relative;
+  z-index: 1;
+  box-shadow: inset 1px 1px 0 #DDDDDD, inset 2px 2px 0 #fff, inset -1px -1px 1px #555, -1px -1px 2px rgba(0, 0, 0, 0.3411764706), 2px 2px 2px rgba(255, 255, 255, 0.5411764706);
+}
+button.primary::before, input[type=button].primary::before, input[type=submit].primary::before, input[type=reset].primary::before, .button.primary::before {
+  content: " ";
+  width: calc(100% + 8px);
+  height: calc(100% + 8px);
+  left: -4px;
+  top: -4px;
+  position: absolute;
+  border-radius: 6px;
+  box-sizing: border-box;
+  z-index: -1;
+  box-shadow: 0px 0px 0px 1px black, inset 0px 0px 2px white, inset -2px -2px 3px #545454;
+}
+
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
 select[multiple], select[size]:not([size="1"]) {
   background: #fff;

@@ -29,3 +29,44 @@
     border-left: 1px solid var(--button-dark);
   }
 }
+
+@mixin primary-button {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: ' ';
+    position: absolute;
+    inset: -4px;
+    border: 1px solid var(--button-light);
+    border-top: 1px solid var(--button-dark);
+    border-left: 1px solid var(--button-dark);
+  }
+}
+
+form:focus-within:not(:has(button:focus)) {
+  #{util.$buttons} {
+    &:default {
+      @include primary-button;
+    }
+  }
+}
+
+form {
+  #{util.$buttons} {
+    &:focus, &.focus {
+      outline-offset: 5px;
+      @include primary-button;
+    }
+  }
+}
+
+#{util.$buttons} {
+  &.primary {
+    @include primary-button;
+
+    &:focus, &.focus {
+      outline-offset: 5px;
+    }
+  }
+}

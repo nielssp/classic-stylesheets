@@ -53,6 +53,19 @@ input[type=reset]:not(:active, .active),
   box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--light);
 }
 
+form:focus-within:not(:has(button:focus)) button:not(:active, .active):default,
+form:focus-within:not(:has(button:focus)) input[type=button]:not(:active, .active):default,
+form:focus-within:not(:has(button:focus)) input[type=submit]:not(:active, .active):default,
+form:focus-within:not(:has(button:focus)) input[type=reset]:not(:active, .active):default,
+.button:not(:active, .active).primary,
+button:not(:active, .active).primary,
+input[type=button]:not(:active, .active).primary,
+input[type=submit]:not(:active, .active).primary,
+input[type=reset]:not(:active, .active).primary {
+  box-shadow: inset -1px -1px 0 var(--darkest), inset 1px 1px 0 var(--lightest), 
+    inset -2px -2px 0 var(--dark), inset 2px 2px 0 var(--light);
+}
+
 .title-bar-buttons button:not(:active):focus {
   box-shadow: inset -1px -1px 0 var(--dark), inset 1px 1px 0 var(--light);
 }

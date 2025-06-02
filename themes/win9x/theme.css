@@ -307,6 +307,16 @@ button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:
   padding: 4px 9px 5px 11px;
 }
 
+form:focus-within:not(:has(button:focus)) button:default, form:focus-within:not(:has(button:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus)) .button:default {
+  border: 1px solid var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest), inset -2px -2px 0 var(--dark);
+}
+
+button.primary, input[type=button].primary, input[type=submit].primary, input[type=reset].primary, .button.primary {
+  border: 1px solid var(--darkest);
+  box-shadow: inset 1px 1px 0 var(--lightest), inset -1px -1px 0 var(--darkest), inset -2px -2px 0 var(--dark);
+}
+
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
 select,
 .dropdown {
