@@ -323,7 +323,7 @@ button:not(:disabled, .disabled):active::after, button.active::after, input[type
   right: 29px;
 }
 
-form:focus-within:not(:has(button:focus)) button:default, form:focus-within:not(:has(button:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus)) .button:default {
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) button:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) .button:default {
   box-shadow: inset 1px 1px 0 var(--border), inset -1px -1px 0 var(--border), inset -2px -2px 0 var(--button-dark), inset 2px 2px 0 var(--button-light), inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
 }
 

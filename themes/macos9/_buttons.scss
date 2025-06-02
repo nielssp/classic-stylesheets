@@ -34,24 +34,18 @@
 
 @mixin primary-button {
   position: relative;
-  z-index: 1;
-  box-shadow: inset 1px 1px 0 #DDDDDD, inset 2px 2px 0 #fff, inset -1px -1px 1px #555, -1px -1px 2px #00000057, 2px 2px 2px #ffffff8a;
 
   &::before {
     content: " ";
-    width: calc(100% + 8px);
-    height: calc(100% + 8px);
-    left: -4px;
-    top: -4px;
     position: absolute;
-    border-radius: 6px;
+    inset: -3px;
+    border-radius: 4px;
     box-sizing: border-box;
-    z-index: -1;
-    box-shadow: 0px 0px 0px 1px black, inset 0px 0px 2px white, inset -2px -2px 3px #545454;
+    box-shadow: 0px 0px 0px 1px black, inset 1px 1px 0 #DDDDDD, inset -1px -1px 0 #737373, inset 0 0 0 2px #ADADAD;
   }
 }
 
-form:focus-within:not(:has(button:focus)) {
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) {
   #{util.$buttons} {
     &:default {
       @include primary-button;

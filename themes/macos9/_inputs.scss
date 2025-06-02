@@ -229,20 +229,28 @@ label > input[type=checkbox]:focus-visible {
 
 @mixin range-thumb {
   border-radius: 0;
+  box-sizing: border-box;
   background-color: var(--primary-4);
-  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
-  background-size: 6px 5px;
+  background-image:
+    repeating-linear-gradient(90deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+    repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-position-x: 3px;
+  background-position-y: 3px, 3px, 4px;
+  background-size: 6px 1px, 6px 4px, 6px 4px;
   background-repeat: no-repeat;
-  background-position: center center;
   border: 1px solid #000;
-  width: 13px;
-  height: 11px;
+  width: 14px;
+  height: 13px;
   border-radius: 2px;
   box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3);
 
   &:active {
     background-color: var(--primary-3);
-    background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+    background-image:
+      repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
     box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
   }
 }

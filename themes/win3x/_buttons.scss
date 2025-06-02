@@ -67,7 +67,7 @@
     inset -3px -3px 0 var(--button-dark), inset 3px 3px 0 var(--button-light);
 }
 
-form:focus-within:not(:has(button:focus)) {
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) {
   #{util.$buttons} {
     &:default {
       @include primary-button;

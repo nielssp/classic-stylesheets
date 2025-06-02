@@ -293,10 +293,10 @@ button:not(:disabled, .disabled):active, button.active, input[type=button]:not(:
   border-left: 1px solid var(--button-dark);
 }
 
-form:focus-within:not(:has(button:focus)) button:default, form:focus-within:not(:has(button:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus)) .button:default {
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) button:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) .button:default {
   position: relative;
 }
-form:focus-within:not(:has(button:focus)) button:default::before, form:focus-within:not(:has(button:focus)) input[type=button]:default::before, form:focus-within:not(:has(button:focus)) input[type=submit]:default::before, form:focus-within:not(:has(button:focus)) input[type=reset]:default::before, form:focus-within:not(:has(button:focus)) .button:default::before {
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) button:default::before, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=button]:default::before, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=submit]:default::before, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=reset]:default::before, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) .button:default::before {
   display: block;
   content: " ";
   position: absolute;

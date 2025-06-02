@@ -96,11 +96,21 @@
         content: '';
         width: 8px;
         height: 8px;
-        background: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+        background-image:
+          linear-gradient(90deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px),
+          linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+          linear-gradient(90deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+        background-repeat: repeat-x;
+        background-position-x: 0, 0, 0;
+        background-position-y: -1px, -1px, 1px;
+        background-size: 2px 2px, 2px 100%, 2px 100%;
       }
 
       &:active::after {
-        background: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+        background-image:
+          linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+          linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px),
+          linear-gradient(90deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
       }
     }
   }
@@ -148,11 +158,21 @@
         content: '';
         width: 8px;
         height: 8px;
-        background: repeating-linear-gradient(0, var(--primary-3), var(--primary-3) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
+        background-image:
+          linear-gradient(180deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px),
+          linear-gradient(180deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+          linear-gradient(180deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+        background-repeat: repeat-y;
+        background-position-x: -1px, -1px, 1px;
+        background-position-y: 0, 0, 0;
+        background-size: 2px 2px, 100% 2px, 100% 2px;
       }
 
       &:active::after {
-        background: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
+        background-image:
+          linear-gradient(180deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+          linear-gradient(180deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px),
+          linear-gradient(180deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
       }
     }
   }
@@ -184,12 +204,22 @@
   background-position: center center;
 
   &:vertical {
-    background-image: repeating-linear-gradient(0, var(--primary-2), var(--primary-2) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
+    background-image:
+      repeating-linear-gradient(180deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(180deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(180deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+    background-position-x: calc(50% - 4px), calc(50% - 1px), 50%;
+    background-size: 1px 8px, 7px 8px, 7px 8px;
     box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 0 1px #777, 0 2px #888;
   }
 
   &:horizontal {
-    background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+    background-image:
+      repeating-linear-gradient(90deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+      repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+    background-position-y: calc(50% - 4px), calc(50% - 1px), 50%;
+    background-size: 8px 1px, 8px 7px, 8px 7px;
     box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 1px 0 #777, 2px 0 #888;
   }
 
@@ -197,12 +227,18 @@
     background-color: var(--primary-3);
 
     &:vertical {
-      background-image: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
+      background-image:
+        repeating-linear-gradient(180deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+        repeating-linear-gradient(180deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px),
+        repeating-linear-gradient(180deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
       box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 0 1px #777, 0 2px #888;
     }
 
     &:horizontal {
-      background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+      background-image:
+        repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px),
+        repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px),
+        repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
       box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 1px 0 #777, 2px 0 #888;
     }
   }

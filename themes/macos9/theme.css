@@ -170,10 +170,14 @@ legend {
   content: "";
   width: 8px;
   height: 8px;
-  background: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-image: linear-gradient(90deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px), linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), linear-gradient(90deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-repeat: repeat-x;
+  background-position-x: 0, 0, 0;
+  background-position-y: -1px, -1px, 1px;
+  background-size: 2px 2px, 2px 100%, 2px 100%;
 }
 .horizontal-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after {
-  background: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  background-image: linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px), linear-gradient(90deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
 }
 
 .vertical-scrollbar {
@@ -214,10 +218,14 @@ legend {
   content: "";
   width: 8px;
   height: 8px;
-  background: repeating-linear-gradient(0, var(--primary-3), var(--primary-3) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
+  background-image: linear-gradient(180deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px), linear-gradient(180deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), linear-gradient(180deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-repeat: repeat-y;
+  background-position-x: -1px, -1px, 1px;
+  background-position-y: 0, 0, 0;
+  background-size: 2px 2px, 100% 2px, 100% 2px;
 }
 .vertical-scrollbar > .scrollbar-track > .scrollbar-thumb:active::after {
-  background: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
+  background-image: linear-gradient(180deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), linear-gradient(180deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px), linear-gradient(180deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
 }
 
 ::-webkit-scrollbar {
@@ -246,22 +254,26 @@ legend {
   background-position: center center;
 }
 ::-webkit-scrollbar-thumb:vertical {
-  background-image: repeating-linear-gradient(0, var(--primary-2), var(--primary-2) 1px, var(--primary-5) 1px, var(--primary-5) 2px);
+  background-image: repeating-linear-gradient(180deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(180deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(180deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-position-x: calc(50% - 4px), calc(50% - 1px), 50%;
+  background-size: 1px 8px, 7px 8px, 7px 8px;
   box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 0 1px #777, 0 2px #888;
 }
 ::-webkit-scrollbar-thumb:horizontal {
-  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-image: repeating-linear-gradient(90deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-position-y: calc(50% - 4px), calc(50% - 1px), 50%;
+  background-size: 8px 1px, 8px 7px, 8px 7px;
   box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3), 1px 0 #777, 2px 0 #888;
 }
 ::-webkit-scrollbar-thumb:active {
   background-color: var(--primary-3);
 }
 ::-webkit-scrollbar-thumb:active:vertical {
-  background-image: repeating-linear-gradient(0, var(--primary-1), var(--primary-1) 1px, var(--primary-4) 1px, var(--primary-4) 2px);
+  background-image: repeating-linear-gradient(180deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(180deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(180deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
   box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 0 1px #777, 0 2px #888;
 }
 ::-webkit-scrollbar-thumb:active:horizontal {
-  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
   box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2), 1px 0 #777, 2px 0 #888;
 }
 
@@ -345,40 +357,28 @@ select:not([size], [multiple]):focus-visible, select[size="1"]:focus-visible {
   border-radius: 1px;
 }
 
-form:focus-within:not(:has(button:focus)) button:default, form:focus-within:not(:has(button:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus)) .button:default {
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) button:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=button]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=submit]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=reset]:default, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) .button:default {
   position: relative;
-  z-index: 1;
-  box-shadow: inset 1px 1px 0 #DDDDDD, inset 2px 2px 0 #fff, inset -1px -1px 1px #555, -1px -1px 2px rgba(0, 0, 0, 0.3411764706), 2px 2px 2px rgba(255, 255, 255, 0.5411764706);
 }
-form:focus-within:not(:has(button:focus)) button:default::before, form:focus-within:not(:has(button:focus)) input[type=button]:default::before, form:focus-within:not(:has(button:focus)) input[type=submit]:default::before, form:focus-within:not(:has(button:focus)) input[type=reset]:default::before, form:focus-within:not(:has(button:focus)) .button:default::before {
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) button:default::before, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=button]:default::before, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=submit]:default::before, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=reset]:default::before, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) .button:default::before {
   content: " ";
-  width: calc(100% + 8px);
-  height: calc(100% + 8px);
-  left: -4px;
-  top: -4px;
   position: absolute;
-  border-radius: 6px;
+  inset: -3px;
+  border-radius: 4px;
   box-sizing: border-box;
-  z-index: -1;
-  box-shadow: 0px 0px 0px 1px black, inset 0px 0px 2px white, inset -2px -2px 3px #545454;
+  box-shadow: 0px 0px 0px 1px black, inset 1px 1px 0 #DDDDDD, inset -1px -1px 0 #737373, inset 0 0 0 2px #ADADAD;
 }
 
 button.primary, input[type=button].primary, input[type=submit].primary, input[type=reset].primary, .button.primary {
   position: relative;
-  z-index: 1;
-  box-shadow: inset 1px 1px 0 #DDDDDD, inset 2px 2px 0 #fff, inset -1px -1px 1px #555, -1px -1px 2px rgba(0, 0, 0, 0.3411764706), 2px 2px 2px rgba(255, 255, 255, 0.5411764706);
 }
 button.primary::before, input[type=button].primary::before, input[type=submit].primary::before, input[type=reset].primary::before, .button.primary::before {
   content: " ";
-  width: calc(100% + 8px);
-  height: calc(100% + 8px);
-  left: -4px;
-  top: -4px;
   position: absolute;
-  border-radius: 6px;
+  inset: -3px;
+  border-radius: 4px;
   box-sizing: border-box;
-  z-index: -1;
-  box-shadow: 0px 0px 0px 1px black, inset 0px 0px 2px white, inset -2px -2px 3px #545454;
+  box-shadow: 0px 0px 0px 1px black, inset 1px 1px 0 #DDDDDD, inset -1px -1px 0 #737373, inset 0 0 0 2px #ADADAD;
 }
 
 input:not([type=button], [type=submit], [type=reset], [type=checkbox], [type=radio], [type=range]), textarea, .input,
@@ -599,20 +599,22 @@ input[type=range]::-moz-range-track {
 }
 input[type=range]::-moz-range-thumb {
   border-radius: 0;
+  box-sizing: border-box;
   background-color: var(--primary-4);
-  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
-  background-size: 6px 5px;
+  background-image: repeating-linear-gradient(90deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-position-x: 3px;
+  background-position-y: 3px, 3px, 4px;
+  background-size: 6px 1px, 6px 4px, 6px 4px;
   background-repeat: no-repeat;
-  background-position: center center;
   border: 1px solid #000;
-  width: 13px;
-  height: 11px;
+  width: 14px;
+  height: 13px;
   border-radius: 2px;
   box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3);
 }
 input[type=range]::-moz-range-thumb:active {
   background-color: var(--primary-3);
-  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
   box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
 }
 input[type=range]::-webkit-slider-runnable-track {
@@ -628,20 +630,22 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: -5px;
   border-radius: 0;
+  box-sizing: border-box;
   background-color: var(--primary-4);
-  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, var(--primary-2) 1px, var(--primary-2) 2px);
-  background-size: 6px 5px;
+  background-image: repeating-linear-gradient(90deg, var(--primary-6), var(--primary-6) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-2) 1px, var(--primary-2) 2px);
+  background-position-x: 3px;
+  background-position-y: 3px, 3px, 4px;
+  background-size: 6px 1px, 6px 4px, 6px 4px;
   background-repeat: no-repeat;
-  background-position: center center;
   border: 1px solid #000;
-  width: 13px;
-  height: 11px;
+  width: 14px;
+  height: 13px;
   border-radius: 2px;
   box-shadow: inset 1px 1px var(--primary-5), inset -1px -1px var(--primary-3);
 }
 input[type=range]::-webkit-slider-thumb:active {
   background-color: var(--primary-3);
-  background-image: repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, var(--primary-1) 1px, var(--primary-1) 2px);
+  background-image: repeating-linear-gradient(90deg, var(--primary-5), var(--primary-5) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, var(--primary-4), var(--primary-4) 1px, transparent 1px, transparent 2px), repeating-linear-gradient(90deg, transparent, transparent 1px, var(--primary-1) 1px, var(--primary-1) 2px);
   box-shadow: inset 1px 1px var(--primary-4), inset -1px -1px var(--primary-2);
 }
 

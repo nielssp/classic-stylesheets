@@ -394,7 +394,7 @@ button:not(:disabled, .disabled):active::after, button.active::after, input[type
   display: none;
 }
 
-form:focus-within:not(:has(button:focus)) button:default::after, form:focus-within:not(:has(button:focus)) input[type=button]:default::after, form:focus-within:not(:has(button:focus)) input[type=submit]:default::after, form:focus-within:not(:has(button:focus)) input[type=reset]:default::after, form:focus-within:not(:has(button:focus)) .button:default::after {
+form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) button:default::after, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=button]:default::after, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=submit]:default::after, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) input[type=reset]:default::after, form:focus-within:not(:has(button:focus, input[type=button]:focus, input[type=submit]:focus, input[type=reset]:focus)) .button:default::after {
   display: block;
   border: 2px solid rgba(111, 152, 207, 0.6980392157);
 }
