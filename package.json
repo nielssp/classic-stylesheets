@@ -1,0 +1,24 @@
+{
+  "name": "classic-stylesheets",
+  "version": "2.1.0",
+  "description": "Classic stylesheets for web applications",
+  "homepage": "https://github.com/nielssp/classic-stylesheets",
+  "bugs": {
+    "url": "https://github.com/nielssp/classic-stylesheets/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nielssp/classic-stylesheets.git"
+  },
+  "license": "MIT",
+  "main": "layout.css",
+  "files": [
+    "LICENSE",
+    "layout.css",
+    "themes",
+    "modules"
+  ],
+  "scripts": {
+    "build": "make all"
+  }
+}

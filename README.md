@@ -30,6 +30,20 @@ Each theme package consists of the following:
 * `combined.min.css` &ndash; Combination of `layout.min.css` and `theme.min.css`
 * `skins/*.css` &ndash; Theme variations
 
+## Install using NPM
+
+```
+npm install --save classic-stylehseets
+```
+
+When using a bundler like Vite you can include a theme and skin into your CSS or SCSS file like this:
+
+```css
+@import 'classic-stylesheets/layout.css';
+@import 'classic-stylesheets/themes/win9x/theme.css';
+@import 'classic-stylesheets/themes/win9x/skins/95.css';
+```
+
 ## Modules
 
 Most of the functionality works without JavaScript. Additional functionality can be enabled with the following minimal JavaScript modules found in the `modules` directory:

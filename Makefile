@@ -1,4 +1,4 @@
-VERSION := 2.0
+VERSION := 2.1
 THEMES := $(foreach I,$(wildcard themes/*),$(notdir $I))
 SOURCES := $(wildcard themes/*/theme.scss) $(wildcard themes/winxp/skins/*.scss)
 OBJECTS := $(SOURCES:.scss=.css)
