@@ -1098,6 +1098,21 @@ progress:not([value])::-webkit-progress-value {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
+.detailed th[role=button] {
+  user-select: none;
+}
+.detailed th[role=button]:focus-visible {
+  outline: 2px solid var(--primary-3);
+  border-radius: 1px;
+}
+.detailed th[role=button]:active {
+  background-color: #888;
+  color: #fff;
+  border-color: #444;
+  border-top-color: #111;
+  border-left-color: #111;
+  box-shadow: inset 1px 1px #555, inset -1px -1px #aaa;
+}
 .detailed tr {
   outline: none;
   background: #eee;

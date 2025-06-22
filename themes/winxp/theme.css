@@ -1103,7 +1103,6 @@ progress:not([value])::-webkit-progress-value {
   color: var(--input-fg);
   border: 1px solid #7F9DB9;
   box-shadow: inset 0 0 0 1px #fff;
-  padding: 1px;
   overflow: auto;
   cursor: default;
 }
@@ -1192,8 +1191,7 @@ progress:not([value])::-webkit-progress-value {
   white-space: nowrap;
   position: relative;
 }
-
-.detailed th::after {
+.detailed th::before {
   position: absolute;
   right: 0;
   top: 3px;
@@ -1202,6 +1200,53 @@ progress:not([value])::-webkit-progress-value {
   border-left: 1px solid #c7c5b2;
   border-right: 1px solid #fff;
   height: 1em;
+}
+.detailed th[aria-sort=ascending]::after, .detailed th[aria-sort=descending]::after {
+  content: "";
+  display: inline-block;
+  width: 9px;
+  height: 5px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  vertical-align: baseline;
+  background-image: url(sort-asc.svg);
+}
+.detailed th[aria-sort=ascending]::after {
+  background-image: url(sort-asc.svg);
+}
+.detailed th[aria-sort=descending]::after {
+  background-image: url(sort-desc.svg);
+}
+.detailed th[role=button] {
+  user-select: none;
+}
+.detailed th[role=button]:focus {
+  outline: 1px dotted #563A2E;
+  outline-offset: -2px;
+}
+.detailed th[role=button]:hover {
+  background: #fff;
+  border-bottom-color: #F9B119;
+  box-shadow: inset 0 -1px 0 #FCC247, inset 0 -2px 0 #F9A900;
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+.detailed th[role=button]:hover::before {
+  display: none;
+}
+.detailed th[role=button]:active {
+  background: #DEDFD8;
+  border-bottom-color: #A5A597;
+  box-shadow: inset 1px 0 0 #A5A597, inset -1px 0 0 #A5A597, inset 2px 1px 1px #C1C2B8;
+  border-radius: 0;
+  padding: 3px 5px 1px 7px;
+}
+.detailed th[role=button]:active::before {
+  display: none;
+}
+.detailed th[role=button]:active::after {
+  margin-left: 9px;
+  margin-bottom: 3px;
 }
 
 .detailed tr {

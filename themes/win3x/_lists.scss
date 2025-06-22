@@ -86,6 +86,20 @@
   &:last-child {
     border-right: 0;
   }
+
+  &[role="button"] {
+    user-select: none;
+
+    &:focus {
+      outline: 1px dotted var(--darkest);
+      outline-offset: -4px;
+    }
+
+    &:active {
+      padding: 3px 5px 1px 7px;
+      box-shadow: inset 1px 1px 0 var(--border);
+    }
+  }
 }
 
 .detailed tr {

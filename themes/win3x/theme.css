@@ -980,6 +980,17 @@ progress:not([value])::-webkit-progress-value {
 .detailed th:last-child {
   border-right: 0;
 }
+.detailed th[role=button] {
+  user-select: none;
+}
+.detailed th[role=button]:focus {
+  outline: 1px dotted var(--darkest);
+  outline-offset: -4px;
+}
+.detailed th[role=button]:active {
+  padding: 3px 5px 1px 7px;
+  box-shadow: inset 1px 1px 0 var(--border);
+}
 
 .detailed tr {
   outline: none;

@@ -96,6 +96,46 @@
     box-shadow: inset -1px -1px 0 var(--dark);
     padding: 2px 6px 2px 6px;
     white-space: nowrap;
+
+    &[aria-sort="ascending"]::after,
+    &[aria-sort="descending"]::after {
+      content: '';
+      display: inline-block;
+      width: 8px;
+      height: 7px;
+      margin-left: 10px;
+      margin-bottom: 2px;
+      vertical-align: baseline;
+      background-image: url(sort-asc.svg);
+    }
+
+    &[aria-sort="ascending"]::after {
+      background-image: url(sort-asc.svg);
+    }
+
+    &[aria-sort="descending"]::after {
+      background-image: url(sort-desc.svg);
+    }
+
+    &[role="button"] {
+      user-select: none;
+
+      &:focus {
+        border: 1px solid var(--darkest);
+        outline: 1px dotted var(--darkest);
+        outline-offset: -4px;
+      }
+
+      &:active {
+        padding: 3px 5px 1px 7px;
+        box-shadow: none;
+        border-color: var(--dark);
+
+        &::after {
+          margin-bottom: 3px;
+        }
+      }
+    }
   }
 
   tr {

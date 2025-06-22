@@ -295,6 +295,18 @@ progress::-moz-progress-bar {
   }
 }
 
+.detailed th[role="button"] {
+  &:hover {
+    background: #fefefe;
+  }
+
+  &:active {
+    background: #ECECF3;
+    border-bottom-color: #808099;
+    box-shadow: inset 1px 0 0 #808099, inset -1px 0 0 #808099, inset 2px 1px 0 #B9B9C8, inset 3px 2px #D4D4DF, inset 4px 3px #F1F1F5, inset 0 -3px #F1F1F5;
+  }
+}
+
 .tabs {
   & > menu > button {
     background: linear-gradient(to bottom, #FDFDFD, #F3F3F4 40%, #C6C5D7);

@@ -1050,6 +1050,38 @@ progress:not([value])::-webkit-progress-value {
   padding: 2px 6px 2px 6px;
   white-space: nowrap;
 }
+.detailed th[aria-sort=ascending]::after, .detailed th[aria-sort=descending]::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 7px;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  vertical-align: baseline;
+  background-image: url(sort-asc.svg);
+}
+.detailed th[aria-sort=ascending]::after {
+  background-image: url(sort-asc.svg);
+}
+.detailed th[aria-sort=descending]::after {
+  background-image: url(sort-desc.svg);
+}
+.detailed th[role=button] {
+  user-select: none;
+}
+.detailed th[role=button]:focus {
+  border: 1px solid var(--darkest);
+  outline: 1px dotted var(--darkest);
+  outline-offset: -4px;
+}
+.detailed th[role=button]:active {
+  padding: 3px 5px 1px 7px;
+  box-shadow: none;
+  border-color: var(--dark);
+}
+.detailed th[role=button]:active::after {
+  margin-bottom: 3px;
+}
 .detailed tr {
   outline: none;
 }
